@@ -1,0 +1,17 @@
+{
+   "station":{
+      "properties":{
+         "nom":{
+            "type":"string",
+            "analyzer":"keyword"
+         },
+         "typeStation":{
+            "type":"string",
+            "analyzer":"keyword"
+         },
+         "location":{
+            "type":"geo_point",
+         }
+      }
+   }
+}
