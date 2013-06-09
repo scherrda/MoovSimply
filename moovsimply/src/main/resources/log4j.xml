@@ -32,7 +32,7 @@
 	<!-- Limit categories -->
 	<!-- ================ -->
 
-	<category name="org.scrutmydocs.webapp">
+	<category name="org.moovsimply.webapp">
 		<priority value="DEBUG" />
 	</category>
 

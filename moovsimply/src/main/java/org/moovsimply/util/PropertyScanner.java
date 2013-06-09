@@ -19,7 +19,7 @@ public class PropertyScanner {
 		MoovSimplyProperties smdProps = new MoovSimplyProperties();
 		
 		String userHome = System.getProperty("user.home");
-		FileSystemResource resource = new FileSystemResource(userHome + "/.scrutmydocs/config/scrutmydocs.properties");
+		FileSystemResource resource = new FileSystemResource(userHome + "/.moovsimply/config/moovsimply.properties");
 		Properties props = null;
 		try {
 			props = PropertiesLoaderUtils.loadProperties(resource);		
@@ -29,8 +29,8 @@ public class PropertyScanner {
 
 		if (props == null) {
 			// Build the file from the Classpath
-			FileSystemResource configDir = new FileSystemResource(userHome + "/.scrutmydocs/config/");
-			ClassPathResource classPathResource = new ClassPathResource("/scrutmydocs/config/scrutmydocs.properties");
+			FileSystemResource configDir = new FileSystemResource(userHome + "/.moovsimply/config/");
+			ClassPathResource classPathResource = new ClassPathResource("/moovsimply/config/moovsimply.properties");
 			
 			File from = classPathResource.getFile();
 			File dest = new File(configDir.getFile(),from.getName());
@@ -41,12 +41,12 @@ public class PropertyScanner {
 		}
 		
 		if (props == null) {
-			throw new RuntimeException("Can not build ~/.scrutmydocs/config/scrutmydocs.properties file. Check that current user have a write access");
+			throw new RuntimeException("Can not build ~/.moovsimply/config/moovsimply.properties file. Check that current user have a write access");
 		}
 		else {
 			smdProps.setNodeEmbedded(getProperty(props, "node.embedded", true));
-			smdProps.setClusterName(getProperty(props, "cluster.name", "scrutmydocs"));
-			FileSystemResource configDir = new FileSystemResource(userHome + "/.scrutmydocs/config/esdata/");
+			smdProps.setClusterName(getProperty(props, "cluster.name", "moovsimply"));
+			FileSystemResource configDir = new FileSystemResource(userHome + "/.moovsimply/config/esdata/");
 			smdProps.setPathData(getProperty(props, "path.data", configDir.getPath()));
 			smdProps.setNodeAdresses(getPropertyAsArray(props, "node.addresses", "localhost:9300,localhost:9301"));
 			

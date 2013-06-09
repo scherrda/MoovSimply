@@ -1,5 +1,5 @@
 /*
- * Licensed to scrutmydocs.org (the "Author") under one
+ * Licensed to moovsimply.org (the "Author") under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
  * regarding copyright ownership. Author licenses this
@@ -47,15 +47,15 @@ public abstract class AbstractApiTest extends AbstractConfigurationIntegrationTe
 	/**
 	 * If you want to run test from your IDE:
 	 * <ul>
-	 * <li>Start ScrutMyDocs in your container
-	 * <li>Define -Dscrutmydocs.host=localhost -Dscrutmydocs.port=9090 with your server address
+	 * <li>Start moovsimply in your container
+	 * <li>Define -Dmoovsimply.host=localhost -Dmoovsimply.port=9090 with your server address
 	 * <li>By default, integration tests run on localhost:9090
 	 * </ul>
 	 */
 	public AbstractApiTest() {
 		// We check if we run tests outside maven integration tests
-		hostname = System.getProperty("scrutmydocs.host", BASE_URL_SERVER);
-		port = System.getProperty("scrutmydocs.port", BASE_URL_PORT);
+		hostname = System.getProperty("moovsimply.host", BASE_URL_SERVER);
+		port = System.getProperty("moovsimply.port", BASE_URL_PORT);
 	}
 	
 	/**
