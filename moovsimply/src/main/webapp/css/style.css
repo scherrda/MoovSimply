@@ -65,8 +65,7 @@ html, body {
 
 /*** Map ***/
 #map-canvas {
-    top: 0;
-    bottom: 0;
+    height: 315px;
     left: 0;
     right: 0;
 }
