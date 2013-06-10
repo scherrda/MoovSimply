@@ -5,6 +5,6 @@ La page d'accueil est visible sur http://localhost:8080/
 
 ## You can test resources :
 
-- http://localhost:8080/rest/hello
-- http://localhost:8080/rest/where?LAT=1&LNG=2
-- http://localhost:8080/rest/transports
+- http://localhost:8080/rest/moovin/hello
+- http://localhost:8080/rest/moovin/where?LAT=1&LNG=2
+- http://localhost:8080/rest/moovin/transports
