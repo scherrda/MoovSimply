@@ -1,5 +1,6 @@
 package fr.duchesses.moov.apis;
 
+import static fr.duchesses.moov.apis.DistanceHelper.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -35,6 +36,16 @@ public class VelibApiService implements ApiService {
             e.printStackTrace();
         }
         return convertFromVelibStationToTransport(velibs);
+    }
+
+    public List<Transport> getVelibStationsForCoordinates(Double latitude, Double longitude) {
+        List<Transport> closestVelibStations = Lists.newArrayList();
+        for (Transport transport : getAllVelibStations()) {
+            if (distance(latitude, longitude, transport.getCoordinates().getLatitude(), transport.getCoordinates().getLongitude()) < 0.5) {
+                closestVelibStations.add(transport);
+            }
+        }
+        return closestVelibStations;
     }
 
     private List<Transport> convertFromVelibStationToTransport(List<VelibStationModel> velibStations) {
