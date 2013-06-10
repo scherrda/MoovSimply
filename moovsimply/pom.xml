@@ -1,8 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>fr.duchesses</groupId>
     <artifactId>moovsimply</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -55,6 +54,11 @@
             <artifactId>guava</artifactId>
             <version>r09</version>
         </dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.2.4</version>
+		</dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -62,9 +66,13 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+		    <groupId>org.easytesting</groupId>
+		    <artifactId>fest-assert</artifactId>
+		    <version>1.4</version>
+            <scope>test</scope>
+		</dependency>
     </dependencies>
-
-
 
     <build>
         <finalName>moovsimply</finalName>
@@ -76,4 +84,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
