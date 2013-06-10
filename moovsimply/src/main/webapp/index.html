@@ -12,8 +12,41 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
+        var geolocalize = function(){
+            if (navigator.geolocation){
+                var watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, {enableHighAccuracy : true, timeout:10000, maximumAge:600000});
+            }
+            else{
+                alert("pas de géolocalisation HTML5 possible avec ce navigateur");
+            }
+
+
+            function successCallback(position){
+                alert("Votre position - Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+            };
+
+            function errorCallback(error){
+                switch(error.code){
+                    case error.PERMISSION_DENIED:
+                        alert("L'utilisateur n'a pas autorisé l'accès à sa position");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("Votre position n'a pas pu être déterminée");
+                        break;
+                    case error.TIMEOUT:
+                        alert("timeout geo html5");
+                        break;
+                }
+            };
+
+        function stopWatch(){
+            navigator.geolocation.clearWatch(watchId);
+        }
+
+        };
         var map;
         function initialize() {
+        geolocalize();
             var mapOptions = {
                 zoom: 14,
                 center: new google.maps.LatLng(48.8519, 2.3705),
