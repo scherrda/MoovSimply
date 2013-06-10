@@ -1,70 +1,77 @@
 <html>
 <head>
-    <title>Simple Map</title>
+    <title>Moov'Simply</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style>
-        html, body, #map-canvas {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script>
-        var geolocalize = function(){
-            if (navigator.geolocation){
-                var watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, {enableHighAccuracy : true, timeout:10000, maximumAge:600000});
-            }
-            else{
-                alert("pas de géolocalisation HTML5 possible avec ce navigateur");
-            }
 
+    <script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/backbone-1.0.0.min.js"></script>
+    <script type="text/javascript" src="js/lib/handlebars-1.0.0.js"></script>
 
-            function successCallback(position){
-                alert("Votre position - Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
-            };
-
-            function errorCallback(error){
-                switch(error.code){
-                    case error.PERMISSION_DENIED:
-                        alert("L'utilisateur n'a pas autorisé l'accès à sa position");
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert("Votre position n'a pas pu être déterminée");
-                        break;
-                    case error.TIMEOUT:
-                        alert("timeout geo html5");
-                        break;
-                }
-            };
-
-        function stopWatch(){
-            navigator.geolocation.clearWatch(watchId);
-        }
-
-        };
-        var map;
-        function initialize() {
-        geolocalize();
-            var mapOptions = {
-                zoom: 14,
-                center: new google.maps.LatLng(48.8519, 2.3705),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById('map-canvas'),
-                    mapOptions);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
+    <script type="text/javascript" src="js/SplashView.js"></script>
+    <script type="text/javascript" src="js/TopBarView.js"></script>
+    <script type="text/javascript" src="js/GMapView.js"></script>
+    <script type="text/javascript" src="js/MapView.js"></script>
+    <script type="text/javascript" src="js/ListLineView.js"></script>
+    <script type="text/javascript" src="js/ListView.js"></script>
+    <script type="text/javascript" src="js/Router.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-<div>
-    <h2>Welcome to Moov'Simply!</h2>
+
+<div class="mobile-screen">
+    <div id="topbar"></div>
+    <div id="content"></div>
 </div>
 
-<div id="map-canvas"></div>
+<script id="splash-tmpl" type="text/x-handlebars-template">
+    <a href="#map">
+        <img src="img/splash-screen.png" alt="Moov'Simply">
+    </a>
+</script>
+
+<script id="topbar-tmpl" type="text/x-handlebars-template">
+    <a href="#splash" class="splash-link"></a>
+    <img class="app-title" src="img/title.png">
+    <a href="#list" class="switch switch-list"></a>
+</script>
+
+<script id="map-tmpl" type="text/x-handlebars-template">
+    <div id="map-canvas"></div>
+</script>
+
+<script id="list-line-tmpl" type="text/x-handlebars-template">
+    <div class="line-narrow">
+        <img src="img/lines/{{line}}.png">
+
+        <div class="infos">
+            <div class="name">{{name}}</div>
+            <div class="distance">à {{distance}}m à pied</div>
+            <div class="localize-text">Localiser</div>
+            <div class="localize-ico"></div>
+        </div>
+        <a class="extend-arrow"></a>
+    </div>
+
+    <div class="line-extended" style="display: none;">
+        <div class="green">
+            <div class="left">Heure</div>
+            <div class="right">{{time}}</div>
+        </div>
+        <div class="green-light">
+            <div class="legend">Horaires de passage pour les directions</div>
+            {{#directions}}
+            <div class="schedule">
+                <div class="direction">{{direction}}</div>
+                <div class="time">{{time}}</div>
+            </div>
+            {{/directions}}
+        </div>
+    </div>
+</script>
+
 </body>
 </html>
