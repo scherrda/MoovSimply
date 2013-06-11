@@ -16,7 +16,7 @@ var GMapView = Backbone.View.extend({
 
     render: function () {
         var mapOptions = {
-            zoom: 14,
+            zoom: 16,
             center: new google.maps.LatLng(48.87525, 2.31110),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             styles: [
@@ -73,15 +73,17 @@ var GMapView = Backbone.View.extend({
     },
 
     addMyMarkerAndCenter: function (position) {
-        stations.reset().setCoordinates(position.coords.latitude, position.coords.longitude).fetch();
-        console.log("Votre position - Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+        var myLat = position.coords.latitude, // 48.87525
+            myLng = position.coords.longitude; // 2.31110
+        stations.reset().setCoordinates(myLat, myLng).fetch();
+        console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
         var myMarker = new google.maps.Marker({
-            position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+            position: new google.maps.LatLng(myLat, myLng),
             title: 'You',
             map: this.map,
             icon: this.meMarkerImage
         });
-        this.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+        this.map.setCenter(new google.maps.LatLng(myLat, myLng));
     },
 
     errorGeoloc: function (error) {

@@ -21,8 +21,10 @@ var ListView = Backbone.View.extend({
     },
 
     showLines: function () {
-        // this.$el.empty();
+        this.$el.empty();
         this.lines = [];
+
+        stations.sort();
         stations.each(function (station) {
             var lineView = new ListLineView({model: station}).render();
             this.$el.append(lineView.el);
