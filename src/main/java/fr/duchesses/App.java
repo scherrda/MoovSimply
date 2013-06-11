@@ -3,6 +3,7 @@ package fr.duchesses;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,22 +15,22 @@ import java.io.IOException;
  * Hello world!
  *
  */
-public class App extends HttpServlet {
-
-    private static final long serialVersionUID = 1L;
-
-	@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        resp.getWriter().print("Hello from Java!\n");
-    }
+public class App {
 
     public static void main(String[] args) throws Exception {
+        String webappDirLocation = "src/main/webapp/";
+
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
-        server.setHandler(context);
-        context.addServlet(new ServletHolder(new App()),"/*");
+        WebAppContext root = new WebAppContext();
+
+        root.setContextPath("/");
+        root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
+        root.setResourceBase(webappDirLocation);
+
+        root.setParentLoaderPriority(true);
+
+        server.setHandler(root);
+
         server.start();
         server.join();
     }
