@@ -2,6 +2,7 @@ var GMapView = Backbone.View.extend({
 
     el: '#map-canvas',
     currentMarkers: [],
+    meMarker: null,
 
     initialize: function () {
         this.listenTo(stations, 'sync', this.showMarkers);
@@ -21,7 +22,7 @@ var GMapView = Backbone.View.extend({
 
     geolocalize: function () {
         if (navigator.geolocation) {
-            var watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+            this.watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
         }
         else {
             console.log("pas de géolocalisation HTML5 possible avec ce navigateur");
@@ -48,7 +49,7 @@ var GMapView = Backbone.View.extend({
     },
 
     stopWatch: function () {
-        navigator.geolocation.clearWatch(watchId);
+        navigator.geolocation.clearWatch(this.watchId);
     },
 
     showMarkers: function () {
