@@ -2,6 +2,9 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: Arial, serif;
+    font-size: 15px;
+    color: #626868;
 }
 
 /*** Splash screen ***/
@@ -123,12 +126,15 @@ a.splash-wrap {
 
 /*** List ***/
 
+.no-station {
+    margin: 20px;
+    text-align: center;
+}
+
 .line {
     position: relative;
     left: 0;
     right: 0;
-    font-family: Arial, serif;
-    color: #626868;
     font-size: 11px;
     border-bottom: 1px solid #aeadad;
 }
