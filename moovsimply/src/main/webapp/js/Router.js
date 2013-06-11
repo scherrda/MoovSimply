@@ -18,13 +18,14 @@ var Router = Backbone.Router.extend({
     },
 
     goMap: function () {
-        var mapView = new MapView().render();
-        $('#content').html(mapView.el);
+        if (!this.mapView) this.mapView = new MapView().render();
+        $('#content').html(this.mapView.el);
         this.topBar.switchToMap();
     },
 
     goList: function () {
-        $('#content').html(new ListView().render().el);
+        if (!this.listView) this.listView = new ListView().render();
+        $('#content').html(this.listView.el);
         this.topBar.switchToList();
     }
 
