@@ -32,6 +32,7 @@
 <script id="splash-tmpl" type="text/x-handlebars-template">
     <div class="splash">
             <img class="logo" src="img/logo-medium.png" alt="Moov'Simply">
+
             <div class="legend">Simplifiez vous la vie !</div>
             <img class="pictos" src="img/splash-pictos.png">
 			<div class="description">Trouvez les moyens de transport<br/>parisiens autour de vous en un click</div>
@@ -55,9 +56,10 @@
     <div class="line-narrow">
         <img src="img/types/{{lowercase type}}.png">
 
+        <div class="number">{{lineNumber}}</div>
+
         <div class="infos">
-            <!--<div class="name">{{name}}</div>-->
-            <div class="name">{{type}} {{lineNumber}}</div>
+            <div class="name">{{lineName}}</div>
             <div class="distance">à {{distance}}m à pied</div>
             <div class="localize-text">Localiser</div>
             <div class="localize-ico"></div>

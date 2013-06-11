@@ -158,10 +158,17 @@ a.splash-wrap {
     margin: 9px;
 }
 
+.line .number {
+    position: absolute;
+    top: 15px;
+    left: 48px;
+    font-size: 15px;
+}
+
 .line .infos {
     position: absolute;
     top: 12px;
-    left: 66px;
+    left: 78px;
     right: 50px;
 }
 

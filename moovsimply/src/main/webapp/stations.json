@@ -1,82 +1,524 @@
 [
     {
-        "type": "BUS",
-        "lineNumber": "127",
+        "type": "METRO",
+        "lineNumber": 0,
+        "lineName": "Miromesnil",
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8737063841262,
+            "longitude": 2.31519918493339
         }
     },
     {
         "type": "METRO",
-        "lineNumber": "13",
+        "lineNumber": 0,
+        "lineName": "Saint-Philippe du Roule",
         "coordinates": {
-            "latitude": 48.8944196451841,
-            "longitude": 2.33871281165883
-        }
-    },
-    {
-        "type": "TRAIN",
-        "lineNumber": "TER Picardie",
-        "coordinates": {
-            "latitude": 48.8444176451841,
-            "longitude": 2.34871281165883
-        }
-    },
-    {
-        "type": "VELIB",
-        "lineNumber": null,
-        "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.35871281165883
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": null,
-        "coordinates": {
-            "latitude": 48.8344176451841,
-            "longitude": 2.36871281165883
-        }
-    },
-    {
-        "type": "RER",
-        "lineNumber": "B",
-        "coordinates": {
-            "latitude": 48.8244176451841,
-            "longitude": 2.37871281165883
-        }
-    },
-    {
-        "type": "TRAMWAY",
-        "lineNumber": "T3A",
-        "coordinates": {
-            "latitude": 48.8144176451841,
-            "longitude": 2.27871281165883
-        }
-    },
-    {
-        "type": "TRAMWAY",
-        "lineNumber": "T2",
-        "coordinates": {
-            "latitude": 48.8144176451841,
-            "longitude": 2.36871281165883
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": null,
-        "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8721798206485,
+            "longitude": 2.30982009380661
         }
     },
     {
         "type": "BUS",
-        "lineNumber": "141",
+        "lineNumber": 0,
+        "lineName": "FRIEDLAND - HAUSSMANN",
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.874941085642,
+            "longitude": 2.30640786160418
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "FRIEDLAND - HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.8747523840497,
+            "longitude": 2.30653059770448
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "FRIEDLAND - HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.874734228263,
+            "longitude": 2.30583574032336
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "FRIEDLAND-HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.8750575894311,
+            "longitude": 2.30515429684419
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "FRIEDLAND-HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.8747341778163,
+            "longitude": 2.30564499223685
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "FRIEDLAND-HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.8747613007779,
+            "longitude": 2.30625809496879
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - COURCELLES",
+        "coordinates": {
+            "latitude": 48.8748518222814,
+            "longitude": 2.30886039604518
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - COURCELLES",
+        "coordinates": {
+            "latitude": 48.8748427434678,
+            "longitude": 2.30847890398947
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - COURCELLES",
+        "coordinates": {
+            "latitude": 48.8750045082518,
+            "longitude": 2.30845156433616
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN-COURCELLES",
+        "coordinates": {
+            "latitude": 48.8748789982014,
+            "longitude": 2.30977324968579
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN-COURCELLES",
+        "coordinates": {
+            "latitude": 48.8748517766767,
+            "longitude": 2.30866964752316
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN-COURCELLES",
+        "coordinates": {
+            "latitude": 48.875148285217,
+            "longitude": 2.30836973461796
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8750146668336,
+            "longitude": 2.31379253473592
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8744755453763,
+            "longitude": 2.31439226976468
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8752483177359,
+            "longitude": 2.31369705400351
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8755901091713,
+            "longitude": 2.31512753314951
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN-MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8750146237124,
+            "longitude": 2.31357453573568
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN-MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8752392925777,
+            "longitude": 2.31350630813523
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "HAUSSMANN-MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8745833903773,
+            "longitude": 2.31437859738562
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "LA BOETIE - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8740445389026,
+            "longitude": 2.31649066110485
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "LA BOETIE - PERCIER",
+        "coordinates": {
+            "latitude": 48.873558723734,
+            "longitude": 2.3137931935551
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "LA BOETIE-PERCIER",
+        "coordinates": {
+            "latitude": 48.8736037029966,
+            "longitude": 2.3140111662895
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "LISBONNE - MAIRIE DU 8E",
+        "coordinates": {
+            "latitude": 48.8773968555895,
+            "longitude": 2.31681633207684
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "LISBONNE - MAIRIE DU 8E",
+        "coordinates": {
+            "latitude": 48.8774956137436,
+            "longitude": 2.31623039274765
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "MATIGNON - SAINT-HONORE",
+        "coordinates": {
+            "latitude": 48.8731185088635,
+            "longitude": 2.31463810805272
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "MATIGNON - SAINT-HONORE",
+        "coordinates": {
+            "latitude": 48.8718692198722,
+            "longitude": 2.31436617072371
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "MATIGNON-SAINT HONORE",
+        "coordinates": {
+            "latitude": 48.8718151415383,
+            "longitude": 2.31357599691421
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "MATIGNON-SAINT HONORE",
+        "coordinates": {
+            "latitude": 48.872228738746,
+            "longitude": 2.31450225408855
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "MATIGNON-SAINT HONORE",
+        "coordinates": {
+            "latitude": 48.8719950606387,
+            "longitude": 2.31446148419091
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "RUYSDAEL - PARC MONCEAU",
+        "coordinates": {
+            "latitude": 48.8772339205965,
+            "longitude": 2.31088929424278
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "RUYSDAEL - PARC MONCEAU",
+        "coordinates": {
+            "latitude": 48.8775931088837,
+            "longitude": 2.30955380115513
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "SAINT PHILIPPE DU ROULE",
+        "coordinates": {
+            "latitude": 48.8729108033161,
+            "longitude": 2.30988328795543
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "SAINT PHILIPPE DU ROULE",
+        "coordinates": {
+            "latitude": 48.8727761206177,
+            "longitude": 2.31044195743127
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "SAINT-PHILIPPE DU ROULE",
+        "coordinates": {
+            "latitude": 48.8730905464332,
+            "longitude": 2.30986956863608
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "SAINT-PHILIPPE-DU-ROULE",
+        "coordinates": {
+            "latitude": 48.8726862167387,
+            "longitude": 2.31030576065188
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "SAINT-PHILIPPE-DU-ROULE",
+        "coordinates": {
+            "latitude": 48.8731894629672,
+            "longitude": 2.31011475665935
+        }
+    },
+    {
+        "type": "BUS",
+        "lineNumber": 0,
+        "lineName": "SAINT-PHILIPPE-DU-ROULE",
+        "coordinates": {
+            "latitude": 48.8732792768328,
+            "longitude": 2.30985584447243
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.873760472140056,
+            "longitude": 2.315876308346374
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.874810390028195,
+            "longitude": 2.308314064189137
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.87545720024482,
+            "longitude": 2.315465494584916
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.872787680846464,
+            "longitude": 2.309722588932229
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.873794318379595,
+            "longitude": 2.306299550271081
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.87745567681383,
+            "longitude": 2.309694221419506
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.871512741519155,
+            "longitude": 2.307487564419454
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.87659994083545,
+            "longitude": 2.31316505435543
+        }
+    },
+    {
+        "type": "VELIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.871476421300954,
+            "longitude": 2.313885419949291
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.87593,
+            "longitude": 2.314194
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.877833,
+            "longitude": 2.310832
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.872759,
+            "longitude": 2.308066
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.874634,
+            "longitude": 2.306249
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.872047,
+            "longitude": 2.313125
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.880095,
+            "longitude": 2.313445
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.869963,
+            "longitude": 2.312054
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.878351,
+            "longitude": 2.304494
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.872448,
+            "longitude": 2.304166
+        }
+    },
+    {
+        "type": "AUTOLIB",
+        "lineNumber": 0,
+        "lineName": null,
+        "coordinates": {
+            "latitude": 48.875556,
+            "longitude": 2.319321
         }
     }
 ]
