@@ -10,9 +10,11 @@
     <script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
     <script type="text/javascript" src="js/lib/backbone-1.0.0.min.js"></script>
     <script type="text/javascript" src="js/lib/handlebars-1.0.0.js"></script>
+    <script type="text/javascript" src="js/lib/swag-0.2.7.min.js"></script>
 
     <script type="text/javascript" src="js/SplashView.js"></script>
     <script type="text/javascript" src="js/TopBarView.js"></script>
+    <script type="text/javascript" src="js/StationsCollection.js"></script>
     <script type="text/javascript" src="js/GMapView.js"></script>
     <script type="text/javascript" src="js/MapView.js"></script>
     <script type="text/javascript" src="js/ListLineView.js"></script>
@@ -45,10 +47,11 @@
 
 <script id="list-line-tmpl" type="text/x-handlebars-template">
     <div class="line-narrow">
-        <img src="img/lines/{{line}}.png">
+        <img src="img/types/{{lowercase type}}.png">
 
         <div class="infos">
-            <div class="name">{{name}}</div>
+            <!--<div class="name">{{name}}</div>-->
+            <div class="name">{{type}} {{lineNumber}}</div>
             <div class="distance">à {{distance}}m à pied</div>
             <div class="localize-text">Localiser</div>
             <div class="localize-ico"></div>

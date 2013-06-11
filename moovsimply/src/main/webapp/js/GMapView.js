@@ -3,6 +3,10 @@ var GMapView = Backbone.View.extend({
     el: '#map-canvas',
     currentMarkers: [],
 
+    initialize: function () {
+        this.listenTo(stations, 'sync', this.showMarkers);
+    },
+
     render: function () {
         this.geolocalize();
         var mapOptions = {
@@ -24,6 +28,7 @@ var GMapView = Backbone.View.extend({
         }
 
         function successCallback(position) {
+            stations.reset().setCoordinates(position.coords.latitude, position.coords.longitude).fetch();
             console.log("Votre position - Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
         }
 
@@ -44,5 +49,10 @@ var GMapView = Backbone.View.extend({
 
     stopWatch: function () {
         navigator.geolocation.clearWatch(watchId);
+    },
+
+    showMarkers: function () {
+        // TODO
+        console.log('showMarkers');
     }
 });

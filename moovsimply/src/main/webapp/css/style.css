@@ -85,7 +85,7 @@ html, body {
 
 .line img {
     position: absolute;
-    width: 39px;
+    width: 30px;
     height: 30px;
     margin: 9px;
 }
@@ -141,6 +141,8 @@ html, body {
 }
 
 .line-extended {
+    max-height: 90px;
+    overflow-y: scroll;
 }
 
 .green {

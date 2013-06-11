@@ -25,7 +25,7 @@ var Router = Backbone.Router.extend({
 
     goList: function () {
         if (!this.listView) this.listView = new ListView().render();
-        $('#content').html(this.listView.el);
+        $('#content').html(this.listView.reBind().el);
         this.topBar.switchToList();
     }
 
