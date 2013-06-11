@@ -18,7 +18,15 @@ var GMapView = Backbone.View.extend({
         var mapOptions = {
             zoom: 14,
             center: new google.maps.LatLng(48.87525, 2.31110),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [
+                { featureType: "water", stylers: [
+                    { hue: "#b0d1d2"}
+                ] },
+                { featureType: "road", stylers: [
+                    { hue: "#d5dcdc" }
+                ] }
+            ]
         };
         this.map = new google.maps.Map(this.el, mapOptions);
         this.geolocalize();
