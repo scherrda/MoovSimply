@@ -8,13 +8,12 @@ html, body {
 .mobile-screen {
     position: relative;
     margin: 0 auto;
-    height: 360px;
+    height: 100%;
     overflow: hidden;
 }
 
 .withTopBar {
     position: absolute;
-    height: 315px;
     top: 45px;
     bottom: 0;
     left: 0;
@@ -66,7 +65,9 @@ html, body {
 
 /*** Map ***/
 #map-canvas {
-    height: 315px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
 }
