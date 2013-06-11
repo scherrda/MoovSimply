@@ -86,7 +86,9 @@ a.splash-wrap {
 
 .app-title {
     position: absolute;
-    margin: 10px 60px;
+    top: 10px;
+    left: 50%;
+    margin-left: -64px;
 }
 
 .splash-link {
