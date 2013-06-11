@@ -36,15 +36,19 @@ public class RatpApiService implements ApiService {
 
             for (String[] stop : stops) {
                 Transport transport = new Transport(TransportType.valueOf(stop[5].toUpperCase()), new Coordinates(
-                        Double.parseDouble(stop[2]), Double.parseDouble(stop[1])));
+                        Double.parseDouble(stop[2]), Double.parseDouble(stop[1])), 0, stop[3]);                
                 result.add(transport);
             }
+
+            stopCoordinates.close();
 
         } catch (FileNotFoundException e) {
             logger.error("File not found", e);
         } catch (IOException e) {
             logger.error("I/O error", e);
         }
+        
+        
 
         return result;
     }
@@ -65,10 +69,13 @@ public class RatpApiService implements ApiService {
             for (String[] stop : stops) {
                 if (distance(latitude, longitude, Double.valueOf(stop[2]), Double.valueOf(stop[1])) < 0.5) {
                     Transport transport = new Transport(TransportType.valueOf(stop[5].toUpperCase()), new Coordinates(
-                            Double.parseDouble(stop[2]), Double.parseDouble(stop[1])));
+                            Double.parseDouble(stop[2]), Double.parseDouble(stop[1])), 0, stop[3]);
                     result.add(transport);
                 }
             }
+            
+            stopCoordinates.close();
+            
 
         } catch (FileNotFoundException e) {
             logger.error("File not found", e);

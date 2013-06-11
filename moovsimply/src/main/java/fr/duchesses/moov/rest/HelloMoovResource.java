@@ -66,6 +66,6 @@ public class HelloMoovResource {
         transports.addAll(ratpApiService.getAllStops());
         transports.addAll(velibServiceApi.getAllVelibStations());
         transports.addAll(autolibApiService.getAutolibsParis());
-        return ratpApiService.getAllStops();
+        return transports;
     }
 }
