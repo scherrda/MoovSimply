@@ -20,12 +20,41 @@ var GMapView = Backbone.View.extend({
             center: new google.maps.LatLng(48.87525, 2.31110),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             styles: [
-                { featureType: "water", stylers: [
-                    { hue: "#b0d1d2"}
-                ] },
-                { featureType: "road", stylers: [
-                    { hue: "#d5dcdc" }
-                ] }
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        { "color": "#eeeeee" }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        { "color": "#eeeeee" }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        { "color": "#dddddd" }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        { "color": "#dddddd" }
+                    ]
+                },
+                {
+                    "stylers": [
+                        { "hue": "#00ccff" },
+                        { "saturation": -30 },
+                        { "lightness": 20 }
+                    ]
+                }
             ]
         };
         this.map = new google.maps.Map(this.el, mapOptions);

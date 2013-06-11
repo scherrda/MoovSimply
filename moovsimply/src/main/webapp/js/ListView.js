@@ -4,6 +4,7 @@ var ListView = Backbone.View.extend({
 
     initialize: function () {
         this.listenTo(stations, 'sync', this.showLines);
+        this.showLines();
     },
 
     reBind: function () {
