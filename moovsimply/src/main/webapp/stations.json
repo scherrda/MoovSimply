@@ -11,7 +11,7 @@
         "type": "METRO",
         "lineNumber": "13",
         "coordinates": {
-            "latitude": 48.8844176451841,
+            "latitude": 48.8944196451841,
             "longitude": 2.33871281165883
         }
     },
@@ -19,8 +19,8 @@
         "type": "TRAIN",
         "lineNumber": "TER Picardie",
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8444176451841,
+            "longitude": 2.34871281165883
         }
     },
     {
@@ -28,39 +28,39 @@
         "lineNumber": null,
         "coordinates": {
             "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "longitude": 2.35871281165883
         }
     },
     {
         "type": "AUTOLIB",
         "lineNumber": null,
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8344176451841,
+            "longitude": 2.36871281165883
         }
     },
     {
         "type": "RER",
         "lineNumber": "B",
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8244176451841,
+            "longitude": 2.37871281165883
         }
     },
     {
         "type": "TRAMWAY",
         "lineNumber": "T3A",
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8144176451841,
+            "longitude": 2.27871281165883
         }
     },
     {
         "type": "TRAMWAY",
         "lineNumber": "T2",
         "coordinates": {
-            "latitude": 48.8844176451841,
-            "longitude": 2.33871281165883
+            "latitude": 48.8144176451841,
+            "longitude": 2.36871281165883
         }
     },
     {
