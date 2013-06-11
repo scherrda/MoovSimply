@@ -3,6 +3,10 @@ var GMapView = Backbone.View.extend({
     el: '#map-canvas',
     currentMarkers: [],
 
+    initialize: function () {
+        this.listenTo(stations, 'sync', this.showMarkers);
+    },
+
     render: function () {
         this.geolocalize();
         var mapOptions = {
@@ -20,23 +24,24 @@ var GMapView = Backbone.View.extend({
             var watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
         }
         else {
-            alert("pas de géolocalisation HTML5 possible avec ce navigateur");
+            console.log("pas de géolocalisation HTML5 possible avec ce navigateur");
         }
 
         function successCallback(position) {
-            alert("Votre position - Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+            stations.reset().setCoordinates(position.coords.latitude, position.coords.longitude).fetch();
+            console.log("Votre position - Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
         }
 
         function errorCallback(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    alert("L'utilisateur n'a pas autorisé l'accès à sa position");
+                    console.log("L'utilisateur n'a pas autorisé l'accès à sa position");
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    alert("Votre position n'a pas pu être déterminée");
+                    console.log("Votre position n'a pas pu être déterminée");
                     break;
                 case error.TIMEOUT:
-                    alert("timeout geo html5");
+                    console.log("timeout geo html5");
                     break;
             }
         }
@@ -44,5 +49,10 @@ var GMapView = Backbone.View.extend({
 
     stopWatch: function () {
         navigator.geolocation.clearWatch(watchId);
+    },
+
+    showMarkers: function () {
+        // TODO
+        console.log('showMarkers');
     }
 });
