@@ -5,12 +5,13 @@ import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Transport;
 import fr.duchesses.moov.models.TransportType;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+@Component
 public class RatpApiService implements ApiService {
 
     Logger logger = Logger.getLogger(RatpApiService.class);

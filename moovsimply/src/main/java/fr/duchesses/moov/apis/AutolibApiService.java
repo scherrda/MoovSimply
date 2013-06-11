@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.common.collect.Lists;
@@ -14,6 +15,7 @@ import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Transport;
 import fr.duchesses.moov.models.TransportType;
 @SuppressWarnings("unchecked")
+@Component
 public class AutolibApiService implements ApiService{
   
 	@Autowired

@@ -18,6 +18,7 @@
 		<jersey.version>1.12</jersey.version>
 		<jetty.version>8.1.9.v20130131</jetty.version>
 		<spring.version>3.1.2.RELEASE</spring.version>
+		<maven.eclipse.version>2.9</maven.eclipse.version>
 	</properties>
 
 	<dependencies>
@@ -65,6 +66,13 @@
 			<artifactId>gson</artifactId>
 			<version>2.2.4</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -87,6 +95,16 @@
 				<groupId>org.mortbay.jetty</groupId>
 				<version>${jetty.version}</version>
 				<artifactId>jetty-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>${maven.eclipse.version}</version>
+				<configuration>
+					<wtpversion>2.0</wtpversion>
+					<downloadSources>false</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

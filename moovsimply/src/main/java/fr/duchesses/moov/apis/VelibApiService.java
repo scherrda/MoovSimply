@@ -7,6 +7,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,7 +17,7 @@ import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Transport;
 import fr.duchesses.moov.models.TransportType;
 import fr.duchesses.moov.models.velib.VelibStationModel;
-
+@Component
 public class VelibApiService implements ApiService {
 
     public Collection<Transport> getVelibs() {
