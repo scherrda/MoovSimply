@@ -4,6 +4,55 @@ html, body {
     padding: 0;
 }
 
+/*** Splash screen ***/
+.splash {
+    height: 100%;
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #d7d3d3));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #d7d3d3 100%);
+}
+
+a.splash-wrap {
+    display: block;
+    text-decoration: none;
+}
+
+.splash .logo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -103px;
+}
+
+.splash .legend {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -100px;
+    color: #bd2ca0;
+    font-size: 17px;
+    font-family: Century Gothic, Arial;
+    text-align: center;
+}
+
+.splash .pictos {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -114px;
+}
+
+.splash .button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -84px;
+}
+
 /*** Mobile interface ***/
 .mobile-screen {
     position: relative;
