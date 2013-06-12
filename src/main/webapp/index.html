@@ -62,7 +62,11 @@
         {{/isnt}}
 
         <div class="infos">
+            {{#if lineName}}
             <div class="name">{{truncate lineName 30 '...'}}</div>
+            {{else}}
+            <div class="name"> - </div>
+            {{/if}}
             <div class="distance">à {{round distance}}m à pied</div>
             <div class="localize">Localiser</div>
         </div>
