@@ -153,6 +153,15 @@ a.splash-wrap {
     font-size: 11px;
     border-bottom: 1px solid #aeadad;
 }
+.overflow {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1000000;
+    background-color:white;
+    font-size: 11px;
+    border-bottom: 1px solid #aeadad;
+}
 
 .line img {
     position: absolute;

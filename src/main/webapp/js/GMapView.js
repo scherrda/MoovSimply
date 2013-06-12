@@ -123,6 +123,15 @@ var GMapView = Backbone.View.extend({
                 icon: this.getStationMarkerImage(station.get('type'))
             });
             this.currentMarkers.push(stationMarker);
+
+            var self = this;
+          google.maps.event.addListener(stationMarker, 'click', function() {
+                self.showDetailView(station);
+           });
+          google.maps.event.addListener(this.map, 'click', function() {
+                self.detailView.close();
+           });
+
         }.bind(this));
     },
 
@@ -133,5 +142,18 @@ var GMapView = Backbone.View.extend({
             new google.maps.Point(0, 0), // The origin for this image
             new google.maps.Point(15, 40) // The anchor for this image
         );
-    }
+    },
+
+
+        showDetailView: function(station){
+            if(this.detailView){
+                this.detailView.close();
+            }
+            this.detailView = new ListLineView({model : station});
+            this.$el.append(this.detailView.el);
+
+            this.detailView.render();
+            this.detailView.$el.addClass("overflow");
+        }
+
 });

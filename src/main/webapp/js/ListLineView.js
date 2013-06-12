@@ -25,6 +25,11 @@ var ListLineView = Backbone.View.extend({
                 .addClass('extended');
         }
         $arrow.toggleClass('extended');
-    }
+    },
+
+       close: function(){
+          this.remove();
+          this.unbind();
+        }
 
 });
