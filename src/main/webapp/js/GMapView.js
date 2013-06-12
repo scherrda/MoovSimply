@@ -120,19 +120,18 @@ var GMapView = Backbone.View.extend({
                 position: new google.maps.LatLng(station.get('coordinates').latitude, station.get('coordinates').longitude),
                 title: station.get('type') + ' ' + station.get('lineNumber'),
                 map: this.map,
-                icon: this.getMarkerImage(station.get('type'))
+                icon: this.getStationMarkerImage(station.get('type'))
             });
             this.currentMarkers.push(stationMarker);
         }.bind(this));
     },
 
-    getMarkerImage: function (type) {
-        var stationMarkerImage = new google.maps.MarkerImage(
+    getStationMarkerImage: function (type) {
+        return new google.maps.MarkerImage(
             './img/markers/' + type.toLowerCase() + '.png',
             new google.maps.Size(31, 40), // taille
             new google.maps.Point(0, 0), // The origin for this image
             new google.maps.Point(15, 40) // The anchor for this image
         );
-        return stationMarkerImage;
     }
 });

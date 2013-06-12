@@ -171,6 +171,7 @@ a.splash-wrap {
 .line .infos {
     position: absolute;
     top: 12px;
+    bottom: 0;
     left: 78px;
     right: 50px;
 }
@@ -186,16 +187,14 @@ a.splash-wrap {
     float: left;
 }
 
-.line .localize-text {
-    float: right;
-}
-
-.line .localize-ico {
-    float: right;
+.line .localize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     height: 16px;
-    width: 20px;
-    margin-top: -3px;
     background: url('../img/geoloc.png') no-repeat;
+    padding-top: 4px;
+    padding-left: 22px;
 }
 
 .extend-arrow {

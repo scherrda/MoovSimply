@@ -24,12 +24,12 @@ var StationsCollection = Backbone.Collection.extend({
 
     parse: function (json) {
         _.each(json, function (station) {
-            station.distance = Math.round(1000 * this.calculateKmDistanceBetween(
+            station.distance = 1000 * this.calculateKmDistanceBetween(
                 station.coordinates.latitude,
                 station.coordinates.longitude,
                 this.lat,
                 this.lng
-            ));
+            );
         }.bind(this));
         return json;
     },
