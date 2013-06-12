@@ -24,8 +24,12 @@ var ListView = Backbone.View.extend({
         this.$el.empty();
         this.lines = [];
 
+        if (!alreadyLocalized) {
+            this.$el.append('<div class="no-station">Basculez vers le mode "Carte" pour vous géolocaliser.</div>');
+            return;
+        }
         if (stations.isEmpty()) {
-            this.$el.append('<div class="no-station">Aucune station à moins de 500m</div>');
+            this.$el.append('<div class="no-station">Aucune station à moins de 500m.</div>');
             return;
         }
 

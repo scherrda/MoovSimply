@@ -1,3 +1,5 @@
+var alreadyLocalized = false;
+
 var GMapView = Backbone.View.extend({
 
     el: '#map-canvas',
@@ -81,6 +83,7 @@ var GMapView = Backbone.View.extend({
         var myLat = position.coords.latitude, // 48.87525
             myLng = position.coords.longitude; // 2.31110
 
+        alreadyLocalized = true;
         stations.reset().setCoordinates(myLat, myLng).fetch();
 
         console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
