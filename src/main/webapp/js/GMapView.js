@@ -12,6 +12,11 @@ var GMapView = Backbone.View.extend({
             new google.maps.Point(0, 0), // The origin for this image
             new google.maps.Point(12, 23) // The anchor for this image
         );
+
+        this.meMarker = new google.maps.Marker({
+            title: 'You',
+            icon: this.meMarkerImage
+        });
     },
 
     render: function () {
@@ -75,14 +80,12 @@ var GMapView = Backbone.View.extend({
     addMyMarkerAndCenter: function (position) {
         var myLat = position.coords.latitude, // 48.87525
             myLng = position.coords.longitude; // 2.31110
+
         stations.reset().setCoordinates(myLat, myLng).fetch();
+
         console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
-        var myMarker = new google.maps.Marker({
-            position: new google.maps.LatLng(myLat, myLng),
-            title: 'You',
-            map: this.map,
-            icon: this.meMarkerImage
-        });
+        this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
+        this.meMarker.setMap(this.map);
         this.map.setCenter(new google.maps.LatLng(myLat, myLng));
     },
 
