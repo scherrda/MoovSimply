@@ -2,11 +2,11 @@ package fr.duchesses.moov.models;
 
 public class Transport {
     TransportType type;
-    int lineNumber;
+    String lineNumber;
     String lineName;
     Coordinates coordinates;
 
-    public Transport(TransportType type, Coordinates coordinates, int lineNumber, String lineName) {
+    public Transport(TransportType type, Coordinates coordinates, String lineNumber, String lineName) {
         this.type = type;
         this.coordinates = coordinates;
         this.lineNumber=lineNumber;
@@ -17,7 +17,7 @@ public class Transport {
         return type;
     }
 
-    public int getLineNumber() {
+    public String getLineNumber() {
         return lineNumber;
     }
 

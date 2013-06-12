@@ -22,9 +22,9 @@ import fr.duchesses.moov.models.velib.VelibStationModel;
 public class VelibApiService implements ApiService {
 
     public Collection<Transport> getVelibs() {
-        List<Transport> transports = Lists.newArrayList(new Transport(TransportType.VELIB, new Coordinates(10, 20), 0, null), new Transport(
-                TransportType.VELIB, new Coordinates(10, 19), 0, null), new Transport(TransportType.VELIB, new Coordinates(10, 18), 0, null), new Transport(
-                TransportType.VELIB, new Coordinates(11, 20), 0, null));
+        List<Transport> transports = Lists.newArrayList(new Transport(TransportType.VELIB, new Coordinates(10, 20), null, null), new Transport(
+                TransportType.VELIB, new Coordinates(10, 19), null, null), new Transport(TransportType.VELIB, new Coordinates(10, 18), null, null), new Transport(
+                TransportType.VELIB, new Coordinates(11, 20), null, null));
         return transports;
     }
 
@@ -54,7 +54,7 @@ public class VelibApiService implements ApiService {
     private List<Transport> convertFromVelibStationToTransport(List<VelibStationModel> velibStations) {
         List<Transport> transports = Lists.newArrayList();
         for (VelibStationModel velib : velibStations) {
-            transports.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), 0, null));
+            transports.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, null));
         }
         return transports;
     }

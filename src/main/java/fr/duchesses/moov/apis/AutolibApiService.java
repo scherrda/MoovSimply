@@ -48,7 +48,7 @@ public class AutolibApiService implements ApiService{
 			List<String> geometry = (List<String>) feilds.get("field13");
 			Double latitude = new Double (geometry.get(0));
 			Double longitude = new Double( geometry.get(1));
-			transports.add(new Transport(TransportType.AUTOLIB, new Coordinates(latitude, longitude), 0, null));
+			transports.add(new Transport(TransportType.AUTOLIB, new Coordinates(latitude, longitude), null, null));
 		}
 	}
 	
