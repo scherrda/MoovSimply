@@ -23,6 +23,10 @@ ul {
     background: -o-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
     background: -ms-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
     background: linear-gradient(to bottom, #ffffff 0%, #d7d3d3 100%);
+
+    font-size: 17px;
+    font-family: Century Gothic, Arial;
+    text-align: center;
 }
 
 a.splash-wrap {
@@ -40,12 +44,9 @@ a.splash-wrap {
 .splash .legend {
     position: absolute;
     top: 20%;
-    left: 50%;
-    margin-left: -100px;
+    left: 0;
+    right: 0;
     color: #bd2ca0;
-    font-size: 17px;
-    font-family: Century Gothic, Arial;
-    text-align: center;
 }
 
 .splash .pictos {
@@ -58,10 +59,8 @@ a.splash-wrap {
 .splash .description {
     position: absolute;
     top: 40%;
-    left: 50%;
-    margin-left: -134px;
-    font-size: 17px;
-    font-family: Century Gothic, Arial;
+    left: 0;
+    right: 0;
     text-align: center;
 }
 
