@@ -3,14 +3,15 @@
     <title>Moov'Simply</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
     <script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
     <script type="text/javascript" src="js/lib/backbone-1.0.0.min.js"></script>
     <script type="text/javascript" src="js/lib/handlebars-1.0.0.js"></script>
     <script type="text/javascript" src="js/lib/swag-0.2.7.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
     <script type="text/javascript" src="js/SplashView.js"></script>
     <script type="text/javascript" src="js/TopBarView.js"></script>
@@ -49,10 +50,6 @@
     <a href="#list" class="switch switch-list"></a>
 </script>
 
-<script id="map-tmpl" type="text/x-handlebars-template">
-    <div id="map-canvas"></div>
-</script>
-
 <script id="list-line-tmpl" type="text/x-handlebars-template">
     <div class="line-narrow">
         <img src="img/types/{{lowercase type}}.png">
@@ -65,7 +62,7 @@
             {{#if lineName}}
             <div class="name">{{truncate lineName 30 '...'}}</div>
             {{else}}
-            <div class="name"> - </div>
+            <div class="name"> -</div>
             {{/if}}
             <div class="distance">à {{round distance}}m à pied</div>
             <div class="localize">Localiser</div>

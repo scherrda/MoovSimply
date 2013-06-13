@@ -2,12 +2,10 @@ var alreadyLocalized = false;
 
 var GMapView = Backbone.View.extend({
 
-    el: '#map-canvas',
+    id: 'map-canvas',
     currentMarkers: [],
 
     initialize: function () {
-        this.listenTo(stations, 'sync', this.showMarkers);
-
         this.meMarkerImage = new google.maps.MarkerImage(
             './img/dude-pink.png',
             new google.maps.Size(29, 25), // taille
@@ -65,21 +63,21 @@ var GMapView = Backbone.View.extend({
             ]
         };
         this.map = new google.maps.Map(this.el, mapOptions);
-        this.geolocalize();
 
         return this;
     },
 
     geolocalize: function () {
         if (navigator.geolocation) {
-            this.watchId = navigator.geolocation.watchPosition(this.addMyMarkerAndCenter.bind(this), this.errorGeoloc.bind(this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+            this.watchId = navigator.geolocation.watchPosition(this.refreshMyMarkerAndCenter.bind(this), this.errorGeoloc.bind(this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
         }
         else {
-            console.log("pas de géolocalisation HTML5 possible avec ce navigateur");
+            console.log("Pas de géolocalisation HTML5 possible avec ce navigateur");
         }
+        return this;
     },
 
-    addMyMarkerAndCenter: function (position) {
+    refreshMyMarkerAndCenter: function (position) {
         var myLat = position.coords.latitude, // 48.87525
             myLng = position.coords.longitude; // 2.31110
 
@@ -101,7 +99,7 @@ var GMapView = Backbone.View.extend({
                 console.log("Votre position n'a pas pu être déterminée");
                 break;
             case error.TIMEOUT:
-                console.log("timeout geo html5");
+                console.log("Timeout geo html5");
                 break;
         }
     },
@@ -110,7 +108,7 @@ var GMapView = Backbone.View.extend({
         navigator.geolocation.clearWatch(this.watchId);
     },
 
-    showMarkers: function () {
+    showStationsMarkers: function () {
         _.each(this.currentMarkers, function (marker) {
             marker.setMap(null);
         });
@@ -124,13 +122,12 @@ var GMapView = Backbone.View.extend({
             });
             this.currentMarkers.push(stationMarker);
 
-            var self = this;
-          google.maps.event.addListener(stationMarker, 'click', function() {
-                self.showDetailView(station);
-           });
-          google.maps.event.addListener(this.map, 'click', function() {
-                self.detailView.close();
-           });
+            google.maps.event.addListener(stationMarker, 'click', function () {
+                this.trigger('details:show', station);
+            }.bind(this));
+            google.maps.event.addListener(this.map, 'click', function () {
+                this.trigger('details:hide');
+            }.bind(this));
 
         }.bind(this));
     },
@@ -142,18 +139,6 @@ var GMapView = Backbone.View.extend({
             new google.maps.Point(0, 0), // The origin for this image
             new google.maps.Point(15, 40) // The anchor for this image
         );
-    },
-
-
-        showDetailView: function(station){
-            if(this.detailView){
-                this.detailView.close();
-            }
-            this.detailView = new ListLineView({model : station});
-            this.$el.append(this.detailView.el);
-
-            this.detailView.render();
-            this.detailView.$el.addClass("overflow");
-        }
+    }
 
 });

@@ -1,5 +1,6 @@
 var ListView = Backbone.View.extend({
 
+    tagName: 'ul',
     className: 'withTopBar',
 
     initialize: function () {
@@ -11,12 +12,6 @@ var ListView = Backbone.View.extend({
         _.each(this.lines, function (lineView) {
             lineView.delegateEvents();
         });
-        return this;
-    },
-
-    render: function () {
-        this.$el.html($('#list-tmpl').html());
-        // this.renderExampleLine();
         return this;
     },
 

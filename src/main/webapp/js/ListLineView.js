@@ -1,13 +1,18 @@
 var ListLineView = Backbone.View.extend({
 
+    tagName: 'li',
     className: 'line',
 
     events: {
         'click .extend-arrow': 'toggle'
     },
 
+    initialize: function () {
+        this.template = Handlebars.compile($('#list-line-tmpl').html());
+    },
+
     render: function () {
-        this.$el.html(Handlebars.compile($('#list-line-tmpl').html())(this.model.toJSON()));
+        this.$el.html(this.template(this.model.toJSON()));
         return this;
     },
 
@@ -27,9 +32,9 @@ var ListLineView = Backbone.View.extend({
         $arrow.toggleClass('extended');
     },
 
-       close: function(){
-          this.remove();
-          this.unbind();
-        }
+    close: function () {
+        this.remove();
+        this.unbind();
+    }
 
 });

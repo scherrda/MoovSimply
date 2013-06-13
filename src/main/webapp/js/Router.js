@@ -19,7 +19,7 @@ var Router = Backbone.Router.extend({
 
     goMap: function () {
         if (!this.mapView) this.mapView = new MapView().render();
-        $('#content').html(this.mapView.el);
+        $('#content').html(this.mapView.reBind().el);
         this.topBar.switchToMap();
     },
 
