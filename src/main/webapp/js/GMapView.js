@@ -84,7 +84,7 @@ var GMapView = Backbone.View.extend({
         console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
         this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
         this.meMarker.setMap(this.map);
-        this.map.setCenter(new google.maps.LatLng(myLat, myLng));
+        this.centerMap(myLat, myLng);
         alreadyLocalized = true;
 
         this.trigger('localized', myLat, myLng);
@@ -108,6 +108,10 @@ var GMapView = Backbone.View.extend({
         navigator.geolocation.clearWatch(this.watchId);
     },
 
+    centerMap: function (lat, lng) {
+        this.map.setCenter(new google.maps.LatLng(lat, lng));
+    },
+
     showStationsMarkers: function (stations) {
         _.each(this.currentMarkers, function (marker) {
             marker.setMap(null);
@@ -120,6 +124,9 @@ var GMapView = Backbone.View.extend({
                 map: this.map,
                 icon: this.getStationMarkerImage(station.get('type'))
             });
+            stationMarker.type = station.get('type');
+            stationMarker.active = false;
+            station.set('marker', stationMarker);
             this.currentMarkers.push(stationMarker);
 
             google.maps.event.addListener(stationMarker, 'click', function () {
@@ -132,9 +139,25 @@ var GMapView = Backbone.View.extend({
         }.bind(this));
     },
 
-    getStationMarkerImage: function (type) {
+    turnOnMarker: function (stationMarker) {
+        stationMarker.setIcon(this.getStationMarkerImage(stationMarker.type, true));
+        stationMarker.active = true;
+    },
+
+    turnOffMarker: function (stationMarker) {
+        stationMarker.setIcon(this.getStationMarkerImage(stationMarker.type));
+        stationMarker.active = false;
+    },
+
+    turnOffActiveMarker: function () {
+        var turnedOnMarker = _.findWhere(this.currentMarkers, {active: true});
+        if (turnedOnMarker) this.turnOffMarker(turnedOnMarker);
+    },
+
+    getStationMarkerImage: function (type, active) {
+        active = active || false;
         return new google.maps.MarkerImage(
-            './img/markers/' + type.toLowerCase() + '.png',
+            './img/markers/' + type.toLowerCase() + (active ? '-active' : '') + '.png',
             new google.maps.Size(31, 40), // taille
             new google.maps.Point(0, 0), // The origin for this image
             new google.maps.Point(15, 40) // The anchor for this image

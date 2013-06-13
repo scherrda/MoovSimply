@@ -8,7 +8,7 @@ var MapView = Backbone.View.extend({
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(this.gmap, 'localized', this.fetchStations);
         this.listenTo(stations, 'sync', this.displayStations);
-        this.listenTo(stations, 'show', this.showDetail, this);
+        this.listenTo(stations, 'show', this.showDetailAndCenterMap, this);
     },
 
     reBind: function () {
@@ -23,12 +23,20 @@ var MapView = Backbone.View.extend({
 
     showDetail: function (station) {
         this.hideDetail();
+
         this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station});
         this.$el.append(this.detailView.render().el);
+        this.gmap.turnOnMarker(station.get('marker'));
     },
 
     hideDetail: function () {
         if (this.detailView) this.detailView.close();
+        this.gmap.turnOffActiveMarker();
+    },
+
+    showDetailAndCenterMap: function (station) {
+        this.showDetail(station);
+        this.gmap.centerMap(station.get('coordinates').latitude, station.get('coordinates').longitude);
     },
 
     fetchStations: function (myLat, myLng) {
