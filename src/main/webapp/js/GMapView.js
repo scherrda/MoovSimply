@@ -81,13 +81,13 @@ var GMapView = Backbone.View.extend({
         var myLat = position.coords.latitude, // 48.87525
             myLng = position.coords.longitude; // 2.31110
 
-        alreadyLocalized = true;
-        stations.reset().setCoordinates(myLat, myLng).fetch();
-
         console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
         this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
         this.meMarker.setMap(this.map);
         this.map.setCenter(new google.maps.LatLng(myLat, myLng));
+        alreadyLocalized = true;
+
+        this.trigger('localized', myLat, myLng);
     },
 
     errorGeoloc: function (error) {
@@ -108,7 +108,7 @@ var GMapView = Backbone.View.extend({
         navigator.geolocation.clearWatch(this.watchId);
     },
 
-    showStationsMarkers: function () {
+    showStationsMarkers: function (stations) {
         _.each(this.currentMarkers, function (marker) {
             marker.setMap(null);
         });

@@ -6,6 +6,7 @@ var MapView = Backbone.View.extend({
         this.gmap = new GMapView();
         this.listenTo(this.gmap, 'details:show', this.showDetail);
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
+        this.listenTo(this.gmap, 'localized', this.fetchStations);
         this.listenTo(stations, 'sync', this.displayStations);
     },
 
@@ -29,8 +30,12 @@ var MapView = Backbone.View.extend({
         if (this.detailView) this.detailView.close();
     },
 
+    fetchStations: function (myLat, myLng) {
+        stations.reset().setCoordinates(myLat, myLng).fetch();
+    },
+
     displayStations: function () {
-        this.gmap.showStationsMarkers();
+        this.gmap.showStationsMarkers(stations);
     }
 
 });
