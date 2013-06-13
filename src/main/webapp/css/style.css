@@ -160,7 +160,7 @@ a.splash-wrap {
     border-bottom: 1px solid #aeadad;
 }
 
-.overflow {
+.line.overflow {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -208,9 +208,14 @@ a.splash-wrap {
     bottom: 0;
     right: 0;
     height: 16px;
+    cursor: pointer;
     background: url('../img/geoloc.png') no-repeat;
     padding-top: 4px;
     padding-left: 22px;
+}
+
+.line.overflow .localize {
+    display: none;
 }
 
 .extend-arrow {

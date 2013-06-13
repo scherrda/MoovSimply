@@ -4,7 +4,8 @@ var ListLineView = Backbone.View.extend({
     className: 'line',
 
     events: {
-        'click .extend-arrow': 'toggle'
+        'click .extend-arrow': 'toggle',
+        'click .localize': 'showOnMap'
     },
 
     initialize: function () {
@@ -12,7 +13,7 @@ var ListLineView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template(this.model.toJSON()));
+        this.$el.html(this.template(this.model.attributes));
         return this;
     },
 
@@ -30,6 +31,11 @@ var ListLineView = Backbone.View.extend({
                 .addClass('extended');
         }
         $arrow.toggleClass('extended');
+    },
+
+    showOnMap: function () {
+        Backbone.history.navigate('#map', {trigger: true});
+        this.model.trigger('show', this.model);
     },
 
     close: function () {

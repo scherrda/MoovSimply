@@ -8,6 +8,7 @@ var MapView = Backbone.View.extend({
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(this.gmap, 'localized', this.fetchStations);
         this.listenTo(stations, 'sync', this.displayStations);
+        this.listenTo(stations, 'show', this.showDetail, this);
     },
 
     reBind: function () {
