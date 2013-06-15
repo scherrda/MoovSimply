@@ -19,7 +19,6 @@ public class SpringValidXmlConfigTest {
 		try {
 
 			xmlContext.refresh();
-			Assert.assertNotNull(xmlContext.getBean("restTemplate"));
 			Assert.assertNotNull(xmlContext.getBean("autolibApiService"));
 			Assert.assertNotNull(xmlContext.getBean("velibApiService"));
 			Assert.assertNotNull(xmlContext.getBean("ratpApiService"));
