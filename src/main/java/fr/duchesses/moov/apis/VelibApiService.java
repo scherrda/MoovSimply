@@ -15,7 +15,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
@@ -25,42 +24,39 @@ public class VelibApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(VelibApiService.class);
 
-    public Collection<Transport> getVelibs() {
-        List<Transport> transports = Lists.newArrayList(new Transport(TransportType.VELIB, new Coordinates(10, 20), null, null), new Transport(
-                TransportType.VELIB, new Coordinates(10, 19), null, null), new Transport(TransportType.VELIB, new Coordinates(10, 18), null, null), new Transport(
-                TransportType.VELIB, new Coordinates(11, 20), null, null));
-        return transports;
-    }
+    private List<Transport> allVelibs = Lists.newArrayList();
 
-    public List<Transport> getAllVelibStations() {
-        List<VelibStationModel> velibs = Lists.newArrayList();
-        try (InputStream is = this.getClass().getResourceAsStream("VelibStation.json")) {
+    public VelibApiService() {
+        // File loading
+        List<VelibStationModel> velibStations = Lists.newArrayList();
+        try (InputStream is = VelibApiService.class.getResourceAsStream("VelibStation.json")) {
             Type listType = new TypeToken<ArrayList<VelibStationModel>>() {
                 // do nothing here.
             }.getType();
-            velibs = new Gson().fromJson(new InputStreamReader(is), listType);
+            velibStations = new Gson().fromJson(new InputStreamReader(is), listType);
         } catch (IOException e) {
             logger.error("Velib : I/O error");
         }
-        return convertFromVelibStationToTransport(velibs);
+
+        // Conversion
+        for (VelibStationModel velib : velibStations) {
+            allVelibs.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, null));
+        }
+        logger.info("Velibs loaded");
+    }
+
+    public List<Transport> getAllVelibStations() {
+        return allVelibs;
     }
 
     public List<Transport> getVelibStationsForCoordinates(Double latitude, Double longitude, double distanceMax) {
         List<Transport> closestVelibStations = Lists.newArrayList();
-        for (Transport transport : getAllVelibStations()) {
+        for (Transport transport : allVelibs) {
             double distanceFromPoint = distance(latitude, longitude, transport.getCoordinates().getLatitude(), transport.getCoordinates().getLongitude());
             if (distanceFromPoint < distanceMax) {
                 closestVelibStations.add(transport.withDistance(distanceFromPoint));
             }
         }
         return closestVelibStations;
-    }
-
-    private List<Transport> convertFromVelibStationToTransport(List<VelibStationModel> velibStations) {
-        List<Transport> transports = Lists.newArrayList();
-        for (VelibStationModel velib : velibStations) {
-            transports.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, null));
-        }
-        return transports;
     }
 }
