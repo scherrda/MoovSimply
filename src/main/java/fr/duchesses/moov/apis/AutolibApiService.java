@@ -1,78 +1,83 @@
 package fr.duchesses.moov.apis;
 
 import com.google.common.collect.Lists;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Transport;
 import fr.duchesses.moov.models.TransportType;
+import fr.duchesses.moov.models.autolib.AutolibStationModel;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
-@SuppressWarnings("unchecked")
 @Component
 public class AutolibApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(AutolibApiService.class);
 
-    @Autowired
-    private RestTemplate restTemplate;
-
-    public Collection<Transport> getAutolibs(double latitude, double longitude, double distanceMax) {
-        List<Transport> transports = Lists.newArrayList();
-        String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + latitude + "," + longitude + "," + distanceMax;
-        try {
-            Map<String, Object> response = restTemplate().getForObject(recordsUrl, Map.class);
-            extractData(transports, response, latitude, longitude);
-        } catch (Exception RestClientException) {
-            logger.error("Autolib : service not responding");
-        }
-
-        return transports;
+    public Collection<Transport> getAutolibs(double searchLatitude, double searchLongitude, double distanceMax) {
+        String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + searchLatitude + "," + searchLongitude + "," + distanceMax;
+        return getTransportsFromUrl(recordsUrl, searchLatitude, searchLongitude);
     }
 
     public Collection<Transport> getAutolibsParis() {
-        List<Transport> transports = Lists.newArrayList();
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&refine.ville=paris&rows=1000";
+        return getTransportsFromUrl(recordsUrl, null, null);
+    }
+
+    private List<Transport> getTransportsFromUrl(String recordsUrl, Double searchLatitude, Double searchLongitude) {
+        List<Transport> transports = Lists.newArrayList();
         try {
-            Map<String, Object> response = restTemplate().getForObject(recordsUrl, Map.class);
-            extractData(transports, response, null, null);
-        } catch (Exception RestClientException) {
+            Type listType = new TypeToken<ArrayList<JsonObject>>() {
+                // do nothing here.
+            }.getType();
+            JsonObject searchResponse = new JsonParser().parse(readUrl(recordsUrl)).getAsJsonObject();
+            List<JsonObject> rawStations = new Gson().fromJson(searchResponse.get("records"), listType);
+            for (JsonObject rawStation : rawStations) {
+                AutolibStationModel stationModel = new Gson().fromJson(rawStation.get("fields"), AutolibStationModel.class);
+                Transport transport = new Transport(TransportType.AUTOLIB, new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getIdentifiant_autolib());
+                if (searchLatitude != null && searchLongitude != null) {
+                    double distanceFromPoint = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
+                    transports.add(transport.withDistance(distanceFromPoint));
+                } else {
+                    transports.add(transport);
+                }
+            }
+        } catch (IOException e) {
             logger.error("Autolib : service not responding");
         }
-
         return transports;
     }
 
-    private void extractData(List<Transport> transports, Map<String, Object> response, Double searchLatitude, Double searchLongitude) {
-        List<Map<String, Object>> records = (List<Map<String, Object>>) response.get("records");
-        for (Map<String, Object> record : records) {
-            Map<String, Object> fields = (Map<String, Object>) record.get("fields");
-            List<String> geometry = (List<String>) fields.get("field13");
-            Double stationLatitude = new Double(geometry.get(0));
-            Double stationLongitude = new Double(geometry.get(1));
-            Transport transport = new Transport(TransportType.AUTOLIB, new Coordinates(stationLatitude, stationLongitude), null, null);
-            if (searchLatitude != null && searchLongitude != null) {
-                double distanceFromPoint = distance(searchLatitude, searchLongitude, stationLatitude, stationLongitude);
-                transports.add(transport.withDistance(distanceFromPoint));
-            } else {
-                transports.add(transport);
-            }
-        }
-    }
+    private static String readUrl(String urlString) throws IOException {
+        BufferedReader reader = null;
+        try {
+            URL url = new URL(urlString);
+            reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuffer buffer = new StringBuffer();
+            int read;
+            char[] chars = new char[1024];
+            while ((read = reader.read(chars)) != -1)
+                buffer.append(chars, 0, read);
 
-    // TODO nassima supprimer une fois la conf fini
-    public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
-        return restTemplate;
+            return buffer.toString();
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
     }
 
 }
