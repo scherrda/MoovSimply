@@ -1,524 +1,852 @@
 [
     {
         "type": "METRO",
-        "lineNumber": 0,
-        "lineName": "Miromesnil",
         "coordinates": {
             "latitude": 48.8737063841262,
             "longitude": 2.31519918493339
-        }
+        },
+        "lineNumber": "9",
+        "name": "Miromesnil (Mairie de Montreuil/Pont de S��vres)",
+        "distance": 345.4493464881769
     },
     {
         "type": "METRO",
-        "lineNumber": 0,
-        "lineName": "Saint-Philippe du Roule",
+        "coordinates": {
+            "latitude": 48.8737063841262,
+            "longitude": 2.31519918493339
+        },
+        "lineNumber": "13",
+        "name": "Miromesnil (Saint-Denis - Universite / Les Courtilles (Asnieres - Gennevilliers)/Ch��tillon - Montrouge)",
+        "distance": 345.4493464881769
+    },
+    {
+        "type": "METRO",
         "coordinates": {
             "latitude": 48.8721798206485,
             "longitude": 2.30982009380661
-        }
+        },
+        "lineNumber": "9",
+        "name": "Saint-Philippe du Roule (Mairie de Montreuil/Pont de S��vres)",
+        "distance": 353.98890310375714
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "FRIEDLAND - HAUSSMANN",
         "coordinates": {
             "latitude": 48.874941085642,
             "longitude": 2.30640786160418
-        }
+        },
+        "lineNumber": "83",
+        "name": "FRIEDLAND - HAUSSMANN (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 344.8660600238009
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "FRIEDLAND - HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.874941085642,
+            "longitude": 2.30640786160418
+        },
+        "lineNumber": "43",
+        "name": "FRIEDLAND - HAUSSMANN (BAGATELLE/GARE DU NORD)",
+        "distance": 344.8660600238009
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.874941085642,
+            "longitude": 2.30640786160418
+        },
+        "lineNumber": "83",
+        "name": "FRIEDLAND - HAUSSMANN (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 344.8660600238009
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8747523840497,
             "longitude": 2.30653059770448
-        }
+        },
+        "lineNumber": "83",
+        "name": "FRIEDLAND - HAUSSMANN (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 338.7256295187197
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "FRIEDLAND - HAUSSMANN",
+        "coordinates": {
+            "latitude": 48.8747523840497,
+            "longitude": 2.30653059770448
+        },
+        "lineNumber": "83",
+        "name": "FRIEDLAND - HAUSSMANN (PORTE D'IVRY/)",
+        "distance": 338.7256295187197
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8747523840497,
+            "longitude": 2.30653059770448
+        },
+        "lineNumber": "83",
+        "name": "FRIEDLAND - HAUSSMANN (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 338.7256295187197
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.874734228263,
             "longitude": 2.30583574032336
-        }
+        },
+        "lineNumber": "43",
+        "name": "FRIEDLAND - HAUSSMANN (BAGATELLE/GARE DU NORD)",
+        "distance": 389.2412634529085
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "FRIEDLAND-HAUSSMANN",
         "coordinates": {
             "latitude": 48.8750575894311,
             "longitude": 2.30515429684419
-        }
+        },
+        "lineNumber": "93",
+        "name": "FRIEDLAND-HAUSSMANN (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 435.3538717620629
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "FRIEDLAND-HAUSSMANN",
         "coordinates": {
             "latitude": 48.8747341778163,
             "longitude": 2.30564499223685
-        }
+        },
+        "lineNumber": "22",
+        "name": "FRIEDLAND-HAUSSMANN (PORTE DE SAINT-CLOUD/OPERA)",
+        "distance": 403.0450967865464
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "FRIEDLAND-HAUSSMANN",
         "coordinates": {
             "latitude": 48.8747613007779,
             "longitude": 2.30625809496879
-        }
+        },
+        "lineNumber": "52",
+        "name": "FRIEDLAND-HAUSSMANN (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 358.249988424431
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - COURCELLES",
+        "coordinates": {
+            "latitude": 48.8747613007779,
+            "longitude": 2.30625809496879
+        },
+        "lineNumber": "93",
+        "name": "FRIEDLAND-HAUSSMANN (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 358.249988424431
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8748518222814,
             "longitude": 2.30886039604518
-        }
+        },
+        "lineNumber": "43",
+        "name": "HAUSSMANN - COURCELLES (BAGATELLE/GARE DU NORD)",
+        "distance": 169.66828735475477
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - COURCELLES",
         "coordinates": {
             "latitude": 48.8748427434678,
             "longitude": 2.30847890398947
-        }
+        },
+        "lineNumber": "83",
+        "name": "HAUSSMANN - COURCELLES (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 196.96579319656163
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - COURCELLES",
+        "coordinates": {
+            "latitude": 48.8748427434678,
+            "longitude": 2.30847890398947
+        },
+        "lineNumber": "83",
+        "name": "HAUSSMANN - COURCELLES (PORTE D'IVRY/)",
+        "distance": 196.96579319656163
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8748427434678,
+            "longitude": 2.30847890398947
+        },
+        "lineNumber": "83",
+        "name": "HAUSSMANN - COURCELLES (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 196.96579319656163
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8750045082518,
             "longitude": 2.30845156433616
-        }
+        },
+        "lineNumber": "83",
+        "name": "HAUSSMANN - COURCELLES (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 195.60259134854897
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN-COURCELLES",
+        "coordinates": {
+            "latitude": 48.8750045082518,
+            "longitude": 2.30845156433616
+        },
+        "lineNumber": "43",
+        "name": "HAUSSMANN - COURCELLES (BAGATELLE/GARE DU NORD)",
+        "distance": 195.60259134854897
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8750045082518,
+            "longitude": 2.30845156433616
+        },
+        "lineNumber": "83",
+        "name": "HAUSSMANN - COURCELLES (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 195.60259134854897
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8748789982014,
             "longitude": 2.30977324968579
-        }
+        },
+        "lineNumber": "22",
+        "name": "HAUSSMANN-COURCELLES (PORTE DE SAINT-CLOUD/OPERA)",
+        "distance": 105.43523751872888
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN-COURCELLES",
         "coordinates": {
             "latitude": 48.8748517766767,
             "longitude": 2.30866964752316
-        }
+        },
+        "lineNumber": "52",
+        "name": "HAUSSMANN-COURCELLES (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 183.17240734284036
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN-COURCELLES",
+        "coordinates": {
+            "latitude": 48.8748517766767,
+            "longitude": 2.30866964752316
+        },
+        "lineNumber": "93",
+        "name": "HAUSSMANN-COURCELLES (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 183.17240734284036
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.875148285217,
             "longitude": 2.30836973461796
-        }
+        },
+        "lineNumber": "22",
+        "name": "HAUSSMANN-COURCELLES (PORTE DE SAINT-CLOUD/OPERA)",
+        "distance": 199.99271718383648
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.875148285217,
+            "longitude": 2.30836973461796
+        },
+        "lineNumber": "93",
+        "name": "HAUSSMANN-COURCELLES (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 199.99271718383648
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.875148285217,
+            "longitude": 2.30836973461796
+        },
+        "lineNumber": "52",
+        "name": "HAUSSMANN-COURCELLES (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 199.99271718383648
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8750146668336,
             "longitude": 2.31379253473592
-        }
+        },
+        "lineNumber": "43",
+        "name": "HAUSSMANN - MIROMESNIL (BAGATELLE/GARE DU NORD)",
+        "distance": 198.64466975233205
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8750146668336,
+            "longitude": 2.31379253473592
+        },
+        "lineNumber": "84",
+        "name": "HAUSSMANN - MIROMESNIL (PORTE DE CHAMPERRET/PANTHEON)",
+        "distance": 198.64466975233205
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8744755453763,
             "longitude": 2.31439226976468
-        }
+        },
+        "lineNumber": "28",
+        "name": "HAUSSMANN - MIROMESNIL (GARE SAINT-LAZARE/PORTE D'ORLEANS)",
+        "distance": 255.71203227908572
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - MIROMESNIL",
+        "coordinates": {
+            "latitude": 48.8744755453763,
+            "longitude": 2.31439226976468
+        },
+        "lineNumber": "32",
+        "name": "HAUSSMANN - MIROMESNIL (PORTE D'AUTEUIL/GARE DE L'EST)",
+        "distance": 255.71203227908572
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8744755453763,
+            "longitude": 2.31439226976468
+        },
+        "lineNumber": "80",
+        "name": "HAUSSMANN - MIROMESNIL (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 255.71203227908572
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8752483177359,
             "longitude": 2.31369705400351
-        }
+        },
+        "lineNumber": "43",
+        "name": "HAUSSMANN - MIROMESNIL (BAGATELLE/GARE DU NORD)",
+        "distance": 189.9303967653777
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN - MIROMESNIL",
         "coordinates": {
             "latitude": 48.8755901091713,
             "longitude": 2.31512753314951
-        }
+        },
+        "lineNumber": "84",
+        "name": "HAUSSMANN - MIROMESNIL (PORTE DE CHAMPERRET/PANTHEON)",
+        "distance": 296.96245156935555
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN-MIROMESNIL",
         "coordinates": {
             "latitude": 48.8750146237124,
             "longitude": 2.31357453573568
-        }
+        },
+        "lineNumber": "22",
+        "name": "HAUSSMANN-MIROMESNIL (PORTE DE SAINT-CLOUD/OPERA)",
+        "distance": 182.85340027765275
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN-MIROMESNIL",
         "coordinates": {
             "latitude": 48.8752392925777,
             "longitude": 2.31350630813523
-        }
+        },
+        "lineNumber": "22",
+        "name": "HAUSSMANN-MIROMESNIL (PORTE DE SAINT-CLOUD/OPERA)",
+        "distance": 175.9845338471504
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "HAUSSMANN-MIROMESNIL",
-        "coordinates": {
-            "latitude": 48.8745833903773,
-            "longitude": 2.31437859738562
-        }
-    },
-    {
-        "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "LA BOETIE - MIROMESNIL",
         "coordinates": {
             "latitude": 48.8740445389026,
             "longitude": 2.31649066110485
-        }
+        },
+        "lineNumber": "80",
+        "name": "LA BOETIE - MIROMESNIL (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 416.4037759155245
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "LA BOETIE - PERCIER",
+        "coordinates": {
+            "latitude": 48.8740445389026,
+            "longitude": 2.31649066110485
+        },
+        "lineNumber": "28",
+        "name": "LA BOETIE - MIROMESNIL (GARE SAINT-LAZARE/PORTE D'ORLEANS)",
+        "distance": 416.4037759155245
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8740445389026,
+            "longitude": 2.31649066110485
+        },
+        "lineNumber": "32",
+        "name": "LA BOETIE - MIROMESNIL (PORTE D'AUTEUIL/GARE DE L'EST)",
+        "distance": 416.4037759155245
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8740445389026,
+            "longitude": 2.31649066110485
+        },
+        "lineNumber": "28",
+        "name": "LA BOETIE - MIROMESNIL (/PORTE D'ORLEANS)",
+        "distance": 416.4037759155245
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.873558723734,
             "longitude": 2.3137931935551
-        }
+        },
+        "lineNumber": "83",
+        "name": "LA BOETIE - PERCIER (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 272.3272342287681
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "LA BOETIE-PERCIER",
+        "coordinates": {
+            "latitude": 48.873558723734,
+            "longitude": 2.3137931935551
+        },
+        "lineNumber": "83",
+        "name": "LA BOETIE - PERCIER (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 272.3272342287681
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8736037029966,
             "longitude": 2.3140111662895
-        }
+        },
+        "lineNumber": "93",
+        "name": "LA BOETIE-PERCIER (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 280.7842332008657
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "LISBONNE - MAIRIE DU 8E",
+        "coordinates": {
+            "latitude": 48.8736037029966,
+            "longitude": 2.3140111662895
+        },
+        "lineNumber": "52",
+        "name": "LA BOETIE-PERCIER (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 280.7842332008657
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8773968555895,
             "longitude": 2.31681633207684
-        }
+        },
+        "lineNumber": "94",
+        "name": "LISBONNE - MAIRIE DU 8E (LOUISON BOBET/GARE MONTPARNASSE)",
+        "distance": 481.40138091863315
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "LISBONNE - MAIRIE DU 8E",
+        "coordinates": {
+            "latitude": 48.8773968555895,
+            "longitude": 2.31681633207684
+        },
+        "lineNumber": "94",
+        "name": "LISBONNE - MAIRIE DU 8E (LOUISON BOBET/GARE SAINT-LAZARE)",
+        "distance": 481.40138091863315
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8774956137436,
             "longitude": 2.31623039274765
-        }
+        },
+        "lineNumber": "94",
+        "name": "LISBONNE - MAIRIE DU 8E (LOUISON BOBET/GARE SAINT-LAZARE)",
+        "distance": 450.6882794582899
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "MATIGNON - SAINT-HONORE",
+        "coordinates": {
+            "latitude": 48.8774956137436,
+            "longitude": 2.31623039274765
+        },
+        "lineNumber": "94",
+        "name": "LISBONNE - MAIRIE DU 8E (LOUISON BOBET/GARE MONTPARNASSE)",
+        "distance": 450.6882794582899
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8731185088635,
             "longitude": 2.31463810805272
-        }
+        },
+        "lineNumber": "80",
+        "name": "MATIGNON - SAINT-HONORE (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 350.89865506657395
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "MATIGNON - SAINT-HONORE",
+        "coordinates": {
+            "latitude": 48.8731185088635,
+            "longitude": 2.31463810805272
+        },
+        "lineNumber": "32",
+        "name": "MATIGNON - SAINT-HONORE (PORTE D'AUTEUIL/GARE DE L'EST)",
+        "distance": 350.89865506657395
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8731185088635,
+            "longitude": 2.31463810805272
+        },
+        "lineNumber": "28",
+        "name": "MATIGNON - SAINT-HONORE (GARE SAINT-LAZARE/PORTE D'ORLEANS)",
+        "distance": 350.89865506657395
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8718692198722,
             "longitude": 2.31436617072371
-        }
+        },
+        "lineNumber": "83",
+        "name": "MATIGNON - SAINT-HONORE (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 445.39904008133357
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "MATIGNON-SAINT HONORE",
+        "coordinates": {
+            "latitude": 48.8718692198722,
+            "longitude": 2.31436617072371
+        },
+        "lineNumber": "83",
+        "name": "MATIGNON - SAINT-HONORE (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 445.39904008133357
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8718151415383,
             "longitude": 2.31357599691421
-        }
+        },
+        "lineNumber": "52",
+        "name": "MATIGNON-SAINT HONORE (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 422.6918707168859
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "MATIGNON-SAINT HONORE",
         "coordinates": {
             "latitude": 48.872228738746,
             "longitude": 2.31450225408855
-        }
+        },
+        "lineNumber": "93",
+        "name": "MATIGNON-SAINT HONORE (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 418.0613707353189
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "MATIGNON-SAINT HONORE",
         "coordinates": {
             "latitude": 48.8719950606387,
             "longitude": 2.31446148419091
-        }
+        },
+        "lineNumber": "52",
+        "name": "MATIGNON-SAINT HONORE (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 437.5320184410064
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "RUYSDAEL - PARC MONCEAU",
         "coordinates": {
             "latitude": 48.8772339205965,
             "longitude": 2.31088929424278
-        }
+        },
+        "lineNumber": "84",
+        "name": "RUYSDAEL - PARC MONCEAU (PORTE DE CHAMPERRET/PANTHEON)",
+        "distance": 221.13942454385707
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "RUYSDAEL - PARC MONCEAU",
         "coordinates": {
             "latitude": 48.8775931088837,
             "longitude": 2.30955380115513
-        }
+        },
+        "lineNumber": "84",
+        "name": "RUYSDAEL - PARC MONCEAU (PORTE DE CHAMPERRET/PANTHEON)",
+        "distance": 284.02131080972765
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "SAINT PHILIPPE DU ROULE",
         "coordinates": {
             "latitude": 48.8729108033161,
             "longitude": 2.30988328795543
-        }
+        },
+        "lineNumber": "52",
+        "name": "SAINT PHILIPPE DU ROULE (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 274.90666878184703
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "SAINT PHILIPPE DU ROULE",
         "coordinates": {
             "latitude": 48.8727761206177,
             "longitude": 2.31044195743127
-        }
+        },
+        "lineNumber": "52",
+        "name": "SAINT PHILIPPE DU ROULE (PARC DE SAINT CLOUD/OPERA)",
+        "distance": 279.26091738770083
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "SAINT-PHILIPPE DU ROULE",
+        "coordinates": {
+            "latitude": 48.8727761206177,
+            "longitude": 2.31044195743127
+        },
+        "lineNumber": "93",
+        "name": "SAINT PHILIPPE DU ROULE (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 279.26091738770083
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8730905464332,
             "longitude": 2.30986956863608
-        }
+        },
+        "lineNumber": "93",
+        "name": "SAINT-PHILIPPE DU ROULE (SURESNES DE GAULLE/INVALIDES)",
+        "distance": 256.42819569938575
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "SAINT-PHILIPPE-DU-ROULE",
         "coordinates": {
             "latitude": 48.8726862167387,
             "longitude": 2.31030576065188
-        }
+        },
+        "lineNumber": "32",
+        "name": "SAINT-PHILIPPE-DU-ROULE (PORTE D'AUTEUIL/GARE DE L'EST)",
+        "distance": 290.937246391835
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "SAINT-PHILIPPE-DU-ROULE",
+        "coordinates": {
+            "latitude": 48.8726862167387,
+            "longitude": 2.31030576065188
+        },
+        "lineNumber": "28",
+        "name": "SAINT-PHILIPPE-DU-ROULE (GARE SAINT-LAZARE/PORTE D'ORLEANS)",
+        "distance": 290.937246391835
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8726862167387,
+            "longitude": 2.31030576065188
+        },
+        "lineNumber": "28",
+        "name": "SAINT-PHILIPPE-DU-ROULE (/PORTE D'ORLEANS)",
+        "distance": 290.937246391835
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8726862167387,
+            "longitude": 2.31030576065188
+        },
+        "lineNumber": "80",
+        "name": "SAINT-PHILIPPE-DU-ROULE (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 290.937246391835
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8731894629672,
             "longitude": 2.31011475665935
-        }
+        },
+        "lineNumber": "83",
+        "name": "SAINT-PHILIPPE-DU-ROULE (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 240.18433577348344
     },
     {
         "type": "BUS",
-        "lineNumber": 0,
-        "lineName": "SAINT-PHILIPPE-DU-ROULE",
+        "coordinates": {
+            "latitude": 48.8731894629672,
+            "longitude": 2.31011475665935
+        },
+        "lineNumber": "83",
+        "name": "SAINT-PHILIPPE-DU-ROULE (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 240.18433577348344
+    },
+    {
+        "type": "BUS",
         "coordinates": {
             "latitude": 48.8732792768328,
             "longitude": 2.30985584447243
-        }
+        },
+        "lineNumber": "83",
+        "name": "SAINT-PHILIPPE-DU-ROULE (PORTE D'IVRY/FRIEDLAND - HAUSSMANN)",
+        "distance": 237.2744856073759
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8732792768328,
+            "longitude": 2.30985584447243
+        },
+        "lineNumber": "83",
+        "name": "SAINT-PHILIPPE-DU-ROULE (PORTE D'IVRY - CLAUDE REGAUD/FRIEDLAND - HAUSSMANN)",
+        "distance": 237.2744856073759
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8732792768328,
+            "longitude": 2.30985584447243
+        },
+        "lineNumber": "83",
+        "name": "SAINT-PHILIPPE-DU-ROULE (PORTE D'IVRY/)",
+        "distance": 237.2744856073759
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.873760472140056,
             "longitude": 2.315876308346374
-        }
+        },
+        "lineNumber": null,
+        "name": "MIROMESNIL",
+        "distance": 386.5885379382214
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.874810390028195,
             "longitude": 2.308314064189137
-        }
+        },
+        "lineNumber": null,
+        "name": "HAUSSMANN COURCELLES",
+        "distance": 209.5265761024924
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.87545720024482,
             "longitude": 2.315465494584916
-        }
+        },
+        "lineNumber": null,
+        "name": "MESSINE",
+        "distance": 320.0912246734324
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.872787680846464,
             "longitude": 2.309722588932229
-        }
+        },
+        "lineNumber": null,
+        "name": "SAINT PHILIPPE DU ROULE",
+        "distance": 291.7411334791511
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.873794318379595,
             "longitude": 2.306299550271081
-        }
+        },
+        "lineNumber": null,
+        "name": "D'ARTOIS BERRY",
+        "distance": 386.5936639763747
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.87745567681383,
             "longitude": 2.309694221419506
-        }
+        },
+        "lineNumber": null,
+        "name": "RIO",
+        "distance": 265.9354838508731
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.871512741519155,
             "longitude": 2.307487564419454
-        }
+        },
+        "lineNumber": null,
+        "name": "BOETIE PONTHIEU",
+        "distance": 492.4370011267213
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.87659994083545,
             "longitude": 2.31316505435543
-        }
+        },
+        "lineNumber": null,
+        "name": "NARVICK",
+        "distance": 212.9307155365383
     },
     {
         "type": "VELIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.871476421300954,
             "longitude": 2.313885419949291
-        }
+        },
+        "lineNumber": null,
+        "name": "MATIGNON",
+        "distance": 466.43949896027476
     },
     {
         "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.87593,
             "longitude": 2.314194
-        }
+        },
+        "lineNumber": null,
+        "name": "12 Avenue de Messine",
+        "distance": 238.57123270534575
     },
     {
         "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.877833,
             "longitude": 2.310832
-        }
+        },
+        "lineNumber": null,
+        "name": "43 Rue de Monceau",
+        "distance": 287.88442353208353
     },
     {
         "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.872759,
             "longitude": 2.308066
-        }
+        },
+        "lineNumber": null,
+        "name": "11 rue d'Artois",
+        "distance": 354.9044472129813
     },
     {
         "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.874634,
             "longitude": 2.306249
-        }
+        },
+        "lineNumber": null,
+        "name": "161 rue du Faubourg Saint-Honoré",
+        "distance": 361.3221011479078
     },
     {
         "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
         "coordinates": {
             "latitude": 48.872047,
             "longitude": 2.313125
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
-        "coordinates": {
-            "latitude": 48.880095,
-            "longitude": 2.313445
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
-        "coordinates": {
-            "latitude": 48.869963,
-            "longitude": 2.312054
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
-        "coordinates": {
-            "latitude": 48.878351,
-            "longitude": 2.304494
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
-        "coordinates": {
-            "latitude": 48.872448,
-            "longitude": 2.304166
-        }
-    },
-    {
-        "type": "AUTOLIB",
-        "lineNumber": 0,
-        "lineName": null,
-        "coordinates": {
-            "latitude": 48.875556,
-            "longitude": 2.319321
-        }
+        },
+        "lineNumber": null,
+        "name": "91 Rue du Faubourg Saint-Honoré",
+        "distance": 385.72189461249246
     }
 ]

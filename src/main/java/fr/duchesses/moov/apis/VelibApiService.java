@@ -40,7 +40,7 @@ public class VelibApiService implements ApiService {
 
         // Conversion
         for (VelibStationModel velib : velibStations) {
-            allVelibs.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, velib.getName()));
+            allVelibs.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, velib.getName().split(" - ")[1]));
         }
         logger.info("Velibs loaded");
     }
