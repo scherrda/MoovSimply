@@ -28,8 +28,12 @@ public class AutolibApiService implements ApiService {
     public Collection<Transport> getAutolibs(double latitude, double longitude, double distanceMax) {
         List<Transport> transports = Lists.newArrayList();
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + latitude + "," + longitude + "," + distanceMax;
-        Map<String, Object> response = restTemplate().getForObject(recordsUrl, Map.class);
-        extractData(transports, response, latitude, longitude);
+        try {
+            Map<String, Object> response = restTemplate().getForObject(recordsUrl, Map.class);
+            extractData(transports, response, latitude, longitude);
+        } catch (Exception RestClientException) {
+            logger.error("Autolib : service not responding");
+        }
 
         return transports;
     }
@@ -37,9 +41,12 @@ public class AutolibApiService implements ApiService {
     public Collection<Transport> getAutolibsParis() {
         List<Transport> transports = Lists.newArrayList();
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&refine.ville=paris&rows=1000";
-
-        Map<String, Object> response = restTemplate().getForObject(recordsUrl, Map.class);
-        extractData(transports, response, null, null);
+        try {
+            Map<String, Object> response = restTemplate().getForObject(recordsUrl, Map.class);
+            extractData(transports, response, null, null);
+        } catch (Exception RestClientException) {
+            logger.error("Autolib : service not responding");
+        }
 
         return transports;
     }
