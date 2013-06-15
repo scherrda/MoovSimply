@@ -1,28 +1,28 @@
 package fr.duchesses.moov.rest;
 
-import java.util.Collection;
-import java.util.List;
+import com.google.common.collect.Lists;
+import fr.duchesses.moov.apis.AutolibApiService;
+import fr.duchesses.moov.apis.RatpApiService;
+import fr.duchesses.moov.apis.VelibApiService;
+import fr.duchesses.moov.models.Transport;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import com.google.common.collect.Lists;
-
-import fr.duchesses.moov.apis.AutolibApiService;
-import fr.duchesses.moov.apis.RatpApiService;
-import fr.duchesses.moov.apis.VelibApiService;
-import fr.duchesses.moov.models.Transport;
+import java.util.Collection;
+import java.util.List;
 
 @Path("/moovin")
 public class HelloMoovResource {
 
+    private static final double distanceAroundMax = 500d;
+
     private VelibApiService velibServiceApi;
 
     private RatpApiService ratpApiService;
-    
+
     private AutolibApiService autolibApiService;
 
     public HelloMoovResource() {
@@ -52,9 +52,9 @@ public class HelloMoovResource {
         List<Transport> transports = Lists.newArrayList();
         final Double latitude = Double.valueOf(lat);
         final Double longitude = Double.valueOf(lng);
-        transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude));
-        transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude));
-        transports.addAll(autolibApiService.getAutolibs(latitude, longitude,1000d));
+        transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, distanceAroundMax));
+        transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude, distanceAroundMax));
+        transports.addAll(autolibApiService.getAutolibs(latitude, longitude, distanceAroundMax));
         return transports;
     }
 

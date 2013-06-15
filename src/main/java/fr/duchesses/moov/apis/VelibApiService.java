@@ -1,6 +1,15 @@
 package fr.duchesses.moov.apis;
 
-import static fr.duchesses.moov.apis.DistanceHelper.*;
+import com.google.common.collect.Lists;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import fr.duchesses.moov.models.Coordinates;
+import fr.duchesses.moov.models.Transport;
+import fr.duchesses.moov.models.TransportType;
+import fr.duchesses.moov.models.velib.VelibStationModel;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,17 +18,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
-import com.google.common.collect.Lists;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import fr.duchesses.moov.models.Coordinates;
-import fr.duchesses.moov.models.Transport;
-import fr.duchesses.moov.models.TransportType;
-import fr.duchesses.moov.models.velib.VelibStationModel;
 @Component
 public class VelibApiService implements ApiService {
+
+    private static final Logger logger = Logger.getLogger(VelibApiService.class);
 
     public Collection<Transport> getVelibs() {
         List<Transport> transports = Lists.newArrayList(new Transport(TransportType.VELIB, new Coordinates(10, 20), null, null), new Transport(
@@ -36,16 +40,17 @@ public class VelibApiService implements ApiService {
             }.getType();
             velibs = new Gson().fromJson(new InputStreamReader(is), listType);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Velib : I/O error");
         }
         return convertFromVelibStationToTransport(velibs);
     }
 
-    public List<Transport> getVelibStationsForCoordinates(Double latitude, Double longitude) {
+    public List<Transport> getVelibStationsForCoordinates(Double latitude, Double longitude, double distanceMax) {
         List<Transport> closestVelibStations = Lists.newArrayList();
         for (Transport transport : getAllVelibStations()) {
-            if (distance(latitude, longitude, transport.getCoordinates().getLatitude(), transport.getCoordinates().getLongitude()) < 0.5) {
-                closestVelibStations.add(transport);
+            double distanceFromPoint = distance(latitude, longitude, transport.getCoordinates().getLatitude(), transport.getCoordinates().getLongitude());
+            if (distanceFromPoint < distanceMax) {
+                closestVelibStations.add(transport.withDistance(distanceFromPoint));
             }
         }
         return closestVelibStations;

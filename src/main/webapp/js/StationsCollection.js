@@ -20,32 +20,6 @@ var StationsCollection = Backbone.Collection.extend({
         this.lat = lat;
         this.lng = lng;
         return this;
-    },
-
-    parse: function (json) {
-        _.each(json, function (station) {
-            station.distance = 1000 * this.calculateKmDistanceBetween(
-                station.coordinates.latitude,
-                station.coordinates.longitude,
-                this.lat,
-                this.lng
-            );
-        }.bind(this));
-        return json;
-    },
-
-    calculateKmDistanceBetween: function (lat1, lng1, lat2, lng2) {
-        var R = 6371;
-        var dLat = (lat2 - lat1).toRad();
-        var dLon = (lng2 - lng1).toRad();
-        var lat1 = lat1.toRad();
-        var lat2 = lat2.toRad();
-
-        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var d = R * c;
-        return d;
     }
 
 });
