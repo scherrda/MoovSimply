@@ -27,7 +27,7 @@ public class VelibApiService implements ApiService {
     private List<Transport> allVelibs = Lists.newArrayList();
 
     public VelibApiService() {
-        // File loading
+        // File reading
         List<VelibStationModel> velibStations = Lists.newArrayList();
         try (InputStream is = VelibApiService.class.getResourceAsStream("VelibStation.json")) {
             Type listType = new TypeToken<ArrayList<VelibStationModel>>() {
@@ -40,7 +40,7 @@ public class VelibApiService implements ApiService {
 
         // Conversion
         for (VelibStationModel velib : velibStations) {
-            allVelibs.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, null));
+            allVelibs.add(new Transport(TransportType.VELIB, new Coordinates(velib.getLatitude(), velib.getLongitude()), null, velib.getName()));
         }
         logger.info("Velibs loaded");
     }

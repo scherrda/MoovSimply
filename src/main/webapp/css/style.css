@@ -186,12 +186,14 @@ a.splash-wrap {
 .line .infos {
     position: absolute;
     top: 12px;
-    height: 28px;
+    height: 33px;
     left: 78px;
     right: 50px;
 }
 
 .line .name {
+    overflow: hidden;
+    height: 14px;
     font-weight: bold;
     color: #3b4342;
     font-size: 12px;

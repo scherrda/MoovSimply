@@ -1,10 +1,13 @@
 package fr.duchesses.moov.apis;
 
 import au.com.bytecode.opencsv.CSVReader;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Transport;
 import fr.duchesses.moov.models.TransportType;
+import fr.duchesses.moov.models.ratp.RatpLineModel;
+import fr.duchesses.moov.models.ratp.RatpStopModel;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -21,10 +24,13 @@ public class RatpApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(RatpApiService.class);
 
-    private List<String[]> stopsCoordinates = Lists.newArrayList();
-    private List<String[]> stopLines = Lists.newArrayList();
+    private List<RatpStopModel> allStops = Lists.newArrayList();
+    private HashMultimap<Integer, RatpLineModel> allStopLines = HashMultimap.create();
 
     public RatpApiService() {
+        // File reading
+        List<String[]> rawStops = Lists.newArrayList();
+        List<String[]> rawStopLines = Lists.newArrayList();
         try {
             InputStreamReader stopCoordInputStreamReader = new InputStreamReader(RatpApiService.class.getClassLoader().getResourceAsStream("ratp_arret_graphique.csv"));
             CSVReader stopCoordinatesReader = new CSVReader(stopCoordInputStreamReader, '#');
@@ -32,20 +38,31 @@ public class RatpApiService implements ApiService {
             InputStreamReader lineStopsInputStreamReader = new InputStreamReader(RatpApiService.class.getClassLoader().getResourceAsStream("ratp_arret_ligne.csv"));
             CSVReader stopLinesReader = new CSVReader(lineStopsInputStreamReader, '#');
 
-            stopsCoordinates = stopCoordinatesReader.readAll();
-            stopLines = stopLinesReader.readAll();
+            rawStops = stopCoordinatesReader.readAll();
+            rawStopLines = stopLinesReader.readAll();
         } catch (FileNotFoundException e) {
             logger.error("RATP : File not found", e);
         } catch (IOException e) {
             logger.error("RATP : I/O error", e);
         }
         logger.info("RATP coordinates and lines loaded");
+
+        // Conversion
+        for (String[] rawStop : rawStops) {
+            allStops.add(new RatpStopModel(rawStop));
+        }
+        logger.info("RATP stops : " + allStops.size());
+        for (String[] rawLine : rawStopLines) {
+            RatpLineModel stopLine = new RatpLineModel(rawLine);
+            allStopLines.put(stopLine.getStopId(), stopLine);
+        }
+        logger.info("RATP stop lines : " + allStopLines.size());
     }
 
     public Collection<Transport> getAllStops() {
         List<Transport> result = Lists.newArrayList();
-        for (String[] stop : stopsCoordinates) {
-            addTransports(result, stopLines, stop, null);
+        for (RatpStopModel stop : allStops) {
+            addTransports(result, allStopLines.get(stop.getId()), stop, null);
         }
 
         return result;
@@ -54,35 +71,25 @@ public class RatpApiService implements ApiService {
 
     public Collection<Transport> getStopsForCoordinates(double latitude, double longitude, double distanceMax) {
         List<Transport> result = Lists.newArrayList();
-        for (String[] stop : stopsCoordinates) {
-            double distanceFromPoint = distance(latitude, longitude, Double.valueOf(stop[2]), Double.valueOf(stop[1]));
+        for (RatpStopModel stop : allStops) {
+            double distanceFromPoint = distance(latitude, longitude, stop.getLatitude(), stop.getLongitude());
             if (distanceFromPoint < distanceMax) {
-                addTransports(result, stopLines, stop, distanceFromPoint);
+                addTransports(result, allStopLines.get(stop.getId()), stop, distanceFromPoint);
             }
         }
 
         return result;
     }
 
-    private void addTransports(List<Transport> result, List<String[]> stopLines, String[] stop, Double distanceFromPoint) {
-        for (String[] stopLine : stopLines) {
-            if (stopLine[0].equals(stop[0])) {
-                String[] lines = stopLine[1].split(" ", 2);
-                Transport transport;
+    private void addTransports(List<Transport> result, Collection<RatpLineModel> stopLines, RatpStopModel stop, Double distanceFromPoint) {
+        for (RatpLineModel stopLine : stopLines) {
+            Transport transport = new Transport(TransportType.valueOf(stop.getType().toUpperCase()), new Coordinates(
+                    stop.getLatitude(), stop.getLongitude()), stopLine.getNumber(), stop.getName() + " " + stopLine.getName());
 
-                if (lines.length == 2) {
-                    transport = new Transport(TransportType.valueOf(stop[5].toUpperCase()), new Coordinates(
-                            Double.parseDouble(stop[2]), Double.parseDouble(stop[1])), lines[0], lines[1]);
-                } else {
-                    transport = new Transport(TransportType.valueOf(stop[5].toUpperCase()), new Coordinates(
-                            Double.parseDouble(stop[2]), Double.parseDouble(stop[1])), lines[0], null);
-                }
-
-                if (distanceFromPoint != null) {
-                    result.add(transport.withDistance(distanceFromPoint));
-                } else {
-                    result.add(transport);
-                }
+            if (distanceFromPoint != null) {
+                result.add(transport.withDistance(distanceFromPoint));
+            } else {
+                result.add(transport);
             }
         }
     }
