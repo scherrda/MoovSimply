@@ -32,10 +32,10 @@ public class RatpApiService implements ApiService {
         List<String[]> rawStops = Lists.newArrayList();
         List<String[]> rawStopLines = Lists.newArrayList();
         try {
-            InputStreamReader stopCoordInputStreamReader = new InputStreamReader(RatpApiService.class.getClassLoader().getResourceAsStream("ratp_arret_graphique.csv"));
+            InputStreamReader stopCoordInputStreamReader = new InputStreamReader(RatpApiService.class.getClassLoader().getResourceAsStream("ratp_arret_graphique.csv"), "UTF-8");
             CSVReader stopCoordinatesReader = new CSVReader(stopCoordInputStreamReader, '#');
 
-            InputStreamReader lineStopsInputStreamReader = new InputStreamReader(RatpApiService.class.getClassLoader().getResourceAsStream("ratp_arret_ligne.csv"));
+            InputStreamReader lineStopsInputStreamReader = new InputStreamReader(RatpApiService.class.getClassLoader().getResourceAsStream("ratp_arret_ligne.csv"), "UTF-8");
             CSVReader stopLinesReader = new CSVReader(lineStopsInputStreamReader, '#');
 
             rawStops = stopCoordinatesReader.readAll();
