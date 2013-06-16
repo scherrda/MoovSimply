@@ -1,5 +1,10 @@
 /*** General ***/
 html, body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: 0;
     padding: 0;
     font-family: Arial, serif;
@@ -11,6 +16,24 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+/*** Mobile interface ***/
+.mobile-screen {
+    min-height: 324px;
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+.withTopBar {
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
 }
 
 /*** Splash screen ***/
@@ -66,28 +89,35 @@ a.splash-wrap {
 
 .splash .button {
     position: absolute;
-    bottom: 20px;
+    bottom: 5%;
     left: 50%;
     margin-left: -84px;
 }
 
-/*** Mobile interface ***/
-.mobile-screen {
-    position: relative;
-    margin: 0 auto;
-    height: 100%;
-    overflow: hidden;
+/*** Splash screen for small screens ***/
+@media screen and (max-height: 430px) {
+    .splash .logo {
+        top: 5px;
+    }
+
+    .splash .legend {
+        top: 45px;
+    }
+
+    .splash .pictos {
+        top: 85px;
+    }
+
+    .splash .description {
+        display: none;
+    }
+
+    .splash .button {
+        bottom: 5px;
+    }
 }
 
-.withTopBar {
-    position: absolute;
-    top: 45px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow-y: scroll;
-}
-
+/*** Top Bar ***/
 .header {
     position: absolute;
     z-index: 99;
@@ -132,6 +162,10 @@ a.splash-wrap {
     background-image: url('../img/mode-map.png');
 }
 
+.switch-load {
+    background: url('../img/mode-load.gif') no-repeat 2px 1px;
+}
+
 /*** Map ***/
 #map-canvas {
     position: absolute;
@@ -142,6 +176,12 @@ a.splash-wrap {
 }
 
 /*** List ***/
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .no-station {
     position: absolute;
@@ -178,8 +218,10 @@ a.splash-wrap {
 
 .line .number {
     position: absolute;
+    width: 30px;
     top: 15px;
-    left: 48px;
+    left: 45px;
+    text-overflow: clip;
     font-size: 15px;
 }
 
@@ -192,12 +234,11 @@ a.splash-wrap {
 }
 
 .line .name {
-    overflow: hidden;
-    height: 14px;
+    width: 100%;
     font-weight: bold;
     color: #3b4342;
     font-size: 12px;
-    padding-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .line .distance {

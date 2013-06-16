@@ -2,24 +2,34 @@ var TopBarView = Backbone.View.extend({
 
     className: 'header',
 
+    events: {
+        'click .switch': 'loading'
+    },
+
     render: function () {
         this.$el.html($('#topbar-tmpl').html());
         return this;
     },
 
+    loading: function () {
+        this.changeClass('switch-load');
+    },
+
     switchToMap: function () {
-        this.$('.switch')
-            .removeClass('switch-map')
-            .addClass('switch-list')
-            .attr('href', '#list');
-        this.$el.show();
+        this.changeClass('switch-list', '#list');
     },
 
     switchToList: function () {
+        this.changeClass('switch-map', '#map');
+    },
+
+    changeClass: function (newClass, newHref) {
         this.$('.switch')
-            .removeClass('switch-list')
-            .addClass('switch-map')
-            .attr('href', '#map');
+            .attr('class', 'switch')
+            .addClass(newClass);
+        if (newHref) {
+            this.$('.switch').attr('href', newHref);
+        }
         this.$el.show();
     },
 

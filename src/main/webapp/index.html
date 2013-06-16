@@ -1,8 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <title>Moov'Simply</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -55,11 +57,11 @@
         <img src="img/types/{{lowercase type}}.png">
 
         {{#isnt lineNumber 0}}
-        <div class="number">{{lineNumber}}</div>
+        <div class="number truncate">{{lineNumber}}</div>
         {{/isnt}}
 
         <div class="infos">
-            <div class="name">{{name}}</div>
+            <div class="name truncate">{{name}}</div>
             <div class="distance">à {{round distance}}m à pied</div>
             <div class="localize">Localiser</div>
         </div>

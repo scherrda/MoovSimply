@@ -29,11 +29,11 @@ var ListView = Backbone.View.extend({
         }
 
         stations.sort();
-        stations.each(function (station) {
+        stations.each(_.bind(function (station) {
             var lineView = new ListLineView({model: station}).render();
             this.$el.append(lineView.el);
             this.lines.push(lineView);
-        }.bind(this));
+        }, this));
     },
 
     renderExampleLine: function () {
