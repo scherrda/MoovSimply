@@ -22,7 +22,6 @@ var GMapView = Backbone.View.extend({
     render: function () {
         var mapOptions = {
             zoom: 16,
-            center: new google.maps.LatLng(48.87525, 2.31110),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             styles: [
                 {
@@ -68,11 +67,10 @@ var GMapView = Backbone.View.extend({
     },
 
     geolocalize: function () {
-        if (navigator.geolocation) {
-            this.watchId = navigator.geolocation.watchPosition(this.refreshMyMarkerAndCenter.bind(this), this.errorGeoloc.bind(this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
-        }
-        else {
-            console.log("Pas de géolocalisation HTML5 possible avec ce navigateur");
+        if (navigator.geolocation && navigator.geolocation.watchPosition) {
+            this.watchId = navigator.geolocation.watchPosition(_.bind(this.refreshMyMarkerAndCenter, this), _.bind(this.errorGeoloc, this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+        } else {
+            alert('La géolocalisation n’est pas possible avec ce navigateur');
         }
         return this;
     },
@@ -93,13 +91,13 @@ var GMapView = Backbone.View.extend({
     errorGeoloc: function (error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                console.log("L'utilisateur n'a pas autorisé l'accès à sa position");
+                alert('Vous n’avez pas autorisé l’accès à votre position');
                 break;
             case error.POSITION_UNAVAILABLE:
-                console.log("Votre position n'a pas pu être déterminée");
+                alert('Votre position n’a pas pu être déterminée');
                 break;
             case error.TIMEOUT:
-                console.log("Timeout geo html5");
+                console.log('Timeout geo html5');
                 break;
         }
     },
@@ -117,7 +115,7 @@ var GMapView = Backbone.View.extend({
             marker.setMap(null);
         });
         this.currentMarkers = [];
-        stations.each(function (station) {
+        stations.each(_.bind(function (station) {
             var stationMarker = new google.maps.Marker({
                 position: new google.maps.LatLng(station.get('coordinates').latitude, station.get('coordinates').longitude),
                 title: station.get('type') + ' ' + station.get('lineNumber'),
@@ -129,14 +127,14 @@ var GMapView = Backbone.View.extend({
             station.set('marker', stationMarker);
             this.currentMarkers.push(stationMarker);
 
-            google.maps.event.addListener(stationMarker, 'click', function () {
+            google.maps.event.addListener(stationMarker, 'click', _.bind(function () {
                 this.trigger('details:show', station);
-            }.bind(this));
-            google.maps.event.addListener(this.map, 'click', function () {
+            }, this));
+            google.maps.event.addListener(this.map, 'click', _.bind(function () {
                 this.trigger('details:hide');
-            }.bind(this));
+            }, this));
 
-        }.bind(this));
+        }, this));
     },
 
     turnOnMarker: function (stationMarker) {
