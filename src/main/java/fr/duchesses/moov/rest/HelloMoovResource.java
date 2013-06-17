@@ -50,11 +50,14 @@ public class HelloMoovResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<Transport> getTransportsAroundMe(@QueryParam("LAT") String lat, @QueryParam("LNG") String lng) {
         List<Transport> transports = Lists.newArrayList();
-        final Double latitude = Double.valueOf(lat);
-        final Double longitude = Double.valueOf(lng);
-        transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, distanceAroundMax));
-        transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude, distanceAroundMax));
-        transports.addAll(autolibApiService.getAutolibs(latitude, longitude, distanceAroundMax));
+        if(lat != null || lng != null){
+        	final Double latitude = Double.valueOf(lat);
+            final Double longitude = Double.valueOf(lng);
+            transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, distanceAroundMax));
+            transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude, distanceAroundMax));
+            transports.addAll(autolibApiService.getAutolibs(latitude, longitude, distanceAroundMax));
+            
+        }
         return transports;
     }
 
