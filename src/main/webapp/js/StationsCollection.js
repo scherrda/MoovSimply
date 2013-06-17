@@ -17,8 +17,8 @@ var StationsCollection = Backbone.Collection.extend({
     },
 
     setCoordinates: function (lat, lng) {
-        this.lat = lat;
-        this.lng = lng;
+        this.lat = lat==null? 0 : lat;
+        this.lng = lng==null? 0 : lng;
         return this;
     }
 
