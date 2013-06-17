@@ -11,6 +11,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -50,7 +53,7 @@ public class HelloMoovResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<Transport> getTransportsAroundMe(@QueryParam("LAT") String lat, @QueryParam("LNG") String lng) {
         List<Transport> transports = Lists.newArrayList();
-        if(lat != null || lng != null){
+        if((StringUtils.isNotBlank(lat)|| !lat.equals("0")) && (StringUtils.isNotBlank(lng) || !lng.equals("0"))){
         	final Double latitude = Double.valueOf(lat);
             final Double longitude = Double.valueOf(lng);
             transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, distanceAroundMax));
