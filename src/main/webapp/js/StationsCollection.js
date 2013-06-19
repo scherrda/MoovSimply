@@ -1,10 +1,3 @@
-/** Converts numeric degrees to radians */
-if (typeof(Number.prototype.toRad) === "undefined") {
-    Number.prototype.toRad = function () {
-        return this * Math.PI / 180;
-    }
-}
-
 var StationsCollection = Backbone.Collection.extend({
 
     url: function () {
@@ -17,8 +10,8 @@ var StationsCollection = Backbone.Collection.extend({
     },
 
     setCoordinates: function (lat, lng) {
-        this.lat = lat==null? 0 : lat;
-        this.lng = lng==null? 0 : lng;
+        this.lat = lat == null ? 0 : lat;
+        this.lng = lng == null ? 0 : lng;
         return this;
     }
 

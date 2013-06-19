@@ -209,20 +209,26 @@ a.splash-wrap {
     border-bottom: 1px solid #aeadad;
 }
 
-.line img {
+.line img.type {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    margin: 9px;
+    max-width: 31px;
+    margin: 7px;
 }
 
-.line .number {
+.line .lineNumber-wrapper {
     position: absolute;
+    left: 40px;
+    height: 45px;
     width: 30px;
-    top: 15px;
-    left: 45px;
-    text-overflow: clip;
-    font-size: 15px;
+    overflow: hidden;
+    line-height: 45px;
+    text-align: center;
+}
+
+.line img.lineNumber {
+    max-height: 45px;
+    max-width: 30px;
+    vertical-align: middle;
 }
 
 .line .infos {

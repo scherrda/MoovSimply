@@ -848,5 +848,2935 @@
         "lineNumber": null,
         "name": "91 Rue du Faubourg Saint-Honoré",
         "distance": 385.72189461249246
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8585195224421,
+            "longitude": 2.34711940104793
+        },
+        "lineNumber": "7",
+        "name": "Châtelet (Villejuif - Louis Aragon / Mairie d'Ivry/La Courneuve - 8 mai 1945)",
+        "distance": 294.55642974043815
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8585195224421,
+            "longitude": 2.34711940104793
+        },
+        "lineNumber": "11",
+        "name": "Châtelet (Châtelet/Mairie des Lilas)",
+        "distance": 294.55642974043815
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8585195224421,
+            "longitude": 2.34711940104793
+        },
+        "lineNumber": "14",
+        "name": "Châtelet (Olympiades/Saint-Lazare)",
+        "distance": 294.55642974043815
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8585195224421,
+            "longitude": 2.34711940104793
+        },
+        "lineNumber": "1",
+        "name": "Châtelet (La Défense/Château de Vincennes)",
+        "distance": 294.55642974043815
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8585195224421,
+            "longitude": 2.34711940104793
+        },
+        "lineNumber": "4",
+        "name": "Châtelet (Porte d'Orléans (Général Leclerc)/Porte de Clignancourt)",
+        "distance": 294.55642974043815
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8634946589771,
+            "longitude": 2.34866984004444
+        },
+        "lineNumber": "4",
+        "name": "Etienne Marcel (Porte d'Orléans (Général Leclerc)/Porte de Clignancourt)",
+        "distance": 300.3737448836213
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.862194721152,
+            "longitude": 2.34583626729201
+        },
+        "lineNumber": "4",
+        "name": "Les Halles (Porte d'Orléans (Général Leclerc)/Porte de Clignancourt)",
+        "distance": 130.05346861273344
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8605382946574,
+            "longitude": 2.34100049025543
+        },
+        "lineNumber": "1",
+        "name": "Louvre-Rivoli (La Défense/Château de Vincennes)",
+        "distance": 417.59714073817776
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8584022524727,
+            "longitude": 2.34194923634659
+        },
+        "lineNumber": "7",
+        "name": "Pont Neuf (Villejuif - Louis Aragon / Mairie d'Ivry/La Courneuve - 8 mai 1945)",
+        "distance": 459.01450793533854
+    },
+    {
+        "type": "RER",
+        "coordinates": {
+            "latitude": 48.8611491276514,
+            "longitude": 2.34663294001898
+        },
+        "lineNumber": "A",
+        "name": "Chatelet-Les Halles (Marne-la-Vallée-Chessy - Boissy-St-Leger/Cergy-St-Christophe - Poissy - St-Germain-en-Laye)",
+        "distance": 0.0
+    },
+    {
+        "type": "RER",
+        "coordinates": {
+            "latitude": 48.8611491276514,
+            "longitude": 2.34663294001898
+        },
+        "lineNumber": "B",
+        "name": "Chatelet-Les Halles (St-Rémy-les-Chevreuse - Robinson/Roissy-Aéroport-Charles-de-Gaulle - Mitry-Claye)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604564511262,
+            "longitude": 2.35280998972847
+        },
+        "lineNumber": "38",
+        "name": "CENTRE GEORGES POMPIDOU (PORTE D'ORLEANS/)",
+        "distance": 458.39369986830087
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604564511262,
+            "longitude": 2.35280998972847
+        },
+        "lineNumber": "75",
+        "name": "CENTRE GEORGES POMPIDOU (PORTE DE PANTIN/PONT NEUF)",
+        "distance": 458.39369986830087
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604564511262,
+            "longitude": 2.35280998972847
+        },
+        "lineNumber": "47",
+        "name": "CENTRE GEORGES POMPIDOU (FORT DU KREMLIN-BICETRE/GARE DE L'EST)",
+        "distance": 458.39369986830087
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604564511262,
+            "longitude": 2.35280998972847
+        },
+        "lineNumber": "38",
+        "name": "CENTRE GEORGES POMPIDOU (PORTE D'ORLEANS/GARE DU NORD)",
+        "distance": 458.39369986830087
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8580394341584,
+            "longitude": 2.34723848890509
+        },
+        "lineNumber": "81",
+        "name": "CHATELET (PORTE DE SAINT OUEN/CHATELET)",
+        "distance": 348.60827551517934
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8578955603681,
+            "longitude": 2.3480965489812
+        },
+        "lineNumber": "38",
+        "name": "CHATELET (PORTE D'ORLEANS/GARE DU NORD)",
+        "distance": 377.2919977825501
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8578955603681,
+            "longitude": 2.3480965489812
+        },
+        "lineNumber": "47",
+        "name": "CHATELET (FORT DU KREMLIN-BICETRE/GARE DE L'EST)",
+        "distance": 377.2919977825501
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.858749416002,
+            "longitude": 2.34752465957098
+        },
+        "lineNumber": "58",
+        "name": "CHATELET (VANVES-LYCEE MICHELET/CHATELET)",
+        "distance": 274.6940205408932
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8583448569232,
+            "longitude": 2.34888663533768
+        },
+        "lineNumber": "76",
+        "name": "CHATELET (LOUISE MICHEL/LOUVRE - RIVOLI)",
+        "distance": 352.7242923026637
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8583448569232,
+            "longitude": 2.34888663533768
+        },
+        "lineNumber": "67",
+        "name": "CHATELET (/PIGALLE)",
+        "distance": 352.7242923026637
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8583448569232,
+            "longitude": 2.34888663533768
+        },
+        "lineNumber": "67",
+        "name": "CHATELET (STADE CHARLETY-PORTE DE GENTILLY/PIGALLE)",
+        "distance": 352.7242923026637
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8583448569232,
+            "longitude": 2.34888663533768
+        },
+        "lineNumber": "69",
+        "name": "CHATELET (CHAMP DE MARS/GAMBETTA)",
+        "distance": 352.7242923026637
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8573924567184,
+            "longitude": 2.34572651007007
+        },
+        "lineNumber": "81",
+        "name": "CHATELET (PORTE DE SAINT OUEN/CHATELET)",
+        "distance": 422.95325549329135
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8572935662628,
+            "longitude": 2.34612148211365
+        },
+        "lineNumber": "21",
+        "name": "CHATELET (STADE CHARLETY - PORTE DE GENTILLY/GARE SAINT-LAZARE)",
+        "distance": 430.348527007291
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8572935662628,
+            "longitude": 2.34612148211365
+        },
+        "lineNumber": "85",
+        "name": "CHATELET (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 430.348527007291
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.859010100138,
+            "longitude": 2.34693901965623
+        },
+        "lineNumber": "21",
+        "name": "CHATELET (STADE CHARLETY - PORTE DE GENTILLY/GARE SAINT-LAZARE)",
+        "distance": 238.90065052590845
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.859010100138,
+            "longitude": 2.34693901965623
+        },
+        "lineNumber": "70",
+        "name": "CHATELET (RADIO FRANCE/HOTEL DE VILLE DE PARIS_4E__ARRONDISSEMENT)",
+        "distance": 238.90065052590845
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.859010100138,
+            "longitude": 2.34693901965623
+        },
+        "lineNumber": "72",
+        "name": "CHATELET (PARC DE SAINT CLOUD/HOTEL DE VILLE)",
+        "distance": 238.90065052590845
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.859010100138,
+            "longitude": 2.34693901965623
+        },
+        "lineNumber": "85",
+        "name": "CHATELET (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 238.90065052590845
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.859010100138,
+            "longitude": 2.34693901965623
+        },
+        "lineNumber": "75",
+        "name": "CHATELET (PORTE DE PANTIN/PONT NEUF)",
+        "distance": 238.90065052590845
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.859010100138,
+            "longitude": 2.34693901965623
+        },
+        "lineNumber": "74",
+        "name": "CHATELET (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 238.90065052590845
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8575180298427,
+            "longitude": 2.3487230057696
+        },
+        "lineNumber": "38",
+        "name": "CHATELET (PORTE D'ORLEANS/)",
+        "distance": 431.7414574593709
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8575180298427,
+            "longitude": 2.3487230057696
+        },
+        "lineNumber": "38",
+        "name": "CHATELET (PORTE D'ORLEANS/GARE DU NORD)",
+        "distance": 431.7414574593709
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8575539938796,
+            "longitude": 2.34857318985983
+        },
+        "lineNumber": "58",
+        "name": "CHATELET.. (VANVES-LYCEE MICHELET/CHATELET)",
+        "distance": 424.2121066719464
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8633513046511,
+            "longitude": 2.34221304029484
+        },
+        "lineNumber": "67",
+        "name": "COQUILLIERE - LES HALLES (/PIGALLE)",
+        "distance": 405.58655189156576
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8633513046511,
+            "longitude": 2.34221304029484
+        },
+        "lineNumber": "67",
+        "name": "COQUILLIERE - LES HALLES (STADE CHARLETY-PORTE DE GENTILLY/PIGALLE)",
+        "distance": 405.58655189156576
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8634501635861,
+            "longitude": 2.34226753734912
+        },
+        "lineNumber": "85",
+        "name": "COQUILLIERE-LES HALLES (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 409.1975223198989
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8634501635861,
+            "longitude": 2.34226753734912
+        },
+        "lineNumber": "74",
+        "name": "COQUILLIERE-LES HALLES (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 409.1975223198989
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8632434707877,
+            "longitude": 2.3418452401544
+        },
+        "lineNumber": "74",
+        "name": "COQUILLIERE-LES HALLES (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 420.5881421919094
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8632434707877,
+            "longitude": 2.3418452401544
+        },
+        "lineNumber": "85",
+        "name": "COQUILLIERE-LES HALLES (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 420.5881421919094
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8647441766808,
+            "longitude": 2.34534628864436
+        },
+        "lineNumber": "29",
+        "name": "ETIENNE MARCEL - MONTMARTRE (PORTE DE MONTEMPOIVRE/GARE SAINT-LAZARE)",
+        "distance": 410.6818322697297
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8647532176063,
+            "longitude": 2.34451533328919
+        },
+        "lineNumber": "29",
+        "name": "ETIENNE MARCEL - MONTMARTRE (PORTE DE MONTEMPOIVRE/GARE SAINT-LAZARE)",
+        "distance": 429.65257415882814
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8577424919245,
+            "longitude": 2.35084783792926
+        },
+        "lineNumber": "75",
+        "name": "HOTEL DE VILLE DE PARIS_4E__ARRONDISSEMENT (PORTE DE PANTIN/PONT NEUF)",
+        "distance": 488.4330040884836
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8606725322957,
+            "longitude": 2.3495273524964
+        },
+        "lineNumber": "38",
+        "name": "LES HALLES - CENTRE GEORGES POMPIDOU (PORTE D'ORLEANS/GARE DU NORD)",
+        "distance": 218.2689026187184
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8606725322957,
+            "longitude": 2.3495273524964
+        },
+        "lineNumber": "47",
+        "name": "LES HALLES - CENTRE GEORGES POMPIDOU (FORT DU KREMLIN-BICETRE/GARE DE L'EST)",
+        "distance": 218.2689026187184
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8647533179836,
+            "longitude": 2.34262184165519
+        },
+        "lineNumber": "74",
+        "name": "LOUVRE-ETIENNE MARCEL (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 496.69658877939486
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8647533179836,
+            "longitude": 2.34262184165519
+        },
+        "lineNumber": "85",
+        "name": "LOUVRE-ETIENNE MARCEL (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 496.69658877939486
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8605652651281,
+            "longitude": 2.34072806936527
+        },
+        "lineNumber": "76",
+        "name": "LOUVRE - RIVOLI (LOUISE MICHEL/LOUVRE - RIVOLI)",
+        "distance": 436.81657429442396
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8600350251318,
+            "longitude": 2.34008784671046
+        },
+        "lineNumber": "21",
+        "name": "LOUVRE - RIVOLI (STADE CHARLETY - PORTE DE GENTILLY/GARE SAINT-LAZARE)",
+        "distance": 494.56914980737747
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.860619195336,
+            "longitude": 2.34052375563722
+        },
+        "lineNumber": "67",
+        "name": "LOUVRE - RIVOLI (STADE CHARLETY-PORTE DE GENTILLY/PIGALLE)",
+        "distance": 450.7791338349509
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8607000480572,
+            "longitude": 2.34158621256987
+        },
+        "lineNumber": "21",
+        "name": "LOUVRE - RIVOLI (STADE CHARLETY - PORTE DE GENTILLY/GARE SAINT-LAZARE)",
+        "distance": 372.54965910868685
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8612123471894,
+            "longitude": 2.34108226683374
+        },
+        "lineNumber": "67",
+        "name": "LOUVRE - RIVOLI (/PIGALLE)",
+        "distance": 406.1122762668505
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8612123471894,
+            "longitude": 2.34108226683374
+        },
+        "lineNumber": "67",
+        "name": "LOUVRE - RIVOLI (STADE CHARLETY-PORTE DE GENTILLY/PIGALLE)",
+        "distance": 406.1122762668505
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8608168957338,
+            "longitude": 2.34125931333976
+        },
+        "lineNumber": "69",
+        "name": "LOUVRE - RIVOLI (CHAMP DE MARS/GAMBETTA)",
+        "distance": 394.83346138154656
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8613022189703,
+            "longitude": 2.34115038014717
+        },
+        "lineNumber": "85",
+        "name": "LOUVRE-RIVOLI (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 401.4294399371277
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8613022189703,
+            "longitude": 2.34115038014717
+        },
+        "lineNumber": "74",
+        "name": "LOUVRE-RIVOLI (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 401.4294399371277
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.86114047042,
+            "longitude": 2.34030584782396
+        },
+        "lineNumber": "72",
+        "name": "LOUVRE-RIVOLI (PARC DE SAINT CLOUD/HOTEL DE VILLE)",
+        "distance": 462.8505684364855
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8602237583759,
+            "longitude": 2.34018320439243
+        },
+        "lineNumber": "74",
+        "name": "LOUVRE-RIVOLI (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 482.91526245015723
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.86114047042,
+            "longitude": 2.34030584782396
+        },
+        "lineNumber": "81",
+        "name": "LOUVRE-RIVOLI (PORTE DE SAINT OUEN/CHATELET)",
+        "distance": 462.8505684364855
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604484400898,
+            "longitude": 2.34031942819942
+        },
+        "lineNumber": "81",
+        "name": "LOUVRE-RIVOLI (PORTE DE SAINT OUEN/CHATELET)",
+        "distance": 468.38492687501673
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604484400898,
+            "longitude": 2.34031942819942
+        },
+        "lineNumber": "BALABUS",
+        "name": "LOUVRE-RIVOLI (LA DEFENSE-METRO-RER-TRAMWAY/GARE DE LYON)",
+        "distance": 468.38492687501673
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8604484400898,
+            "longitude": 2.34031942819942
+        },
+        "lineNumber": "85",
+        "name": "LOUVRE-RIVOLI (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 468.38492687501673
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8589025239864,
+            "longitude": 2.34262123598523
+        },
+        "lineNumber": "75",
+        "name": "PONT NEUF (PORTE DE PANTIN/PONT NEUF)",
+        "distance": 385.40152888863867
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8591991012055,
+            "longitude": 2.34278471608139
+        },
+        "lineNumber": "58",
+        "name": "PONT NEUF - QUAI DU LOUVRE (VANVES-LYCEE MICHELET/CHATELET)",
+        "distance": 355.34255419443235
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8591991012055,
+            "longitude": 2.34278471608139
+        },
+        "lineNumber": "70",
+        "name": "PONT NEUF - QUAI DU LOUVRE (RADIO FRANCE/HOTEL DE VILLE DE PARIS_4E__ARRONDISSEMENT)",
+        "distance": 355.34255419443235
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8585430840511,
+            "longitude": 2.34116379341917
+        },
+        "lineNumber": "76",
+        "name": "PONT NEUF - QUAI DU LOUVRE (LOUISE MICHEL/LOUVRE - RIVOLI)",
+        "distance": 494.0144636267106
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8585430840511,
+            "longitude": 2.34116379341917
+        },
+        "lineNumber": "24",
+        "name": "PONT NEUF - QUAI DU LOUVRE (ECOLE VETERINAIRE DE MAISONS-ALFORT/)",
+        "distance": 494.0144636267106
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8585430840511,
+            "longitude": 2.34116379341917
+        },
+        "lineNumber": "69",
+        "name": "PONT NEUF - QUAI DU LOUVRE (CHAMP DE MARS/GAMBETTA)",
+        "distance": 494.0144636267106
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8581475726872,
+            "longitude": 2.3427982244337
+        },
+        "lineNumber": "75",
+        "name": "PONT NEUF - QUAI DU LOUVRE (PORTE DE PANTIN/PONT NEUF)",
+        "distance": 435.9956303106134
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8581475726872,
+            "longitude": 2.3427982244337
+        },
+        "lineNumber": "67",
+        "name": "PONT NEUF - QUAI DU LOUVRE (STADE CHARLETY-PORTE DE GENTILLY/PIGALLE)",
+        "distance": 435.9956303106134
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8581475726872,
+            "longitude": 2.3427982244337
+        },
+        "lineNumber": "70",
+        "name": "PONT NEUF - QUAI DU LOUVRE (RADIO FRANCE/HOTEL DE VILLE DE PARIS_4E__ARRONDISSEMENT)",
+        "distance": 435.9956303106134
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8581475726872,
+            "longitude": 2.3427982244337
+        },
+        "lineNumber": "58",
+        "name": "PONT NEUF - QUAI DU LOUVRE (VANVES-LYCEE MICHELET/CHATELET)",
+        "distance": 435.9956303106134
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8585161163163,
+            "longitude": 2.34132723863083
+        },
+        "lineNumber": "BALABUS",
+        "name": "PONT NEUF-QUAI DU LOUVRE (LA DEFENSE-METRO-RER-TRAMWAY/GARE DE LYON)",
+        "distance": 486.181403420368
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8585161163163,
+            "longitude": 2.34132723863083
+        },
+        "lineNumber": "81",
+        "name": "PONT NEUF-QUAI DU LOUVRE (PORTE DE SAINT OUEN/CHATELET)",
+        "distance": 486.181403420368
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8581655468956,
+            "longitude": 2.3428118468672
+        },
+        "lineNumber": "74",
+        "name": "PONT NEUF-QUAI DU LOUVRE (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 433.8247258156896
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8581655468956,
+            "longitude": 2.3428118468672
+        },
+        "lineNumber": "72",
+        "name": "PONT NEUF-QUAI DU LOUVRE (PARC DE SAINT CLOUD/HOTEL DE VILLE)",
+        "distance": 433.8247258156896
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8598191520027,
+            "longitude": 2.3443103281714
+        },
+        "lineNumber": "69",
+        "name": "RIVOLI - PONT NEUF (CHAMP DE MARS/GAMBETTA)",
+        "distance": 225.25479442577347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8598191520027,
+            "longitude": 2.3443103281714
+        },
+        "lineNumber": "76",
+        "name": "RIVOLI - PONT NEUF (LOUISE MICHEL/LOUVRE - RIVOLI)",
+        "distance": 225.25479442577347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8599449984755,
+            "longitude": 2.34391533690321
+        },
+        "lineNumber": "67",
+        "name": "RIVOLI - PONT NEUF (STADE CHARLETY-PORTE DE GENTILLY/PIGALLE)",
+        "distance": 239.68877364704548
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8599449984755,
+            "longitude": 2.34391533690321
+        },
+        "lineNumber": "67",
+        "name": "RIVOLI - PONT NEUF (/PIGALLE)",
+        "distance": 239.68877364704548
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8598910632054,
+            "longitude": 2.3441060234833
+        },
+        "lineNumber": "21",
+        "name": "RIVOLI - PONT NEUF (STADE CHARLETY - PORTE DE GENTILLY/GARE SAINT-LAZARE)",
+        "distance": 231.82066086922399
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8596933050586,
+            "longitude": 2.34469169660975
+        },
+        "lineNumber": "74",
+        "name": "RIVOLI-PONT NEUF (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 215.34225142167907
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8597652160947,
+            "longitude": 2.34450101387798
+        },
+        "lineNumber": "81",
+        "name": "RIVOLI-PONT NEUF (PORTE DE SAINT OUEN/CHATELET)",
+        "distance": 219.09782378787497
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8597652160947,
+            "longitude": 2.34450101387798
+        },
+        "lineNumber": "72",
+        "name": "RIVOLI-PONT NEUF (PARC DE SAINT CLOUD/HOTEL DE VILLE)",
+        "distance": 219.09782378787497
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8597652160947,
+            "longitude": 2.34450101387798
+        },
+        "lineNumber": "85",
+        "name": "RIVOLI-PONT NEUF (MAIRIE DE SAINT OUEN/LUXEMBOURG)",
+        "distance": 219.09782378787497
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8631618544276,
+            "longitude": 2.35121704789362
+        },
+        "lineNumber": "29",
+        "name": "SEBASTOPOL - ETIENNE MARCEL (PORTE DE MONTEMPOIVRE/GARE SAINT-LAZARE)",
+        "distance": 403.1621649336835
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8634674926955,
+            "longitude": 2.3506313883023
+        },
+        "lineNumber": "29",
+        "name": "SEBASTOPOL - ETIENNE MARCEL (PORTE DE MONTEMPOIVRE/GARE SAINT-LAZARE)",
+        "distance": 389.8829253042536
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8638541825684,
+            "longitude": 2.3483702350648
+        },
+        "lineNumber": "29",
+        "name": "TURBIGO - ETIENNE MARCEL (PORTE DE MONTEMPOIVRE/GARE SAINT-LAZARE)",
+        "distance": 326.53405275725675
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8642313172613,
+            "longitude": 2.35151702219137
+        },
+        "lineNumber": "47",
+        "name": "TURBIGO - ETIENNE MARCEL (FORT DU KREMLIN-BICETRE/GARE DE L'EST)",
+        "distance": 495.0824207553559
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8642313172613,
+            "longitude": 2.35151702219137
+        },
+        "lineNumber": "38",
+        "name": "TURBIGO - ETIENNE MARCEL (PORTE D'ORLEANS/GARE DU NORD)",
+        "distance": 495.0824207553559
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8640249478469,
+            "longitude": 2.34831578347029
+        },
+        "lineNumber": "29",
+        "name": "TURBIGO - ETIENNE MARCEL (PORTE DE MONTEMPOIVRE/GARE SAINT-LAZARE)",
+        "distance": 342.65334005068894
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86008832610481,
+            "longitude": 2.350148335920203
+        },
+        "lineNumber": null,
+        "name": "BEAUBOURG PLACE MICHELET",
+        "distance": 282.9279091973822
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.865021945810085,
+            "longitude": 2.345068440144759
+        },
+        "lineNumber": null,
+        "name": "MONTORGUEIL RUE MONTMARTRE VERSION 2",
+        "distance": 445.58542023456164
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86356704711952,
+            "longitude": 2.347702021141098
+        },
+        "lineNumber": null,
+        "name": "ETIENNE MARCEL",
+        "distance": 280.003503137181
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86299816676784,
+            "longitude": 2.341555077827231
+        },
+        "lineNumber": null,
+        "name": "BOURSE DU COMMERCE",
+        "distance": 424.56237997079063
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.857999643314926,
+            "longitude": 2.350217280976349
+        },
+        "lineNumber": null,
+        "name": "RIVOLI SEBASTOPOL",
+        "distance": 437.4948865070129
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.864065046949904,
+            "longitude": 2.347597912716465
+        },
+        "lineNumber": null,
+        "name": "FRANCAISE",
+        "distance": 331.83044723258917
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.859150287255645,
+            "longitude": 2.347620087684511
+        },
+        "lineNumber": null,
+        "name": "RIVOLI SAINT DENIS",
+        "distance": 233.6983008712456
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.85946238924527,
+            "longitude": 2.344366128446111
+        },
+        "lineNumber": null,
+        "name": "PONT NEUF",
+        "distance": 250.35280992418507
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.860245194532624,
+            "longitude": 2.344333545273837
+        },
+        "lineNumber": null,
+        "name": "PONT NEUF",
+        "distance": 195.95303709658577
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.857940092963034,
+            "longitude": 2.347010058114489
+        },
+        "lineNumber": null,
+        "name": "PLACE DU CHATELET",
+        "distance": 357.893296713765
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.864582377464885,
+            "longitude": 2.346282111667021
+        },
+        "lineNumber": null,
+        "name": "MONTORGUEIL ETIENNE MARCEL",
+        "distance": 382.62159094353365
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86263180415945,
+            "longitude": 2.349732144830979
+        },
+        "lineNumber": null,
+        "name": "GRANDE TRUANDERIE",
+        "distance": 280.3218629788884
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.859896314441485,
+            "longitude": 2.346756667548724
+        },
+        "lineNumber": null,
+        "name": "MARGUERITE DE NAVARRE",
+        "distance": 139.60020815383712
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.861419072223185,
+            "longitude": 2.35258144286207
+        },
+        "lineNumber": null,
+        "name": "BEAUBOURG RAMBUTEAU",
+        "distance": 436.18720812598286
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.858828988192535,
+            "longitude": 2.35189147061665
+        },
+        "lineNumber": null,
+        "name": "BEAUBOURG SAINT MERRY",
+        "distance": 463.1884580607616
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86126206976475,
+            "longitude": 2.349399999750171
+        },
+        "lineNumber": null,
+        "name": "LES HALLES",
+        "distance": 202.80934015015492
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.8613894682984,
+            "longitude": 2.340055232817477
+        },
+        "lineNumber": null,
+        "name": "TEMPLE DE L'ORATOIRE",
+        "distance": 481.923327773558
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.861883102214215,
+            "longitude": 2.350220976096221
+        },
+        "lineNumber": null,
+        "name": "SEBASTOPOL RAMBUTEAU",
+        "distance": 274.8716688697147
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86377283202625,
+            "longitude": 2.342707561978307
+        },
+        "lineNumber": null,
+        "name": "LOUVRE COQ HERON",
+        "distance": 409.3503593142441
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86223871704716,
+            "longitude": 2.341960937955673
+        },
+        "lineNumber": null,
+        "name": "BERGER",
+        "distance": 362.6095945466178
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.863580506517565,
+            "longitude": 2.342609463824718
+        },
+        "lineNumber": null,
+        "name": "LOUVRE / COQUILLERE",
+        "distance": 399.6496832427703
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.86024709541543,
+            "longitude": 2.342302645725544
+        },
+        "lineNumber": null,
+        "name": "RIVOLI MAIRIE DU 1ER",
+        "distance": 332.2793804657032
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.858937,
+            "longitude": 2.347433
+        },
+        "lineNumber": null,
+        "name": "3 Rue des Halles",
+        "distance": 252.84473362328663
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.858811,
+            "longitude": 2.34495
+        },
+        "lineNumber": null,
+        "name": "14 rue Bertin Poirée",
+        "distance": 287.66520618940325
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.857882,
+            "longitude": 2.346828
+        },
+        "lineNumber": null,
+        "name": "17 Avenue Victoria",
+        "distance": 363.568167542118
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.86502,
+            "longitude": 2.344388
+        },
+        "lineNumber": null,
+        "name": "36 Rue Étienne Marcel",
+        "distance": 460.6847713380977
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.85971,
+            "longitude": 2.34024
+        },
+        "lineNumber": null,
+        "name": "2 Rue de l'Amiral Coligny",
+        "distance": 494.29329004467024
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8844176451841,
+            "longitude": 2.33871281165883
+        },
+        "lineNumber": "12",
+        "name": "Abbesses (Porte de la Chapelle/Mairie d'Issy)",
+        "distance": 462.6278793800518
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8836536085134,
+            "longitude": 2.33166752315741
+        },
+        "lineNumber": "2",
+        "name": "Blanche (Porte Dauphine (MarÃ©chal de Lattre de Ta/Nation)",
+        "distance": 432.96558532700675
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.8897560451806,
+            "longitude": 2.33889013654466
+        },
+        "lineNumber": "12",
+        "name": "Lamarck-Caulaincourt (Porte de la Chapelle/Mairie d'Issy)",
+        "distance": 453.0449682935065
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8848670145787,
+            "longitude": 2.33771801477576
+        },
+        "lineNumber": "MONTMAR",
+        "name": "ABBESSES (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 375.41011952872145
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8843547315178,
+            "longitude": 2.33894447557191
+        },
+        "lineNumber": "MONTMAR",
+        "name": "ABBESSES (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 479.8973711157223
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8884439201262,
+            "longitude": 2.33844035565718
+        },
+        "lineNumber": "MONTMAR",
+        "name": "ABREUVOIR - GIRARDON (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 349.365567223706
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8829885696519,
+            "longitude": 2.33203552474116
+        },
+        "lineNumber": "74",
+        "name": "BLANCHE (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 492.95081060873866
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8829885696519,
+            "longitude": 2.33203552474116
+        },
+        "lineNumber": "68",
+        "name": "BLANCHE (CHATILLON-MONTROUGE-METRO/PLACE DE CLICHY)",
+        "distance": 492.95081060873866
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8836986184134,
+            "longitude": 2.33356170198766
+        },
+        "lineNumber": "54",
+        "name": "BLANCHE (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 393.28803878577526
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8836986184134,
+            "longitude": 2.33356170198766
+        },
+        "lineNumber": "30",
+        "name": "BLANCHE (TROCADERO/GARE DE L'EST)",
+        "distance": 393.28803878577526
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8832312610774,
+            "longitude": 2.33293488877066
+        },
+        "lineNumber": "74",
+        "name": "BLANCHE (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 450.98514522015125
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8837884112127,
+            "longitude": 2.33154486343192
+        },
+        "lineNumber": "30",
+        "name": "BLANCHE (TROCADERO/GARE DE L'EST)",
+        "distance": 423.06010330839274
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8837884112127,
+            "longitude": 2.33154486343192
+        },
+        "lineNumber": "54",
+        "name": "BLANCHE (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 423.06010330839274
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8851813836286,
+            "longitude": 2.33061803250566
+        },
+        "lineNumber": "80",
+        "name": "CLICHY - CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 337.65689528122346
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8850196004756,
+            "longitude": 2.33038638455912
+        },
+        "lineNumber": "95",
+        "name": "CLICHY - CAULAINCOURT (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 362.2940397820397
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.886933967859,
+            "longitude": 2.33218503635068
+        },
+        "lineNumber": "95",
+        "name": "DAMREMONT - CAULAINCOURT (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 139.23633575746285
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8875631238493,
+            "longitude": 2.33358868321278
+        },
+        "lineNumber": "80",
+        "name": "DAMREMONT - CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 50.23251111925388
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8876350136978,
+            "longitude": 2.33334336952832
+        },
+        "lineNumber": "80",
+        "name": "DAMREMONT - CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 68.52463235852605
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8869789200614,
+            "longitude": 2.33258024636618
+        },
+        "lineNumber": "95",
+        "name": "DAMREMONT - CAULAINCOURT (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 109.97906832112348
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8904659911406,
+            "longitude": 2.33369750995386
+        },
+        "lineNumber": "95",
+        "name": "DAMREMONT - LAMARCK (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 361.61738128330774
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8861881349958,
+            "longitude": 2.3365732850995
+        },
+        "lineNumber": "MONTMAR",
+        "name": "DURANTIN - BURQ (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 218.07495756530216
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8865206565345,
+            "longitude": 2.33857659124357
+        },
+        "lineNumber": "MONTMAR",
+        "name": "GABRIELLE (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 340.8434512499021
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8894684561759,
+            "longitude": 2.33880835503702
+        },
+        "lineNumber": "MONTMAR",
+        "name": "LAMARCK - CAULAINCOURT (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 429.0020585814678
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8894684561759,
+            "longitude": 2.33880835503702
+        },
+        "lineNumber": "80",
+        "name": "LAMARCK - CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 429.0020585814678
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8880754246925,
+            "longitude": 2.33974867087655
+        },
+        "lineNumber": "MONTMAR",
+        "name": "LES VIGNES (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 428.16122782679946
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8877066046173,
+            "longitude": 2.32785116950661
+        },
+        "lineNumber": "518",
+        "name": "LYCEE AUGUSTE RENOIR (HOPITAL BICHAT./)",
+        "distance": 455.5857169605818
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8870598958606,
+            "longitude": 2.33766352201311
+        },
+        "lineNumber": "MONTMAR",
+        "name": "MOULIN DE LA GALETTE (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 265.65967690109215
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8874283720793,
+            "longitude": 2.33718653788298
+        },
+        "lineNumber": "MONTMAR",
+        "name": "MOULIN DE LA GALLETE (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 231.31970911914044
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8872935608071,
+            "longitude": 2.33638247627191
+        },
+        "lineNumber": "MONTMAR",
+        "name": "N0 88 RUE LEPIC (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 171.57205806586893
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8845163022278,
+            "longitude": 2.33015478482803
+        },
+        "lineNumber": "54",
+        "name": "PLACE DE CLICHY - CAULAINCOURT (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 413.6740908100277
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8845163022278,
+            "longitude": 2.33015478482803
+        },
+        "lineNumber": "30",
+        "name": "PLACE DE CLICHY - CAULAINCOURT (TROCADERO/GARE DE L'EST)",
+        "distance": 413.6740908100277
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8844892724915,
+            "longitude": 2.32909184909741
+        },
+        "lineNumber": "80",
+        "name": "PLACE DE CLICHY - CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 472.3585160490958
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8844892724915,
+            "longitude": 2.32909184909741
+        },
+        "lineNumber": "95",
+        "name": "PLACE DE CLICHY - CAULAINCOURT (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 472.3585160490958
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8844173604888,
+            "longitude": 2.32888744927424
+        },
+        "lineNumber": "74",
+        "name": "PLACE DE CLICHY-CAULAINCOURT (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 488.9578570251483
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8868172238638,
+            "longitude": 2.33932614104789
+        },
+        "lineNumber": "MONTMAR",
+        "name": "PLACE DU TERTRE - NORVINS (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 389.22090860234647
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8907534749165,
+            "longitude": 2.33109433678229
+        },
+        "lineNumber": "95",
+        "name": "PLACE JACQUES FROMENT (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 447.8453096818782
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8910590659947,
+            "longitude": 2.33163946670702
+        },
+        "lineNumber": "95",
+        "name": "PLACE JACQUES FROMENT (PORTE DE MONTMARTRE/PORTE DE VANVES)",
+        "distance": 461.34575141403604
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8877968175591,
+            "longitude": 2.3399258253406
+        },
+        "lineNumber": "MONTMAR",
+        "name": "SAULES - CORTOT (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 435.18245732591527
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8893336498593,
+            "longitude": 2.33582366519607
+        },
+        "lineNumber": "80",
+        "name": "SQUARE CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 268.681533896829
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8895044027311,
+            "longitude": 2.33553745679506
+        },
+        "lineNumber": "80",
+        "name": "SQUARE CAULAINCOURT (MAIRIE DU 18E - JULES JOFFRIN/PORTE DE VERSAILLES)",
+        "distance": 276.4840397386479
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8859454548647,
+            "longitude": 2.33470627812137
+        },
+        "lineNumber": "MONTMAR",
+        "name": "THOLOZE (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 150.06988004990376
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8872216229635,
+            "longitude": 2.33403843620747
+        },
+        "lineNumber": "MONTMAR",
+        "name": "TOURLAQUE (PIGALLE/MAIRIE DU 18E - JULES JOFFRIN)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8892973620696,
+            "longitude": 2.32815071217618
+        },
+        "lineNumber": "518",
+        "name": "VILLA SAINT-MICHEL (HOPITAL BICHAT./)",
+        "distance": 488.4491728497964
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.890747210171405,
+            "longitude": 2.330820396477741
+        },
+        "lineNumber": null,
+        "name": "CARPEAUX",
+        "distance": 457.2114088111722
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.88949630486821,
+            "longitude": 2.333393658804396
+        },
+        "lineNumber": null,
+        "name": "FELIZ ZIEM",
+        "distance": 257.288802213822
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.88727464264267,
+            "longitude": 2.332648363845394
+        },
+        "lineNumber": null,
+        "name": "DAMREMONT CAULAINCOURT",
+        "distance": 101.80659680173704
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.8875730709534,
+            "longitude": 2.33432733641793
+        },
+        "lineNumber": null,
+        "name": "LEPIC",
+        "distance": 44.42260387748766
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.889677905028066,
+            "longitude": 2.338178714426107
+        },
+        "lineNumber": null,
+        "name": "PECQUEUR",
+        "distance": 407.7153543312979
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.885257971348466,
+            "longitude": 2.334617735640665
+        },
+        "lineNumber": null,
+        "name": "LEPIC VERON",
+        "distance": 222.41846152463214
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.88356474485461,
+            "longitude": 2.333418629410461
+        },
+        "lineNumber": null,
+        "name": "BLANCHE",
+        "distance": 409.14394229378144
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.884482392727506,
+            "longitude": 2.338812297029362
+        },
+        "lineNumber": null,
+        "name": "ABBESSES",
+        "distance": 463.26226761159353
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.886456815828815,
+            "longitude": 2.332897827913839
+        },
+        "lineNumber": null,
+        "name": "JOSEPH DE MAISTRE LEPIC",
+        "distance": 119.11035057239398
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.887252,
+            "longitude": 2.333007
+        },
+        "lineNumber": null,
+        "name": "17 rue Caulaincourt",
+        "distance": 75.48953555527599
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.889544,
+            "longitude": 2.336542
+        },
+        "lineNumber": null,
+        "name": "71 rue Caulaincourt",
+        "distance": 316.5305508005657
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.883628,
+            "longitude": 2.333986
+        },
+        "lineNumber": null,
+        "name": "70 Boulevard de Clichy",
+        "distance": 399.6110349145565
+    },
+    {
+        "type": "AUTOLIB",
+        "coordinates": {
+            "latitude": 48.884415,
+            "longitude": 2.330546
+        },
+        "lineNumber": null,
+        "name": "1 avenue Rachel",
+        "distance": 403.2408550854743
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.808232079941,
+            "longitude": 2.50925248627836
+        },
+        "lineNumber": "306",
+        "name": "CHAMPIGNY-SAINT MAUR-RER (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 428.6038737631835
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.808250409241,
+            "longitude": 2.50900761293692
+        },
+        "lineNumber": "306",
+        "name": "CHAMPIGNY-SAINT MAUR-RER (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 430.6493298855141
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8151932253434,
+            "longitude": 2.50603654690021
+        },
+        "lineNumber": "208B",
+        "name": "GUITTARD (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 479.6342731571333
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8151932253434,
+            "longitude": 2.50603654690021
+        },
+        "lineNumber": "108",
+        "name": "GUITTARD (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 479.6342731571333
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8151932253434,
+            "longitude": 2.50603654690021
+        },
+        "lineNumber": "110",
+        "name": "GUITTARD (VILLIERS-SUR-MARNE - LE PLESSIS-TREVISE RER/JOINVILLE-LE-PONT RER)",
+        "distance": 479.6342731571333
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8151932253434,
+            "longitude": 2.50603654690021
+        },
+        "lineNumber": "208A",
+        "name": "GUITTARD (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 479.6342731571333
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8149054254444,
+            "longitude": 2.50617170300159
+        },
+        "lineNumber": "208B",
+        "name": "GUITTARD (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 449.5420298614907
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8149054254444,
+            "longitude": 2.50617170300159
+        },
+        "lineNumber": "108",
+        "name": "GUITTARD (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 449.5420298614907
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8149054254444,
+            "longitude": 2.50617170300159
+        },
+        "lineNumber": "110",
+        "name": "GUITTARD (VILLIERS-SUR-MARNE - LE PLESSIS-TREVISE RER/JOINVILLE-LE-PONT RER)",
+        "distance": 449.5420298614907
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8149054254444,
+            "longitude": 2.50617170300159
+        },
+        "lineNumber": "208A",
+        "name": "GUITTARD (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 449.5420298614907
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8140887599095,
+            "longitude": 2.51155820097692
+        },
+        "lineNumber": "110",
+        "name": "MAIRIE DE CHAMPIGNY (VILLIERS-SUR-MARNE - LE PLESSIS-TREVISE RER/JOINVILLE-LE-PONT RER)",
+        "distance": 245.50554723405867
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8140887599095,
+            "longitude": 2.51155820097692
+        },
+        "lineNumber": "116",
+        "name": "MAIRIE DE CHAMPIGNY (/LEDRU-ROLLIN - GENERAL DE GAULLE)",
+        "distance": 245.50554723405867
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8140887599095,
+            "longitude": 2.51155820097692
+        },
+        "lineNumber": "116",
+        "name": "MAIRIE DE CHAMPIGNY (/VAN DERHEYDEN)",
+        "distance": 245.50554723405867
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8140887599095,
+            "longitude": 2.51155820097692
+        },
+        "lineNumber": "116",
+        "name": "MAIRIE DE CHAMPIGNY (/BOIS-PERRIER RER - ROSNY 2)",
+        "distance": 245.50554723405867
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE DE CHAMPIGNY (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE DE CHAMPIGNY (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE DE CHAMPIGNY (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "306",
+        "name": "MAIRIE DE CHAMPIGNY (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE DE CHAMPIGNY (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "108",
+        "name": "MAIRIE DE CHAMPIGNY (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131431887414,
+            "longitude": 2.51282063794321
+        },
+        "lineNumber": "208S",
+        "name": "MAIRIE DE CHAMPIGNY (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 214.87687583322347
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE DE CHAMPIGNY (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE DE CHAMPIGNY (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE DE CHAMPIGNY (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE DE CHAMPIGNY (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "208S",
+        "name": "MAIRIE DE CHAMPIGNY (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "306",
+        "name": "MAIRIE DE CHAMPIGNY (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131355026857,
+            "longitude": 2.5119360444923
+        },
+        "lineNumber": "108",
+        "name": "MAIRIE DE CHAMPIGNY (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 166.29451517455976
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131974361117,
+            "longitude": 2.51260308147551
+        },
+        "lineNumber": "208S",
+        "name": "MAIRIE DE CHAMPIGNY. (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 206.04740450823397
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131656222343,
+            "longitude": 2.50977235660448
+        },
+        "lineNumber": "306",
+        "name": "MAIRIE DE CHAMPIGNY - MARCHE (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 138.21497232566114
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131656222343,
+            "longitude": 2.50977235660448
+        },
+        "lineNumber": "208S",
+        "name": "MAIRIE DE CHAMPIGNY - MARCHE (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 138.21497232566114
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131656222343,
+            "longitude": 2.50977235660448
+        },
+        "lineNumber": "208S",
+        "name": "MAIRIE DE CHAMPIGNY - MARCHE (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 138.21497232566114
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131656222343,
+            "longitude": 2.50977235660448
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE DE CHAMPIGNY - MARCHE (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 138.21497232566114
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131656222343,
+            "longitude": 2.50977235660448
+        },
+        "lineNumber": "116",
+        "name": "MAIRIE DE CHAMPIGNY - MARCHE (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 138.21497232566114
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8131656222343,
+            "longitude": 2.50977235660448
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE DE CHAMPIGNY - MARCHE (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 138.21497232566114
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139396490856,
+            "longitude": 2.50902643741518
+        },
+        "lineNumber": "110",
+        "name": "MAIRIE - MARCHE (VILLIERS-SUR-MARNE - LE PLESSIS-TREVISE RER/JOINVILLE-LE-PONT RER)",
+        "distance": 238.99143006552066
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139396490856,
+            "longitude": 2.50902643741518
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE - MARCHE (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 238.99143006552066
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139396490856,
+            "longitude": 2.50902643741518
+        },
+        "lineNumber": "108",
+        "name": "MAIRIE - MARCHE (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 238.99143006552066
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139396490856,
+            "longitude": 2.50902643741518
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE - MARCHE (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 238.99143006552066
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139658647119,
+            "longitude": 2.50954366413707
+        },
+        "lineNumber": "108",
+        "name": "MAIRIE - MARCHE (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 227.868505392911
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139658647119,
+            "longitude": 2.50954366413707
+        },
+        "lineNumber": "208A",
+        "name": "MAIRIE - MARCHE (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 227.868505392911
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139658647119,
+            "longitude": 2.50954366413707
+        },
+        "lineNumber": "208B",
+        "name": "MAIRIE - MARCHE (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 227.868505392911
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8139658647119,
+            "longitude": 2.50954366413707
+        },
+        "lineNumber": "110",
+        "name": "MAIRIE - MARCHE (VILLIERS-SUR-MARNE - LE PLESSIS-TREVISE RER/JOINVILLE-LE-PONT RER)",
+        "distance": 227.868505392911
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8124005581468,
+            "longitude": 2.51053189201879
+        },
+        "lineNumber": "208S",
+        "name": "MARCHE. (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 44.3778023092257
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "116",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (/VAN DERHEYDEN)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "116",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (/LEDRU-ROLLIN - GENERAL DE GAULLE)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "116",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (/BOIS-PERRIER RER - ROSNY 2)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "208B",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "208S",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "306",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8119868845706,
+            "longitude": 2.51069381230421
+        },
+        "lineNumber": "208A",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 18.047698690358086
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8120052167816,
+            "longitude": 2.51044892175954
+        },
+        "lineNumber": "116",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8120052167816,
+            "longitude": 2.51044892175954
+        },
+        "lineNumber": "306",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8120052167816,
+            "longitude": 2.51044892175954
+        },
+        "lineNumber": "208A",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8120052167816,
+            "longitude": 2.51044892175954
+        },
+        "lineNumber": "208B",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8120052167816,
+            "longitude": 2.51044892175954
+        },
+        "lineNumber": "208S",
+        "name": "MARCHE DE CHAMPIGNY-SUR-MARNE (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.815912786621,
+            "longitude": 2.51189095315842
+        },
+        "lineNumber": "116",
+        "name": "REPUBLIQUE - STALINGRAD (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 447.1476456798002
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.815912786621,
+            "longitude": 2.51189095315842
+        },
+        "lineNumber": "110",
+        "name": "REPUBLIQUE - STALINGRAD (VILLIERS-SUR-MARNE - LE PLESSIS-TREVISE RER/JOINVILLE-LE-PONT RER)",
+        "distance": 447.1476456798002
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8116959231548,
+            "longitude": 2.51297904338125
+        },
+        "lineNumber": "108",
+        "name": "RUE A TRAIT (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 188.43479633581248
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8118485940521,
+            "longitude": 2.51306121055436
+        },
+        "lineNumber": "108",
+        "name": "RUE A TRAIT (JEANNE VACHER/JOINVILLE-LE-PONT RER)",
+        "distance": 192.07734377512813
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8126081315658,
+            "longitude": 2.51603045615282
+        },
+        "lineNumber": "306",
+        "name": "RUE DU MONUMENT (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 414.16953772178664
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8127060750441,
+            "longitude": 2.51664318132751
+        },
+        "lineNumber": "306",
+        "name": "RUE DU MONUMENT (NOISY-LE-GRAND - MONT D'EST RER/SAINT-MAUR-CRETEIL-RER)",
+        "distance": 460.22025948599963
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8124378549111,
+            "longitude": 2.51570326455781
+        },
+        "lineNumber": "208A",
+        "name": "RUE DU MONUMENT (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 387.74553831370986
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8124378549111,
+            "longitude": 2.51570326455781
+        },
+        "lineNumber": "208B",
+        "name": "RUE DU MONUMENT (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 387.74553831370986
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8124378549111,
+            "longitude": 2.51570326455781
+        },
+        "lineNumber": "208S",
+        "name": "RUE DU MONUMENT (CHAMPIGNY - SAINT-MAUR RER/)",
+        "distance": 387.74553831370986
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8124378549111,
+            "longitude": 2.51570326455781
+        },
+        "lineNumber": "208A",
+        "name": "RUE DU MONUMENT (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 387.74553831370986
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8124378549111,
+            "longitude": 2.51570326455781
+        },
+        "lineNumber": "208B",
+        "name": "RUE DU MONUMENT (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 387.74553831370986
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8121233455546,
+            "longitude": 2.51566135798409
+        },
+        "lineNumber": "208A",
+        "name": "RUE DU MONUMENT (CHAMPIGNY - SAINT-MAUR RER/PLACE DE LA RESISTANCE)",
+        "distance": 381.9082023860784
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8121233455546,
+            "longitude": 2.51566135798409
+        },
+        "lineNumber": "208A",
+        "name": "RUE DU MONUMENT (JEAN-BAPTISTE CLEMENT/PLACE DE LA RESISTANCE)",
+        "distance": 381.9082023860784
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8121233455546,
+            "longitude": 2.51566135798409
+        },
+        "lineNumber": "208B",
+        "name": "RUE DU MONUMENT (CHAMPIGNY - SAINT-MAUR RER/PLACE DE VERDUN)",
+        "distance": 381.9082023860784
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8121233455546,
+            "longitude": 2.51566135798409
+        },
+        "lineNumber": "208B",
+        "name": "RUE DU MONUMENT (JEAN-BAPTISTE CLEMENT/BOIS L'ABBE)",
+        "distance": 381.9082023860784
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8121233455546,
+            "longitude": 2.51566135798409
+        },
+        "lineNumber": "208S",
+        "name": "RUE DU MONUMENT (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 381.9082023860784
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.8123566182196,
+            "longitude": 2.51593433025553
+        },
+        "lineNumber": "208S",
+        "name": "RUE DU MONUMENT. (/CHAMPIGNY - SAINT-MAUR RER.)",
+        "distance": 403.5658606628705
+    },
+    {
+        "type": "METRO",
+        "coordinates": {
+            "latitude": 48.9036594416322,
+            "longitude": 2.30556600125528
+        },
+        "lineNumber": "13",
+        "name": "Mairie de Clichy (Saint-Denis - Universite / Les Courtilles (Asnieres - Gennevilliers)/ChÃ¢tillon - Montrouge)",
+        "distance": 463.5752237581548
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9055417867077,
+            "longitude": 2.30392207757947
+        },
+        "lineNumber": "TUC",
+        "name": "ANCIENNE MAIRIE DE CLICHY (RUE MARTRE-MAIRIE DE CLICHY/)",
+        "distance": 222.3899460919351
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9073842599315,
+            "longitude": 2.30437079616917
+        },
+        "lineNumber": "341",
+        "name": "BATELIERS (CHARLES DE GAULLE - ETOILE/PORTE DE CLIGNANCOURT)",
+        "distance": 154.49853919097123
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9073842599315,
+            "longitude": 2.30437079616917
+        },
+        "lineNumber": "340",
+        "name": "BATELIERS (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 154.49853919097123
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.90477734459,
+            "longitude": 2.30204124767809
+        },
+        "lineNumber": "174",
+        "name": "DANIELLE CASANOVA (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 272.3414268600691
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.90477734459,
+            "longitude": 2.30204124767809
+        },
+        "lineNumber": "340",
+        "name": "DANIELLE CASANOVA (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 272.3414268600691
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.90477734459,
+            "longitude": 2.30204124767809
+        },
+        "lineNumber": "54",
+        "name": "DANIELLE CASANOVA (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 272.3414268600691
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.90477734459,
+            "longitude": 2.30204124767809
+        },
+        "lineNumber": "TUC",
+        "name": "DANIELLE CASANOVA (RUE MARTRE-MAIRIE DE CLICHY/)",
+        "distance": 272.3414268600691
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.90477734459,
+            "longitude": 2.30204124767809
+        },
+        "lineNumber": "TUC",
+        "name": "DANIELLE CASANOVA (RUE MARTRE-MAIRIE DE CLICHY./)",
+        "distance": 272.3414268600691
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9044978522137,
+            "longitude": 2.29913767415614
+        },
+        "lineNumber": "174",
+        "name": "FOURNIER (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 379.74380337408314
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9044799951597,
+            "longitude": 2.29950576986045
+        },
+        "lineNumber": "174",
+        "name": "FOURNIER (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 365.80366278144294
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9044799951597,
+            "longitude": 2.29950576986045
+        },
+        "lineNumber": "TUC",
+        "name": "FOURNIER (RUE MARTRE-MAIRIE DE CLICHY/)",
+        "distance": 365.80366278144294
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9063144626522,
+            "longitude": 2.30317175615448
+        },
+        "lineNumber": "174",
+        "name": "GABRIEL PERI (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 120.46507241777502
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9056758364024,
+            "longitude": 2.30131808794502
+        },
+        "lineNumber": "TUC",
+        "name": "GABRIEL PERI (RUE MARTRE-MAIRIE DE CLICHY./)",
+        "distance": 185.4953962114982
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9056758364024,
+            "longitude": 2.30131808794502
+        },
+        "lineNumber": "TUC",
+        "name": "GABRIEL PERI (RUE MARTRE-MAIRIE DE CLICHY/)",
+        "distance": 185.4953962114982
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9084725475727,
+            "longitude": 2.30762856877992
+        },
+        "lineNumber": "74",
+        "name": "HOPITAL BEAUJON (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 415.4973535146031
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9084725475727,
+            "longitude": 2.30762856877992
+        },
+        "lineNumber": "341",
+        "name": "HOPITAL BEAUJON (CHARLES DE GAULLE - ETOILE/PORTE DE CLIGNANCOURT)",
+        "distance": 415.4973535146031
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9084725475727,
+            "longitude": 2.30762856877992
+        },
+        "lineNumber": "340",
+        "name": "HOPITAL BEAUJON (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 415.4973535146031
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9082658284465,
+            "longitude": 2.30756051856533
+        },
+        "lineNumber": "340",
+        "name": "HOPITAL BEAUJON (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 403.6137006019631
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9082658284465,
+            "longitude": 2.30756051856533
+        },
+        "lineNumber": "74",
+        "name": "HOPITAL BEAUJON (BERGES DE SEINE/HOTEL DE VILLE DE PARIS-04)",
+        "distance": 403.6137006019631
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9082658284465,
+            "longitude": 2.30756051856533
+        },
+        "lineNumber": "341",
+        "name": "HOPITAL BEAUJON (CHARLES DE GAULLE - ETOILE/PORTE DE CLIGNANCOURT)",
+        "distance": 403.6137006019631
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9088947917535,
+            "longitude": 2.30704207184058
+        },
+        "lineNumber": "TUC",
+        "name": "HOPITAL BEAUJON (RUE MARTRE-MAIRIE DE CLICHY./)",
+        "distance": 395.18586343307237
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9048500892603,
+            "longitude": 2.30504041088838
+        },
+        "lineNumber": "341",
+        "name": "LANDY - MARTRE (CHARLES DE GAULLE - ETOILE/PORTE DE CLIGNANCOURT)",
+        "distance": 332.4373101830545
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9048500892603,
+            "longitude": 2.30504041088838
+        },
+        "lineNumber": "340",
+        "name": "LANDY - MARTRE (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 332.4373101830545
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9044725839563,
+            "longitude": 2.30486342067585
+        },
+        "lineNumber": "54",
+        "name": "LANDY - MARTRE (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 359.65181483041476
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9044725839563,
+            "longitude": 2.30486342067585
+        },
+        "lineNumber": "341",
+        "name": "LANDY - MARTRE (CHARLES DE GAULLE - ETOILE/PORTE DE CLIGNANCOURT)",
+        "distance": 359.65181483041476
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9044725839563,
+            "longitude": 2.30486342067585
+        },
+        "lineNumber": "340",
+        "name": "LANDY - MARTRE (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 359.65181483041476
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9049669286181,
+            "longitude": 2.30506760387887
+        },
+        "lineNumber": "174",
+        "name": "LANDY-MARTRE (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 323.4793283777264
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9049669286181,
+            "longitude": 2.30506760387887
+        },
+        "lineNumber": "274",
+        "name": "LANDY-MARTRE (VOLTAIRE-VILLIERS/RER DE SAINT-DENIS)",
+        "distance": 323.4793283777264
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9072218953705,
+            "longitude": 2.30227135425315
+        },
+        "lineNumber": "340",
+        "name": "LEON BLUM (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9072218953705,
+            "longitude": 2.30227135425315
+        },
+        "lineNumber": "54",
+        "name": "LEON BLUM (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 0.0
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9064215723683,
+            "longitude": 2.30069044359578
+        },
+        "lineNumber": "54",
+        "name": "LEON BLUM (GABRIEL PERI-METRO/PORTE D'AUBERVILLIERS)",
+        "distance": 145.84204853766798
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9064215723683,
+            "longitude": 2.30069044359578
+        },
+        "lineNumber": "340",
+        "name": "LEON BLUM (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 145.84204853766798
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9064215723683,
+            "longitude": 2.30069044359578
+        },
+        "lineNumber": "174",
+        "name": "LEON BLUM (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 145.84204853766798
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9037450669942,
+            "longitude": 2.30651340721329
+        },
+        "lineNumber": "274",
+        "name": "MAIRIE DE CLICHY-METRO (VOLTAIRE-VILLIERS/RER DE SAINT-DENIS)",
+        "distance": 495.57314917247766
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9037450669942,
+            "longitude": 2.30651340721329
+        },
+        "lineNumber": "174",
+        "name": "MAIRIE DE CLICHY-METRO (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 495.57314917247766
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9081747134689,
+            "longitude": 2.30292512657521
+        },
+        "lineNumber": "TUC",
+        "name": "QUARTIER NORD (RUE MARTRE-MAIRIE DE CLICHY./)",
+        "distance": 116.22454701963873
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9055939127574,
+            "longitude": 2.29801896341788
+        },
+        "lineNumber": "174",
+        "name": "RUE DU PORT (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 359.67179457441006
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9060699737557,
+            "longitude": 2.297255148978
+        },
+        "lineNumber": "TUC",
+        "name": "RUE DU PORT (RUE MARTRE-MAIRIE DE CLICHY/)",
+        "distance": 388.35105443418007
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9060699737557,
+            "longitude": 2.297255148978
+        },
+        "lineNumber": "174",
+        "name": "RUE DU PORT (SAINT-OUEN RER/LA DEFENSE-METRO-RER-TRAMWAY)",
+        "distance": 388.35105443418007
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9057227469515,
+            "longitude": 2.30861171804433
+        },
+        "lineNumber": "341",
+        "name": "VILLENEUVE - GENERAL LECLERC (CHARLES DE GAULLE - ETOILE/PORTE DE CLIGNANCOURT)",
+        "distance": 492.4712198469026
+    },
+    {
+        "type": "BUS",
+        "coordinates": {
+            "latitude": 48.9057227469515,
+            "longitude": 2.30861171804433
+        },
+        "lineNumber": "340",
+        "name": "VILLENEUVE - GENERAL LECLERC (GARE D'ARGENTEUIL/BERGES DE SEINE)",
+        "distance": 492.4712198469026
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.90811038299345,
+            "longitude": 2.307519710082483
+        },
+        "lineNumber": null,
+        "name": "LERICHE (CLICHY)",
+        "distance": 396.09779609961555
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.90513700396853,
+            "longitude": 2.302503160581296
+        },
+        "lineNumber": null,
+        "name": "GUICHET (CLICHY)",
+        "distance": 232.44759447665496
+    },
+    {
+        "type": "VELIB",
+        "coordinates": {
+            "latitude": 48.903621012155874,
+            "longitude": 2.306228565729878
+        },
+        "lineNumber": null,
+        "name": "VILLENEUVE 2 (CLICHY)",
+        "distance": 493.9362336982249
     }
 ]

@@ -54,11 +54,13 @@
 
 <script id="list-line-tmpl" type="text/x-handlebars-template">
     <div class="line-narrow">
-        <img src="img/types/{{lowercase type}}.png">
+        <img class="type" src="img/types/{{lowercase type}}.png">
 
-        {{#isnt lineNumber 0}}
-        <div class="number truncate">{{lineNumber}}</div>
-        {{/isnt}}
+        {{#if lineNumber}}
+        <div class="lineNumber-wrapper">
+            <img class="lineNumber" src="img/lines/{{lowercase type}}/{{lineNumber}}.png">
+        </div>
+        {{/if}}
 
         <div class="infos">
             <div class="name truncate">{{name}}</div>
