@@ -22,19 +22,19 @@ public class VelibStationModel {
     @SerializedName("longitude")
     private double longitude;
 
-    // private VelibStatus status;
-    //
-    // @SerializedName("bike_stands")
-    // private int bikeStands;
-    //
-    // @SerializedName("available_bike_stands")
-    // private int availableBikeStands;
-    //
-    // @SerializedName("available_bikes")
-    // private int availableBikes;
-    //
-    // @SerializedName("last_update")
-    // private Date lastUpdate;
+     private VelibStatus status;
+    
+     @SerializedName("bike_stands")
+     private int bikeStands;
+    
+     @SerializedName("available_bike_stands")
+     private int availableBikeStands;
+    
+     @SerializedName("available_bikes")
+     private int availableBikes;
+    
+     @SerializedName("last_update")
+     private long lastUpdate;
 
     public VelibStationModel() {
         // Default constructor
