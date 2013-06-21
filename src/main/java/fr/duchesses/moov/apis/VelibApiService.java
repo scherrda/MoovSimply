@@ -86,6 +86,7 @@ public class VelibApiService implements ApiService {
 		try (InputStream is = new URL(url.toString()).openStream()) {
 			VelibStationModel station = new Gson().fromJson(
 					new InputStreamReader(is), VelibStationModel.class);
+            logger.info("station velibs isOpen");
 			return (station.getStatus().equals(VelibStatus.OPEN) && station
 					.getAvailableBikes() > 0);
 		} catch (IOException e) {

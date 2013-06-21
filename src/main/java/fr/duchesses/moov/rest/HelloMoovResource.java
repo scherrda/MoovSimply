@@ -5,34 +5,33 @@ import fr.duchesses.moov.apis.AutolibApiService;
 import fr.duchesses.moov.apis.RatpApiService;
 import fr.duchesses.moov.apis.VelibApiService;
 import fr.duchesses.moov.models.Transport;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Collection;
 import java.util.List;
 
 @Path("/moovin")
+@Component
 public class HelloMoovResource {
 
-    private static final double distanceAroundMax = 500d;
+    private static final double DISTANCE_AROUND_MAX = 500d;
 
+    @Autowired
     private VelibApiService velibServiceApi;
 
+    @Autowired
     private RatpApiService ratpApiService;
 
+    @Autowired
     private AutolibApiService autolibApiService;
 
-    public HelloMoovResource() {
-        this.velibServiceApi = new VelibApiService();// TODO inject
-        this.ratpApiService = new RatpApiService();// TODO inject
-        this.autolibApiService = new AutolibApiService();//TODO inject
-    }
 
     @GET
     @Path("/hello")
@@ -56,9 +55,9 @@ public class HelloMoovResource {
         if((StringUtils.isNotBlank(lat)|| !lat.equals("0")) && (StringUtils.isNotBlank(lng) || !lng.equals("0"))){
         	final Double latitude = Double.valueOf(lat);
             final Double longitude = Double.valueOf(lng);
-            transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, distanceAroundMax));
-            transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude, distanceAroundMax));
-            transports.addAll(autolibApiService.getAutolibs(latitude, longitude, distanceAroundMax));
+            transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, DISTANCE_AROUND_MAX));
+            transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude, DISTANCE_AROUND_MAX));
+            transports.addAll(autolibApiService.getAutolibs(latitude, longitude, DISTANCE_AROUND_MAX));
             
         }
         return transports;

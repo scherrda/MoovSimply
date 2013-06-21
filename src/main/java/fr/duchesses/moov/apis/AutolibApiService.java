@@ -59,6 +59,7 @@ public class AutolibApiService implements ApiService {
         } catch (IOException e) {
             logger.error("Autolib : service not responding");
         }
+        logger.info("Autolibs loaded");
         return transports;
     }
 
