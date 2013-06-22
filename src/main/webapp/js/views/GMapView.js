@@ -6,6 +6,7 @@ var GMapView = Backbone.View.extend({
     currentMarkers: [],
 
     initialize: function () {
+        this.appState  = this.options.appState;
         this.meMarkerImage = new google.maps.MarkerImage(
             './img/dude-pink.png',
             new google.maps.Size(29, 25), // taille
@@ -118,34 +119,47 @@ var GMapView = Backbone.View.extend({
         this.map.setCenter(this.center);
     },
 
+   createMarker : function (coordinates, info, icon){
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
+            map   : this.map,
+            title : info,
+            icon :  icon
+        });
+        return marker; //TODO why ?
+    },
+
     showStationsMarkers: function (stations) {
         _.each(this.currentMarkers, function (marker) {
             marker.setMap(null);
         });
         this.currentMarkers = [];
+
         stations.each(_.bind(function (station) {
-            var stationMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(station.get('coordinates').latitude, station.get('coordinates').longitude),
-                title: station.get('type') + ' ' + station.get('lineNumber'),
-                map: this.map,
-                icon: this.getStationMarkerImage(station.get('type'))
-            });
+             var info = station.get('type') + ' ' + station.get('lineNumber');
+            var stationMarker = this.createMarker(station.get('coordinates'), info, this.getStationMarkerImage(station.get('type')));
             stationMarker.type = station.get('type');
             stationMarker.active = false;
-            station.set('marker', stationMarker);
             this.currentMarkers.push(stationMarker);
 
+
             google.maps.event.addListener(stationMarker, 'click', _.bind(function () {
-                this.trigger('details:show', station);
-            }, this));
-            google.maps.event.addListener(this.map, 'click', _.bind(function () {
-                this.trigger('details:hide');
+                  this.appState.set("currentStation", station);
+                  this.turnOnMarker(stationMarker);
             }, this));
 
         }, this));
+
+
+        google.maps.event.addListener(this.map, 'click', _.bind(function () {
+            this.trigger('details:hide');
+        }, this));
+
+
     },
 
     turnOnMarker: function (stationMarker) {
+        this.turnOffActiveMarker();
         stationMarker.setIcon(this.getStationMarkerImage(stationMarker.type, true));
         stationMarker.active = true;
     },

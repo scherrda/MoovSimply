@@ -3,8 +3,10 @@ var MapView = Backbone.View.extend({
     className: 'withTopBar',
 
     initialize: function () {
-        this.gmap = new GMapView();
-        this.listenTo(this.gmap, 'details:show', this.showDetail);
+        this.appState = new AppState();
+
+        this.gmap = new GMapView({appState:this.appState});
+        this.listenTo(this.appState, "change", this.showDetail)
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(this.gmap, 'localized', this.fetchStations);
         this.listenTo(stations, 'sync', this.displayStations);
@@ -21,18 +23,17 @@ var MapView = Backbone.View.extend({
         return this;
     },
 
-    showDetail: function (station) {
-        this.hideDetail();
+    showDetail: function () {
+        var station = this.appState.get("currentStation");
 
+        if (this.detailView) this.detailView.close();
         this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station});
         this.$el.append(this.detailView.render().el);
         this.detailView.extend();
-        this.gmap.turnOnMarker(station.get('marker'));
     },
 
     hideDetail: function () {
         if (this.detailView) this.detailView.close();
-        this.gmap.turnOffActiveMarker();
     },
 
     showDetailAndCenterMap: function (station) {
