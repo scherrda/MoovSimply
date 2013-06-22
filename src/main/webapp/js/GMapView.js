@@ -13,16 +13,21 @@ var GMapView = Backbone.View.extend({
             new google.maps.Point(12, 23) // The anchor for this image
         );
 
+        this.center = new google.maps.LatLng(48.87525, 2.31110); //initial Center
+
+
         this.meMarker = new google.maps.Marker({
             title: 'You',
             icon: this.meMarkerImage
         });
+        this.geolocalize();
     },
 
     render: function () {
         var mapOptions = {
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center : this.center,
             styles: [
                 {
                     "featureType": "road.arterial",
@@ -82,7 +87,9 @@ var GMapView = Backbone.View.extend({
         console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
         this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
         this.meMarker.setMap(this.map);
-        this.centerMap(myLat, myLng);
+        if(!alreadyLocalized){
+            this.centerMap(myLat, myLng);
+        }
         alreadyLocalized = true;
 
         this.trigger('localized', myLat, myLng);
@@ -107,7 +114,8 @@ var GMapView = Backbone.View.extend({
     },
 
     centerMap: function (lat, lng) {
-        this.map.setCenter(new google.maps.LatLng(lat, lng));
+        this.center = new google.maps.LatLng(lat, lng);
+        this.map.setCenter(this.center);
     },
 
     showStationsMarkers: function (stations) {
