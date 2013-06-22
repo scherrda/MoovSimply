@@ -7,28 +7,17 @@ var GMapView = Backbone.View.extend({
 
     initialize: function () {
         this.appState  = this.options.appState;
-        this.meMarkerImage = new google.maps.MarkerImage(
-            './img/dude-pink.png',
-            new google.maps.Size(29, 25), // taille
-            new google.maps.Point(0, 0), // The origin for this image
-            new google.maps.Point(12, 23) // The anchor for this image
-        );
-
-        this.center = new google.maps.LatLng(48.87525, 2.31110); //initial Center
-
-
-        this.meMarker = new google.maps.Marker({
-            title: 'You',
-            icon: this.meMarkerImage
-        });
+        this.listenTo(this.appState, "change:mapCenter", this.onCenterChange);
+        this.meMarker = this.createMarker(this.appState.get("mapCenter"), "You", this.getMeMarkerImage());
         this.geolocalize();
     },
 
     render: function () {
+    //Why the map creation is in render ?
         var mapOptions = {
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            center : this.center,
+            center : this.appState.get("mapCenter"),
             styles: [
                 {
                     "featureType": "road.arterial",
@@ -68,7 +57,6 @@ var GMapView = Backbone.View.extend({
             ]
         };
         this.map = new google.maps.Map(this.el, mapOptions);
-
         return this;
     },
 
@@ -81,6 +69,7 @@ var GMapView = Backbone.View.extend({
         return this;
     },
 
+
     refreshMyMarkerAndCenter: function (position) {
         var myLat = position.coords.latitude, // 48.87525
             myLng = position.coords.longitude; // 2.31110
@@ -89,7 +78,7 @@ var GMapView = Backbone.View.extend({
         this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
         this.meMarker.setMap(this.map);
         if(!alreadyLocalized){
-            this.centerMap(myLat, myLng);
+            this.updateMapCenter(myLat, myLng);
         }
         alreadyLocalized = true;
 
@@ -114,9 +103,13 @@ var GMapView = Backbone.View.extend({
         navigator.geolocation.clearWatch(this.watchId);
     },
 
-    centerMap: function (lat, lng) {
-        this.center = new google.maps.LatLng(lat, lng);
-        this.map.setCenter(this.center);
+    updateMapCenter: function (lat, lng) {
+        console.log("udateMapCenter", lat + " " + lng);
+        this.appState.set("mapCenter", new google.maps.LatLng(lat, lng));
+    },
+
+    onCenterChange : function(){
+        this.map.setCenter(this.appState.get("mapCenter"));
     },
 
    createMarker : function (coordinates, info, icon){
@@ -126,7 +119,7 @@ var GMapView = Backbone.View.extend({
             title : info,
             icon :  icon
         });
-        return marker; //TODO why ?
+        return marker;
     },
 
     showStationsMarkers: function (stations) {
@@ -173,6 +166,16 @@ var GMapView = Backbone.View.extend({
         var turnedOnMarker = _.findWhere(this.currentMarkers, {active: true});
         if (turnedOnMarker) this.turnOffMarker(turnedOnMarker);
     },
+
+    getMeMarkerImage : function () {
+        return new google.maps.MarkerImage(
+            './img/dude-pink.png',
+            new google.maps.Size(29, 25), // taille
+            new google.maps.Point(0, 0), // The origin for this image
+            new google.maps.Point(12, 23) // The anchor for this image
+        );
+     },
+
 
     getStationMarkerImage: function (type, active) {
         active = active || false;

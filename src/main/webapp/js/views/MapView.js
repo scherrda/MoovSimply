@@ -6,7 +6,7 @@ var MapView = Backbone.View.extend({
         this.appState = new AppState();
 
         this.gmap = new GMapView({appState:this.appState});
-        this.listenTo(this.appState, "change", this.showDetail)
+        this.listenTo(this.appState, "change:currentStation", this.showDetail)
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(this.gmap, 'localized', this.fetchStations);
         this.listenTo(stations, 'sync', this.displayStations);
