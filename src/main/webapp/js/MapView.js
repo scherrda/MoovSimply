@@ -8,7 +8,7 @@ var MapView = Backbone.View.extend({
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(this.gmap, 'localized', this.fetchStations);
         this.listenTo(stations, 'sync', this.displayStations);
-        this.listenTo(stations, 'show', this.showDetailAndCenterMap, this);
+       // this.listenTo(stations, 'show', this.showDetailAndCenterMap, this); //unused
     },
 
     reBind: function () {
@@ -17,7 +17,7 @@ var MapView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.append(this.gmap.render().geolocalize().el);
+        this.$el.append(this.gmap.render().el);
         return this;
     },
 
@@ -26,6 +26,7 @@ var MapView = Backbone.View.extend({
 
         this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station});
         this.$el.append(this.detailView.render().el);
+        this.detailView.extend();
         this.gmap.turnOnMarker(station.get('marker'));
     },
 
