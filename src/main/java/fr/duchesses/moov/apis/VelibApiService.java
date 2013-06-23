@@ -71,8 +71,8 @@ public class VelibApiService implements ApiService {
         return allVelibs;
     }
 
-	public List<Station> getVelibStationsForCoordinates(Double latitude,
-			Double longitude, double distanceMax) {
+	public List<Station> getVelibStationsArround(Double latitude,
+                                                 Double longitude, double distanceMax) {
 		List<Station> closestVelibStations = Lists.newArrayList();
 		for (ApiVelibStationModel velib : velibStations.values()) {
 			double distanceFromPoint = distance(latitude, longitude,

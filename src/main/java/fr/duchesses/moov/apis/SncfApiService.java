@@ -3,6 +3,7 @@ package fr.duchesses.moov.apis;
 import au.com.bytecode.opencsv.CSVReader;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
@@ -26,6 +28,9 @@ public class SncfApiService implements ApiService {
 
     private List<SncfStopModel> allStops = Lists.newArrayList();
     private HashMultimap<Integer, SncfLineModel> allStopLines = HashMultimap.create();
+
+    private Map<String, Station> allStations = Maps.newHashMap();
+
 
     public SncfApiService() {
         // File reading
@@ -60,30 +65,31 @@ public class SncfApiService implements ApiService {
             allStopLines.put(stopLine.getUic(), stopLine);
         }
         logger.info("SNCF stop lines : " + allStopLines.size());
+
+
+        for (SncfStopModel stop : allStops) {
+            for (SncfLineModel lineStop : allStopLines.get(stop.getUic())) {
+                String stationId = lineStop.getLineNumber() + "-" + stop.getUic();
+                allStations.put( stationId, new Station(StationType.valueOf(lineStop.getType()), stationId, new Coordinates(stop.getLatitude(), stop.getLongitude()), lineStop.getLineNumber(), lineStop.getName()));
+            }
+        }
+        logger.info("RATP loaded stops : " + allStations.size());
+
     }
 
     public Collection<Station> getAllStops() {
-        List<Station> result = Lists.newArrayList();
-        for (SncfStopModel stop : allStops) {
-            for (SncfLineModel line : allStopLines.get(stop.getUic())) {
-                result.add(new Station(StationType.valueOf(line.getType()), new Coordinates(stop.getLatitude(), stop.getLongitude()), line.getLineNumber(), line.getName()));
-            }
-        }
-
-        return result;
+        return allStations.values();
     }
 
-    public Collection<Station> getStopsForCoordinates(double latitude, double longitude, double distanceMax) {
-        List<Station> result = Lists.newArrayList();
-        for (SncfStopModel stop : allStops) {
-            double distanceFromPoint = distance(latitude, longitude, stop.getLatitude(), stop.getLongitude());
-            if (distanceFromPoint <= distanceMax) {
-                for (SncfLineModel line : allStopLines.get(stop.getUic())) {
-                    result.add(new Station(StationType.valueOf(line.getType()), new Coordinates(stop.getLatitude(), stop.getLongitude()), line.getLineNumber(), stop.getName()).withDistance(distanceFromPoint));
-                }
+    public Collection<Station> getStopsArround(double latitude, double longitude, double distanceMax) {
+        List<Station> stationsArround = Lists.newArrayList();
+        for(Station station : allStations.values()){
+            double distance = distance(latitude, longitude, station.getLatitude(), station.getLongitude());
+            if(distance <= distanceMax){
+                station.setDistance(distance);
+                stationsArround.add(station);
             }
         }
-
-        return result;
+        return stationsArround;
     }
 }

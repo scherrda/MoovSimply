@@ -33,7 +33,7 @@ public class SncfApiServiceTest {
         Coordinates cdg1Coords = lambert2EtendutoWGS84(616412, 2445760);
         System.out.println(cdg1Coords.getLatitude() + " " + cdg1Coords.getLongitude());
 
-        Collection<Station> results = service.getStopsForCoordinates(cdg1Coords.getLatitude(), cdg1Coords.getLongitude(), 0);
+        Collection<Station> results = service.getStopsArround(cdg1Coords.getLatitude(), cdg1Coords.getLongitude(), 0);
         assertThat(results).hasSize(1);
         Station oneStation = (Station) results.toArray()[0];
         assertThat(oneStation.getType()).isEqualTo(StationType.RER);

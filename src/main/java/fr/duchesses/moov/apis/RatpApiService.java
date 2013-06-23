@@ -90,17 +90,17 @@ public class RatpApiService implements ApiService {
     }
 
 
-    public Collection<Station> getStopsForCoordinates(double latitude, double longitude, double distanceMax) {
-        List<Station> nearStations = Lists.newArrayList();
+    public Collection<Station> getStopsForArround(double latitude, double longitude, double distanceMax) {
+        List<Station> stationsArround = Lists.newArrayList();
         for(Station station : allStations.values()){
             double distance = distance(latitude, longitude, station.getLatitude(), station.getLongitude());
             if(distance <= distanceMax){
                 station.setDistance(distance);
-                nearStations.add(station);
+                stationsArround.add(station);
             }
         }
-        logger.debug("nearstations size" + nearStations.size());
-        return nearStations;
+        logger.debug("nearstations size" + stationsArround.size());
+        return stationsArround;
     }
 
 
