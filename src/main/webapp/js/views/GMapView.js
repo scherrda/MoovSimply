@@ -8,7 +8,7 @@ var GMapView = Backbone.View.extend({
     initialize: function () {
         this.appState  = this.options.appState;
         this.listenTo(this.appState, "change:mapCenter", this.onCenterChange);
-        this.meMarker = this.createMarker(this.appState.get("mapCenter"), "You", this.getMeMarkerImage());
+        this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), "You", this.getMeMarkerImage());
         this.geolocalize();
     },
 
