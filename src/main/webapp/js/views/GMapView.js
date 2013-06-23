@@ -6,18 +6,18 @@ var GMapView = Backbone.View.extend({
     currentMarkers: [],
 
     initialize: function () {
-        this.appState  = this.options.appState;
-        this.listenTo(this.appState, "change:mapCenter", this.onCenterChange);
-        this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), "You", this.getMeMarkerImage());
+        this.appState = this.options.appState;
+        this.listenTo(this.appState, 'change:mapCenter', this.changeMapCenter);
+        this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), 'You', this.getMeMarkerImage());
         this.geolocalize();
     },
 
     render: function () {
-    //Why the map creation is in render ?
+        //Why the map creation is in render ?
         var mapOptions = {
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            center : this.appState.get("mapCenter"),
+            center: this.appState.get('mapCenter'),
             styles: [
                 {
                     "featureType": "road.arterial",
@@ -62,23 +62,22 @@ var GMapView = Backbone.View.extend({
 
     geolocalize: function () {
         if (navigator.geolocation && navigator.geolocation.watchPosition) {
-            this.watchId = navigator.geolocation.watchPosition(_.bind(this.refreshMyMarkerAndCenter, this), _.bind(this.errorGeoloc, this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
+            this.watchId = navigator.geolocation.watchPosition(_.bind(this.refreshPosition, this), _.bind(this.errorGeoloc, this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
         } else {
             alert('La géolocalisation n’est pas possible avec ce navigateur');
         }
         return this;
     },
 
-
-    refreshMyMarkerAndCenter: function (position) {
+    refreshPosition: function (position) {
         var myLat = position.coords.latitude, // 48.87525
             myLng = position.coords.longitude; // 2.31110
 
-        console.log("Votre position - Latitude : " + myLat + ", longitude : " + myLng);
+        console.log('Votre position - Latitude : ' + myLat + ', longitude : ' + myLng);
         this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
         this.meMarker.setMap(this.map);
-        if(!alreadyLocalized){
-            this.updateMapCenter(myLat, myLng);
+        if (!alreadyLocalized) {
+            this.appState.set('mapCenter', new google.maps.LatLng(myLat, myLng));
         }
         alreadyLocalized = true;
 
@@ -103,23 +102,17 @@ var GMapView = Backbone.View.extend({
         navigator.geolocation.clearWatch(this.watchId);
     },
 
-    updateMapCenter: function (lat, lng) {
-        console.log("udateMapCenter", lat + " " + lng);
-        this.appState.set("mapCenter", new google.maps.LatLng(lat, lng));
+    changeMapCenter: function () {
+        this.map.setCenter(this.appState.get('mapCenter'));
     },
 
-    onCenterChange : function(){
-        this.map.setCenter(this.appState.get("mapCenter"));
-    },
-
-   createMarker : function (coordinates, info, icon){
-        var marker = new google.maps.Marker({
+    createMarker: function (coordinates, title, icon) {
+        return new google.maps.Marker({
             position: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
-            map   : this.map,
-            title : info,
-            icon :  icon
+            map: this.map,
+            title: title,
+            icon: icon
         });
-        return marker;
     },
 
     showStationsMarkers: function (stations) {
@@ -129,26 +122,21 @@ var GMapView = Backbone.View.extend({
         this.currentMarkers = [];
 
         stations.each(_.bind(function (station) {
-             var info = station.get('type') + ' ' + station.get('lineNumber');
+            var info = station.get('type') + ' ' + station.get('lineNumber');
             var stationMarker = this.createMarker(station.get('coordinates'), info, this.getStationMarkerImage(station.get('type')));
             stationMarker.type = station.get('type');
             stationMarker.active = false;
             this.currentMarkers.push(stationMarker);
 
-
             google.maps.event.addListener(stationMarker, 'click', _.bind(function () {
-                  this.appState.set("currentStation", station);
-                  this.turnOnMarker(stationMarker);
+                this.appState.set('currentStation', station);
+                this.turnOnMarker(stationMarker);
             }, this));
-
         }, this));
-
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
             this.trigger('details:hide');
         }, this));
-
-
     },
 
     turnOnMarker: function (stationMarker) {
@@ -167,15 +155,14 @@ var GMapView = Backbone.View.extend({
         if (turnedOnMarker) this.turnOffMarker(turnedOnMarker);
     },
 
-    getMeMarkerImage : function () {
+    getMeMarkerImage: function () {
         return new google.maps.MarkerImage(
             './img/dude-pink.png',
             new google.maps.Size(29, 25), // taille
             new google.maps.Point(0, 0), // The origin for this image
             new google.maps.Point(12, 23) // The anchor for this image
         );
-     },
-
+    },
 
     getStationMarkerImage: function (type, active) {
         active = active || false;

@@ -210,23 +210,19 @@ a.splash-wrap {
 
 .line.overflow {
     position: absolute;
-    left: 0;
     bottom: 0;
-    z-index: 1000000;
     background-color: white;
-    font-size: 11px;
-    border-bottom: 1px solid #aeadad;
+    box-shadow: 0 -4px 6px #bbb;
 }
 
-.line img.type {
-    position: absolute;
-    max-width: 31px;
-    margin: 7px;
+.line .img-centered {
+    max-height: 45px;
+    max-width: 30px;
+    vertical-align: middle;
 }
 
-.line .lineNumber-wrapper {
+.line .img-wrapper {
     position: absolute;
-    left: 40px;
     height: 45px;
     width: 30px;
     overflow: hidden;
@@ -234,10 +230,12 @@ a.splash-wrap {
     text-align: center;
 }
 
-.line img.lineNumber {
-    max-height: 45px;
-    max-width: 30px;
-    vertical-align: middle;
+.line .img-wrapper.type {
+    left: 5px;
+}
+
+.line .img-wrapper.lineNumber {
+    left: 40px;
 }
 
 .line .infos {

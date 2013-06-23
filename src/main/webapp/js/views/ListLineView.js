@@ -19,12 +19,6 @@ var ListLineView = Backbone.View.extend({
         return this;
     },
 
-    extend : function(){
-        this.$('.line-extended').show();
-        this.$('.extend-arrow').addClass('extended');
-
-    },
-
     toggle: function () {
         var $lineExtended = this.$('.line-extended'),
             $arrow = this.$('.extend-arrow');
