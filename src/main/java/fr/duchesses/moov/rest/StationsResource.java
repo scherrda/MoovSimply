@@ -3,6 +3,7 @@ package fr.duchesses.moov.rest;
 import com.google.common.collect.Lists;
 import fr.duchesses.moov.apis.AutolibApiService;
 import fr.duchesses.moov.apis.RatpApiService;
+import fr.duchesses.moov.apis.SncfApiService;
 import fr.duchesses.moov.apis.VelibApiService;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.velib.VelibStation;
@@ -30,6 +31,8 @@ public class StationsResource {
     @Autowired
     private AutolibApiService autolibApiService;
 
+    @Autowired
+    private SncfApiService sncfApiService;
 
     @GET
     @Path("/hello")
@@ -56,7 +59,7 @@ public class StationsResource {
             transports.addAll(ratpApiService.getStopsForCoordinates(latitude, longitude, DISTANCE_AROUND_MAX));
             transports.addAll(velibServiceApi.getVelibStationsForCoordinates(latitude, longitude, DISTANCE_AROUND_MAX));
             transports.addAll(autolibApiService.getAutolibs(latitude, longitude, DISTANCE_AROUND_MAX));
-            
+            transports.addAll(sncfApiService.getStopsForCoordinates(latitude, longitude, DISTANCE_AROUND_MAX));
         }
         return transports;
     }
@@ -69,6 +72,7 @@ public class StationsResource {
         transports.addAll(ratpApiService.getAllStops());
         transports.addAll(velibServiceApi.getAllVelibStations());
         transports.addAll(autolibApiService.getAutolibsParis());
+        transports.addAll(sncfApiService.getAllStops());
         return transports;
     }
 

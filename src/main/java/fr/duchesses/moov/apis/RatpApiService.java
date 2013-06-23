@@ -92,7 +92,7 @@ public class RatpApiService implements ApiService {
         List<Station> result = Lists.newArrayList();
         for (RatpStopModel stop : allStops) {
             double distanceFromPoint = distance(latitude, longitude, stop.getLatitude(), stop.getLongitude());
-            if (distanceFromPoint < distanceMax) {
+            if (distanceFromPoint <= distanceMax) {
                 addTransports(result, allStopLines.get(stop.getId()), stop, distanceFromPoint);
             }
         }

@@ -36,8 +36,7 @@ public class VelibApiService implements ApiService {
     private Map<Long, ApiVelibStationModel> velibStations = Maps.newHashMap();
 
     public VelibApiService() {
-        try (InputStream is = VelibApiService.class
-                .getResourceAsStream("VelibStation.json")) {
+        try (InputStream is = VelibApiService.class.getResourceAsStream("VelibStation.json")) {
             Type listType = new TypeToken<ArrayList<ApiVelibStationModel>>() {
                 // do nothing here.
             }.getType();
@@ -74,7 +73,7 @@ public class VelibApiService implements ApiService {
         List<Station> closestVelibStations = Lists.newArrayList();
         for (ApiVelibStationModel velib : velibStations.values()) {
             double distanceFromPoint = distance(latitude, longitude, velib.getLatitude(), velib.getLongitude());
-            if (distanceFromPoint < distanceMax && isStationActive(velib.getNumber())) {
+            if (distanceFromPoint <= distanceMax && isStationActive(velib.getNumber())) {
                 closestVelibStations.add(convertToTransport(velib).withDistance(distanceFromPoint));
             }
         }
