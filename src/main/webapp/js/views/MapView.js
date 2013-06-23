@@ -9,7 +9,7 @@ var MapView = Backbone.View.extend({
         this.listenTo(this.appState, 'change:currentStation', this.showDetail);
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(this.appState, 'change:mapCenter', this.fetchStations);
-        this.listenTo(stations, 'sync', this.displayStations);
+        this.listenTo(stations, 'reset', this.displayStations);
     },
 
     reBind: function () {
@@ -42,7 +42,7 @@ var MapView = Backbone.View.extend({
 
     fetchStations: function () {
         var mapCenter = this.appState.get('mapCenter');
-        stations.reset().setCoordinates(mapCenter.lat(), mapCenter.lng()).fetch();
+        stations.setCoordinates(mapCenter.lat(), mapCenter.lng()).fetch({reset: true});
     },
 
     displayStations: function () {

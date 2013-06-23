@@ -4,7 +4,7 @@ var ListView = Backbone.View.extend({
     className: 'withTopBar',
 
     initialize: function () {
-        this.listenTo(stations, 'sync', this.showLines);
+        this.listenTo(stations, 'reset', this.showLines);
         this.showLines();
     },
 
