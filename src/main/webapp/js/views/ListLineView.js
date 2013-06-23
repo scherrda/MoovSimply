@@ -10,6 +10,8 @@ var ListLineView = Backbone.View.extend({
 
     initialize: function () {
         this.template = Handlebars.compile($('#list-line-tmpl').html());
+        this.listenTo(this.model, "change", this.render);
+        this.model.fetch();
     },
 
     render: function () {
