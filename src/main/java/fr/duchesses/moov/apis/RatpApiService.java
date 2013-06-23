@@ -3,9 +3,10 @@ package fr.duchesses.moov.apis;
 import au.com.bytecode.opencsv.CSVReader;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import fr.duchesses.moov.models.Coordinates;
-import fr.duchesses.moov.models.Transport;
-import fr.duchesses.moov.models.TransportType;
+import fr.duchesses.moov.models.Station;
+import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.ratp.RatpLineModel;
 import fr.duchesses.moov.models.ratp.RatpStopModel;
 import org.apache.log4j.Logger;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
@@ -26,6 +28,7 @@ public class RatpApiService implements ApiService {
 
     private List<RatpStopModel> allStops = Lists.newArrayList();
     private HashMultimap<Integer, RatpLineModel> allStopLines = HashMultimap.create();
+    private Map<Integer, Station> allStations = Maps.newHashMap();
 
     public RatpApiService() {
         // File reading
@@ -47,6 +50,7 @@ public class RatpApiService implements ApiService {
         }
         logger.info("RATP coordinates and lines loaded");
 
+
         // Conversion
         for (String[] rawStop : rawStops) {
             allStops.add(new RatpStopModel(rawStop));
@@ -56,11 +60,26 @@ public class RatpApiService implements ApiService {
             RatpLineModel stopLine = new RatpLineModel(rawLine);
             allStopLines.put(stopLine.getStopId(), stopLine);
         }
+
+        //TODO CONSTRUCT stations model
+/*
+        for (RatpStopModel stop : allStops) {
+            Collection<RatpLineModel> stopLines = allStopLines.get(stop.getId());
+            for(RatpLineModel line : stopLines){
+                String type = stop.getType();
+                if(type.equals("metro")){
+                    type = "Métro";
+                }
+                allStations.put(stop.getId(), toStation(stop.getType(),stop.getLatitude(), stop.getLongitude(), line.getNumber(),stop.getName()));
+            }
+        }
+*/
+
         logger.info("RATP stop lines : " + allStopLines.size());
     }
 
-    public Collection<Transport> getAllStops() {
-        List<Transport> result = Lists.newArrayList();
+    public Collection<Station> getAllStops() {
+        List<Station> result = Lists.newArrayList();
         for (RatpStopModel stop : allStops) {
             addTransports(result, allStopLines.get(stop.getId()), stop, null);
         }
@@ -69,8 +88,8 @@ public class RatpApiService implements ApiService {
     }
 
 
-    public Collection<Transport> getStopsForCoordinates(double latitude, double longitude, double distanceMax) {
-        List<Transport> result = Lists.newArrayList();
+    public Collection<Station> getStopsForCoordinates(double latitude, double longitude, double distanceMax) {
+        List<Station> result = Lists.newArrayList();
         for (RatpStopModel stop : allStops) {
             double distanceFromPoint = distance(latitude, longitude, stop.getLatitude(), stop.getLongitude());
             if (distanceFromPoint < distanceMax) {
@@ -81,9 +100,9 @@ public class RatpApiService implements ApiService {
         return result;
     }
 
-    private void addTransports(List<Transport> result, Collection<RatpLineModel> stopLines, RatpStopModel stop, Double distanceFromPoint) {
+    private void addTransports(List<Station> result, Collection<RatpLineModel> stopLines, RatpStopModel stop, Double distanceFromPoint) {
         for (RatpLineModel stopLine : stopLines) {
-            Transport transport = new Transport(TransportType.valueOf(stop.getType().toUpperCase()), new Coordinates(
+            Station transport = new Station(StationType.valueOf(stop.getType().toUpperCase()), new Coordinates(
                     stop.getLatitude(), stop.getLongitude()), stopLine.getNumber(), stop.getName() + " " + stopLine.getName());
 
             if (distanceFromPoint != null) {
@@ -93,5 +112,12 @@ public class RatpApiService implements ApiService {
             }
         }
     }
+    private Station toStation(String type, double lat, double lng, String number, String name){
+        Station station = new Station(StationType.valueOf(type), new Coordinates(lat, lng), number, name);
+        return station;
+    }
 
+    public Station getStation(String number) {
+        return allStations.get(Integer.valueOf(number));
+    }
 }

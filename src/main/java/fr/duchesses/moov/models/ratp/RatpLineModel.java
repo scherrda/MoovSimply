@@ -24,4 +24,32 @@ public class RatpLineModel {
         }
         type = rawLine[LINE_INDEX_TYPE];
     }
+
+    public static int getLineIndexStopId() {
+        return LINE_INDEX_STOP_ID;
+    }
+
+    public static int getLineIndexNumberName() {
+        return LINE_INDEX_NUMBER_NAME;
+    }
+
+    public static int getLineIndexType() {
+        return LINE_INDEX_TYPE;
+    }
+
+    public int getStopId() {
+        return stopId;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

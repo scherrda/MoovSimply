@@ -5,7 +5,7 @@ import lombok.Data;
 import com.google.gson.annotations.SerializedName;
 
 @Data
-public class VelibStationModel {
+public class ApiVelibStationModel {
 
     @SerializedName("number")
     private long number;
@@ -36,8 +36,47 @@ public class VelibStationModel {
      @SerializedName("last_update")
      private long lastUpdate;
 
-    public VelibStationModel() {
+    public ApiVelibStationModel() {
         // Default constructor
     }
 
+    public long getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public VelibStatus getStatus() {
+        return status;
+    }
+
+    public int getBikeStands() {
+        return bikeStands;
+    }
+
+    public int getAvailableBikeStands() {
+        return availableBikeStands;
+    }
+
+    public int getAvailableBikes() {
+        return availableBikes;
+    }
+
+    public long getLastUpdate() {
+        return lastUpdate;
+    }
 }

@@ -29,4 +29,52 @@ public class RatpStopModel {
         district = rawStop[STOP_INDEX_DISTRICT];
         type = rawStop[STOP_INDEX_TYPE];
     }
+
+    public static int getStopIndexId() {
+        return STOP_INDEX_ID;
+    }
+
+    public static int getStopIndexLatitude() {
+        return STOP_INDEX_LATITUDE;
+    }
+
+    public static int getStopIndexLongitude() {
+        return STOP_INDEX_LONGITUDE;
+    }
+
+    public static int getStopIndexName() {
+        return STOP_INDEX_NAME;
+    }
+
+    public static int getStopIndexDistrict() {
+        return STOP_INDEX_DISTRICT;
+    }
+
+    public static int getStopIndexType() {
+        return STOP_INDEX_TYPE;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

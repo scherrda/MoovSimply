@@ -1,14 +1,15 @@
 package fr.duchesses.moov.apis;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import fr.duchesses.moov.models.Coordinates;
-import fr.duchesses.moov.models.Transport;
-import fr.duchesses.moov.models.TransportType;
-import fr.duchesses.moov.models.velib.VelibStationModel;
+import fr.duchesses.moov.models.Station;
+import fr.duchesses.moov.models.StationType;
+import fr.duchesses.moov.models.velib.ApiVelibStationModel;
+import fr.duchesses.moov.models.velib.VelibStation;
 import fr.duchesses.moov.models.velib.VelibStatus;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
@@ -27,20 +29,25 @@ import static fr.duchesses.moov.apis.DistanceHelper.distance;
 public class VelibApiService implements ApiService {
 
 	private static final String API_KEY = "c9cf755bab39d7f2bcf8adc5dc83927ee5ddc9e6";
+    private static final String URL_REAL_TIME_DATA = "https://api.jcdecaux.com/vls/v1/stations/";
 
 	private static final Logger logger = Logger
 			.getLogger(VelibApiService.class);
 
-	private List<VelibStationModel> velibStations = Lists.newArrayList();
+	private Map<Long, ApiVelibStationModel> velibStations = Maps.newHashMap();
 
 	public VelibApiService() {
 		try (InputStream is = VelibApiService.class
 				.getResourceAsStream("VelibStation.json")) {
-			Type listType = new TypeToken<ArrayList<VelibStationModel>>() {
+			Type listType = new TypeToken<ArrayList<ApiVelibStationModel>>() {
 				// do nothing here.
 			}.getType();
-			velibStations = new Gson().fromJson(new InputStreamReader(is),
-					listType);
+
+            List<ApiVelibStationModel> velibList = new Gson().fromJson(new InputStreamReader(is), listType);
+            for(ApiVelibStationModel velibModel : velibList){
+                velibStations.put(velibModel.getNumber(), velibModel);
+            }
+
 		} catch (IOException e) {
 			logger.error("Velib : I/O error");
 		}
@@ -48,24 +55,26 @@ public class VelibApiService implements ApiService {
 		logger.info("Velibs loaded");
 	}
 
-	private Transport convertToTransport(VelibStationModel velib) {
-		return new Transport(TransportType.VELIB, new Coordinates(
-				velib.getLatitude(), velib.getLongitude()), null, velib
-				.getName().split(" - ")[1]);
-	}
+	private VelibStation convertToTransport(ApiVelibStationModel velib) {
+		return new VelibStation(StationType.VELIB, new Coordinates(
+				velib.getLatitude(), velib.getLongitude()),
+                String.valueOf(velib.getNumber()),
+                velib.getName().split(" - ")[1],
+                velib.getStatus(), velib.getBikeStands(), velib.getAvailableBikeStands(), velib.getAvailableBikes(),velib.getLastUpdate());
+    }
 
-	public List<Transport> getAllVelibStations() {
-		List<Transport> allVelibs = Lists.newArrayList();
-		for (VelibStationModel velib : velibStations) {
+	public List<Station> getAllVelibStations() {
+		List<Station> allVelibs = Lists.newArrayList();
+		for (ApiVelibStationModel velib : velibStations.values()) {
 			allVelibs.add(convertToTransport(velib));
 		}
 		return allVelibs;
 	}
 
-	public List<Transport> getVelibStationsForCoordinates(Double latitude,
+	public List<Station> getVelibStationsForCoordinates(Double latitude,
 			Double longitude, double distanceMax) {
-		List<Transport> closestVelibStations = Lists.newArrayList();
-		for (VelibStationModel velib : velibStations) {
+		List<Station> closestVelibStations = Lists.newArrayList();
+		for (ApiVelibStationModel velib : velibStations.values()) {
 			double distanceFromPoint = distance(latitude, longitude,
 					velib.getLatitude(), velib.getLongitude());
 			if ((distanceFromPoint < distanceMax)
@@ -78,14 +87,13 @@ public class VelibApiService implements ApiService {
 	}
 
 	private boolean isStationActif(long stationNumber) {
-
 		StringBuilder url = new StringBuilder(
 				"https://api.jcdecaux.com/vls/v1/stations/")
 				.append(stationNumber).append("?contract=Paris&apiKey=")
 				.append(API_KEY);
 		try (InputStream is = new URL(url.toString()).openStream()) {
-			VelibStationModel station = new Gson().fromJson(
-					new InputStreamReader(is), VelibStationModel.class);
+			ApiVelibStationModel station = new Gson().fromJson(
+					new InputStreamReader(is), ApiVelibStationModel.class);
             logger.info("station velibs isOpen");
 			return (station.getStatus().equals(VelibStatus.OPEN) && station
 					.getAvailableBikes() > 0);
@@ -94,4 +102,34 @@ public class VelibApiService implements ApiService {
 		}
 		return false;
 	}
+
+
+    private ApiVelibStationModel getRealTimeData(long stationNumber){
+        ApiVelibStationModel station = null;
+        try (InputStream is = getUrlRealTimeData(stationNumber).openStream()) {
+            station = new Gson().fromJson(new InputStreamReader(is), ApiVelibStationModel.class);
+        } catch (IOException e) {
+            logger.error("Velib : I/O error real time Data unavailable for velib" + stationNumber);
+        }
+        return station ;
+    }
+
+    public VelibStation getStation(String stationNumber) {
+        ApiVelibStationModel velibStation = velibStations.get(Long.valueOf(stationNumber));
+        return convertToTransport(velibStation);
+    }
+
+    private URL getUrlRealTimeData(long stationNumber){
+        StringBuilder url = new StringBuilder(URL_REAL_TIME_DATA)
+                .append(stationNumber).
+                        append("?contract=Paris&apiKey=")
+                .append(API_KEY);
+        try {
+            return new URL(url.toString());
+        } catch (MalformedURLException e) {
+            logger.error("bad url");
+        }
+        return null;
+    }
+
 }

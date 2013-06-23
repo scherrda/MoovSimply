@@ -6,8 +6,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import fr.duchesses.moov.models.Coordinates;
-import fr.duchesses.moov.models.Transport;
-import fr.duchesses.moov.models.TransportType;
+import fr.duchesses.moov.models.Station;
+import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.autolib.AutolibStationModel;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -28,18 +28,18 @@ public class AutolibApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(AutolibApiService.class);
 
-    public Collection<Transport> getAutolibs(double searchLatitude, double searchLongitude, double distanceMax) {
+    public Collection<Station> getAutolibs(double searchLatitude, double searchLongitude, double distanceMax) {
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + searchLatitude + "," + searchLongitude + "," + distanceMax;
         return getTransportsFromUrl(recordsUrl, searchLatitude, searchLongitude);
     }
 
-    public Collection<Transport> getAutolibsParis() {
+    public Collection<Station> getAutolibsParis() {
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&refine.ville=paris&rows=1000";
         return getTransportsFromUrl(recordsUrl, null, null);
     }
 
-    private List<Transport> getTransportsFromUrl(String recordsUrl, Double searchLatitude, Double searchLongitude) {
-        List<Transport> transports = Lists.newArrayList();
+    private List<Station> getTransportsFromUrl(String recordsUrl, Double searchLatitude, Double searchLongitude) {
+        List<Station> transports = Lists.newArrayList();
         try {
             Type listType = new TypeToken<ArrayList<JsonObject>>() {
                 // do nothing here.
@@ -48,7 +48,7 @@ public class AutolibApiService implements ApiService {
             List<JsonObject> rawStations = new Gson().fromJson(searchResponse.get("records"), listType);
             for (JsonObject rawStation : rawStations) {
                 AutolibStationModel stationModel = new Gson().fromJson(rawStation.get("fields"), AutolibStationModel.class);
-                Transport transport = new Transport(TransportType.AUTOLIB, new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
+                Station transport = new Station(StationType.AUTOLIB, new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
                 if (searchLatitude != null && searchLongitude != null) {
                     double distanceFromPoint = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
                     transports.add(transport.withDistance(distanceFromPoint));
