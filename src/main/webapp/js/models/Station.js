@@ -4,6 +4,6 @@ var Station = Backbone.Model.extend({
     },
 
     url: function () {
-        return '/rest/moovin/' + this.get("type").toLowerCase() + '/' + this.get("lineNumber");
+        return '/rest/moovin/' + this.get("type").toLowerCase() + '/' + this.get("stationId");
     }
 });

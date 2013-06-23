@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sun.jersey.api.NotFoundException;
 import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
@@ -57,6 +58,7 @@ public class VelibApiService implements ApiService {
         return new VelibStation(StationType.VELIB, new Coordinates(
                 velib.getLatitude(), velib.getLongitude()),
                 String.valueOf(velib.getNumber()),
+                String.valueOf(velib.getNumber()),
                 velib.getName().split(" - ")[1],
                 velib.getStatus(), velib.getBikeStands(), velib.getAvailableBikeStands(), velib.getAvailableBikes(), velib.getLastUpdate());
     }
@@ -69,31 +71,32 @@ public class VelibApiService implements ApiService {
         return allVelibs;
     }
 
-    public List<Station> getVelibStationsForCoordinates(Double latitude, Double longitude, double distanceMax) {
-        List<Station> closestVelibStations = Lists.newArrayList();
-        for (ApiVelibStationModel velib : velibStations.values()) {
-            double distanceFromPoint = distance(latitude, longitude, velib.getLatitude(), velib.getLongitude());
-            if (distanceFromPoint <= distanceMax && isStationActive(velib.getNumber())) {
-                closestVelibStations.add(convertToTransport(velib).withDistance(distanceFromPoint));
-            }
-        }
-        return closestVelibStations;
-    }
+	public List<Station> getVelibStationsForCoordinates(Double latitude,
+			Double longitude, double distanceMax) {
+		List<Station> closestVelibStations = Lists.newArrayList();
+		for (ApiVelibStationModel velib : velibStations.values()) {
+			double distanceFromPoint = distance(latitude, longitude,
+					velib.getLatitude(), velib.getLongitude());
+			if (distanceFromPoint <= distanceMax) {
+				closestVelibStations.add(convertToTransport(velib)
+						.withDistance(distanceFromPoint));
+			}
+		}
+		return closestVelibStations;
+	}
 
-    private boolean isStationActive(long stationNumber) {
-        String url = new StringBuilder(
-                "https://api.jcdecaux.com/vls/v1/stations/")
-                .append(stationNumber).append("?contract=Paris&apiKey=")
-                .append(API_KEY).toString();
-        try (InputStream is = new URL(url).openStream()) {
-            ApiVelibStationModel station = new Gson().fromJson(new InputStreamReader(is), ApiVelibStationModel.class);
-            logger.debug("Velibs : station isOpen responding");
-            return (station.getStatus().equals(VelibStatus.OPEN) && station.getAvailableBikes() > 0);
-        } catch (IOException e) {
-            logger.error("Velibs : I/O error in isStationActive method");
-        }
-        return false;
-    }
+	private boolean isStationActif(long stationNumber) {
+		try (InputStream is = getUrlRealTimeData(stationNumber).openStream()) {
+			ApiVelibStationModel station = new Gson().fromJson(
+					new InputStreamReader(is), ApiVelibStationModel.class);
+            logger.info("station velibs isOpen");
+			return (station.getStatus().equals(VelibStatus.OPEN) && station
+					.getAvailableBikes() > 0);
+		} catch (IOException e) {
+			logger.error("Velib : I/O error in isStationActif method");
+		}
+		return false;
+	}
 
 
     private ApiVelibStationModel getRealTimeData(long stationNumber) {
@@ -103,11 +106,14 @@ public class VelibApiService implements ApiService {
         } catch (IOException e) {
             logger.error("Velib : I/O error real time Data unavailable for velib" + stationNumber);
         }
-        return station;
+        return station ;
     }
 
     public VelibStation getStation(String stationNumber) {
         ApiVelibStationModel velibStation = velibStations.get(Long.valueOf(stationNumber));
+        if(velibStation == null){
+            throw new NotFoundException("no velib station found : " + stationNumber);
+        }
         return convertToTransport(velibStation);
     }
 

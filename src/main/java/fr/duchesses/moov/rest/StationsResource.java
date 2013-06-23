@@ -77,17 +77,28 @@ public class StationsResource {
     }
 
     @GET
-    @Path("/velib/{number}")
+    @Path("/velib/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public VelibStation getVelibRealTimeData(@PathParam("number") String number) {
-        return velibServiceApi.getStation(number);
+    public VelibStation getVelibRealTimeData(@PathParam("stationId") String stationId) {
+        return velibServiceApi.getStation(stationId);
     }
     @GET
-    @Path("/bus/{number}")
+    @Path("/bus/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Station getRatpRealTimeData(@PathParam("number") String number) {
-        return null;
-        //return ratpApiService.getStation(number);
+    public Station getBusRatpRealTimeData(@PathParam("stationId") String stationId) {
+        return ratpApiService.getStation(stationId);
+    }
+    @GET
+    @Path("/metro/{stationId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Station getMetroRealTimeData(@PathParam("stationId") String stationId) {
+        return ratpApiService.getStation(stationId);
+    }
+    @GET
+    @Path("/autolib/{stationId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Station getAutolibRealTimeData(@PathParam("stationId") String stationId) {
+        return autolibApiService.getStation(stationId);
     }
 
 }

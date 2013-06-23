@@ -28,7 +28,8 @@ public class RatpApiService implements ApiService {
 
     private List<RatpStopModel> allStops = Lists.newArrayList();
     private HashMultimap<Integer, RatpLineModel> allStopLines = HashMultimap.create();
-    private Map<Integer, Station> allStations = Maps.newHashMap();
+
+    private Map<String, Station> allStations = Maps.newHashMap();
 
     public RatpApiService() {
         // File reading
@@ -61,48 +62,53 @@ public class RatpApiService implements ApiService {
             allStopLines.put(stopLine.getStopId(), stopLine);
         }
 
-        //TODO CONSTRUCT stations model
-/*
+
         for (RatpStopModel stop : allStops) {
             Collection<RatpLineModel> stopLines = allStopLines.get(stop.getId());
-            for(RatpLineModel line : stopLines){
-                String type = stop.getType();
-                if(type.equals("metro")){
-                    type = "Métro";
-                }
-                allStations.put(stop.getId(), toStation(stop.getType(),stop.getLatitude(), stop.getLongitude(), line.getNumber(),stop.getName()));
+            for(RatpLineModel lineStop : stopLines){
+                String stationId = lineStop.getNumber() + "-" + stop.getId();
+                allStations.put( stationId, toStation(stationId, stop.getType().toUpperCase(), stop.getLatitude(), stop.getLongitude(), lineStop.getNumber(), stop.getName()));
             }
         }
-*/
 
         logger.info("RATP stop lines : " + allStopLines.size());
+        logger.info("RATP loaded stops : " + allStations.size());
     }
 
     public Collection<Station> getAllStops() {
+        logger.debug("all stations size" + allStations.size());
+
+        //TODO unused but pb with different size ! Delete when difference FIX
         List<Station> result = Lists.newArrayList();
         for (RatpStopModel stop : allStops) {
             addTransports(result, allStopLines.get(stop.getId()), stop, null);
         }
+        logger.debug("all result size" + result.size());
+        //TODO end
 
-        return result;
+        return allStations.values();
     }
 
 
     public Collection<Station> getStopsForCoordinates(double latitude, double longitude, double distanceMax) {
-        List<Station> result = Lists.newArrayList();
-        for (RatpStopModel stop : allStops) {
-            double distanceFromPoint = distance(latitude, longitude, stop.getLatitude(), stop.getLongitude());
-            if (distanceFromPoint <= distanceMax) {
-                addTransports(result, allStopLines.get(stop.getId()), stop, distanceFromPoint);
+        List<Station> nearStations = Lists.newArrayList();
+        for(Station station : allStations.values()){
+            double distance = distance(latitude, longitude, station.getLatitude(), station.getLongitude());
+            if(distance <= distanceMax){
+                station.setDistance(distance);
+                nearStations.add(station);
             }
         }
-
-        return result;
+        logger.debug("nearstations size" + nearStations.size());
+        return nearStations;
     }
 
+
+
+    //TODO unused but pb with different size ! Delete when difference FIX
     private void addTransports(List<Station> result, Collection<RatpLineModel> stopLines, RatpStopModel stop, Double distanceFromPoint) {
         for (RatpLineModel stopLine : stopLines) {
-            Station transport = new Station(StationType.valueOf(stop.getType().toUpperCase()), new Coordinates(
+            Station transport = new Station(StationType.valueOf(stop.getType().toUpperCase()), null, new Coordinates(
                     stop.getLatitude(), stop.getLongitude()), stopLine.getNumber(), stop.getName() + " " + stopLine.getName());
 
             if (distanceFromPoint != null) {
@@ -112,12 +118,14 @@ public class RatpApiService implements ApiService {
             }
         }
     }
-    private Station toStation(String type, double lat, double lng, String number, String name){
-        Station station = new Station(StationType.valueOf(type), new Coordinates(lat, lng), number, name);
+
+    private Station toStation(String id, String type, double lat, double lng, String number, String name){
+        Station station = new Station(StationType.valueOf(type), id, new Coordinates(lat, lng), number, name);
         return station;
     }
 
-    public Station getStation(String number) {
-        return allStations.get(Integer.valueOf(number));
+    public Station getStation(String stationId) {
+        //TODO should get detail station : with realtime data
+        return allStations.get(stationId);
     }
 }

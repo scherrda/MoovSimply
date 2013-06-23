@@ -1,10 +1,12 @@
 package fr.duchesses.moov.apis;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.sun.jersey.api.NotFoundException;
 import fr.duchesses.moov.models.Coordinates;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
@@ -20,6 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
@@ -27,6 +30,15 @@ import static fr.duchesses.moov.apis.DistanceHelper.distance;
 public class AutolibApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(AutolibApiService.class);
+    private Map<String, Station> allStations = Maps.newHashMap();
+
+    public AutolibApiService(){
+        Collection<Station> stations = getAutolibsParis();
+        for(Station station : stations ){
+            allStations.put(station.getStationId(), station);
+        }
+    }
+
 
     public Collection<Station> getAutolibs(double searchLatitude, double searchLongitude, double distanceMax) {
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + searchLatitude + "," + searchLongitude + "," + distanceMax;
@@ -48,7 +60,7 @@ public class AutolibApiService implements ApiService {
             List<JsonObject> rawStations = new Gson().fromJson(searchResponse.get("records"), listType);
             for (JsonObject rawStation : rawStations) {
                 AutolibStationModel stationModel = new Gson().fromJson(rawStation.get("fields"), AutolibStationModel.class);
-                Station transport = new Station(StationType.AUTOLIB, new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
+                Station transport = new Station(StationType.AUTOLIB, stationModel.getIdentifiant_autolib(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
                 if (searchLatitude != null && searchLongitude != null) {
                     double distanceFromPoint = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
                     transports.add(transport.withDistance(distanceFromPoint));
@@ -81,4 +93,13 @@ public class AutolibApiService implements ApiService {
         }
     }
 
+    public Station getStation(String stationId) {
+        Station station = allStations.get(stationId);
+        if(station == null){
+            throw new NotFoundException("no autolib station found : " + stationId);
+        }
+
+        //TODO should get detail station : with realtime data
+        return station;
+    }
 }
