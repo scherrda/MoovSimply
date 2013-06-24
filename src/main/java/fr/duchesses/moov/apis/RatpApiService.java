@@ -5,6 +5,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import fr.duchesses.moov.models.Coordinates;
+import fr.duchesses.moov.models.ServiceType;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.ratp.RatpLineModel;
@@ -108,7 +109,7 @@ public class RatpApiService implements ApiService {
     //TODO unused but pb with different size ! Delete when difference FIX
     private void addTransports(List<Station> result, Collection<RatpLineModel> stopLines, RatpStopModel stop, Double distanceFromPoint) {
         for (RatpLineModel stopLine : stopLines) {
-            Station transport = new Station(StationType.valueOf(stop.getType().toUpperCase()), null, new Coordinates(
+            Station transport = new Station(ServiceType.RATP, StationType.valueOf(stop.getType().toUpperCase()), null, new Coordinates(
                     stop.getLatitude(), stop.getLongitude()), stopLine.getNumber(), stop.getName() + " " + stopLine.getName());
 
             if (distanceFromPoint != null) {
@@ -120,7 +121,7 @@ public class RatpApiService implements ApiService {
     }
 
     private Station toStation(String id, String type, double lat, double lng, String number, String name){
-        Station station = new Station(StationType.valueOf(type), id, new Coordinates(lat, lng), number, name);
+        Station station = new Station(ServiceType.RATP, StationType.valueOf(type), id, new Coordinates(lat, lng), number, name);
         return station;
     }
 

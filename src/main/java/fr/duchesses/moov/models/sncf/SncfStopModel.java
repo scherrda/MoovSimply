@@ -39,4 +39,24 @@ public class SncfStopModel {
         latitude = wgs84.getLatitude();
         longitude = wgs84.getLongitude();
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public int getUic() {
+        return uic;
+    }
 }

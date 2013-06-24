@@ -83,16 +83,16 @@ public class StationsResource {
         return velibServiceApi.getStation(stationId);
     }
     @GET
-    @Path("/bus/{stationId}")
+    @Path("/ratp/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Station getBusRatpRealTimeData(@PathParam("stationId") String stationId) {
         return ratpApiService.getStation(stationId);
     }
     @GET
-    @Path("/metro/{stationId}")
+    @Path("/sncf/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Station getMetroRealTimeData(@PathParam("stationId") String stationId) {
-        return ratpApiService.getStation(stationId);
+        return sncfApiService.getStation(stationId);
     }
     @GET
     @Path("/autolib/{stationId}")

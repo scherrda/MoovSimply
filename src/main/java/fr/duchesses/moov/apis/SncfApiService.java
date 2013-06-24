@@ -5,6 +5,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import fr.duchesses.moov.models.Coordinates;
+import fr.duchesses.moov.models.ServiceType;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.sncf.SncfLineModel;
@@ -70,7 +71,7 @@ public class SncfApiService implements ApiService {
         for (SncfStopModel stop : allStops) {
             for (SncfLineModel lineStop : allStopLines.get(stop.getUic())) {
                 String stationId = lineStop.getLineNumber() + "-" + stop.getUic();
-                allStations.put( stationId, new Station(StationType.valueOf(lineStop.getType()), stationId, new Coordinates(stop.getLatitude(), stop.getLongitude()), lineStop.getLineNumber(), lineStop.getName()));
+                allStations.put( stationId, new Station(ServiceType.SNCF, StationType.valueOf(lineStop.getType()), stationId, new Coordinates(stop.getLatitude(), stop.getLongitude()), lineStop.getLineNumber(), lineStop.getName()));
             }
         }
         logger.info("RATP loaded stops : " + allStations.size());
@@ -91,5 +92,11 @@ public class SncfApiService implements ApiService {
             }
         }
         return stationsArround;
+    }
+
+    public Station getStation(String stationId) {
+        //TODO should get detail station : with realtime data
+        return allStations.get(stationId);
+
     }
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class Station {
+    private ServiceType serviceType;
     private StationType type;
     private String stationId;
     private Coordinates coordinates;
@@ -14,7 +15,8 @@ public class Station {
     private double distance;
 
 
-    public Station(StationType type, String stationId, Coordinates coordinates, String lineNumber, String name) {
+    public Station(ServiceType serviceType, StationType type, String stationId, Coordinates coordinates, String lineNumber, String name) {
+        this.serviceType = serviceType;
         this.type = type;
         this.stationId = stationId;
         this.coordinates = coordinates;
@@ -45,6 +47,10 @@ public class Station {
 
     public StationType getType() {
         return type;
+    }
+
+    public ServiceType getServiceType() {
+        return serviceType;
     }
 
     public Coordinates getCoordinates() {

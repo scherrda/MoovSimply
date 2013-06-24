@@ -59,4 +59,20 @@ public class SncfLineModel {
         if ("1".equals(rawStop[INDEX_IS_TER])) lineNumber = "TER";
 
     }
+
+    public int getUic() {
+        return uic;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getLineNumber() {
+        return lineNumber;
+    }
 }

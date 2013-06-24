@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.NotFoundException;
 import fr.duchesses.moov.models.Coordinates;
+import fr.duchesses.moov.models.ServiceType;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.velib.ApiVelibStationModel;
@@ -55,7 +56,7 @@ public class VelibApiService implements ApiService {
     }
 
     private VelibStation convertToTransport(ApiVelibStationModel velib) {
-        return new VelibStation(StationType.VELIB, new Coordinates(
+        return new VelibStation(ServiceType.VELIB, StationType.VELIB, new Coordinates(
                 velib.getLatitude(), velib.getLongitude()),
                 String.valueOf(velib.getNumber()),
                 String.valueOf(velib.getNumber()),
