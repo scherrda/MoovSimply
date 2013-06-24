@@ -31,7 +31,7 @@ import static fr.duchesses.moov.apis.DistanceHelper.distance;
 public class VelibApiService implements ApiService {
 
     private static final String API_KEY = "c9cf755bab39d7f2bcf8adc5dc83927ee5ddc9e6";
-    private static final String URL_REAL_TIME_DATA = "https://api.jcdecaux.com/vls/v1/stations/";
+    private static final String BASE_URL = "https://api.jcdecaux.com/vls/v1/stations/";
 
     private static final Logger logger = Logger.getLogger(VelibApiService.class);
 
@@ -59,9 +59,13 @@ public class VelibApiService implements ApiService {
         return new VelibStation(ServiceType.VELIB, StationType.VELIB, new Coordinates(
                 velib.getLatitude(), velib.getLongitude()),
                 String.valueOf(velib.getNumber()),
-                String.valueOf(velib.getNumber()),
+                null,//lineNumber not used
                 velib.getName().split(" - ")[1],
-                velib.getStatus(), velib.getBikeStands(), velib.getAvailableBikeStands(), velib.getAvailableBikes(), velib.getLastUpdate());
+                velib.getStatus(),
+                velib.getBikeStands(),
+                velib.getAvailableBikeStands(),
+                velib.getAvailableBikes(),
+                velib.getLastUpdate());
     }
 
     public List<Station> getAllVelibStations() {
@@ -87,7 +91,7 @@ public class VelibApiService implements ApiService {
 	}
 
 	private boolean isStationActif(long stationNumber) {
-		try (InputStream is = getUrlRealTimeData(stationNumber).openStream()) {
+		try (InputStream is = buildUrl(String.valueOf(stationNumber)).openStream()) {
 			ApiVelibStationModel station = new Gson().fromJson(
 					new InputStreamReader(is), ApiVelibStationModel.class);
             logger.info("station velibs isOpen");
@@ -100,14 +104,14 @@ public class VelibApiService implements ApiService {
 	}
 
 
-    private ApiVelibStationModel getRealTimeData(long stationNumber) {
+    private VelibStation getRealTimeData(String stationNumber) {
         ApiVelibStationModel station = null;
-        try (InputStream is = getUrlRealTimeData(stationNumber).openStream()) {
+        try (InputStream is = buildUrl(stationNumber).openStream()) {
             station = new Gson().fromJson(new InputStreamReader(is), ApiVelibStationModel.class);
         } catch (IOException e) {
             logger.error("Velib : I/O error real time Data unavailable for velib" + stationNumber);
         }
-        return station ;
+        return convertToTransport(station) ;
     }
 
     public VelibStation getStation(String stationNumber) {
@@ -115,11 +119,12 @@ public class VelibApiService implements ApiService {
         if(velibStation == null){
             throw new NotFoundException("no velib station found : " + stationNumber);
         }
-        return convertToTransport(velibStation);
+        VelibStation station = convertToTransport(velibStation);
+        return getRealTimeData(stationNumber);
     }
 
-    private URL getUrlRealTimeData(long stationNumber) {
-        String url = new StringBuilder(URL_REAL_TIME_DATA)
+    private URL buildUrl(String stationNumber) {
+        String url = new StringBuilder(BASE_URL)
                 .append(stationNumber).append("?contract=Paris&apiKey=")
                 .append(API_KEY).toString();
         try {

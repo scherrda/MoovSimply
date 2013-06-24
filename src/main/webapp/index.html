@@ -74,17 +74,31 @@
 
     <div class="line-extended" style="display: none;">
         <div class="green">
-            <div class="left">Heure</div>
-            <div class="right">{{time}}</div>
+            <!-- velib status-->
+            {{#if status}}
+                <div class="left">{{status}}</div>
+            {{else}}
+                <div class="left">Heure</div>
+                <div class="right">{{time}}</div>
+            {{/if}}
         </div>
         <div class="green-light">
-            <div class="legend">Horaires de passage pour les directions</div>
-            {{#directions}}
+            <!-- velib status-->
+            {{#if status}}
             <div class="schedule">
-                <div class="direction">{{direction}}</div>
-                <div class="time">{{time}}</div>
+                <div class="direction">Vélos disponibles : {{availableBikes}}</div>
+                <div class="time">Places disponibles : {{availableBikeStands}}</div>
             </div>
-            {{/directions}}
+
+            {{else}}
+                <div class="legend">Horaires de passage pour les directions</div>
+                {{#directions}}
+                <div class="schedule">
+                    <div class="direction">{{direction}}</div>
+                    <div class="time">{{time}}</div>
+                </div>
+                {{/directions}}
+            {{/if}}
         </div>
     </div>
 </script>
