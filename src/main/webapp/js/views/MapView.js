@@ -3,8 +3,7 @@ var MapView = Backbone.View.extend({
     className: 'withTopBar',
 
     initialize: function () {
-        this.appState = new AppState();
-
+        this.appState = this.options.appState;
         this.gmap = new GMapView({appState:this.appState});
         this.listenTo(this.appState, 'change:currentStation', this.showDetail);
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);

@@ -8,6 +8,7 @@ var Router = Backbone.Router.extend({
     },
 
     initialize: function () {
+        this.appState = new AppState();
         this.topBar = new TopBarView().render().hide();
         $('#topbar').html(this.topBar.el);
     },
@@ -18,13 +19,13 @@ var Router = Backbone.Router.extend({
     },
 
     goMap: function () {
-        if (!this.mapView) this.mapView = new MapView().render();
+        if (!this.mapView) this.mapView = new MapView({appState:this.appState}).render();
         $('#content').html(this.mapView.reBind().el);
         this.topBar.switchToMap();
     },
 
     goList: function () {
-        if (!this.listView) this.listView = new ListView().render();
+        if (!this.listView) this.listView = new ListView({appState:this.appState}).render();
         $('#content').html(this.listView.reBind().el);
         this.topBar.switchToList();
     }

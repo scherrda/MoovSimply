@@ -8,11 +8,13 @@ var GMapView = Backbone.View.extend({
     initialize: function () {
         this.appState = this.options.appState;
         this.listenTo(this.appState, 'change:mapCenter', this.changeMapCenter);
+        this.listenTo(this.appState, 'change:currentStation', this.onChangeCurrentStation);
         this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), 'You', this.getMeMarkerImage());
         this.geolocalize();
     },
 
     render: function () {
+        console.log("rendering Gmap");
         //Why the map creation is in render ?
         var mapOptions = {
             zoom: 16,
@@ -125,18 +127,24 @@ var GMapView = Backbone.View.extend({
             var info = station.get('type') + ' ' + station.get('lineNumber');
             var stationMarker = this.createMarker(station.get('coordinates'), info, this.getStationMarkerImage(station.get('type')));
             stationMarker.type = station.get('type');
+            stationMarker.id = station.get('stationId');
             stationMarker.active = false;
             this.currentMarkers.push(stationMarker);
 
             google.maps.event.addListener(stationMarker, 'click', _.bind(function () {
                 this.appState.set('currentStation', station);
-                this.turnOnMarker(stationMarker);
             }, this));
         }, this));
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
             this.trigger('details:hide');
         }, this));
+    },
+
+    onChangeCurrentStation : function () {
+        var newStation = this.appState.get('currentStation');
+        var newStationMarker = _.findWhere(this.currentMarkers, {id: newStation.get('stationId'), type : newStation.get('type')});
+        this.turnOnMarker(newStationMarker);
     },
 
     turnOnMarker: function (stationMarker) {

@@ -4,15 +4,25 @@ var ListView = Backbone.View.extend({
     className: 'withTopBar',
 
     initialize: function () {
+        this.appState = this.options.appState;
         this.listenTo(stations, 'reset', this.showLines);
+        this.listenTo(stations, 'show', this.updateCurrentStationAndCenter, this);
+
         this.showLines();
     },
+
 
     reBind: function () {
         _.each(this.lines, function (lineView) {
             lineView.delegateEvents();
         });
         return this;
+    },
+
+    updateCurrentStationAndCenter : function (station) {
+        this.appState.set('currentStation', station);
+        var newCenter = station.get('coordinates');
+        this.appState.set('mapCenter', new google.maps.LatLng(newCenter.latitude, newCenter.longitude));
     },
 
     showLines: function () {
