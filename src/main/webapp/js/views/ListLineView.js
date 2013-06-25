@@ -10,13 +10,21 @@ var ListLineView = Backbone.View.extend({
 
     initialize: function () {
         this.template = Handlebars.compile($('#list-line-tmpl').html());
-        this.listenTo(this.model, "change", this.render);
+        this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
+        this.listenTo(this.model, "change", this.renderDetail);
         this.model.setDistanceToUser(this.model.get("distance"));//pour ne pas perdre la distance !
+        this.render();
     },
 
     render: function () {
         console.log("rendering listlineview");
         this.$el.html(this.template(this.model.attributes));
+        return this;
+    },
+
+    renderDetail: function () {
+        console.log("rendering detail area");
+        this.$('.line-extended').html(this.templateExtended(this.model.attributes));
         return this;
     },
 
