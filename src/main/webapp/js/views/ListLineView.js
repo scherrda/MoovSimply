@@ -17,6 +17,7 @@ var ListLineView = Backbone.View.extend({
     render: function () {
         console.log("rendering listlineview");
         this.$el.html(this.template(this.model.attributes));
+        this.renderDetail();
         return this;
     },
 
