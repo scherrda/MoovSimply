@@ -12,8 +12,6 @@ var ListLineView = Backbone.View.extend({
         this.template = Handlebars.compile($('#list-line-tmpl').html());
         this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
         this.listenTo(this.model, "change", this.renderDetail);
-        this.model.setDistanceToUser(this.model.get("distance"));//pour ne pas perdre la distance !
-        this.render();
     },
 
     render: function () {
