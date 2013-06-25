@@ -61,7 +61,7 @@ public class AutolibApiService implements ApiService {
             List<JsonObject> rawStations = new Gson().fromJson(searchResponse.get("records"), listType);
             for (JsonObject rawStation : rawStations) {
                 AutolibStationModel stationModel = new Gson().fromJson(rawStation.get("fields"), AutolibStationModel.class);
-                Station transport = new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_autolib(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
+                Station transport = new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
                 if (searchLatitude != null && searchLongitude != null) {
                     double distanceFromPoint = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
                     transports.add(transport.withDistance(distanceFromPoint));
