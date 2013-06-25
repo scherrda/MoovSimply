@@ -11,25 +11,25 @@ var ListLineView = Backbone.View.extend({
     initialize: function () {
         this.template = Handlebars.compile($('#list-line-tmpl').html());
         this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
-        this.listenTo(this.model, "change", this.renderDetail);
+
+        var detail = new DetailStation({serviceType : this.model.get('serviceType'), stationId : this.model.get('stationId')});
+        this.model.detail = detail;
+        this.listenTo(this.model.detail, "change", this.renderDetail);
     },
 
     render: function () {
-        console.log("rendering listlineview");
         this.$el.html(this.template(this.model.attributes));
         this.renderDetail();
         return this;
     },
 
     renderDetail: function () {
-        console.log("rendering detail area");
-        this.$('.line-extended').html(this.templateExtended(this.model.attributes));
+        this.$('.line-extended').html(this.templateExtended(this.model.detail.attributes));
         return this;
     },
 
     toggle: function () {
-        console.log("in toggle");
-        this.model.fetch();
+        this.model.detail.fetch();
         var $lineExtended = this.$('.line-extended'),
             $arrow = this.$('.extend-arrow');
 

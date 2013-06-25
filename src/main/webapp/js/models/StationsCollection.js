@@ -1,5 +1,5 @@
 var StationsCollection = Backbone.Collection.extend({
-    model : Station,
+//    model : Station,
 
     url: function () {
         return '/rest/moovin/around?LAT=' + this.lat + '&LNG=' + this.lng;
