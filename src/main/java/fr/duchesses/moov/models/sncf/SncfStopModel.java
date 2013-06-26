@@ -1,47 +1,30 @@
 package fr.duchesses.moov.models.sncf;
 
-import com.google.common.primitives.Doubles;
-import com.google.common.primitives.Ints;
-import fr.duchesses.moov.models.Coordinates;
 import lombok.Data;
-
-import static fr.duchesses.moov.apis.DistanceHelper.lambert2EtendutoWGS84;
 
 @Data
 public class SncfStopModel {
 
-    private static final int INDEX_UIC = 0;
-    private static final int INDEX_STOP_LABEL = 1;
-    private static final int INDEX_LABEL = 2;
-    private static final int INDEX_STIF_LABEL = 3;
-    private static final int INDEX_SMS_LABEL = 4;
-    private static final int INDEX_STOP_NAME = 5;
-    private static final int INDEX_ADDRESS = 6;
-    private static final int INDEX_INSEE_CODE = 7;
-    private static final int INDEX_CITY = 8;
-    private static final int INDEX_X = 9;
-    private static final int INDEX_Y = 10;
+    private static final int INDEX_ID = 0;
+    private static final int INDEX_NAME = 1;
+    private static final int INDEX_DESCRIPTION = 2;
+    private static final int INDEX_LATITUDE = 3;
+    private static final int INDEX_LONGITUDE = 4;
+    private static final int INDEX_ZONE_ID = 5;
+    private static final int INDEX_URL = 6;
+    private static final int INDEX_LOCATION_TYPE = 7;
+    private static final int INDEX_PARENT_STATION = 8;
 
-    private int uic;
-    private Double latitude;
-    private Double longitude;
+    private String stopId;
     private String name;
-    private String address;
+    private double latitude;
+    private double longitude;
 
     public SncfStopModel(String[] rawStop) {
-        uic = Ints.tryParse(rawStop[INDEX_UIC]);
-        name = rawStop[INDEX_STOP_NAME];
-        address = rawStop[INDEX_ADDRESS];
-
-        double lambertLatitude = Doubles.tryParse(rawStop[INDEX_X].replace(',', '.'));
-        double lambertLongitude = Doubles.tryParse(rawStop[INDEX_Y].replace(',', '.'));
-        Coordinates wgs84 = lambert2EtendutoWGS84(lambertLatitude, lambertLongitude);
-        latitude = wgs84.getLatitude();
-        longitude = wgs84.getLongitude();
-    }
-
-    public String getAddress() {
-        return address;
+        stopId = rawStop[INDEX_ID];
+        name = rawStop[INDEX_NAME];
+        latitude = Double.parseDouble(rawStop[INDEX_LATITUDE]);
+        longitude = Double.parseDouble(rawStop[INDEX_LONGITUDE]);
     }
 
     public String getName() {
@@ -54,9 +37,5 @@ public class SncfStopModel {
 
     public Double getLatitude() {
         return latitude;
-    }
-
-    public int getUic() {
-        return uic;
     }
 }
