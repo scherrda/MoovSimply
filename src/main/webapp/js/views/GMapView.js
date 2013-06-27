@@ -124,7 +124,7 @@ var GMapView = Backbone.View.extend({
         this.currentMarkers = [];
 
         stations.each(_.bind(function (station) {
-            var info = station.get('type') + ' ' + station.get('lineNumber');
+            var info = station.get('type') + (station.get('lineNumber') ? ' ' + station.get('lineNumber') : '');
             var stationMarker = this.createMarker(station.get('coordinates'), info, this.getStationMarkerImage(station.get('type')));
             stationMarker.type = station.get('type');
             stationMarker.id = station.get('stationId');
@@ -141,9 +141,9 @@ var GMapView = Backbone.View.extend({
         }, this));
     },
 
-    onChangeCurrentStation : function () {
+    onChangeCurrentStation: function () {
         var newStation = this.appState.get('currentStation');
-        var newStationMarker = _.findWhere(this.currentMarkers, {id: newStation.get('stationId'), type : newStation.get('type')});
+        var newStationMarker = _.findWhere(this.currentMarkers, {id: newStation.get('stationId'), type: newStation.get('type')});
         this.turnOnMarker(newStationMarker);
     },
 
