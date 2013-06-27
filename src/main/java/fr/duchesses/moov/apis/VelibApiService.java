@@ -5,13 +5,9 @@ import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.NotFoundException;
-import fr.duchesses.moov.models.Coordinates;
-import fr.duchesses.moov.models.ServiceType;
-import fr.duchesses.moov.models.Station;
-import fr.duchesses.moov.models.StationType;
+import fr.duchesses.moov.models.*;
 import fr.duchesses.moov.models.velib.ApiVelibStationModel;
 import fr.duchesses.moov.models.velib.VelibStation;
-import fr.duchesses.moov.models.velib.VelibStatus;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -95,7 +91,7 @@ public class VelibApiService implements ApiService {
 			ApiVelibStationModel station = new Gson().fromJson(
 					new InputStreamReader(is), ApiVelibStationModel.class);
             logger.info("station velibs isOpen");
-			return (station.getStatus().equals(VelibStatus.OPEN) && station
+			return (station.getStatus().equals(StationStatus.OPEN) && station
 					.getAvailableBikes() > 0);
 		} catch (IOException e) {
 			logger.error("Velib : I/O error in isStationActif method");
@@ -104,23 +100,29 @@ public class VelibApiService implements ApiService {
 	}
 
 
-    private VelibStation getRealTimeData(String stationNumber) {
+    private ApiVelibStationModel queryForRealTimeData(String stationNumber) {
         ApiVelibStationModel station = null;
         try (InputStream is = buildUrl(stationNumber).openStream()) {
             station = new Gson().fromJson(new InputStreamReader(is), ApiVelibStationModel.class);
         } catch (IOException e) {
             logger.error("Velib : I/O error real time Data unavailable for velib" + stationNumber);
         }
-        return convertToTransport(station) ;
+        return station ;
     }
 
-    public VelibStation getStation(String stationNumber) {
+    public DetailStation getStation(String stationNumber) {
         ApiVelibStationModel velibStation = velibStations.get(Long.valueOf(stationNumber));
         if(velibStation == null){
             throw new NotFoundException("no velib station found : " + stationNumber);
         }
         VelibStation station = convertToTransport(velibStation);
-        return getRealTimeData(stationNumber);
+
+        ApiVelibStationModel stationModel = queryForRealTimeData(station.getStationId());
+        String address = stationModel.getAddress();
+        int nbStands = stationModel.getAvailableBikeStands();
+        int nbVehicles = stationModel.getAvailableBikes();
+        return new DetailStation(address, nbStands, nbVehicles, stationModel.getStatus(), stationModel.getLastUpdate());
+
     }
 
     private URL buildUrl(String stationNumber) {

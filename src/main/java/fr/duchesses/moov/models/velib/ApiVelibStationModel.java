@@ -1,5 +1,6 @@
 package fr.duchesses.moov.models.velib;
 
+import fr.duchesses.moov.models.StationStatus;
 import lombok.Data;
 
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +23,7 @@ public class ApiVelibStationModel {
     @SerializedName("longitude")
     private double longitude;
 
-     private VelibStatus status;
+     private StationStatus status;
     
      @SerializedName("bike_stands")
      private int bikeStands;
@@ -60,7 +61,7 @@ public class ApiVelibStationModel {
         return longitude;
     }
 
-    public VelibStatus getStatus() {
+    public StationStatus getStatus() {
         return status;
     }
 

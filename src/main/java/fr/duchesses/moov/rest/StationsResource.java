@@ -5,8 +5,8 @@ import fr.duchesses.moov.apis.AutolibApiService;
 import fr.duchesses.moov.apis.RatpApiService;
 import fr.duchesses.moov.apis.SncfApiService;
 import fr.duchesses.moov.apis.VelibApiService;
+import fr.duchesses.moov.models.DetailStation;
 import fr.duchesses.moov.models.Station;
-import fr.duchesses.moov.models.velib.VelibStation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -79,7 +79,7 @@ public class StationsResource {
     @GET
     @Path("/velib/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public VelibStation getVelibRealTimeData(@PathParam("stationId") String stationId) {
+    public DetailStation getVelibRealTimeData(@PathParam("stationId") String stationId) {
         return velibServiceApi.getStation(stationId);
     }
     @GET
@@ -97,8 +97,8 @@ public class StationsResource {
     @GET
     @Path("/autolib/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Station getAutolibRealTimeData(@PathParam("stationId") String stationId) {
-        return autolibApiService.getStation(stationId);
+    public DetailStation getAutolibRealTimeData(@PathParam("stationId") String stationId) {
+        return autolibApiService.getDetailStation(stationId);
     }
 
 }

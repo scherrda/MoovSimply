@@ -82,6 +82,8 @@
         <!-- velib status-->
         {{#if status}}
         <div class="left">{{status}}</div>
+        <div class="right">{{address}}</div>
+
         {{else}}
         <div class="left">Heure</div>
         <div class="right">{{time}}</div>
@@ -91,8 +93,8 @@
         <!-- velib status-->
         {{#if status}}
         <div class="schedule">
-            <div class="direction">Vélos disponibles : {{availableBikes}}</div>
-            <div class="time">Places disponibles : {{availableBikeStands}}</div>
+            <div class="direction">Disponibles : {{availableVehicles}}</div>
+            <div class="time">Bornes disponibles : {{availableStands}}</div>
         </div>
 
         {{else}}

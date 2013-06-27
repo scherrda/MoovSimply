@@ -7,11 +7,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.NotFoundException;
-import fr.duchesses.moov.models.Coordinates;
-import fr.duchesses.moov.models.ServiceType;
-import fr.duchesses.moov.models.Station;
-import fr.duchesses.moov.models.StationType;
+import fr.duchesses.moov.models.*;
 import fr.duchesses.moov.models.autolib.AutolibStationModel;
+import fr.duchesses.moov.models.velib.ApiVelibStationModel;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -31,6 +29,8 @@ import static fr.duchesses.moov.apis.DistanceHelper.distance;
 public class AutolibApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(AutolibApiService.class);
+    private static final String BASE_URL = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?";
+
     private Map<String, Station> allStations = Maps.newHashMap();
 
     public AutolibApiService(){
@@ -41,18 +41,47 @@ public class AutolibApiService implements ApiService {
     }
 
 
-    public Collection<Station> getAutolibs(double searchLatitude, double searchLongitude, double distanceMax) {
-        String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + searchLatitude + "," + searchLongitude + "," + distanceMax;
-        return getTransportsFromUrl(recordsUrl, searchLatitude, searchLongitude);
+    //all in ile de france
+    private String buildUrl(String criteria) {
+        StringBuilder url = new StringBuilder(BASE_URL)
+                .append("dataset=stations_et_espaces_autolib_de_la_metropole_parisienne");
+        if(criteria != null){
+            url.append("&" + criteria);
+        }
+        return url.toString();
     }
 
+
+    //All
     public Collection<Station> getAutolibsParis() {
-        String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&refine.ville=paris&rows=1000";
-        return getTransportsFromUrl(recordsUrl, null, null);
+        List<Station> transports = Lists.newArrayList();
+
+        Collection<AutolibStationModel> stationModels = getTransportsFromUrl(buildUrl("rows=10000"));
+        for(AutolibStationModel stationModel : stationModels){
+            transports.add(new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue()));
+        }
+        return transports;
     }
 
-    private List<Station> getTransportsFromUrl(String recordsUrl, Double searchLatitude, Double searchLongitude) {
+    //Arround
+    public Collection<Station> getAutolibs(double searchLatitude, double searchLongitude, double distanceMax) {
         List<Station> transports = Lists.newArrayList();
+        String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + searchLatitude + "," + searchLongitude + "," + distanceMax;
+        Collection<AutolibStationModel> stationModels = getTransportsFromUrl(recordsUrl);
+        for(AutolibStationModel stationModel : stationModels){
+            Station transport = new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
+            double distance = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
+            if(distance <= distanceMax){
+                transport.setDistance(distance);
+                transports.add(transport);
+            }
+        }
+        return transports;
+    }
+
+
+    private List<AutolibStationModel> getTransportsFromUrl(String recordsUrl) {
+        List<AutolibStationModel> transports = Lists.newArrayList();
         try {
             Type listType = new TypeToken<ArrayList<JsonObject>>() {
                 // do nothing here.
@@ -60,19 +89,12 @@ public class AutolibApiService implements ApiService {
             JsonObject searchResponse = new JsonParser().parse(readUrl(recordsUrl)).getAsJsonObject();
             List<JsonObject> rawStations = new Gson().fromJson(searchResponse.get("records"), listType);
             for (JsonObject rawStation : rawStations) {
-                AutolibStationModel stationModel = new Gson().fromJson(rawStation.get("fields"), AutolibStationModel.class);
-                Station transport = new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
-                if (searchLatitude != null && searchLongitude != null) {
-                    double distanceFromPoint = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
-                    transports.add(transport.withDistance(distanceFromPoint));
-                } else {
-                    transports.add(transport);
-                }
+                transports.add(new Gson().fromJson(rawStation.get("fields"), AutolibStationModel.class));
             }
         } catch (IOException e) {
             logger.error("Autolib : service not responding");
         }
-        logger.info("Autolibs loaded");
+        logger.info("Autolibs loaded" + transports.size() + " stations");
         return transports;
     }
 
@@ -89,18 +111,34 @@ public class AutolibApiService implements ApiService {
 
             return buffer.toString();
         } finally {
-            if (reader != null)
+            if (null != reader)
                 reader.close();
         }
     }
 
-    public Station getStation(String stationId) {
+    public DetailStation getDetailStation(String stationId) {
         Station station = allStations.get(stationId);
         if(station == null){
             throw new NotFoundException("no autolib station found : " + stationId);
         }
-
-        //TODO should get detail station : with realtime data
-        return station;
+        AutolibStationModel stationModel = queryForRealTimeData(station.getStationId());
+        String address = stationModel.getRue() + " " + stationModel.getCode_postal();
+        int nbStands = stationModel.getBornes_de_charge_autolib();
+        int nbVehicles = stationModel.getNombre_total_de_bornes_de_charge()- stationModel.getBornes_de_charge_autolib();
+        logger.debug("status " + stationModel.getEtat_actuel());
+        StationStatus status = stationModel.getEtat_actuel().equals("Ouverte")? StationStatus.OPEN : StationStatus.CLOSED;
+        return new DetailStation(address, nbStands, nbVehicles, status, 0);
     }
+
+    private AutolibStationModel queryForRealTimeData(String stationNumber) {
+        ApiVelibStationModel station = null;
+
+        String recordsUrl = buildUrl("q=identifiant_dsp=" + stationNumber);
+        List<AutolibStationModel> stationsModel = getTransportsFromUrl(recordsUrl);
+
+        return stationsModel.get(0);
+    }
+
+
+
 }
