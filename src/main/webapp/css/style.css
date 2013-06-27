@@ -292,11 +292,6 @@ a.splash-wrap {
     height: 45px;
 }
 
-.line-extended {
-    max-height: 90px;
-    overflow-y: scroll;
-}
-
 .green {
     font-size: 12px;
     color: #3b4342;

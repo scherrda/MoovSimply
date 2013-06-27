@@ -4,7 +4,7 @@ import com.google.common.primitives.Ints;
 import lombok.Data;
 
 @Data
-public class SncfLigneGareModel {
+public class ApiSncfLigneGare {
 
     private static final int INDEX_UIC = 0;
     private static final int INDEX_NAME = 1;
@@ -33,7 +33,7 @@ public class SncfLigneGareModel {
     private String type;
     private String lineNumber;
 
-    public SncfLigneGareModel(String[] rawStop) {
+    public ApiSncfLigneGare(String[] rawStop) {
         uic = Ints.tryParse(rawStop[INDEX_UIC]);
         name = rawStop[INDEX_NAME];
 
@@ -60,19 +60,4 @@ public class SncfLigneGareModel {
 
     }
 
-    public int getUic() {
-        return uic;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getLineNumber() {
-        return lineNumber;
-    }
 }

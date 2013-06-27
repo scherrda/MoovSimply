@@ -4,7 +4,7 @@ import com.google.common.primitives.Ints;
 import lombok.Data;
 
 @Data
-public class SncfGareModel {
+public class ApiSncfGare {
 
     private static final int INDEX_UIC = 0;
     private static final int INDEX_STOP_LABEL = 1;
@@ -19,22 +19,14 @@ public class SncfGareModel {
     private static final int INDEX_Y = 10;
 
     private int uic;
-    //private Double x;
-    //private Double y;
     private String name;
     private String label;
     private String address;
 
-    public SncfGareModel(String[] rawStop) {
+    public ApiSncfGare(String[] rawStop) {
         uic = Ints.tryParse(rawStop[INDEX_UIC]);
         name = rawStop[INDEX_STOP_NAME];
         label = rawStop[INDEX_LABEL];
         address = rawStop[INDEX_ADDRESS];
-
-        //double lambertLatitude = Doubles.tryParse(rawStop[INDEX_X].replace(',', '.'));
-        //double lambertLongitude = Doubles.tryParse(rawStop[INDEX_Y].replace(',', '.'));
-        //Coordinates wgs84 = lambert2EtendutoWGS84(lambertLatitude, lambertLongitude);
-        //x = wgs84.getLatitude();
-        //y = wgs84.getLongitude();
     }
 }

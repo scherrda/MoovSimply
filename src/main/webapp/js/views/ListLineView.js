@@ -12,24 +12,29 @@ var ListLineView = Backbone.View.extend({
         this.template = Handlebars.compile($('#list-line-tmpl').html());
         this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
 
-        var detail = new DetailStation({serviceType : this.model.get('serviceType'), stationId : this.model.get('stationId')});
-        this.model.detail = detail;
-        this.listenTo(this.model.detail, "change", this.renderDetail);
+        if (!this.model.detailsAlreadyFetched) {
+            this.model.detail = new DetailStation({serviceType: this.model.get('serviceType'), stationId: this.model.get('stationId')});
+            this.listenTo(this.model.detail, 'sync', this.renderDetail);
+        }
     },
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));
-        this.renderDetail();
         return this;
     },
 
     renderDetail: function () {
+        this.model.detailsAlreadyFetched = true;
         this.$('.line-extended').html(this.templateExtended(this.model.detail.attributes));
-        return this;
     },
 
     toggle: function () {
-        this.model.detail.fetch();
+        if (!this.model.detailsAlreadyFetched) {
+            this.model.detail.fetch();
+        } else {
+            this.renderDetail();
+        }
+
         var $lineExtended = this.$('.line-extended'),
             $arrow = this.$('.extend-arrow');
 

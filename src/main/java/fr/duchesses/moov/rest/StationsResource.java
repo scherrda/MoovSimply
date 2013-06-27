@@ -56,10 +56,10 @@ public class StationsResource {
         if((StringUtils.isNotBlank(lat)|| !lat.equals("0")) && (StringUtils.isNotBlank(lng) || !lng.equals("0"))){
         	final Double latitude = Double.valueOf(lat);
             final Double longitude = Double.valueOf(lng);
-            transports.addAll(ratpApiService.getStopsForArround(latitude, longitude, DISTANCE_AROUND_MAX));
+            transports.addAll(ratpApiService.getStopsAround(latitude, longitude, DISTANCE_AROUND_MAX));
             transports.addAll(velibServiceApi.getVelibStationsArround(latitude, longitude, DISTANCE_AROUND_MAX));
             transports.addAll(autolibApiService.getAutolibs(latitude, longitude, DISTANCE_AROUND_MAX));
-            transports.addAll(sncfApiService.getStopsArround(latitude, longitude, DISTANCE_AROUND_MAX));
+            transports.addAll(sncfApiService.getStopsAround(latitude, longitude, DISTANCE_AROUND_MAX));
         }
         return transports;
     }

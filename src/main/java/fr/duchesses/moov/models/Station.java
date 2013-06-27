@@ -14,7 +14,6 @@ public class Station {
     private String address;
     private double distance;
 
-
     public Station(ServiceType serviceType, StationType type, String stationId, Coordinates coordinates, String lineNumber, String name) {
         this.serviceType = serviceType;
         this.type = type;
@@ -30,46 +29,11 @@ public class Station {
         return transportWithDistance;
     }
 
-    public String getStationId() {
-        return stationId;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-    public double getLatitude(){
+    public double getLatitude() {
         return coordinates.getLatitude();
     }
-    public double getLongitude(){
+
+    public double getLongitude() {
         return coordinates.getLongitude();
-    }
-
-    public StationType getType() {
-        return type;
-    }
-
-    public ServiceType getServiceType() {
-        return serviceType;
-    }
-
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
-    public String getLineNumber() {
-        return lineNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public double getDistance() {
-        return distance;
     }
 }

@@ -66,9 +66,9 @@ public class RatpApiService implements ApiService {
 
         for (RatpStopModel stop : allStops) {
             Collection<RatpLineModel> stopLines = allStopLines.get(stop.getId());
-            for(RatpLineModel lineStop : stopLines){
+            for (RatpLineModel lineStop : stopLines) {
                 String stationId = lineStop.getNumber() + "-" + stop.getId();
-                allStations.put( stationId, toStation(stationId, stop.getType().toUpperCase(), stop.getLatitude(), stop.getLongitude(), lineStop.getNumber(), stop.getName()));
+                allStations.put(stationId, toStation(stationId, stop.getType().toUpperCase(), stop.getLatitude(), stop.getLongitude(), lineStop.getNumber(), stop.getName()));
             }
         }
 
@@ -91,19 +91,18 @@ public class RatpApiService implements ApiService {
     }
 
 
-    public Collection<Station> getStopsForArround(double latitude, double longitude, double distanceMax) {
-        List<Station> stationsArround = Lists.newArrayList();
-        for(Station station : allStations.values()){
+    public Collection<Station> getStopsAround(double latitude, double longitude, double distanceMax) {
+        List<Station> stationsAround = Lists.newArrayList();
+        for (Station station : allStations.values()) {
             double distance = distance(latitude, longitude, station.getLatitude(), station.getLongitude());
-            if(distance <= distanceMax){
+            if (distance <= distanceMax) {
                 station.setDistance(distance);
-                stationsArround.add(station);
+                stationsAround.add(station);
             }
         }
-        logger.debug("nearstations size" + stationsArround.size());
-        return stationsArround;
+        logger.debug("RATP near stations size: " + stationsAround.size());
+        return stationsAround;
     }
-
 
 
     //TODO unused but pb with different size ! Delete when difference FIX
@@ -120,7 +119,7 @@ public class RatpApiService implements ApiService {
         }
     }
 
-    private Station toStation(String id, String type, double lat, double lng, String number, String name){
+    private Station toStation(String id, String type, double lat, double lng, String number, String name) {
         Station station = new Station(ServiceType.RATP, StationType.valueOf(type), id, new Coordinates(lat, lng), number, name);
         return station;
     }

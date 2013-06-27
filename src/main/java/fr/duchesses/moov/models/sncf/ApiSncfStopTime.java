@@ -8,9 +8,9 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 @Data
-public class SncfStopTimeModel {
+public class ApiSncfStopTime {
 
-    private static final Logger logger = Logger.getLogger(SncfStopTimeModel.class);
+    private static final Logger logger = Logger.getLogger(ApiSncfStopTime.class);
 
     private static final int INDEX_TRIP_ID = 0;
     private static final int INDEX_ARRIVAL_TIME = 1;
@@ -27,7 +27,7 @@ public class SncfStopTimeModel {
     private LocalTime arrivalTime;
     private String stopId;
 
-    public SncfStopTimeModel(String[] rawStopTime) {
+    public ApiSncfStopTime(String[] rawStopTime) {
         try {
             arrivalTime = fmt.parseLocalTime(rawStopTime[INDEX_ARRIVAL_TIME]);
         } catch (IllegalFieldValueException e) {
@@ -37,6 +37,6 @@ public class SncfStopTimeModel {
         } catch (Exception e) {
             //logger.warn("Cannot parse arrival time", e);
         }
-        stopId = rawStopTime[INDEX_STOP_ID];
+        stopId = rawStopTime[INDEX_STOP_ID].split(":")[1];
     }
 }

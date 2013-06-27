@@ -3,7 +3,7 @@ package fr.duchesses.moov.models.sncf;
 import lombok.Data;
 
 @Data
-public class SncfStopModel {
+public class ApiSncfStop {
 
     private static final int INDEX_ID = 0;
     private static final int INDEX_NAME = 1;
@@ -20,22 +20,10 @@ public class SncfStopModel {
     private double latitude;
     private double longitude;
 
-    public SncfStopModel(String[] rawStop) {
-        stopId = rawStop[INDEX_ID];
+    public ApiSncfStop(String[] rawStop) {
+        stopId = rawStop[INDEX_ID].split(":")[1];
         name = rawStop[INDEX_NAME];
         latitude = Double.parseDouble(rawStop[INDEX_LATITUDE]);
         longitude = Double.parseDouble(rawStop[INDEX_LONGITUDE]);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public Double getLatitude() {
-        return latitude;
     }
 }

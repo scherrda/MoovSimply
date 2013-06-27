@@ -97,12 +97,12 @@
 
         {{else}}
         <div class="legend">Horaires de passage pour les directions</div>
-        {{#directions}}
+        {{#times}}
         <div class="schedule">
             <div class="direction">{{direction}}</div>
-            <div class="time">{{time}}</div>
+            <div class="time">{{.}}</div>
         </div>
-        {{/directions}}
+        {{/times}}
         {{/if}}
     </div>
 </script>
