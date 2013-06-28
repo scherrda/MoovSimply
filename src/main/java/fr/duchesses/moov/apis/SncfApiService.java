@@ -1,6 +1,6 @@
 package fr.duchesses.moov.apis;
 
-import au.com.bytecode.opencsv.CSVReader;
+import com.google.common.base.Charsets;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -12,8 +12,7 @@ import fr.duchesses.moov.models.sncf.*;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.inject.Inject;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -29,12 +28,13 @@ public class SncfApiService implements ApiService {
     private Map<String, Station> allStations = Maps.newHashMap();
     HashMultimap<String, ApiSncfStopTime> allStopTimes = HashMultimap.create();
 
-    public SncfApiService() {
+    @Inject
+    public SncfApiService(FileReader fileReader) {
         // File reading
-        List<String[]> rawGares = readFileAndGetContents("gare_20120319.csv", "ISO-8859-1", ';');
-        List<String[]> rawLignesGare = readFileAndGetContents("ligne_par_gare_IDF.csv", "ISO-8859-1", ';');
-        List<String[]> rawStops = readFileAndGetContents("stops.txt", "UTF-8", ',');
-        List<String[]> rawStopTimes = readFileAndGetContents("stop_times.txt", "UTF-8", ',');
+        List<String[]> rawGares = fileReader.getLines("gare_20120319.csv", Charsets.ISO_8859_1, ';', 1);
+        List<String[]> rawLignesGare = fileReader.getLines("ligne_par_gare_IDF.csv", Charsets.ISO_8859_1, ';', 1);
+        List<String[]> rawStops = fileReader.getLines("stops.txt", Charsets.UTF_8, ',', 1);
+        List<String[]> rawStopTimes = fileReader.getLines("stop_times.txt", Charsets.UTF_8, ',', 1);
 
         // Conversion
         List<ApiSncfGare> allGares = Lists.newArrayList();
@@ -57,7 +57,7 @@ public class SncfApiService implements ApiService {
             allStopTimes.put(stopTime.getStopId(), stopTime);
         }
 
-        // Aggregation
+        // Data aggregration
         for (ApiSncfGare gare : allGares) {
             for (ApiSncfLigneGare ligneGare : allLignesGare.get(gare.getUic())) {
                 Set<ApiSncfStop> stopsSet = allStops.get(gare.getLabel());
@@ -70,20 +70,7 @@ public class SncfApiService implements ApiService {
                 }
             }
         }
-
-    }
-
-    private List<String[]> readFileAndGetContents(String fileName, String charset, char separator) {
-        List<String[]> rawContents = Lists.newArrayList();
-        try {
-            InputStreamReader inputStreamReader = new InputStreamReader(SncfApiService.class.getClassLoader().getResourceAsStream(fileName), charset);
-            CSVReader reader = new CSVReader(inputStreamReader, separator);
-            rawContents = reader.readAll();
-            rawContents = rawContents.subList(1, rawContents.size());
-        } catch (IOException e) {
-            logger.error("SNCF : I/O error on file " + fileName, e);
-        }
-        return rawContents;
+        logger.info("SNCF loaded stations : " + allStations.size());
     }
 
     public Collection<Station> getAllStops() {
