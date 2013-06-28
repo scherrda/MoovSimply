@@ -20,8 +20,7 @@ public class SncfApiServiceTest {
 
     @BeforeClass
     public static void setUp() {
-        FileReader fileReader = new FileReader();
-        service = new SncfApiService(fileReader);
+        service = new SncfApiService();
     }
 
     @Test

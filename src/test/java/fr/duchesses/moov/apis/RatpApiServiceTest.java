@@ -14,8 +14,7 @@ public class RatpApiServiceTest {
 
     @BeforeClass
     public static void setUp() {
-        FileReader fileReader = new FileReader();
-        service = new RatpApiService(fileReader);
+        service = new RatpApiService();
     }
 
     @Test

@@ -11,7 +11,6 @@ import fr.duchesses.moov.models.*;
 import fr.duchesses.moov.models.autolib.AutolibStationModel;
 import fr.duchesses.moov.models.velib.ApiVelibStationModel;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +24,7 @@ import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
-@Component
+
 public class AutolibApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(AutolibApiService.class);

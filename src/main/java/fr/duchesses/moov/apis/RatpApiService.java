@@ -11,7 +11,7 @@ import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.ratp.RatpLineModel;
 import fr.duchesses.moov.models.ratp.RatpStopModel;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+
 
 import javax.inject.Inject;
 import java.util.Collection;
@@ -20,7 +20,7 @@ import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
-@Component
+
 public class RatpApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(RatpApiService.class);
@@ -28,10 +28,10 @@ public class RatpApiService implements ApiService {
     private Map<String, Station> allStations = Maps.newHashMap();
 
     @Inject
-    public RatpApiService(FileReader fileReader) {
+    public RatpApiService() {
         // File reading
-        List<String[]> rawStops = fileReader.getLines("ratp_arret_graphique.csv", Charsets.UTF_8, '#', 0);
-        List<String[]> rawStopLines = fileReader.getLines("ratp_arret_ligne.csv", Charsets.UTF_8, '#', 0);
+        List<String[]> rawStops = FileReader.getLines("ratp_arret_graphique.csv", Charsets.UTF_8, '#', 0);
+        List<String[]> rawStopLines = FileReader.getLines("ratp_arret_ligne.csv", Charsets.UTF_8, '#', 0);
 
         // Conversion
         List<RatpStopModel> allStops = Lists.newArrayList();

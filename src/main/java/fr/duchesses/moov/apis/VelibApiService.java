@@ -9,7 +9,7 @@ import fr.duchesses.moov.models.*;
 import fr.duchesses.moov.models.velib.ApiVelibStationModel;
 import fr.duchesses.moov.models.velib.VelibStation;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +23,7 @@ import java.util.Map;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
-@Component
+
 public class VelibApiService implements ApiService {
 
     private static final String API_KEY = "c9cf755bab39d7f2bcf8adc5dc83927ee5ddc9e6";

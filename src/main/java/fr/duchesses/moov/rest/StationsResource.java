@@ -1,6 +1,7 @@
 package fr.duchesses.moov.rest;
 
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 import fr.duchesses.moov.apis.AutolibApiService;
 import fr.duchesses.moov.apis.RatpApiService;
 import fr.duchesses.moov.apis.SncfApiService;
@@ -8,8 +9,6 @@ import fr.duchesses.moov.apis.VelibApiService;
 import fr.duchesses.moov.models.DetailStation;
 import fr.duchesses.moov.models.Station;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,22 +16,24 @@ import java.util.Collection;
 import java.util.List;
 
 @Path("/moovin")
-@Component
+
 public class StationsResource {
 
     private static final double DISTANCE_AROUND_MAX = 500d;
 
-    @Autowired
+
     private VelibApiService velibServiceApi;
-
-    @Autowired
     private RatpApiService ratpApiService;
-
-    @Autowired
     private AutolibApiService autolibApiService;
-
-    @Autowired
     private SncfApiService sncfApiService;
+
+    @Inject
+    public StationsResource(VelibApiService velibServiceApi, RatpApiService ratpApiService, AutolibApiService autolibApiService, SncfApiService sncfApiService) {
+        this.velibServiceApi = velibServiceApi;
+        this.ratpApiService = ratpApiService;
+        this.autolibApiService = autolibApiService;
+        this.sncfApiService = sncfApiService;
+    }
 
     @GET
     @Path("/hello")

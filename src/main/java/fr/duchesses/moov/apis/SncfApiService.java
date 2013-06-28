@@ -10,7 +10,7 @@ import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.sncf.*;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+
 
 import javax.inject.Inject;
 import java.util.Collection;
@@ -20,7 +20,7 @@ import java.util.Set;
 
 import static fr.duchesses.moov.apis.DistanceHelper.distance;
 
-@Component
+
 public class SncfApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(SncfApiService.class);
@@ -29,12 +29,12 @@ public class SncfApiService implements ApiService {
     HashMultimap<String, ApiSncfStopTime> allStopTimes = HashMultimap.create();
 
     @Inject
-    public SncfApiService(FileReader fileReader) {
+    public SncfApiService() {
         // File reading
-        List<String[]> rawGares = fileReader.getLines("gare_20120319.csv", Charsets.ISO_8859_1, ';', 1);
-        List<String[]> rawLignesGare = fileReader.getLines("ligne_par_gare_IDF.csv", Charsets.ISO_8859_1, ';', 1);
-        List<String[]> rawStops = fileReader.getLines("stops.txt", Charsets.UTF_8, ',', 1);
-        List<String[]> rawStopTimes = fileReader.getLines("stop_times.txt", Charsets.UTF_8, ',', 1);
+        List<String[]> rawGares = FileReader.getLines("gare_20120319.csv", Charsets.ISO_8859_1, ';', 1);
+        List<String[]> rawLignesGare = FileReader.getLines("ligne_par_gare_IDF.csv", Charsets.ISO_8859_1, ';', 1);
+        List<String[]> rawStops = FileReader.getLines("stops.txt", Charsets.UTF_8, ',', 1);
+        List<String[]> rawStopTimes = FileReader.getLines("stop_times.txt", Charsets.UTF_8, ',', 1);
 
         // Conversion
         List<ApiSncfGare> allGares = Lists.newArrayList();

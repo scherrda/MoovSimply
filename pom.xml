@@ -15,19 +15,20 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 
-		<jersey.version>1.12</jersey.version>
+		<jersey.version>1.17.1</jersey.version>
 		<jetty.version>8.1.9.v20130131</jetty.version>
-		<spring.version>3.1.2.RELEASE</spring.version>
+
 		<maven.eclipse.version>2.9</maven.eclipse.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
 		<!-- JERSEY -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
@@ -44,17 +45,23 @@
 			<artifactId>jersey-json</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-spring</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>net.sf.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>2.3</version>
-		</dependency>
+        <!-- GUICE -->
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-guice</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+
+
+        <!-- JETTY SERVER-->
 
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
@@ -71,18 +78,15 @@
 			<artifactId>jetty-webapp</artifactId>
 			<version>${jetty.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
+
 
 		<!-- TOOLS -->
+        <dependency>
+            <groupId>net.sf.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>2.3</version>
+        </dependency>
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
