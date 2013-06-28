@@ -9,7 +9,7 @@ var Router = Backbone.Router.extend({
 
     initialize: function () {
         this.appState = new AppState();
-        this.topBar = new TopBarView().render().hide();
+        this.topBar = new TopBarView({appState:this.appState}).render().hide();
         $('#topbar').html(this.topBar.el);
     },
 

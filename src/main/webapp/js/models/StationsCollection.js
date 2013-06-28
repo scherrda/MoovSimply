@@ -14,7 +14,14 @@ var StationsCollection = Backbone.Collection.extend({
         this.lat = lat == null ? 0 : lat;
         this.lng = lng == null ? 0 : lng;
         return this;
+    },
+
+    filterByName: function (name) {
+        return this.filter(function (model) {
+            return model.get('name').indexOf(name) !== -1;
+        });
     }
+
 
 });
 

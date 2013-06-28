@@ -19,7 +19,7 @@ import java.util.List;
 
 public class StationsResource {
 
-    private static final double DISTANCE_AROUND_MAX = 500d;
+    private static final double DISTANCE_AROUND_MAX = 5000d;
 
 
     private VelibApiService velibServiceApi;

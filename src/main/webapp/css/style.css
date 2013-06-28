@@ -155,6 +155,15 @@ a.splash-wrap {
     background-image: url('../img/arrow-left.png');
 }
 
+.search {
+    position: absolute;
+    width: 120px;
+    height: 15px;
+    top: 12px;
+    right: 50px;
+}
+
+
 .switch {
     position: absolute;
     width: 29px;

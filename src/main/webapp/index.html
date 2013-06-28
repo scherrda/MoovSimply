@@ -7,6 +7,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/theme_smoothness/jquery-ui-1.10.3.custom.min.css">
 
     <script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
@@ -14,6 +15,7 @@
     <script type="text/javascript" src="js/lib/handlebars-1.0.0.js"></script>
     <script type="text/javascript" src="js/lib/swag-0.2.7.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
 
     <script type="text/javascript" src="js/views/SplashView.js"></script>
     <script type="text/javascript" src="js/views/TopBarView.js"></script>
@@ -50,6 +52,10 @@
 <script id="topbar-tmpl" type="text/x-handlebars-template">
     <a href="#splash" class="splash-link"></a>
     <img class="app-title" src="img/logo-small.png">
+    <form>
+        <input type="text" class="search" name="search">
+        <a class="search_clear" href="#"></a>
+    </form>
     <a href="#list" class="switch switch-list"></a>
 </script>
 
