@@ -5,7 +5,7 @@ var FilterView = Backbone.View.extend({
     },
 
     initialize: function() {
-        this.model = new Backbone.Model();
+        this.filterModel = this.options.model ;
 
         this.render();
         if(!this.options.display){
@@ -39,9 +39,9 @@ var FilterView = Backbone.View.extend({
         var types = this.$('input:checked').map(function() {
             return $(this).val();
         }).get();
-        filterModel.set("transportTypes", types);
+        this.filterModel.set("transportTypes", types);
         // TODO : implementer filterStations
-        stations.filterStations();
+        //stations.filterStations();
     }
 
 });

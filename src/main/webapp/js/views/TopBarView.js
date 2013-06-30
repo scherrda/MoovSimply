@@ -10,7 +10,7 @@ var TopBarView = Backbone.View.extend({
 
     initialize : function () {
         this.searchView = new SearchView({appState:this.options.appState, display:false});
-        this.filterView = new FilterView({display:false});
+        this.filterView = new FilterView({model:this.options.appState, display:false});
     },
 
     render: function () {

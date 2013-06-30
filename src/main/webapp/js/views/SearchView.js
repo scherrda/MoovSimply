@@ -7,10 +7,11 @@ var SearchView = Backbone.View.extend({
     initialize: function() {
         this.appState = this.options.appState;
 
-        this.model = new Backbone.Model();
-
+//        this.model = new Backbone.Model();
         this.allStations = new StationsCollection();
+
         this.listenTo(this.allStations, 'sync', this.initSearch);
+        this.listenTo(this.appState, 'change:transportTypes', this.initSearch);
         this.allStations.fetch();//all stations used for search
 
         this.render();
@@ -20,6 +21,11 @@ var SearchView = Backbone.View.extend({
         }
    },
 
+   filterCollection : function(){
+        var types = this.appState.get("transportTypes");
+       return this.allStations.filterByTypes(types);
+   },
+
     render: function () {
         this.$el.html($('#search-tmpl').html());
         return this;
@@ -27,14 +33,21 @@ var SearchView = Backbone.View.extend({
 
     initSearch : function () {
 
-        var autocompletesSearch = this.allStations.map( function(model){
+        var autocompleteSource = this.filterCollection().map( function(model){
             return {
                 label : model.get("name"),
-//                value: model.get("name")},
+                value: model.get("stationId"),
                 icon : './img/types/' + model.get("type").toLowerCase()
                 }
         });
-        this.$("input[name=search]").autocomplete({source: autocompletesSearch, minLength: 3});
+        this.$("input[name=search]").autocomplete({source: autocompleteSource, minLength: 3});
+ //overriding render for example with icon
+ /*           .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+              return $( "<li>" )
+                .append( item.label + "<img src=" + item.icon + ".png/>" )
+                .appendTo( ul );
+            };
+*/
     },
 
 
@@ -56,18 +69,25 @@ var SearchView = Backbone.View.extend({
 
     onSearch: function (event) {
         event.preventDefault();
-        var searchText = this.$('input').val();
-        console.log(searchText);
-//        var searchStation =_.findWhere(this.allStations, {id : searchId});
-        this.model.set('search', searchText);
-        var matchingStations = this.allStations.filterByName(searchText);
-        if(matchingStations && matchingStations[0]){
+        var searchOnText = this.$('input').val();
+//        this.model.set('search', searchOnText);
+        console.log(searchOnText);
+
+        var filteredStations = this.filterCollection();
+        var searchStation =this.allStations.findWhere({stationId : searchOnText});
+        if(searchStation){
+            this.updateCurrentStationAndCenter(searchStation);
+        }
+/*
+
+        var matchingStations = this.filterCollection().filterByName(searchText);
+        if(matchingStations && matchingStations.length > 0){
             console.log("first matching ", matchingStations[0]);
             this.updateCurrentStationAndCenter(matchingStations[0]);
-        }
+        }*/
 
         return false;
-    }
+    },
 
     updateCurrentStationAndCenter : function (station) {
         var newCenter = station.get('coordinates');

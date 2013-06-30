@@ -9,6 +9,7 @@ var MapView = Backbone.View.extend({
         this.listenTo(this.appState, 'change:mapCenter', this.fetchStations);
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(stations, 'reset', this.displayStations);
+        this.listenTo(this.appState, 'change:transportTypes', this.displayStations);
     },
 
     reBind: function () {
@@ -59,7 +60,7 @@ var MapView = Backbone.View.extend({
     },
 
     displayStations: function () {
-        this.gmap.showStationsMarkers(stations);
+        this.gmap.showStationsMarkers(stations.filterByTypes(this.appState.get('transportTypes')));
     }
 
 });

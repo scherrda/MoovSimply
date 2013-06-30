@@ -3,7 +3,8 @@ var AppState = Backbone.Model.extend({
         currentStation :null,
         nextGeolocCenterOnUser : true,
         mapCenter : {pos : new google.maps.LatLng(48.87525, 2.31110)}, //Paris
-        search : null
+        search : null,
+        transportTypes: ["METRO", "RER", "TRAM", "BUS", "AUTOLIB", "VELIB", "TRAIN"]
     },
 
     getCenterCoordinates : function(){

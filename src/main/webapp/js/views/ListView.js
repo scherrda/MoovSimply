@@ -6,6 +6,8 @@ var ListView = Backbone.View.extend({
     initialize: function () {
         this.appState = this.options.appState;
         this.listenTo(stations, 'reset', this.showLines);
+        this.listenTo(this.appState, 'change:transportTypes', this.showLines);
+
         this.listenTo(stations, 'show', this.updateCurrentStationAndCenter, this);
 
         this.showLines();
@@ -40,9 +42,9 @@ var ListView = Backbone.View.extend({
             this.$el.append('<div class="no-station">Aucune station à moins de 500m.</div>');
             return;
         }
-
-        stations.sort();
-        stations.each(_.bind(function (station) {
+        var stationsFilteredByType = stations.filterByTypes(this.appState.get('transportTypes'));
+        stationsFilteredByType.sort();
+        stationsFilteredByType.each(_.bind(function (station) {
             var lineView = new ListLineView({model: station}).render();
             this.$el.append(lineView.el);
             this.lines.push(lineView);

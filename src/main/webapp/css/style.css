@@ -200,28 +200,26 @@ a.splash-wrap {
 
 .search {
     position: absolute;
-    width: 120px;
-    height: 18px;
+    width: 150px;
+    height: 30px;
     right: 50px;
     top : 45px;
+    font-size : 10px;
 }
-
-/*
+.search input{
+    width: 150px;
+    height: 20px;
+    font-size : 16px;
+}
 .ui-autocomplete {
-    max-height: 100px;
+    max-height: 200px;
     overflow-y: auto;
-    */
-/* prevent horizontal scrollbar *//*
-
+/* prevent horizontal scrollbar */
    overflow-x: hidden;
-}
-*/
-/*
-.ui-widget {
-    font-size : 11px;
-    font-weight : 200;
-}
-*/
+    font-size : 14px;
+}`
+
+
 .switch {
     position: absolute;
     width: 29px;
