@@ -20,11 +20,25 @@ var StationsCollection = Backbone.Collection.extend({
     },
 
     filterByName: function (name) {
-        return this.filter(function (model) {
+        return new StationsCollection(this.filter(function (model) {
             return model.get('name').indexOf(name) !== -1;
-        });
-    }
+        }));
+    },
 
+    filterByTypes: function (types) {
+        return new StationsCollection(this.filter(function (model) {
+            return _.find(types, function(type) {
+                return type == model.get('type')
+            }
+            );
+        }));
+    },
+
+    filterStations: function () {
+        // TODO faire fonctionner le filtre : mise a jour propre de stations a partir des filtres
+        // TODO renseigner le champs pour filterByName
+       // stations = this.filterByTypes(filterModel.get("transportTypes")).filterByName("");
+    }
 
 });
 

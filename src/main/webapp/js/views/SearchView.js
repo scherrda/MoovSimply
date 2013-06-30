@@ -34,7 +34,6 @@ var SearchView = Backbone.View.extend({
     },
 
     toggle : function(){
-
         this.$el.toggle();
     },
 
@@ -61,7 +60,7 @@ var SearchView = Backbone.View.extend({
 //new rest service with id station
         }
         return false;
-    },
+    }
 
 
 

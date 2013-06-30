@@ -4,16 +4,19 @@ var TopBarView = Backbone.View.extend({
 
     events: {
         'click .switch': 'loading',
-        'click .search-link': 'showSearchView'
+        'click .search-link': 'showSearchView',
+        'click .transport-filter': 'showTransportFilterView'
     },
 
     initialize : function () {
         this.searchView = new SearchView({display:false});
+        this.filterView = new FilterView({display:false});
     },
 
     render: function () {
         this.$el.html($('#topbar-tmpl').html());
         this.$('#search').html(this.searchView.el);
+        this.$('#transportFilter').html(this.filterView.el);
         return this;
     },
 
@@ -46,6 +49,10 @@ var TopBarView = Backbone.View.extend({
     hide: function () {
         this.$el.hide();
         return this;
+    },
+
+    showTransportFilterView : function() {
+        this.filterView.toggle();
     }
 
 });

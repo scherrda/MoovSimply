@@ -19,11 +19,13 @@
 
     <script type="text/javascript" src="js/views/SplashView.js"></script>
     <script type="text/javascript" src="js/views/SearchView.js"></script>
+    <script type="text/javascript" src="js/views/FilterView.js"></script>
     <script type="text/javascript" src="js/views/TopBarView.js"></script>
     <script type="text/javascript" src="js/models/AppState.js"></script>
     <script type="text/javascript" src="js/models/Station.js"></script>
     <script type="text/javascript" src="js/models/StationsCollection.js"></script>
     <script type="text/javascript" src="js/models/DetailStation.js"></script>
+    <script type="text/javascript" src="js/models/FilterModel.js"></script>
     <script type="text/javascript" src="js/views/GMapView.js"></script>
     <script type="text/javascript" src="js/views/MapView.js"></script>
     <script type="text/javascript" src="js/views/ListLineView.js"></script>
@@ -53,10 +55,12 @@
 <script id="topbar-tmpl" type="text/x-handlebars-template">
     <a href="#splash" class="splash-link"></a>
     <img class="app-title" src="img/logo-small.png">
+    <a href="#transportFilter" class="transport-filter"></a>
     <a href="#search" class="search-link"></a>
     <a href="#list" class="switch switch-list"></a>
     <a href="#geoloc" class="geoloc-linc"></a>
     <div id="search" class="search"></div>
+    <div id="transportFilter" class="transportFilter"></div>
 </script>
 
 <script id="search-tmpl" type="text/x-handlebars-template">
@@ -66,6 +70,17 @@
         </form>
 </script>
 
+<script id="transport-filter-tmpl" type="text/x-handlebars-template">
+        <ul>
+            <li><img src="img/types/metro.png"/><input value="METRO" type="checkbox" checked/></li>
+            <li><img src="img/types/rer.png"/><input value="RER" type="checkbox" checked/></li>
+            <li><img src="img/types/tram.png"/><input value="TRAM" type="checkbox" checked/></li>
+            <li><img src="img/types/bus.png"/><input value="BUS" type="checkbox" checked/></li>
+            <li><img src="img/types/train.png"/><input value="TRAIN" type="checkbox" checked/></li>
+            <li><img src="img/types/autolib.png"/><input value="AUTOLIB" type="checkbox" checked/></li>
+            <li><img src="img/types/velib.png"/><input value="VELIB" type="checkbox" checked/></li>
+        </ul>
+</script>
 
 <script id="list-line-tmpl" type="text/x-handlebars-template">
     <div class="line-narrow">

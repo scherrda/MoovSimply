@@ -154,6 +154,7 @@ a.splash-wrap {
     left: 15px;
     background-image: url('../img/arrow-left.png');
 }
+
 .search-link {
     display: block;
     position: absolute;
@@ -162,6 +163,39 @@ a.splash-wrap {
     top: 15px;
     right: 50px;
     background-image: url('../img/arrow-left.png');
+}
+
+.transport-filter {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 15px;
+    right: 62px;
+    background-image: url('../img/mode-load.gif');
+}
+
+.transportFilter {
+    background: #fff;
+    position: absolute;
+    padding: 3px;
+    right: 0px;
+    top: 45px;
+}
+
+.transportFilter li {
+    display: inline-block;
+    width: 35px;
+}
+
+.transportFilter li input {
+    margin-left: 10px;
+}
+
+.transportFilter img {
+    display: block;
+    width: 30px;
+    height: 30px;
 }
 
 .search {
