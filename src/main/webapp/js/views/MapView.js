@@ -21,6 +21,11 @@ var MapView = Backbone.View.extend({
         return this;
     },
 
+    forceCenterOnUser : function(){
+        this.appState.set('nextGeolocCenterOnUser', true);
+    },
+
+
     showDetail: function () {
         var station = this.appState.get('currentStation');
 

@@ -1,7 +1,9 @@
 var AppState = Backbone.Model.extend({
     defaults : {
-        currentMarker :null,
-        mapCenter : new google.maps.LatLng(48.87525, 2.31110) //Paris,
+        currentStation :null,
+        nextGeolocCenterOnUser : true,
+        mapCenter : new google.maps.LatLng(48.87525, 2.31110), //Paris
+        search : null
     },
 
     getCenterCoordinates : function(){

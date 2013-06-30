@@ -1,5 +1,3 @@
-var alreadyLocalized = false;
-
 var GMapView = Backbone.View.extend({
 
     id: 'map-canvas',
@@ -78,12 +76,11 @@ var GMapView = Backbone.View.extend({
         console.log('Votre position - Latitude : ' + myLat + ', longitude : ' + myLng);
         this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
         this.meMarker.setMap(this.map);
-        if (!alreadyLocalized) {
-            this.appState.set('mapCenter', new google.maps.LatLng(myLat, myLng));
-        }
-        alreadyLocalized = true;
 
-        this.trigger('localized', myLat, myLng);
+        if (this.appState.get('nextGeolocCenterOnUser')) {
+            this.appState.set('mapCenter', new google.maps.LatLng(myLat, myLng));
+            this.appState.set('nextGeolocCenterOnUser', false);
+        }
     },
 
     errorGeoloc: function (error) {
