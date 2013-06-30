@@ -24,7 +24,6 @@
     <script type="text/javascript" src="js/models/AppState.js"></script>
     <script type="text/javascript" src="js/models/Station.js"></script>
     <script type="text/javascript" src="js/models/StationsCollection.js"></script>
-    <script type="text/javascript" src="js/models/DetailStation.js"></script>
     <script type="text/javascript" src="js/models/FilterModel.js"></script>
     <script type="text/javascript" src="js/views/GMapView.js"></script>
     <script type="text/javascript" src="js/views/MapView.js"></script>
@@ -59,15 +58,16 @@
     <a href="#search" class="search-link"></a>
     <a href="#list" class="switch switch-list"></a>
     <a href="#geoloc" class="geoloc-linc"></a>
+
     <div id="search" class="search"></div>
     <div id="transportFilter" class="transportFilter"></div>
 </script>
 
 <script id="search-tmpl" type="text/x-handlebars-template">
-        <form>
-            <input type="text" name="search">
-            <a class="search_clear" href="#"></a>
-        </form>
+    <form>
+        <input type="text" name="search">
+        <a class="search_clear" href="#"></a>
+    </form>
 </script>
 
 <script id="transport-filter-tmpl" type="text/x-handlebars-template">
@@ -107,26 +107,21 @@
 </script>
 
 <script id="list-line-extended-tmpl" type="text/x-handlebars-template">
+    {{#is type 'VELIB'}}
     <div class="green">
-        <!-- velib status-->
-        {{#if status}}
         <div class="left">{{status}}</div>
         <div class="right">{{address}}</div>
-
-        {{else}}
-        <div class="left">Heure</div>
-        <div class="right">{{time}}</div>
-        {{/if}}
     </div>
     <div class="green-light">
-        <!-- velib status-->
-        {{#if status}}
-        <div class="schedule">
-            <div class="direction">Disponibles : {{availableVehicles}}</div>
-            <div class="time">Bornes disponibles : {{availableStands}}</div>
-        </div>
-
-        {{else}}
+        Vélibs disponibles : {{availableVehicles}}
+        <br>Bornes disponibles : {{availableStands}}
+    </div>
+    {{else}}
+    <div class="green">
+        <div class="left">Heure</div>
+        <div class="right">{{time}}</div>
+    </div>
+    <div class="green-light">
         <div class="legend">Horaires de passage pour les directions</div>
         {{#times}}
         <div class="schedule">
@@ -134,8 +129,8 @@
             <div class="time">{{.}}</div>
         </div>
         {{/times}}
-        {{/if}}
     </div>
+    {{/is}}
 </script>
 
 </body>

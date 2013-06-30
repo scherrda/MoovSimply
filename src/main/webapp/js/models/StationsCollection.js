@@ -1,11 +1,11 @@
 var StationsCollection = Backbone.Collection.extend({
-//    model : Station,
+    model: Station,
 
     url: function () {
-        if(this.lat && this.lng){
+        if (this.lat && this.lng) {
             return '/rest/moovin/around?LAT=' + this.lat + '&LNG=' + this.lng;
         }
-        return '/rest/moovin/transports' ;
+        return '/rest/moovin/transports';
         //return '../stations.json?LAT=' + this.lat + '&LNG=' + this.lng;
     },
 

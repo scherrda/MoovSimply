@@ -12,10 +12,7 @@ var ListLineView = Backbone.View.extend({
         this.template = Handlebars.compile($('#list-line-tmpl').html());
         this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
 
-        if (!this.model.detailsAlreadyFetched) {
-            this.model.detail = new DetailStation({serviceType: this.model.get('serviceType'), stationId: this.model.get('stationId')});
-            this.listenTo(this.model.detail, 'sync', this.renderDetail);
-        }
+        this.listenTo(this.model, 'sync', this.renderDetail);
     },
 
     render: function () {
@@ -25,12 +22,12 @@ var ListLineView = Backbone.View.extend({
 
     renderDetail: function () {
         this.model.detailsAlreadyFetched = true;
-        this.$('.line-extended').html(this.templateExtended(this.model.detail.attributes));
+        this.$('.line-extended').html(this.templateExtended(this.model.attributes));
     },
 
     toggle: function () {
         if (!this.model.detailsAlreadyFetched) {
-            this.model.detail.fetch();
+            this.model.fetch();
         } else {
             this.renderDetail();
         }

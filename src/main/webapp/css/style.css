@@ -376,11 +376,11 @@ a.splash-wrap {
 
 .green-light {
     background: #e6eeee;
+    padding: 3px 15px;
 }
 
 .legend, .schedule {
-    padding: 3px 12px;
-    height: 10px;
+    height: 13px;
 }
 
 .schedule .direction {
