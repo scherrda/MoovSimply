@@ -20,9 +20,12 @@ var ListView = Backbone.View.extend({
     },
 
     updateCurrentStationAndCenter : function (station) {
-        this.appState.set('currentStation', station);
+ //       this.appState.set('currentStation', station);
         var newCenter = station.get('coordinates');
-        this.appState.set('mapCenter', new google.maps.LatLng(newCenter.latitude, newCenter.longitude));
+        this.appState.set('mapCenter', {
+            pos :new google.maps.LatLng(newCenter.latitude, newCenter.longitude),
+            station : station}
+            );
     },
 
     showLines: function () {

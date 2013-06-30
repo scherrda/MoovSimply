@@ -5,7 +5,7 @@ var GMapView = Backbone.View.extend({
 
     initialize: function () {
         this.appState = this.options.appState;
-        this.listenTo(this.appState, 'change:mapCenter', this.changeMapCenter);
+        this.listenTo(this.appState, 'change:mapCenter', this.onChangeMapCenter);
         this.listenTo(this.appState, 'change:currentStation', this.onChangeCurrentStation);
         this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), 'You', this.getMeMarkerImage());
         this.geolocalize();
@@ -17,7 +17,7 @@ var GMapView = Backbone.View.extend({
         var mapOptions = {
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            center: this.appState.get('mapCenter'),
+            center: this.appState.get('mapCenter').pos,
             styles: [
                 {
                     "featureType": "road.arterial",
@@ -78,7 +78,7 @@ var GMapView = Backbone.View.extend({
         this.meMarker.setMap(this.map);
 
         if (this.appState.get('nextGeolocCenterOnUser')) {
-            this.appState.set('mapCenter', new google.maps.LatLng(myLat, myLng));
+            this.appState.set('mapCenter', {pos : new google.maps.LatLng(myLat, myLng)});
             this.appState.set('nextGeolocCenterOnUser', false);
         }
     },
@@ -101,8 +101,8 @@ var GMapView = Backbone.View.extend({
         navigator.geolocation.clearWatch(this.watchId);
     },
 
-    changeMapCenter: function () {
-        this.map.setCenter(this.appState.get('mapCenter'));
+    onChangeMapCenter: function () {
+        this.map.setCenter(this.appState.get('mapCenter').pos);
     },
 
     createMarker: function (coordinates, title, icon) {

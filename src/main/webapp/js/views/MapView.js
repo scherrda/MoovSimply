@@ -45,8 +45,17 @@ var MapView = Backbone.View.extend({
     },
 
     fetchStations: function () {
-        var mapCenter = this.appState.get('mapCenter');
-        stations.setCoordinates(mapCenter.lat(), mapCenter.lng()).fetch({reset: true});
+        var mapCenter = this.appState.get('mapCenter').pos;
+        var station = this.appState.get('mapCenter').station;
+        var self = this;
+        stations.setCoordinates(mapCenter.lat(), mapCenter.lng())
+                .fetch({
+                    reset: true,
+                    success: function(){
+                    if(station){
+                        self.appState.set('currentStation', station);
+                    }
+        }});
     },
 
     displayStations: function () {

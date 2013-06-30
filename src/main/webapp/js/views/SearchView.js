@@ -5,7 +5,7 @@ var SearchView = Backbone.View.extend({
     },
 
     initialize: function() {
-        this.appState = this.options.appState;//TODO search view shoud not access this high level model
+        this.appState = this.options.appState;
 
         this.model = new Backbone.Model();
 
@@ -26,12 +26,17 @@ var SearchView = Backbone.View.extend({
     },
 
     initSearch : function () {
-        var names = this.allStations.map( function(model){
-            return model.get("name")
+
+        var autocompletesSearch = this.allStations.map( function(model){
+            return {
+                label : model.get("name"),
+//                value: model.get("name")},
+                icon : './img/types/' + model.get("type").toLowerCase()
+                }
         });
-        console.log($("input[name=search]"));
-        this.$("input[name=search]").autocomplete({source: names, minLength: 3});
+        this.$("input[name=search]").autocomplete({source: autocompletesSearch, minLength: 3});
     },
+
 
     toggle : function(){
         this.$el.toggle();
@@ -53,16 +58,23 @@ var SearchView = Backbone.View.extend({
         event.preventDefault();
         var searchText = this.$('input').val();
         console.log(searchText);
+//        var searchStation =_.findWhere(this.allStations, {id : searchId});
         this.model.set('search', searchText);
         var matchingStations = this.allStations.filterByName(searchText);
         if(matchingStations && matchingStations[0]){
-//TODO fetch with new lat/lng or
-//new rest service with id station
+            console.log("first matching ", matchingStations[0]);
+            this.updateCurrentStationAndCenter(matchingStations[0]);
         }
+
         return false;
     }
 
-
-
+    updateCurrentStationAndCenter : function (station) {
+        var newCenter = station.get('coordinates');
+        this.appState.set('mapCenter', {
+                   pos : new google.maps.LatLng(newCenter.latitude, newCenter.longitude),
+                   station : station
+                   });
+    }
 
 });
