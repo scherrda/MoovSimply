@@ -18,6 +18,7 @@
     <script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
 
     <script type="text/javascript" src="js/views/SplashView.js"></script>
+    <script type="text/javascript" src="js/views/SearchView.js"></script>
     <script type="text/javascript" src="js/views/TopBarView.js"></script>
     <script type="text/javascript" src="js/models/AppState.js"></script>
     <script type="text/javascript" src="js/models/Station.js"></script>
@@ -52,12 +53,19 @@
 <script id="topbar-tmpl" type="text/x-handlebars-template">
     <a href="#splash" class="splash-link"></a>
     <img class="app-title" src="img/logo-small.png">
-    <form>
-        <input type="text" class="search" name="search">
-        <a class="search_clear" href="#"></a>
-    </form>
+    <a href="#search" class="search-link"></a>
     <a href="#list" class="switch switch-list"></a>
+    <a href="#geoloc" class="geoloc-linc"></a>
+    <div id="search" class="search"></div>
 </script>
+
+<script id="search-tmpl" type="text/x-handlebars-template">
+        <form>
+            <input type="text" name="search">
+            <a class="search_clear" href="#"></a>
+        </form>
+</script>
+
 
 <script id="list-line-tmpl" type="text/x-handlebars-template">
     <div class="line-narrow">

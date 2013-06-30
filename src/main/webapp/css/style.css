@@ -154,13 +154,25 @@ a.splash-wrap {
     left: 15px;
     background-image: url('../img/arrow-left.png');
 }
+.search-link {
+    display: block;
+    position: absolute;
+    width: 11px;
+    height: 16px;
+    top: 15px;
+    right: 50px;
+    background-image: url('../img/arrow-left.png');
+}
 
 .search {
     position: absolute;
     width: 120px;
-    height: 15px;
-    top: 12px;
+    height: 18px;
     right: 50px;
+    top : 45px;
+}
+.search .withTopBar{
+
 }
 
 
@@ -171,6 +183,17 @@ a.splash-wrap {
     top: 10px;
     right: 10px;
 }
+
+.geoloc-link {
+    display: block;
+    position: absolute;
+    width: 11px;
+    height: 16px;
+    top: 15px;
+    right: 60px;
+    background-image: url('../img/geoloc.png');
+}
+
 
 .switch-list {
     background-image: url('../img/mode-list.png');

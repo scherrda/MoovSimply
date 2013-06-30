@@ -4,35 +4,17 @@ var TopBarView = Backbone.View.extend({
 
     events: {
         'click .switch': 'loading',
-        'click input[name=search]':'initSearch',
-        'submit .search': 'onSearch'
+        'click .search-link': 'showSearchView'
     },
 
-    initialize: function() {
-        this.appState = this.options.appState;
-   },
+    initialize : function () {
+        this.searchView = new SearchView({display:false});
+    },
 
     render: function () {
         this.$el.html($('#topbar-tmpl').html());
+        this.$('#search').html(this.searchView.el);
         return this;
-    },
-
-    initSearch : function () {
-        var names = stations.map( function(model){
-            return model.get("name")
-        });
-        $("input[name=search]").autocomplete({source: names});
-    },
-
-
-    onSearch: function (event) {
-        var searchText = this.$('input').val();
-        console.log(searchText);
-        this.appState.set('search', searchText);
-        var matchingStations = stations.filterByName(searchText);
-        if(matchingStations && matchingStations[0]){
-            this.appState.set('currentStation', matchingStations[0]);
-        }
     },
 
     loading: function () {
@@ -55,6 +37,10 @@ var TopBarView = Backbone.View.extend({
             this.$('.switch').attr('href', newHref);
         }
         this.$el.show();
+    },
+
+    showSearchView : function() {
+        this.searchView.toggle();
     },
 
     hide: function () {
