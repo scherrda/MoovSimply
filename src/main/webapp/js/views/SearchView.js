@@ -7,7 +7,7 @@ var SearchView = Backbone.View.extend({
     initialize: function() {
         this.appState = this.options.appState;
 
-//        this.model = new Backbone.Model();
+        this.model = new Backbone.Model();
         this.allStations = new StationsCollection();
 
         this.listenTo(this.allStations, 'sync', this.initSearch);
@@ -40,7 +40,21 @@ var SearchView = Backbone.View.extend({
                 icon : './img/types/' + model.get("type").toLowerCase()
                 }
         });
-        this.$("input[name=search]").autocomplete({source: autocompleteSource, minLength: 3});
+        var searchInput =this.$("input[name=search]");
+        var self = this;
+        searchInput.autocomplete({
+            source: autocompleteSource,
+            minLength: 3,
+            select: function(event, ui) {
+                event.preventDefault();
+                searchInput.val(ui.item.label);
+                self.model.set('search', {id : ui.item.value, text : ui.item.label});
+            },
+            focus: function(event, ui) {
+                event.preventDefault();
+                searchInput.val(ui.item.label);
+            }
+        });
  //overriding render for example with icon
  /*           .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
               return $( "<li>" )
@@ -69,12 +83,10 @@ var SearchView = Backbone.View.extend({
 
     onSearch: function (event) {
         event.preventDefault();
-        var searchOnText = this.$('input').val();
-//        this.model.set('search', searchOnText);
-        console.log(searchOnText);
-
+        var input = this.model.get("search");
+        var search = input ? input.id : this.$('input').text();
         var filteredStations = this.filterCollection();
-        var searchStation =this.allStations.findWhere({stationId : searchOnText});
+        var searchStation =this.allStations.findWhere({stationId : search});
         if(searchStation){
             this.updateCurrentStationAndCenter(searchStation);
         }
