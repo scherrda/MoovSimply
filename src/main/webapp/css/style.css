@@ -254,12 +254,11 @@ a.splash-wrap {
 }
 
 .geoloc-link {
-    display: block;
     position: absolute;
-    width: 11px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     top: 15px;
-    right: 60px;
+    right: 115px;
     background-image: url('../img/geoloc.png');
 }
 

@@ -71,7 +71,8 @@ var TopBarView = Backbone.View.extend({
     
     forceGeolocalize : function (event) {
         event.preventDefault();
-        this.appState.set('nextGeolocCenterOnUser', true);
+        this.options.appState.set('nextGeolocCenterOnUser', true);
+        this.switchToMap();
     }    
 
 });
