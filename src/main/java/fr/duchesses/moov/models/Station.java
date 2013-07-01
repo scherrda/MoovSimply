@@ -1,5 +1,7 @@
 package fr.duchesses.moov.models;
 
+import java.util.List;
+
 import com.rits.cloning.Cloner;
 import lombok.Data;
 
@@ -13,6 +15,8 @@ public class Station {
     private String name;
     private String address;
     private double distance;
+    private String formattedName;
+    private List<Direction> directions;
 
     public Station(ServiceType serviceType, StationType type, String stationId, Coordinates coordinates, String lineNumber, String name) {
         this.serviceType = serviceType;

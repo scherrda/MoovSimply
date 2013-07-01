@@ -13,6 +13,7 @@ public class RatpStopModel {
     private static final int STOP_INDEX_NAME = 3;
     private static final int STOP_INDEX_DISTRICT = 4;
     private static final int STOP_INDEX_TYPE = 5;
+    private static final int STOP_INDEX_FORMATTED_NAME = 6;
 
     private int id;
     private Double latitude;
@@ -20,6 +21,7 @@ public class RatpStopModel {
     private String name;
     private String district;
     private String type;
+    private String formattedName;
 
     public RatpStopModel(String[] rawStop) {
         id = Ints.tryParse(rawStop[STOP_INDEX_ID]);
@@ -28,6 +30,7 @@ public class RatpStopModel {
         name = rawStop[STOP_INDEX_NAME];
         district = rawStop[STOP_INDEX_DISTRICT];
         type = rawStop[STOP_INDEX_TYPE];
+        formattedName = rawStop[STOP_INDEX_FORMATTED_NAME];
     }
 
     public static int getStopIndexId() {
@@ -54,27 +57,4 @@ public class RatpStopModel {
         return STOP_INDEX_TYPE;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public String getType() {
-        return type;
-    }
 }
