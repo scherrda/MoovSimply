@@ -5,7 +5,8 @@ var TopBarView = Backbone.View.extend({
     events: {
         'click .switch': 'loading',
         'click .search-link': 'toggleSearchView',
-        'click .transport-filter': 'toggleTransportFilterView'
+        'click .transport-filter': 'toggleTransportFilterView',
+        'click .geoloc-link': 'forceGeolocalize'        
     },
 
     initialize: function () {
@@ -65,7 +66,12 @@ var TopBarView = Backbone.View.extend({
             this.$('.transport-filter').addClass('active');
         } else {
             this.$('.transport-filter').removeClass('active');
-        }
-    }
+        }        
+    },
+    
+    forceGeolocalize : function (event) {
+        event.preventDefault();
+        this.appState.set('nextGeolocCenterOnUser', true);
+    }    
 
 });
