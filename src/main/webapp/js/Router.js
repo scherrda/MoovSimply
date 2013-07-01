@@ -4,8 +4,8 @@ var Router = Backbone.Router.extend({
         'splash': 'goSplash',
         'map': 'goMap',
         'list': 'goList',
-        'transportFilter': '',
-        'search' : '',
+        //'transportFilter': '',
+        //'search' : '',
 //        'geoloc': 'centerOnUser',
         '*path': 'goSplash'
     },

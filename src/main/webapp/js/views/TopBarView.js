@@ -42,7 +42,8 @@ var TopBarView = Backbone.View.extend({
         this.$el.show();
     },
 
-    showSearchView : function() {
+    showSearchView : function(event) {
+        event.preventDefault();
         this.searchView.toggle();
     },
 
@@ -51,7 +52,8 @@ var TopBarView = Backbone.View.extend({
         return this;
     },
 
-    showTransportFilterView : function() {
+    showTransportFilterView : function(event) {
+        event.preventDefault();
         this.filterView.toggle();
     }
 
