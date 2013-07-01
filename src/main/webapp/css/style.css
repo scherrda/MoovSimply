@@ -158,44 +158,72 @@ a.splash-wrap {
 .search-link {
     display: block;
     position: absolute;
-    width: 11px;
-    height: 16px;
-    top: 15px;
+    width: 29px;
+    height: 29px;
+    top: 10px;
     right: 50px;
-    background-image: url('../img/arrow-left.png');
+    background-image: url('../img/search.png');
 }
 
 .transport-filter {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 15px;
-    right: 62px;
-    background-image: url('../img/mode-load.gif');
+    width: 29px;
+    height: 29px;
+    top: 10px;
+    right: 79px;
+    background-image: url('../img/filter.png');
+}
+
+.transport-filter.active {
+    background-image: url('../img/filter-active.png');
 }
 
 .transportFilter {
     background: #fff;
     position: absolute;
-    padding: 3px;
-    right: 0px;
+    left: 0;
+    right: 0;
     top: 45px;
+    border-top: 1px solid #bbb;
+    box-shadow: 0 4px 6px #bbb;
 }
 
 .transportFilter li {
     display: inline-block;
-    width: 35px;
+    text-align: center;
+    width: 13%;
 }
 
-.transportFilter li input {
-    margin-left: 10px;
+.transportFilter label {
+    display: block;
+    cursor: pointer;
+    margin: 6px 0;
 }
 
 .transportFilter img {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 23px;
+    height: 23px;
+    margin: 0 auto;
+}
+
+.transportFilter input[type=checkbox] {
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.transportFilter input[type=checkbox]:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    opacity: 0.2;
+    background-image: url('../img/filter-check.png');
+}
+
+.transportFilter input[type=checkbox]:checked:before {
+    opacity: 1;
 }
 
 .search {
@@ -203,22 +231,23 @@ a.splash-wrap {
     width: 150px;
     height: 30px;
     right: 50px;
-    top : 45px;
-    font-size : 10px;
+    top: 45px;
+    font-size: 10px;
 }
-.search input{
+
+.search input {
     width: 150px;
     height: 20px;
-    font-size : 16px;
+    font-size: 16px;
 }
+
 .ui-autocomplete {
     max-height: 200px;
     overflow-y: auto;
-/* prevent horizontal scrollbar */
-   overflow-x: hidden;
-    font-size : 14px;
-}`
-
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    font-size: 14px;
+}
 
 .switch {
     position: absolute;
@@ -237,7 +266,6 @@ a.splash-wrap {
     right: 60px;
     background-image: url('../img/geoloc.png');
 }
-
 
 .switch-list {
     background-image: url('../img/mode-list.png');
