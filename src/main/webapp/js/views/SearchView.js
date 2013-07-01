@@ -1,5 +1,7 @@
 var SearchView = Backbone.View.extend({
 
+    className: 'search',
+
     events : {
         'submit form': 'onSearch'
     },
