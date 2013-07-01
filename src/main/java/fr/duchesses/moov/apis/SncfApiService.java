@@ -11,7 +11,6 @@ import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.sncf.*;
 import org.apache.log4j.Logger;
 
-
 import javax.inject.Inject;
 import java.util.Collection;
 import java.util.List;
@@ -31,10 +30,10 @@ public class SncfApiService implements ApiService {
     @Inject
     public SncfApiService() {
         // File reading
-        List<String[]> rawGares = FileReader.getLines("gare_20120319.csv", Charsets.ISO_8859_1, ';', 1);
-        List<String[]> rawLignesGare = FileReader.getLines("ligne_par_gare_IDF.csv", Charsets.ISO_8859_1, ';', 1);
-        List<String[]> rawStops = FileReader.getLines("stops.txt", Charsets.UTF_8, ',', 1);
-        List<String[]> rawStopTimes = FileReader.getLines("stop_times.txt", Charsets.UTF_8, ',', 1);
+        List<String[]> rawGares = FileReader.getLines("sncf/gare_20120319.csv", Charsets.ISO_8859_1, ';', 1);
+        List<String[]> rawLignesGare = FileReader.getLines("sncf/ligne_par_gare_IDF.csv", Charsets.ISO_8859_1, ';', 1);
+        List<String[]> rawStops = FileReader.getLines("sncf/stops.txt", Charsets.UTF_8, ',', 1);
+        List<String[]> rawStopTimes = FileReader.getLines("sncf/stop_times.txt", Charsets.US_ASCII, ',', 1);
 
         // Conversion
         List<ApiSncfGare> allGares = Lists.newArrayList();

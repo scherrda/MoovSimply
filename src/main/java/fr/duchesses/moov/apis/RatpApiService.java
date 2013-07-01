@@ -30,8 +30,8 @@ public class RatpApiService implements ApiService {
     @Inject
     public RatpApiService() {
         // File reading
-        List<String[]> rawStops = FileReader.getLines("ratp_arret_graphique.csv", Charsets.UTF_8, '#', 0);
-        List<String[]> rawStopLines = FileReader.getLines("ratp_arret_ligne.csv", Charsets.UTF_8, '#', 0);
+        List<String[]> rawStops = FileReader.getLines("ratp/ratp_arret_graphique.csv", Charsets.UTF_8, '#', 0);
+        List<String[]> rawStopLines = FileReader.getLines("ratp/ratp_arret_ligne.csv", Charsets.UTF_8, '#', 0);
 
         // Conversion
         List<RatpStopModel> allStops = Lists.newArrayList();
