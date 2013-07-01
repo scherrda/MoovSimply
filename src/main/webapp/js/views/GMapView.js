@@ -78,7 +78,7 @@ var GMapView = Backbone.View.extend({
         this.meMarker.setMap(this.map);
 
         if (this.appState.get('nextGeolocCenterOnUser')) {
-            this.appState.set('mapCenter', {pos : new google.maps.LatLng(myLat, myLng)});
+            this.appState.set('mapCenter', {pos: new google.maps.LatLng(myLat, myLng)});
             this.appState.set('nextGeolocCenterOnUser', false);
         }
     },
@@ -171,12 +171,26 @@ var GMapView = Backbone.View.extend({
 
     getStationMarkerImage: function (type, active) {
         active = active || false;
+
+        var xSprite = active ? 31 : 0,
+            ySprite = MARKERS_SPRITE_MAP[type];
+
         return new google.maps.MarkerImage(
-            './img/markers/' + type.toLowerCase() + (active ? '-active' : '') + '.png',
+            './img/markers/markers-sprite.png',
             new google.maps.Size(31, 40), // taille
-            new google.maps.Point(0, 0), // The origin for this image
+            new google.maps.Point(xSprite, ySprite), // The origin for this image
             new google.maps.Point(15, 40) // The anchor for this image
         );
     }
 
 });
+
+var MARKERS_SPRITE_MAP = {
+    TRAIN: 0,
+    METRO: 40,
+    RER: 80,
+    TRAM: 120,
+    BUS: 160,
+    AUTOLIB: 200,
+    VELIB: 240
+};
