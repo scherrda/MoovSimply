@@ -235,6 +235,15 @@ a.splash-wrap {
     width: 80%;
     height: 20px;
     font-size: 16px;
+    padding: 3px 14px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .ui-autocomplete {
