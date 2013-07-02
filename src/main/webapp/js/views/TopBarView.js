@@ -5,7 +5,7 @@ var TopBarView = Backbone.View.extend({
     events: {
         'click .switch': 'loading',
         'click .search-link': 'toggleSearchView',
-        'click .transport-filter': 'toggleTransportFilterView',
+        'click .filter-link': 'toggleTransportFilterView',
         'click .geoloc-link': 'forceGeolocalize'
     },
 
@@ -48,7 +48,7 @@ var TopBarView = Backbone.View.extend({
     toggleSearchView: function (event) {
         event.preventDefault();
         this.filterView.hide();
-        this.$('.transport-filter').removeClass('active');
+        this.$('.filter-link').removeClass('active');
         this.searchView.toggle();
     },
 
@@ -61,7 +61,7 @@ var TopBarView = Backbone.View.extend({
         event.preventDefault();
         this.searchView.hide();
         this.filterView.toggle();
-        this.$('.transport-filter').toggleClass('active');
+        this.$('.filter-link').toggleClass('active');
     },
 
     forceGeolocalize: function (event) {
