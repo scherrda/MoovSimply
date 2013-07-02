@@ -35,24 +35,35 @@ var SearchView = Backbone.View.extend({
             return {
                 label: model.get("name"),
                 value: model.get("stationId"),
-                icon: './img/types/' + model.get("type").toLowerCase()
+                icon: 'img/types/' + model.get("type").toLowerCase() + '.png',
+                labelAndType: model.get("name") + '(' + model.get("type") + ')'
             }
         });
-        var searchInput = this.$("input[name=search]");
+        // Suppression des doublons {name, type}
+        autocompleteSource = _.uniq(autocompleteSource, function (item, key, a) {
+            return item.labelAndType;
+        });
+
+        var $searchInput = this.$("input[name=search]");
         var self = this;
-        searchInput.autocomplete({
+        $searchInput.autocomplete({
             source: autocompleteSource,
             minLength: 3,
             select: function (event, ui) {
                 event.preventDefault();
-                searchInput.val(ui.item.label);
+                $searchInput.val(ui.item.label);
                 self.model.set('search', {id: ui.item.value, text: ui.item.label});
             },
             focus: function (event, ui) {
                 event.preventDefault();
-                searchInput.val(ui.item.label);
+                $searchInput.val(ui.item.label);
             }
-        });
+        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+            return $('<li></li>')
+                .data("item.autocomplete", item)
+                .append('<a><img class="station-type" src="' + item.icon + '" width="15" height="15">' + item.label + '</a>')
+                .appendTo(ul);
+        };
         //overriding render for example with icon
         /*           .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
          return $( "<li>" )
