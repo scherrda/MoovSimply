@@ -4,13 +4,14 @@ var TopBarView = Backbone.View.extend({
 
     events: {
         'click .switch': 'loading',
-        'click .search-link': 'showSearchView',
-        'click .transport-filter': 'showTransportFilterView'
+        'click .search-link': 'toggleSearchView',
+        'click .transport-filter': 'toggleTransportFilterView',
+        'click .geoloc-link': 'forceGeolocalize'        
     },
 
-    initialize : function () {
-        this.searchView = new SearchView({appState:this.options.appState, display:false});
-        this.filterView = new FilterView({model:this.options.appState, display:false});
+    initialize: function () {
+        this.searchView = new SearchView({appState: this.options.appState});
+        this.filterView = new FilterView({model: this.options.appState});
     },
 
     render: function () {
@@ -26,10 +27,12 @@ var TopBarView = Backbone.View.extend({
 
     switchToMap: function () {
         this.changeClass('switch-list', '#list');
+        this.$('.switch').attr('title', 'Basculter vers le mode liste');
     },
 
     switchToList: function () {
         this.changeClass('switch-map', '#map');
+        this.$('.switch').attr('title', 'Basculter vers le mode carte');
     },
 
     changeClass: function (newClass, newHref) {
@@ -42,9 +45,11 @@ var TopBarView = Backbone.View.extend({
         this.$el.show();
     },
 
-    showSearchView : function(event) {
+    toggleSearchView: function (event) {
+        var $wrapper = this.$('#search');
+
         event.preventDefault();
-        this.searchView.toggle();
+        $wrapper.toggle();
     },
 
     hide: function () {
@@ -52,9 +57,22 @@ var TopBarView = Backbone.View.extend({
         return this;
     },
 
-    showTransportFilterView : function(event) {
+    toggleTransportFilterView: function (event) {
+        var $wrapper = this.$('#transportFilter');
+
         event.preventDefault();
-        this.filterView.toggle();
-    }
+        $wrapper.toggle();
+        if ($wrapper.is(":visible")) {
+            this.$('.transport-filter').addClass('active');
+        } else {
+            this.$('.transport-filter').removeClass('active');
+        }        
+    },
+    
+    forceGeolocalize : function (event) {
+        event.preventDefault();
+        this.options.appState.set('nextGeolocCenterOnUser', true);
+        this.switchToMap();
+    }    
 
 });

@@ -1,5 +1,7 @@
 var SearchView = Backbone.View.extend({
 
+    className: 'search',
+
     events : {
         'submit form': 'onSearch'
     },
@@ -15,10 +17,6 @@ var SearchView = Backbone.View.extend({
         this.allStations.fetch();//all stations used for search
 
         this.render();
-        if(!this.options.display){
-            this.display = false;
-            this.hide();
-        }
    },
 
    filterCollection : function(){
@@ -62,23 +60,6 @@ var SearchView = Backbone.View.extend({
                 .appendTo( ul );
             };
 */
-    },
-
-
-    toggle : function(){
-        this.$el.toggle();
-    },
-
-    hide : function(){
-        this.display = false;
-        this.$el.hide();
-        return this;
-    },
-
-    show : function(){
-        this.display = true;
-        this.$el.show();
-        return this;
     },
 
     onSearch: function (event) {

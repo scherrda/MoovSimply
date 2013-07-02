@@ -55,32 +55,30 @@
 <script id="topbar-tmpl" type="text/x-handlebars-template">
     <a href="#splash" class="splash-link"></a>
     <img class="app-title" src="img/logo-small.png">
-    <a href="#transportFilter" class="transport-filter"></a>
-    <a href="#search" class="search-link"></a>
-    <a href="#list" class="switch switch-list"></a>
-    <a href="#geoloc" class="geoloc-linc"></a>
+    <a href="#geoloc" class="geoloc-link" title="Geolocalisez-vous"></a>
+    <a href="#transportFilter" class="transport-filter" title="Filtrer par type de transport"></a>
+    <a href="#search" class="search-link" title="Rechercher par nom de station"></a>
+    <a href="#list" class="switch switch-list" title="Basculter vers le mode liste"></a>
 
-    <div id="search" class="search"></div>
-    <div id="transportFilter" class="transportFilter"></div>
+    <div id="search" style="display: none;"></div>
+    <div id="transportFilter" style="display: none;"></div>
 </script>
 
 <script id="search-tmpl" type="text/x-handlebars-template">
     <form>
-        <input type="text" name="search">
+        <input type="text" name="search" placeholder="Station">
         <a class="search_clear" href="#"></a>
     </form>
 </script>
 
 <script id="transport-filter-tmpl" type="text/x-handlebars-template">
-        <ul>
-            <li><img src="img/types/metro.png"/><input value="METRO" type="checkbox" checked/></li>
-            <li><img src="img/types/rer.png"/><input value="RER" type="checkbox" checked/></li>
-            <li><img src="img/types/tram.png"/><input value="TRAM" type="checkbox" checked/></li>
-            <li><img src="img/types/bus.png"/><input value="BUS" type="checkbox" checked/></li>
-            <li><img src="img/types/train.png"/><input value="TRAIN" type="checkbox" checked/></li>
-            <li><img src="img/types/autolib.png"/><input value="AUTOLIB" type="checkbox" checked/></li>
-            <li><img src="img/types/velib.png"/><input value="VELIB" type="checkbox" checked/></li>
-        </ul>
+    <li><label title="Métro"><img src="img/types/metro.png"/><input value="METRO" type="checkbox" checked/></label></li>
+    <li><label title="RER"><img src="img/types/rer.png"/><input value="RER" type="checkbox" checked/></label></li>
+    <li><label title="Tramway"><img src="img/types/tram.png"/><input value="TRAM" type="checkbox" checked/></label></li>
+    <li><label title="Bus"><img src="img/types/bus.png"/><input value="BUS" type="checkbox" checked/></label></li>
+    <li><label title="Train"><img src="img/types/train.png"/><input value="TRAIN" type="checkbox" checked/></label></li>
+    <li><label title="Autolib"><img src="img/types/autolib.png"/><input value="AUTOLIB" type="checkbox" checked/></label></li>
+    <li><label title="Vélib"><img src="img/types/velib.png"/><input value="VELIB" type="checkbox" checked/></label></li>
 </script>
 
 <script id="list-line-tmpl" type="text/x-handlebars-template">

@@ -1,5 +1,8 @@
 var FilterView = Backbone.View.extend({
 
+    tagName: 'ul',
+    className: 'transportFilter',
+
     events : {
         'change input[type=checkbox]': 'onFilter'
     },
@@ -8,30 +11,10 @@ var FilterView = Backbone.View.extend({
         this.filterModel = this.options.model ;
 
         this.render();
-        if(!this.options.display){
-            this.display = false;
-            this.hide();
-        }
     },
 
     render: function () {
         this.$el.html($('#transport-filter-tmpl').html());
-        return this;
-    },
-
-    toggle : function() {
-        this.$el.toggle();
-    },
-
-    hide : function() {
-        this.display = false;
-        this.$el.hide();
-        return this;
-    },
-
-    show : function() {
-        this.display = true;
-        this.$el.show();
         return this;
     },
 

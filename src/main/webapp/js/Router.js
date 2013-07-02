@@ -4,9 +4,6 @@ var Router = Backbone.Router.extend({
         'splash': 'goSplash',
         'map': 'goMap',
         'list': 'goList',
-        //'transportFilter': '',
-        //'search' : '',
-//        'geoloc': 'centerOnUser',
         '*path': 'goSplash'
     },
 
@@ -26,16 +23,7 @@ var Router = Backbone.Router.extend({
         $('#content').html(this.mapView.reBind().el);
         this.topBar.switchToMap();
     },
-/*
-    centerOnUser: function () {
-        if (!this.mapView) {
-            return this.goMap();
-        }
-        this.mapView.forceCenterOnUser();
-        this.topBar.switchToMap();
-    },
 
-*/
     goList: function () {
         if (!this.listView) this.listView = new ListView({appState:this.appState}).render();
         $('#content').html(this.listView.reBind().el);
