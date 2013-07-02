@@ -1,5 +1,6 @@
 package fr.duchesses.moov.apis;
 
+import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
@@ -9,7 +10,6 @@ import fr.duchesses.moov.models.*;
 import fr.duchesses.moov.models.velib.ApiVelibStationModel;
 import fr.duchesses.moov.models.velib.VelibStation;
 import org.apache.log4j.Logger;
-
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,7 +39,7 @@ public class VelibApiService implements ApiService {
                 // do nothing here.
             }.getType();
 
-            List<ApiVelibStationModel> velibList = new Gson().fromJson(new InputStreamReader(is), listType);
+            List<ApiVelibStationModel> velibList = new Gson().fromJson(new InputStreamReader(is, Charsets.UTF_8), listType);
             for (ApiVelibStationModel velibModel : velibList) {
                 velibStations.put(velibModel.getNumber(), velibModel);
             }
@@ -72,32 +72,32 @@ public class VelibApiService implements ApiService {
         return allVelibs;
     }
 
-	public List<Station> getVelibStationsArround(Double latitude,
+    public List<Station> getVelibStationsArround(Double latitude,
                                                  Double longitude, double distanceMax) {
-		List<Station> closestVelibStations = Lists.newArrayList();
-		for (ApiVelibStationModel velib : velibStations.values()) {
-			double distanceFromPoint = distance(latitude, longitude,
-					velib.getLatitude(), velib.getLongitude());
-			if (distanceFromPoint <= distanceMax) {
-				closestVelibStations.add(convertToTransport(velib)
-						.withDistance(distanceFromPoint));
-			}
-		}
-		return closestVelibStations;
-	}
+        List<Station> closestVelibStations = Lists.newArrayList();
+        for (ApiVelibStationModel velib : velibStations.values()) {
+            double distanceFromPoint = distance(latitude, longitude,
+                    velib.getLatitude(), velib.getLongitude());
+            if (distanceFromPoint <= distanceMax) {
+                closestVelibStations.add(convertToTransport(velib)
+                        .withDistance(distanceFromPoint));
+            }
+        }
+        return closestVelibStations;
+    }
 
-	private boolean isStationActif(long stationNumber) {
-		try (InputStream is = buildUrl(String.valueOf(stationNumber)).openStream()) {
-			ApiVelibStationModel station = new Gson().fromJson(
-					new InputStreamReader(is), ApiVelibStationModel.class);
+    private boolean isStationActif(long stationNumber) {
+        try (InputStream is = buildUrl(String.valueOf(stationNumber)).openStream()) {
+            ApiVelibStationModel station = new Gson().fromJson(
+                    new InputStreamReader(is), ApiVelibStationModel.class);
             logger.info("station velibs isOpen");
-			return (station.getStatus().equals(StationStatus.OPEN) && station
-					.getAvailableBikes() > 0);
-		} catch (IOException e) {
-			logger.error("Velib : I/O error in isStationActif method");
-		}
-		return false;
-	}
+            return (station.getStatus().equals(StationStatus.OPEN) && station
+                    .getAvailableBikes() > 0);
+        } catch (IOException e) {
+            logger.error("Velib : I/O error in isStationActif method");
+        }
+        return false;
+    }
 
 
     private ApiVelibStationModel queryForRealTimeData(String stationNumber) {
@@ -107,12 +107,12 @@ public class VelibApiService implements ApiService {
         } catch (IOException e) {
             logger.error("Velib : I/O error real time Data unavailable for velib" + stationNumber);
         }
-        return station ;
+        return station;
     }
 
     public DetailStation getStation(String stationNumber) {
         ApiVelibStationModel velibStation = velibStations.get(Long.valueOf(stationNumber));
-        if(velibStation == null){
+        if (velibStation == null) {
             throw new NotFoundException("no velib station found : " + stationNumber);
         }
         VelibStation station = convertToTransport(velibStation);
