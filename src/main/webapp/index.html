@@ -116,19 +116,28 @@
         <br>Bornes disponibles : {{availableStands}}
     </div>
     {{else}}
-    <div class="green">
-        <div class="left">Heure</div>
-        <div class="right">{{time}}</div>
-    </div>
-    <div class="green-light">
-        <div class="legend">Horaires de passage pour les directions</div>
-        {{#times}}
-        <div class="schedule">
-            <div class="direction">{{direction}}</div>
-            <div class="time">{{.}}</div>
-        </div>
-        {{/times}}
-    </div>
+    	{{#is type 'AUTOLIB'}}
+    		<div class="green">
+        		<div class="left">{{status}}</div>
+        		<div class="right">{{address}}</div>
+    		</div>
+    		<div class="green-light">
+        		Autolibs disponibles : {{availableVehicles}}
+        		<br>Bornes disponibles : {{availableStands}}
+    		</div>
+    	{{else}}
+    		<div class="green">
+        		<div class="left">Prochains passages pour les directions</div>
+    		</div>
+   			<div class="green-light">
+        		{{#directions}}
+        		<div class="schedule">
+            		<div class="direction">{{direction}}</div>
+            		<div class="time">{{time}}</div>
+        		</div>
+        		{{/directions}}
+    		</div>
+    	{{/is}}
     {{/is}}
 </script>
 
