@@ -44,3 +44,6 @@ Pour l'installer dans IntelliJ :
 - Se connecter : `heroku login` (utiliser votre compte ou celui de moosimply)
 - Relier le projet à l'application sur heroku : `heroku git:remote -a moovsimply`
 - Déployer : `git push heroku master`
+
+#### Changer la timezone
+- Changer la timezone de l'heure serveur : `heroku config:add TZ=Europe/Paris`
