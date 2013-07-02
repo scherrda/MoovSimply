@@ -58,6 +58,7 @@ var GMapView = Backbone.View.extend({
             ]
         };
         this.map = new google.maps.Map(this.el, mapOptions);
+
         return this;
     },
 
@@ -140,6 +141,9 @@ var GMapView = Backbone.View.extend({
                 this.appState.set('currentStation', station);
             }, this));
         }, this));
+
+        // TODO regroupement des points
+        //var mc = new MarkerClusterer(this.map, this.currentMarkers);
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
             this.trigger('details:hide');

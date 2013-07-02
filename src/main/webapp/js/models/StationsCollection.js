@@ -33,12 +33,6 @@ var StationsCollection = Backbone.Collection.extend({
             }
             );
         }));
-    },
-
-    filterStations: function () {
-        // TODO faire fonctionner le filtre : mise a jour propre de stations a partir des filtres
-        // TODO renseigner le champs pour filterByName
-       // stations = this.filterByTypes(filterModel.get("transportTypes")).filterByName("");
     }
 
 });

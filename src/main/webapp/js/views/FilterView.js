@@ -23,8 +23,6 @@ var FilterView = Backbone.View.extend({
             return $(this).val();
         }).get();
         this.filterModel.set("transportTypes", types);
-        // TODO : implementer filterStations
-        //stations.filterStations();
     }
 
 });
