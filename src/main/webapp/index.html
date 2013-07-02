@@ -126,6 +126,7 @@
         		<br>Bornes disponibles : {{availableStands}}
     		</div>
     	{{else}}
+    		{{#is type 'METRO'}}
     		<div class="green">
         		<div class="left">Prochains passages pour les directions</div>
     		</div>
@@ -137,6 +138,21 @@
         		</div>
         		{{/directions}}
     		</div>
+    		{{else}}
+    			<div class="green">
+				  <div class="left">Heure</div>
+       					<div class="right">{{time}}</div>
+  				 </div>
+   				<div class="green-light">
+       				<div class="legend">Horaires de passage pour les directions</div>
+       				{{#times}}
+       				<div class="schedule">
+           				<div class="direction">{{direction}}</div>
+           				<div class="time">{{.}}</div>
+       				</div>
+       				{{/times}}
+   				</div>
+    		{{/is}}
     	{{/is}}
     {{/is}}
 </script>
