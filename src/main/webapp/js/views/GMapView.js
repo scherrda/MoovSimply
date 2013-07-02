@@ -7,6 +7,7 @@ var GMapView = Backbone.View.extend({
         this.appState = this.options.appState;
         this.listenTo(this.appState, 'change:mapCenter', this.onChangeMapCenter);
         this.listenTo(this.appState, 'change:currentStation', this.onChangeCurrentStation);
+        this.listenTo(this.appState, 'change:nextGeolocCenterOnUser', this.forceGeolocalize);
         this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), 'You', this.getMeMarkerImage());
         this.geolocalize();
     },
@@ -67,6 +68,13 @@ var GMapView = Backbone.View.extend({
             alert('La géolocalisation n’est pas possible avec ce navigateur');
         }
         return this;
+    },
+
+    forceGeolocalize: function () {
+        if(this.appState.get("nextGeolocCenterOnUser")==true){
+            this.stopWatch();
+            this.geolocalize();
+        }
     },
 
     refreshPosition: function (position) {
