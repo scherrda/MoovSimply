@@ -3,12 +3,12 @@ var FilterView = Backbone.View.extend({
     tagName: 'ul',
     className: 'transportFilter',
 
-    events : {
+    events: {
         'change input[type=checkbox]': 'onFilter'
     },
 
-    initialize: function() {
-        this.filterModel = this.options.model ;
+    initialize: function () {
+        this.filterModel = this.options.model;
 
         this.render();
     },
@@ -18,13 +18,19 @@ var FilterView = Backbone.View.extend({
         return this;
     },
 
-    onFilter : function(event) {
-        var types = this.$('input:checked').map(function() {
+    onFilter: function (event) {
+        var types = this.$('input:checked').map(function () {
             return $(this).val();
         }).get();
         this.filterModel.set("transportTypes", types);
-        // TODO : implementer filterStations
-        //stations.filterStations();
+    },
+
+    toggle: function () {
+        this.$el.parent().slideToggle(300);
+    },
+
+    hide: function () {
+        this.$el.parent().hide();
     }
 
 });

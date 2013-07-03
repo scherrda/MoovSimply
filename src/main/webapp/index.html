@@ -10,28 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/theme_smoothness/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
-    <script type="text/javascript" src="js/lib/backbone-1.0.0.min.js"></script>
-    <script type="text/javascript" src="js/lib/handlebars-1.0.0.js"></script>
-    <script type="text/javascript" src="js/lib/swag-0.2.7.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
-
-    <script type="text/javascript" src="js/views/SplashView.js"></script>
-    <script type="text/javascript" src="js/views/SearchView.js"></script>
-    <script type="text/javascript" src="js/views/FilterView.js"></script>
-    <script type="text/javascript" src="js/views/TopBarView.js"></script>
-    <script type="text/javascript" src="js/models/AppState.js"></script>
-    <script type="text/javascript" src="js/models/Station.js"></script>
-    <script type="text/javascript" src="js/models/StationsCollection.js"></script>
-    <script type="text/javascript" src="js/models/FilterModel.js"></script>
-    <script type="text/javascript" src="js/views/GMapView.js"></script>
-    <script type="text/javascript" src="js/views/MapView.js"></script>
-    <script type="text/javascript" src="js/views/ListLineView.js"></script>
-    <script type="text/javascript" src="js/views/ListView.js"></script>
-    <script type="text/javascript" src="js/Router.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <!-- Déplacement des balises scripts juste avant le tag de fermeture de body </body> -->
 </head>
 <body>
 
@@ -53,13 +32,14 @@
 </script>
 
 <script id="topbar-tmpl" type="text/x-handlebars-template">
-    <a href="#splash" class="splash-link"></a>
-    <img class="app-title" src="img/logo-small.png">
-    <a href="#geoloc" class="geoloc-link" title="Geolocalisez-vous"></a>
-    <a href="#transportFilter" class="transport-filter" title="Filtrer par type de transport"></a>
-    <a href="#search" class="search-link" title="Rechercher par nom de station"></a>
-    <a href="#list" class="switch switch-list" title="Basculter vers le mode liste"></a>
-
+    <div class="fixed-header">
+        <a href="#splash" class="splash-link"></a>
+        <img class="app-title" src="img/logo-small.png">
+        <a href="#geoloc" class="geoloc-link" title="Relancer la géolocalisation"></a>
+        <a href="#transportFilter" class="filter-link" title="Filtrer par type de transport"></a>
+        <a href="#search" class="search-link" title="Rechercher par nom de station"></a>
+        <a href="#list" class="switch switch-list" title="Basculer vers le mode liste"></a>
+    </div>
     <div id="search" style="display: none;"></div>
     <div id="transportFilter" style="display: none;"></div>
 </script>
@@ -128,7 +108,11 @@
     	{{else}}
     		{{#is type 'METRO'}}
     		<div class="green">
-        		<div class="left">Prochains passages pour les directions</div>
+				{{#is directions null}}
+					<div class="schedule">Informations indisponibles</div>
+				{{else}}					
+        			<div class="left">Prochains passages pour les directions</div>
+				{{/is}}
     		</div>
    			<div class="green-light">
         		{{#directions}}
@@ -140,11 +124,13 @@
     		</div>
     		{{else}}
     			<div class="green">
-				  <div class="left">Heure</div>
-       					<div class="right">{{time}}</div>
-  				 </div>
+					{{#is times null}}
+						<div class="left">Informations indisponibles</div>
+					{{else}}					
+				  		<div class="left">Horaires de passage pour les directions</div>
+					{{/is}}
+  				</div>
    				<div class="green-light">
-       				<div class="legend">Horaires de passage pour les directions</div>
        				{{#times}}
        				<div class="schedule">
            				<div class="direction">{{direction}}</div>
@@ -156,6 +142,52 @@
     	{{/is}}
     {{/is}}
 </script>
+
+
+<script id="list-favoris-tmpl" type="text/x-handlebars-template">
+    <div class="line-narrow">
+        <div class="img-wrapper type">
+            <img class="button favori" src="img/splash-button.png">
+        </div>
+
+        <div class="infos">
+            {{#if type}}
+                <div class="favori type">{{type}}</div>
+            {{/if}}
+            <div class="name">{{name}}</div>
+        </div>
+        <a class="extend-arrow"></a>
+    </div>
+
+    <div class="line-extended" style="display: none;">
+    </div>
+</script>
+
+<script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/lib/backbone-1.0.0.min.js"></script>
+<script type="text/javascript" src="js/lib/handlebars-1.0.0.js"></script>
+<script type="text/javascript" src="js/lib/swag-0.2.7.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/lib/markerclusterer_packed.js"></script>
+
+<script type="text/javascript" src="js/views/SplashView.js"></script>
+<script type="text/javascript" src="js/views/SearchView.js"></script>
+<script type="text/javascript" src="js/views/FilterView.js"></script>
+<script type="text/javascript" src="js/views/TopBarView.js"></script>
+<script type="text/javascript" src="js/models/AppState.js"></script>
+<script type="text/javascript" src="js/models/Station.js"></script>
+<script type="text/javascript" src="js/models/Favori.js"></script>
+<script type="text/javascript" src="js/models/StationsCollection.js"></script>
+<script type="text/javascript" src="js/models/FilterModel.js"></script>
+<script type="text/javascript" src="js/views/GMapView.js"></script>
+<script type="text/javascript" src="js/views/MapView.js"></script>
+<script type="text/javascript" src="js/views/ListLineView.js"></script>
+<script type="text/javascript" src="js/views/ListView.js"></script>
+<script type="text/javascript" src="js/views/ListFavorisView.js"></script>
+<script type="text/javascript" src="js/Router.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 
 </body>
 </html>

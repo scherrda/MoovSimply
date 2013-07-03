@@ -5,12 +5,13 @@ var ListLineView = Backbone.View.extend({
 
     events: {
         'click .extend-arrow': 'toggle',
-        'click .localize': 'showOnMap'
+        'click .localize': 'showOnMap',
+        'click .favori': 'addFavori'
     },
 
     initialize: function () {
-        this.template = Handlebars.compile($('#list-line-tmpl').html());
-        this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
+        this.template = Handlebars.compile($(this.options.lineTemplate).html());
+        this.templateExtended = Handlebars.compile($((this.options.extendedLineTemplate)).html());
 
         this.listenTo(this.model, 'sync', this.renderDetail);
     },
@@ -50,6 +51,12 @@ var ListLineView = Backbone.View.extend({
     showOnMap: function () {
         Backbone.history.navigate('#map', {trigger: true});
         this.model.trigger('show', this.model);
+    },
+
+    addFavori: function () {
+        console.log("adding favori");
+        var favori = new Favori({name:this.model.get("name"), type:"station"});
+        favoris.addAndSave(favori);
     },
 
     close: function () {

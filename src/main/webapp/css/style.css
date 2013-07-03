@@ -138,11 +138,17 @@ a.splash-wrap {
     box-shadow: 0 4px 6px #bbb;
 }
 
+.fixed-header {
+    width: 100%;
+    height: 45px;
+}
+
 .app-title {
     position: absolute;
     top: 10px;
     left: 50%;
-    margin-left: -64px;
+    padding-top: 3px;
+    margin-left: -75px; /*-64px;*/
 }
 
 .splash-link {
@@ -158,33 +164,60 @@ a.splash-wrap {
 .search-link {
     display: block;
     position: absolute;
-    width: 29px;
+    width: 25px;
     height: 29px;
     top: 10px;
-    right: 50px;
+    right: 27px;
     background-image: url('../img/search.png');
 }
 
-.transport-filter {
+.filter-link {
     display: block;
     position: absolute;
-    width: 29px;
+    width: 25px;
     height: 29px;
     top: 10px;
-    right: 79px;
+    right: 52px;
     background-image: url('../img/filter.png');
 }
 
-.transport-filter.active {
+.filter-link.active {
     background-image: url('../img/filter-active.png');
 }
 
+.geoloc-link {
+    position: absolute;
+    width: 25px;
+    height: 29px;
+    top: 10px;
+    right: 77px;
+    background-image: url('../img/dude-grey.png');
+}
+
+.switch {
+    position: absolute;
+    width: 29px;
+    height: 27px;
+    top: 10px;
+    right: 2px;
+}
+
+.switch-list {
+    background-image: url('../img/mode-list.png');
+}
+
+.switch-map {
+    background-image: url('../img/mode-map.png');
+}
+
+.switch-load {
+    background: url('../img/mode-load.gif') no-repeat 2px 1px;
+}
+
+/*** Tool Bars ***/
+
 .transportFilter, .search {
     background: #fff;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 45px;
     border-top: 1px solid #bbb;
     box-shadow: 0 4px 6px #bbb;
 }
@@ -252,35 +285,14 @@ a.splash-wrap {
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
     font-size: 14px;
+    line-height: 14px;
 }
 
-.switch {
-    position: absolute;
-    width: 29px;
-    height: 27px;
-    top: 10px;
-    right: 10px;
-}
-
-.geoloc-link {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 15px;
-    right: 115px;
-    background-image: url('../img/dude-pink.png');
-}
-
-.switch-list {
-    background-image: url('../img/mode-list.png');
-}
-
-.switch-map {
-    background-image: url('../img/mode-map.png');
-}
-
-.switch-load {
-    background: url('../img/mode-load.gif') no-repeat 2px 1px;
+.ui-autocomplete .station-type {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    margin-right: 4px;
 }
 
 /*** Map ***/

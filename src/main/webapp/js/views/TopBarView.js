@@ -5,8 +5,8 @@ var TopBarView = Backbone.View.extend({
     events: {
         'click .switch': 'loading',
         'click .search-link': 'toggleSearchView',
-        'click .transport-filter': 'toggleTransportFilterView',
-        'click .geoloc-link': 'forceGeolocalize'        
+        'click .filter-link': 'toggleTransportFilterView',
+        'click .geoloc-link': 'forceGeolocalize'
     },
 
     initialize: function () {
@@ -46,10 +46,10 @@ var TopBarView = Backbone.View.extend({
     },
 
     toggleSearchView: function (event) {
-        var $wrapper = this.$('#search');
-
         event.preventDefault();
-        $wrapper.toggle();
+        this.filterView.hide();
+        this.$('.filter-link').removeClass('active');
+        this.searchView.toggle();
     },
 
     hide: function () {
@@ -58,21 +58,16 @@ var TopBarView = Backbone.View.extend({
     },
 
     toggleTransportFilterView: function (event) {
-        var $wrapper = this.$('#transportFilter');
-
         event.preventDefault();
-        $wrapper.toggle();
-        if ($wrapper.is(":visible")) {
-            this.$('.transport-filter').addClass('active');
-        } else {
-            this.$('.transport-filter').removeClass('active');
-        }        
+        this.searchView.hide();
+        this.filterView.toggle();
+        this.$('.filter-link').toggleClass('active');
     },
-    
-    forceGeolocalize : function (event) {
+
+    forceGeolocalize: function (event) {
         event.preventDefault();
         this.options.appState.set('nextGeolocCenterOnUser', true);
 //        this.switchToMap();
-    }    
+    }
 
 });

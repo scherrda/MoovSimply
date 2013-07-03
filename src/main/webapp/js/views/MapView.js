@@ -27,7 +27,7 @@ var MapView = Backbone.View.extend({
         var station = this.appState.get('currentStation');
 
         if (this.detailView) this.detailView.close();
-        this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station});
+        this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station, lineTemplate : "#list-line-tmpl", extendedLineTemplate : "#list-line-extended-tmpl"});
         this.$el.append(this.detailView.render().el);
         this.detailView.toggle();
     },
