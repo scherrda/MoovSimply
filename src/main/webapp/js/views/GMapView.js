@@ -19,43 +19,7 @@ var GMapView = Backbone.View.extend({
             zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: this.appState.get('mapCenter').pos,
-            styles: [
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        { "color": "#eeeeee" }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                        { "color": "#eeeeee" }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        { "color": "#dddddd" }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                        { "color": "#dddddd" }
-                    ]
-                },
-                {
-                    "stylers": [
-                        { "hue": "#00ccff" },
-                        { "saturation": -30 },
-                        { "lightness": 20 }
-                    ]
-                }
-            ]
+            styles: MAP_STYLES
         };
         this.map = new google.maps.Map(this.el, mapOptions);
 
@@ -72,7 +36,7 @@ var GMapView = Backbone.View.extend({
     },
 
     forceGeolocalize: function () {
-        if(this.appState.get("nextGeolocCenterOnUser")==true){
+        if (this.appState.get("nextGeolocCenterOnUser") == true) {
             this.stopWatch();
             this.geolocalize();
         }
@@ -142,8 +106,7 @@ var GMapView = Backbone.View.extend({
             }, this));
         }, this));
 
-        // TODO regroupement des points
-        //var mc = new MarkerClusterer(this.map, this.currentMarkers);
+        var mc = new MarkerClusterer(this.map, this.currentMarkers, MARKER_CLUSTER_OPTIONS);
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
             this.trigger('details:hide');
@@ -196,6 +159,58 @@ var GMapView = Backbone.View.extend({
     }
 
 });
+
+var MAP_STYLES = [
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            { "color": "#eeeeee" }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            { "color": "#eeeeee" }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            { "color": "#dddddd" }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            { "color": "#dddddd" }
+        ]
+    },
+    {
+        "stylers": [
+            { "hue": "#00ccff" },
+            { "saturation": -30 },
+            { "lightness": 20 }
+        ]
+    }
+];
+
+var MARKER_CLUSTER_OPTIONS = {
+    styles: [
+        {
+            width: 59,
+            height: 59,
+            url: "img/markers/marker-cluster.png",
+            anchorIcon: [53, 31],
+            fontWeight: "normal",
+            textColor: '#ffffff',
+            textSize: 11
+        }
+    ]
+};
 
 var MARKERS_SPRITE_MAP = {
     TRAIN: 0,
