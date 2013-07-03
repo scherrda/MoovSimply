@@ -143,6 +143,26 @@
     {{/is}}
 </script>
 
+
+<script id="list-favoris-tmpl" type="text/x-handlebars-template">
+    <div class="line-narrow">
+        <div class="img-wrapper type">
+            <img class="button favori" src="img/splash-button.png">
+        </div>
+
+        <div class="infos">
+            {{#if type}}
+                <div class="favori type">{{type}}</div>
+            {{/if}}
+            <div class="name">{{name}}</div>
+        </div>
+        <a class="extend-arrow"></a>
+    </div>
+
+    <div class="line-extended" style="display: none;">
+    </div>
+</script>
+
 <script type="text/javascript" src="js/lib/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="js/lib/underscore-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/lib/backbone-1.0.0.min.js"></script>
@@ -158,13 +178,16 @@
 <script type="text/javascript" src="js/views/TopBarView.js"></script>
 <script type="text/javascript" src="js/models/AppState.js"></script>
 <script type="text/javascript" src="js/models/Station.js"></script>
+<script type="text/javascript" src="js/models/Favori.js"></script>
 <script type="text/javascript" src="js/models/StationsCollection.js"></script>
 <script type="text/javascript" src="js/models/FilterModel.js"></script>
 <script type="text/javascript" src="js/views/GMapView.js"></script>
 <script type="text/javascript" src="js/views/MapView.js"></script>
 <script type="text/javascript" src="js/views/ListLineView.js"></script>
 <script type="text/javascript" src="js/views/ListView.js"></script>
+<script type="text/javascript" src="js/views/ListFavorisView.js"></script>
 <script type="text/javascript" src="js/Router.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+
 </body>
 </html>

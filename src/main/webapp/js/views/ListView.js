@@ -45,7 +45,7 @@ var ListView = Backbone.View.extend({
         var stationsFilteredByType = stations.filterByTypes(this.appState.get('transportTypes'));
         stationsFilteredByType.sort();
         stationsFilteredByType.each(_.bind(function (station) {
-            var lineView = new ListLineView({model: station}).render();
+            var lineView = new ListLineView({model: station, lineTemplate : "#list-line-tmpl", extendedLineTemplate : "#list-line-extended-tmpl"}).render();
             this.$el.append(lineView.el);
             this.lines.push(lineView);
         }, this));

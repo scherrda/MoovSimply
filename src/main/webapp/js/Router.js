@@ -4,6 +4,7 @@ var Router = Backbone.Router.extend({
         'splash': 'goSplash',
         'map': 'goMap',
         'list': 'goList',
+        'favoris': 'goFavoris',
         '*path': 'goSplash'
     },
 
@@ -28,6 +29,12 @@ var Router = Backbone.Router.extend({
         if (!this.listView) this.listView = new ListView({appState:this.appState}).render();
         $('#content').html(this.listView.reBind().el);
         this.topBar.switchToList();
+    },
+
+    goFavoris: function () {
+        if (!this.listFavorisView) this.listFavorisView = new ListFavorisView({collection:favoris});
+        $('#content').html(this.listFavorisView.reBind().el);
+ //       this.topBar.switchToFavoris();
     }
 
 });
