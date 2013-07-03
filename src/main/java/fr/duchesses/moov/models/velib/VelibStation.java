@@ -13,7 +13,7 @@ public class VelibStation extends Station {
     private long lastUpdate;
 
     public VelibStation(ServiceType serviceType, StationType type, Coordinates coordinates, String id, String lineNumber, String name, StationStatus status, int bikeStands, int availableBikeStands, int availableBikes, long lastUpdate) {
-        super(serviceType, type, id, coordinates, lineNumber, name);//TODO lineMumber not in base class Station
+        super(serviceType, type, id, coordinates, lineNumber, name,0);//TODO lineMumber not in base class Station
         this.status = status;
         this.bikeStands = bikeStands;
         this.availableBikeStands = availableBikeStands;

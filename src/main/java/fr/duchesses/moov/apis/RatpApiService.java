@@ -95,7 +95,7 @@ public class RatpApiService implements ApiService {
     }
 
     private Station toStation(String id, String type, double lat, double lng, String number, String name, String formattedName) {
-        Station station = new Station(ServiceType.RATP, StationType.valueOf(type), id, new Coordinates(lat, lng), number, name);
+        Station station = new Station(ServiceType.RATP, StationType.valueOf(type), id, new Coordinates(lat, lng), number, name, 0);
         station.setFormattedName(formattedName);
         return station;
     }

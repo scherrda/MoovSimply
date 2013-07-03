@@ -8,7 +8,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 @Data
-public class ApiSncfStopTime {
+public class ApiSncfStopTime implements Comparable<ApiSncfStopTime> {
 
     private static final Logger logger = Logger.getLogger(ApiSncfStopTime.class);
 
@@ -37,6 +37,19 @@ public class ApiSncfStopTime {
         } catch (Exception e) {
             //logger.warn("Cannot parse arrival time", e);
         }
-        stopId = rawStopTime[INDEX_STOP_ID].split(":")[1];
+        this.stopId = rawStopTime[INDEX_STOP_ID].split(":")[1];
     }
+    
+    public ApiSncfStopTime(String stopTime, String stopId) {
+    		String hourMinut = stopTime.split(" ")[1];
+            int hour = Integer.parseInt(hourMinut.split(":")[0]);
+            int minute = Integer.parseInt(hourMinut.split(":")[1]);
+            arrivalTime = new LocalTime(0).withHourOfDay(hour % 24).withMinuteOfHour(minute);
+        this.stopId = stopId;
+    }
+
+	@Override
+	public int compareTo(ApiSncfStopTime o) {
+		return arrivalTime.compareTo(o.getArrivalTime());
+	}
 }

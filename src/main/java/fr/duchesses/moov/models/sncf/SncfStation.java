@@ -19,7 +19,7 @@ public class SncfStation extends Station {
     private List<String> times = Lists.newArrayList();
 
     public SncfStation(Station station) {
-        super(station.getServiceType(), station.getType(), station.getStationId(), station.getCoordinates(), station.getLineNumber(), station.getName());
+        super(station.getServiceType(), station.getType(), station.getStationId(), station.getCoordinates(), station.getLineNumber(), station.getName(), station.getCodeUIC());
     }
 
     public void addTime(LocalTime time) {

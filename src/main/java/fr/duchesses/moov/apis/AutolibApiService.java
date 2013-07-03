@@ -57,7 +57,7 @@ public class AutolibApiService implements ApiService {
 
         Collection<AutolibStationModel> stationModels = getTransportsFromUrl(buildUrl("rows=10000"));
         for(AutolibStationModel stationModel : stationModels){
-            transports.add(new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue()));
+            transports.add(new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue(), 0));
         }
         return transports;
     }
@@ -68,7 +68,7 @@ public class AutolibApiService implements ApiService {
         String recordsUrl = "http://datastore.opendatasoft.com/opendata.paris.fr/api/records/1.0/search?dataset=stations_et_espaces_autolib_de_la_metropole_parisienne&geofilter.distance=" + searchLatitude + "," + searchLongitude + "," + distanceMax;
         Collection<AutolibStationModel> stationModels = getTransportsFromUrl(recordsUrl);
         for(AutolibStationModel stationModel : stationModels){
-            Station transport = new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue());
+            Station transport = new Station(ServiceType.AUTOLIB, StationType.AUTOLIB, stationModel.getIdentifiant_dsp(), new Coordinates(stationModel.getLatitude(), stationModel.getLongitude()), null, stationModel.getRue(), 0);
             double distance = distance(searchLatitude, searchLongitude, stationModel.getLatitude(), stationModel.getLongitude());
             if(distance <= distanceMax){
                 transport.setDistance(distance);

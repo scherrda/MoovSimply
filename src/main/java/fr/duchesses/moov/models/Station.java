@@ -10,6 +10,7 @@ public class Station {
     private ServiceType serviceType;
     private StationType type;
     private String stationId;
+    private int  codeUIC;
     private Coordinates coordinates;
     private String lineNumber;
     private String name;
@@ -18,13 +19,14 @@ public class Station {
     private String formattedName;
     private List<Direction> directions;
 
-    public Station(ServiceType serviceType, StationType type, String stationId, Coordinates coordinates, String lineNumber, String name) {
+    public Station(ServiceType serviceType, StationType type, String stationId, Coordinates coordinates, String lineNumber, String name, int  codeUIC) {
         this.serviceType = serviceType;
         this.type = type;
         this.stationId = stationId;
         this.coordinates = coordinates;
         this.lineNumber = lineNumber;
         this.name = name;
+        this.codeUIC = codeUIC;
     }
 
     public Station withDistance(double distance) {
