@@ -3,6 +3,7 @@ var TopBarView = Backbone.View.extend({
     className: 'header',
 
     events: {
+        'click .back-link': 'goBack',
         'click .switch': 'loading',
         'click .search-link': 'toggleSearchView',
         'click .filter-link': 'toggleTransportFilterView',
@@ -19,6 +20,11 @@ var TopBarView = Backbone.View.extend({
         this.$('#search').html(this.searchView.el);
         this.$('#transportFilter').html(this.filterView.el);
         return this;
+    },
+
+    goBack: function (event) {
+        event.preventDefault();
+        window.history.back();
     },
 
     loading: function () {
