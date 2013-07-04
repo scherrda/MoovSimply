@@ -4,7 +4,7 @@ var MapView = Backbone.View.extend({
 
     initialize: function () {
         this.appState = this.options.appState;
-        this.gmap = new GMapView({appState:this.appState});
+        this.gmap = new GMapView({appState: this.appState});
         this.listenTo(this.appState, 'change:currentStation', this.showDetail);
         this.listenTo(this.appState, 'change:mapCenter', this.fetchStations);
         this.listenTo(this.gmap, 'details:hide', this.hideDetail);
@@ -27,7 +27,7 @@ var MapView = Backbone.View.extend({
         var station = this.appState.get('currentStation');
 
         if (this.detailView) this.detailView.close();
-        this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station, lineTemplate : "#list-line-tmpl", extendedLineTemplate : "#list-line-extended-tmpl"});
+        this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station, lineTemplate: "#list-line-tmpl", extendedLineTemplate: "#list-line-extended-tmpl"});
         this.$el.append(this.detailView.render().el);
         this.detailView.toggle();
     },
@@ -46,13 +46,13 @@ var MapView = Backbone.View.extend({
         var station = this.appState.get('mapCenter').station;
         var self = this;
         stations.setCoordinates(mapCenter.lat(), mapCenter.lng())
-                .fetch({
-                    reset: true,
-                    success: function(){
-                    if(station){
+            .fetch({
+                reset: true,
+                success: function () {
+                    if (station) {
                         self.appState.set('currentStation', station);
                     }
-        }});
+                }});
     },
 
     displayStations: function () {

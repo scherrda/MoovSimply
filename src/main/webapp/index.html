@@ -34,6 +34,7 @@
 <script id="topbar-tmpl" type="text/x-handlebars-template">
     <div class="fixed-header">
         <a href="#" class="back-link"></a>
+        <a href="#favoris" class="favoris-link" title="Gérer vos favoris"></a>
         <img class="app-title" src="img/logo-small.png">
         <a href="#geoloc" class="geoloc-link" title="Relancer la géolocalisation"></a>
         <a href="#transportFilter" class="filter-link" title="Filtrer par type de transport"></a>
@@ -78,6 +79,7 @@
             <div class="distance">à {{round distance}}m à pied</div>
             <div class="localize">Localiser</div>
         </div>
+        <a class="favori-toggle"></a>
         <a class="extend-arrow"></a>
     </div>
 
@@ -96,70 +98,68 @@
         <br>Bornes disponibles : {{availableStands}}
     </div>
     {{else}}
-    	{{#is type 'AUTOLIB'}}
-    		<div class="green">
-        		<div class="left">{{status}}</div>
-        		<div class="right">{{address}}</div>
-    		</div>
-    		<div class="green-light">
-        		Autolibs disponibles : {{availableVehicles}}
-        		<br>Bornes disponibles : {{availableStands}}
-    		</div>
-    	{{else}}
-    		{{#is type 'METRO'}}
-    		<div class="green">
-				{{#is directions null}}
-					<div class="schedule">Informations indisponibles</div>
-				{{else}}					
-        			<div class="left">Prochains passages pour les directions</div>
-				{{/is}}
-    		</div>
-   			<div class="green-light">
-        		{{#directions}}
-        		<div class="schedule">
-            		<div class="direction">{{direction}}</div>
-            		<div class="time">{{time}}</div>
-        		</div>
-        		{{/directions}}
-    		</div>
-    		{{else}}
-    			<div class="green">
-					{{#is times null}}
-						<div class="left">Informations indisponibles</div>
-					{{else}}					
-				  		<div class="left">Horaires de passage pour les directions</div>
-					{{/is}}
-  				</div>
-   				<div class="green-light">
-       				{{#times}}
-       				<div class="schedule">
-           				<div class="direction">{{direction}}</div>
-           				<div class="time">{{.}}</div>
-       				</div>
-       				{{/times}}
-   				</div>
-    		{{/is}}
-    	{{/is}}
+    {{#is type 'AUTOLIB'}}
+    <div class="green">
+        <div class="left">{{status}}</div>
+        <div class="right">{{address}}</div>
+    </div>
+    <div class="green-light">
+        Autolibs disponibles : {{availableVehicles}}
+        <br>Bornes disponibles : {{availableStands}}
+    </div>
+    {{else}}
+    {{#is type 'METRO'}}
+    <div class="green">
+        {{#is directions null}}
+        <div class="schedule">Informations indisponibles</div>
+        {{else}}
+        <div class="left">Prochains passages pour les directions</div>
+        {{/is}}
+    </div>
+    <div class="green-light">
+        {{#directions}}
+        <div class="schedule">
+            <div class="direction">{{direction}}</div>
+            <div class="time">{{time}}</div>
+        </div>
+        {{/directions}}
+    </div>
+    {{else}}
+    <div class="green">
+        {{#is times null}}
+        <div class="left">Informations indisponibles</div>
+        {{else}}
+        <div class="left">Horaires de passage pour les directions</div>
+        {{/is}}
+    </div>
+    <div class="green-light">
+        {{#times}}
+        <div class="schedule">
+            <div class="direction">{{direction}}</div>
+            <div class="time">{{.}}</div>
+        </div>
+        {{/times}}
+    </div>
+    {{/is}}
+    {{/is}}
     {{/is}}
 </script>
 
 
 <script id="list-favoris-tmpl" type="text/x-handlebars-template">
-    <div class="line-narrow">
-        <div class="img-wrapper type">
-            <img class="button favori" src="img/splash-button.png">
-        </div>
+    <div class="line-narrow favori-line">
+        <div class="favori-ico"></div>
 
         <div class="infos">
-            {{#if type}}
-                <div class="favori type">{{type}}</div>
-            {{/if}}
-            <div class="name">{{name}}</div>
+            <div class="name">{{customName}}</div>
         </div>
         <a class="extend-arrow"></a>
     </div>
 
     <div class="line-extended" style="display: none;">
+        <div class="localize"></div>
+        <div class="rename"></div>
+        <div class="remove"></div>
     </div>
 </script>
 
@@ -185,6 +185,7 @@
 <script type="text/javascript" src="js/views/MapView.js"></script>
 <script type="text/javascript" src="js/views/ListLineView.js"></script>
 <script type="text/javascript" src="js/views/ListView.js"></script>
+<script type="text/javascript" src="js/views/ListFavoriLineView.js"></script>
 <script type="text/javascript" src="js/views/ListFavorisView.js"></script>
 <script type="text/javascript" src="js/Router.js"></script>
 <script type="text/javascript" src="js/app.js"></script>

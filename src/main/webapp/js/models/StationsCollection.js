@@ -27,10 +27,10 @@ var StationsCollection = Backbone.Collection.extend({
 
     filterByTypes: function (types) {
         return new StationsCollection(this.filter(function (model) {
-            return _.find(types, function(type) {
-                return type == model.get('type')
-                //_.contains(types, model.get('type'));
-            }
+            return _.find(types, function (type) {
+                    return type == model.get('type');
+                    //_.contains(types, model.get('type'));
+                }
             );
         }));
     }
@@ -38,3 +38,6 @@ var StationsCollection = Backbone.Collection.extend({
 });
 
 var stations = new StationsCollection();
+
+var allStations = new StationsCollection();
+allStations.fetch();

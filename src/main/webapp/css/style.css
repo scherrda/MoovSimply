@@ -161,6 +161,16 @@ a.splash-wrap {
     background: url('../img/buttons-sprite.png') -25px 0;
 }
 
+.favoris-link {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    left: 35px;
+    background: url('../img/buttons-sprite.png') -25px -100px;
+}
+
 .search-link {
     display: block;
     position: absolute;
@@ -313,7 +323,7 @@ a.splash-wrap {
     white-space: nowrap;
 }
 
-.no-station {
+.no-content {
     position: absolute;
     top: 50%;
     left: 0;
@@ -364,7 +374,7 @@ a.splash-wrap {
     top: 12px;
     height: 33px;
     left: 78px;
-    right: 50px;
+    right: 58px;
 }
 
 .line .name {
@@ -409,6 +419,22 @@ a.splash-wrap {
     background-position: -25px -50px;
 }
 
+.favori-toggle {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 12px;
+    right: 33px;
+    cursor: pointer;
+    background: url('../img/buttons-sprite.png') -25px -100px;
+    opacity: 0.2;
+}
+
+.favori-toggle.active, .favori-toggle:hover {
+    opacity: 1;
+}
+
 .line-narrow {
     height: 45px;
 }
@@ -444,4 +470,52 @@ a.splash-wrap {
 
 .schedule .time {
     float: right;
+}
+
+/*** Favoris list ***/
+
+.favori-line .line-narrow {
+    line-height: 28px;
+}
+
+.favori-line .line-extended {
+    height: 28px;
+}
+
+.favori-line .infos {
+    left: 54px;
+}
+
+.favori-ico {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 12px;
+    left: 12px;
+    background: url('../img/buttons-sprite.png') -25px -100px;
+}
+
+.favori-line .localize, .favori-line .rename, .favori-line .remove {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url('../img/buttons-sprite.png');
+    cursor: pointer;
+}
+
+.favori-line .localize {
+    padding: 0;
+    position: relative;
+    margin-left: 48px;
+    background-position: 0 -150px;
+}
+
+.favori-line .rename {
+    background-position: 0 -175px;
+    display: none;
+}
+
+.favori-line .remove {
+    background-position: -25px -175px;
 }

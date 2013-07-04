@@ -1,31 +1,24 @@
 var Favori = Backbone.Model.extend({
-
     defaults: {
-        name :null,
-        type : "station"
-    },
-
+        name: '',
+        customName: ''
+    }
 });
 
 var FavorisCollection = Backbone.Collection.extend({
 
     model: Favori,
 
-    initialize: function() {
-        if(!localStorage) return;
+    initialize: function () {
+        if (!localStorage) return;
 
         var storedFavoris = localStorage.getItem('moovsimply-favoris');
-        if(storedFavoris) {
+        if (storedFavoris) {
             this.add(JSON.parse(storedFavoris));
         }
     },
 
-    addAndSave: function(favori) {
-        this.add(favori);
-        this.save();
-    },
-
-    save: function() {
+    save: function () {
         localStorage.setItem('moovsimply-favoris', JSON.stringify(this.toJSON()));
     }
 

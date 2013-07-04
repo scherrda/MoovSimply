@@ -6,18 +6,21 @@ var ListLineView = Backbone.View.extend({
     events: {
         'click .extend-arrow': 'toggle',
         'click .localize': 'showOnMap',
-        'click .favori': 'addFavori'
+        'click .favori-toggle': 'toggleFavori'
     },
 
     initialize: function () {
-        this.template = Handlebars.compile($(this.options.lineTemplate).html());
-        this.templateExtended = Handlebars.compile($((this.options.extendedLineTemplate)).html());
+        this.template = Handlebars.compile($('#list-line-tmpl').html());
+        this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
 
         this.listenTo(this.model, 'sync', this.renderDetail);
     },
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));
+        if (favoris.findWhere({stationId: this.model.get('stationId')})) {
+            this.$('.favori-toggle').addClass('active');
+        }
         return this;
     },
 
@@ -33,19 +36,8 @@ var ListLineView = Backbone.View.extend({
             this.renderDetail();
         }
 
-        var $lineExtended = this.$('.line-extended'),
-            $arrow = this.$('.extend-arrow');
-
-        if ($lineExtended.hasClass('extended')) {
-            $lineExtended
-                .slideToggle(300)
-                .removeClass('extended');
-        } else {
-            $lineExtended
-                .slideToggle(300)
-                .addClass('extended');
-        }
-        $arrow.toggleClass('extended');
+        this.$('.line-extended').slideToggle(300).toggleClass('extended');
+        this.$('.extend-arrow').toggleClass('extended');
     },
 
     showOnMap: function () {
@@ -53,10 +45,28 @@ var ListLineView = Backbone.View.extend({
         this.model.trigger('show', this.model);
     },
 
+    toggleFavori: function () {
+        var $toggle = this.$('.favori-toggle');
+        if ($toggle.hasClass('active')) {
+            this.removeFavori();
+        } else {
+            this.addFavori();
+        }
+        $toggle.toggleClass('active');
+    },
+
     addFavori: function () {
-        console.log("adding favori");
-        var favori = new Favori({name:this.model.get("name"), type:"station"});
-        favoris.addAndSave(favori);
+        var favori = new Favori({
+            name: this.model.get('name'),
+            customName: this.model.get('name'),
+            stationId: this.model.get('stationId'),
+            coordinates: this.model.get('coordinates')
+        });
+        favoris.add(favori).save();
+    },
+
+    removeFavori: function () {
+        favoris.remove(favoris.findWhere({stationId: this.model.get('stationId')})).save();
     },
 
     close: function () {

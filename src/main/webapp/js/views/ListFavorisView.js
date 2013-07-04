@@ -4,8 +4,8 @@ var ListFavorisView = Backbone.View.extend({
     className: 'withTopBar',
 
     initialize: function () {
-       // this.collection = new FavorisCollection();
-        this.listenTo(this.collection, 'add', this.render);
+        this.appState = this.options.appState;
+        this.listenTo(favoris, 'add remove', this.render);
         this.render();
     },
 
@@ -21,13 +21,13 @@ var ListFavorisView = Backbone.View.extend({
         this.$el.empty();
         this.lines = [];
 
-      if (this.collection.isEmpty()) {
-            this.$el.append('<div class="no-favori">Pas de favori</div>');
+        if (favoris.isEmpty()) {
+            this.$el.append('<div class="no-content">Vous n’avez pas de favori</div>');
             return;
         }
 
-        this.collection.each(_.bind(function (favori) {
-            var lineView = new ListLineView({model:favori, lineTemplate:"#list-favoris-tmpl", extendedLineTemplate : "#list-line-extended-tmpl"}).render();
+        favoris.each(_.bind(function (favori) {
+            var lineView = new ListFavoriLineView({model: favori, appState: this.appState}).render();
             this.$el.append(lineView.el);
             this.lines.push(lineView);
         }, this));

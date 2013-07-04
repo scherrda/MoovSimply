@@ -10,18 +10,16 @@ var SearchView = Backbone.View.extend({
         this.appState = this.options.appState;
 
         this.model = new Backbone.Model();
-        this.allStations = new StationsCollection();
 
-        this.listenTo(this.allStations, 'sync', this.initSearch);
+        this.listenTo(allStations, 'sync', this.initSearch);
         this.listenTo(this.appState, 'change:transportTypes', this.initSearch);
-        this.allStations.fetch();//all stations used for search
 
         this.render();
     },
 
     filterCollection: function () {
         var types = this.appState.get("transportTypes");
-        return this.allStations.filterByTypes(types);
+        return allStations.filterByTypes(types);
     },
 
     render: function () {
@@ -78,7 +76,7 @@ var SearchView = Backbone.View.extend({
         var input = this.model.get("search");
         var search = input ? input.id : this.$('input').text();
         var filteredStations = this.filterCollection();
-        var searchStation = this.allStations.findWhere({stationId: search});
+        var searchStation = allStations.findWhere({stationId: search});
         if (searchStation) {
             this.updateCurrentStationAndCenter(searchStation);
         }

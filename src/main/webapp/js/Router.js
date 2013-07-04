@@ -10,7 +10,7 @@ var Router = Backbone.Router.extend({
 
     initialize: function () {
         this.appState = new AppState();
-        this.topBar = new TopBarView({appState:this.appState}).render().hide();
+        this.topBar = new TopBarView({appState: this.appState}).render().hide();
         $('#topbar').html(this.topBar.el);
     },
 
@@ -20,21 +20,21 @@ var Router = Backbone.Router.extend({
     },
 
     goMap: function () {
-        if (!this.mapView) this.mapView = new MapView({appState:this.appState}).render();
+        if (!this.mapView) this.mapView = new MapView({appState: this.appState}).render();
         $('#content').html(this.mapView.reBind().el);
         this.topBar.switchToMap();
     },
 
     goList: function () {
-        if (!this.listView) this.listView = new ListView({appState:this.appState}).render();
+        if (!this.listView) this.listView = new ListView({appState: this.appState}).render();
         $('#content').html(this.listView.reBind().el);
         this.topBar.switchToList();
     },
 
     goFavoris: function () {
-        if (!this.listFavorisView) this.listFavorisView = new ListFavorisView({collection:favoris});
+        if (!this.listFavorisView) this.listFavorisView = new ListFavorisView({appState: this.appState});
         $('#content').html(this.listFavorisView.reBind().el);
- //       this.topBar.switchToFavoris();
+        this.topBar.switchToList();
     }
 
 });
