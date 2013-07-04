@@ -374,7 +374,7 @@ a.splash-wrap {
     top: 12px;
     height: 33px;
     left: 78px;
-    right: 58px;
+    right: 64px;
 }
 
 .line .name {
@@ -393,7 +393,7 @@ a.splash-wrap {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 25px;
+    height: 18px;
     cursor: pointer;
     background: url('../img/buttons-sprite.png') 0 -150px no-repeat;
     padding-top: 6px;
@@ -475,11 +475,18 @@ a.splash-wrap {
 /*** Favoris list ***/
 
 .favori-line .line-narrow {
-    line-height: 28px;
+    line-height: 31px;
 }
 
 .favori-line .line-extended {
     height: 28px;
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #d7d3d3));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #d7d3d3 100%);
 }
 
 .favori-line .infos {
@@ -513,7 +520,11 @@ a.splash-wrap {
 
 .favori-line .rename {
     background-position: 0 -175px;
-    display: none;
+    opacity: 0.5;
+}
+
+.favori-line .rename.active {
+    opacity: 1;
 }
 
 .favori-line .remove {

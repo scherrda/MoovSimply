@@ -6,7 +6,8 @@ var ListFavoriLineView = Backbone.View.extend({
     events: {
         'click .extend-arrow': 'toggle',
         'click .localize': 'showOnMap',
-        'click .remove': 'removeFavori'
+        'click .remove': 'removeFavori',
+        'click .rename': 'renameFavori'
     },
 
     initialize: function () {
@@ -21,7 +22,7 @@ var ListFavoriLineView = Backbone.View.extend({
     },
 
     toggle: function () {
-        this.$('.line-extended').slideToggle(300).toggleClass('extended');
+        this.$('.line-extended').slideToggle(300);
         this.$('.extend-arrow').toggleClass('extended');
     },
 
@@ -43,6 +44,23 @@ var ListFavoriLineView = Backbone.View.extend({
 
     removeFavori: function () {
         favoris.remove(this.model).save();
+    },
+
+    renameFavori: function () {
+        var $input = $('<input type="text" class="name" value="' + this.model.get('customName') + '">');
+        this.$('.name').replaceWith($input);
+        this.$('.rename').addClass('active');
+
+        $input.bind('keypress', _.bind(function (e) {
+            if (e.charCode === 13) this.saveFavori();
+        }, this));
+    },
+
+    saveFavori: function () {
+        var newName = this.$('input.name').val();
+        if (newName === '') newName = this.model.get('name');
+        this.model.set('customName', newName);
+        favoris.remove(this.model).add(this.model).save();
     },
 
     close: function () {
