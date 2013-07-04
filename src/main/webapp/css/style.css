@@ -154,60 +154,61 @@ a.splash-wrap {
 .back-link {
     display: block;
     position: absolute;
-    width: 11px;
-    height: 16px;
-    top: 15px;
-    left: 15px;
-    background-image: url('../img/arrow-left.png');
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    left: 10px;
+    background: url('../img/buttons-sprite.png') -25px 0;
 }
 
 .search-link {
     display: block;
     position: absolute;
     width: 25px;
-    height: 29px;
+    height: 25px;
     top: 10px;
-    right: 27px;
-    background-image: url('../img/search.png');
+    right: 33px;
+    background: url('../img/buttons-sprite.png') 0 -50px;
 }
 
 .filter-link {
     display: block;
     position: absolute;
     width: 25px;
-    height: 29px;
+    height: 25px;
     top: 10px;
-    right: 52px;
-    background-image: url('../img/filter.png');
+    right: 58px;
+    background: url('../img/buttons-sprite.png') 0 -75px;
 }
 
 .filter-link.active {
-    background-image: url('../img/filter-active.png');
+    background-position: 0 -100px;
 }
 
 .geoloc-link {
     position: absolute;
     width: 25px;
-    height: 29px;
+    height: 25px;
     top: 10px;
-    right: 77px;
-    background-image: url('../img/dude-grey.png');
+    right: 83px;
+    background: url('../img/buttons-sprite.png') 0 -125px;
 }
 
 .switch {
     position: absolute;
-    width: 29px;
-    height: 27px;
+    width: 25px;
+    height: 25px;
     top: 10px;
-    right: 2px;
+    right: 8px;
+    background: url('../img/buttons-sprite.png');
 }
 
 .switch-list {
-    background-image: url('../img/mode-list.png');
+    background-position: 0 0;
 }
 
 .switch-map {
-    background-image: url('../img/mode-map.png');
+    background-position: 0 -25px;
 }
 
 .switch-load {
@@ -249,10 +250,10 @@ a.splash-wrap {
 .transportFilter input[type=checkbox]:before {
     content: "";
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 25px;
+    height: 25px;
     opacity: 0.2;
-    background-image: url('../img/filter-check.png');
+    background: url('../img/buttons-sprite.png') -25px -75px;
 }
 
 .transportFilter input[type=checkbox]:checked:before {
@@ -382,11 +383,11 @@ a.splash-wrap {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 16px;
+    height: 25px;
     cursor: pointer;
-    background: url('../img/geoloc.png') no-repeat;
-    padding-top: 4px;
-    padding-left: 22px;
+    background: url('../img/buttons-sprite.png') 0 -150px no-repeat;
+    padding-top: 6px;
+    padding-left: 25px;
 }
 
 .line.overflow .localize {
@@ -396,16 +397,16 @@ a.splash-wrap {
 .extend-arrow {
     display: block;
     position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 16px;
-    right: 16px;
+    width: 25px;
+    height: 25px;
+    top: 12px;
+    right: 8px;
     cursor: pointer;
-    background-image: url('../img/arrow-right.png');
+    background: url('../img/buttons-sprite.png') -25px -25px;
 }
 
 .extend-arrow.extended {
-    background-image: url('../img/arrow-bottom.png');
+    background-position: -25px -50px;
 }
 
 .line-narrow {
