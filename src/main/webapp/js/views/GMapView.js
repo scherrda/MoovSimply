@@ -88,6 +88,7 @@ var GMapView = Backbone.View.extend({
     },
 
     showStationsMarkers: function (stations) {
+        if (this.markerCluster) this.markerCluster.removeMarkers(this.currentMarkers);
         _.each(this.currentMarkers, function (marker) {
             marker.setMap(null);
         });
@@ -106,7 +107,7 @@ var GMapView = Backbone.View.extend({
             }, this));
         }, this));
 
-        var mc = new MarkerClusterer(this.map, this.currentMarkers, MARKER_CLUSTER_OPTIONS);
+        this.markerCluster = new MarkerClusterer(this.map, this.currentMarkers, MARKER_CLUSTER_OPTIONS);
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
             this.trigger('details:hide');
@@ -201,10 +202,10 @@ var MAP_STYLES = [
 var MARKER_CLUSTER_OPTIONS = {
     styles: [
         {
-            width: 59,
-            height: 59,
+            width: 60,
+            height: 60,
             url: "img/markers/marker-cluster.png",
-            anchorIcon: [53, 31],
+            anchorIcon: [30, 30],
             fontWeight: "normal",
             textColor: '#ffffff',
             textSize: 11

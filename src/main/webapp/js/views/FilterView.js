@@ -8,7 +8,7 @@ var FilterView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.filterModel = this.options.model;
+        this.filterModel = this.model;
 
         this.render();
     },
@@ -18,11 +18,11 @@ var FilterView = Backbone.View.extend({
         return this;
     },
 
-    onFilter: function (event) {
+    onFilter: function () {
         var types = this.$('input:checked').map(function () {
             return $(this).val();
         }).get();
-        this.filterModel.set("transportTypes", types);
+        this.filterModel.set('transportTypes', types);
     },
 
     toggle: function () {
