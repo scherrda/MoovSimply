@@ -59,7 +59,7 @@ var ListFavoriLineView = Backbone.View.extend({
     saveFavori: function () {
         var newName = this.$('input.name').val();
         if (newName === '') newName = this.model.get('name');
-        this.model.set({customName: newName}, {silent: true}).trigger('change:customName');
+        this.model.set({customName: newName}, {silent: true}).trigger('change');
     },
 
     close: function () {
