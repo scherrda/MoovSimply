@@ -29,6 +29,7 @@ var MapView = Backbone.View.extend({
             return;
         }
         if (this.detailView) this.detailView.close();
+        station.updateDistance(user.get("pos"));
         this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station, lineTemplate: "#list-line-tmpl", extendedLineTemplate: "#list-line-extended-tmpl"});
         this.$el.append(this.detailView.render().el);
         this.detailView.toggle();
