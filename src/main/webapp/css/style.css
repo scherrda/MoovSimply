@@ -272,10 +272,10 @@ a.splash-wrap {
 
 .search {
     text-align: center;
+    padding: 8px 0;
 }
 
-.search input {
-    margin: 8px 0;
+input[type=text] {
     width: 80%;
     height: 20px;
     font-size: 16px;
@@ -481,12 +481,12 @@ a.splash-wrap {
 .favori-line .line-extended {
     height: 28px;
     background: #ffffff;
-    background: -moz-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #d7d3d3));
-    background: -webkit-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
-    background: -o-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
-    background: -ms-linear-gradient(top, #ffffff 0%, #d7d3d3 100%);
-    background: linear-gradient(to bottom, #ffffff 0%, #d7d3d3 100%);
+    background: -moz-linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f0f0f0));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
 }
 
 .favori-line .infos {
@@ -530,4 +530,8 @@ a.splash-wrap {
 
 .favori-line .remove {
     background-position: -25px -175px;
+}
+
+.favori-line input.name {
+    width: 80%;
 }

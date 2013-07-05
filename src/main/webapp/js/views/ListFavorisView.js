@@ -5,7 +5,7 @@ var ListFavorisView = Backbone.View.extend({
 
     initialize: function () {
         this.appState = this.options.appState;
-        this.listenTo(favoris, 'add remove change', this.render);
+        this.listenTo(favoris, 'add remove change', this.saveAndRender);
         this.render();
     },
 
@@ -21,8 +21,6 @@ var ListFavorisView = Backbone.View.extend({
         this.$el.empty();
         this.lines = [];
 
-        favoris.save();
-
         if (favoris.isEmpty()) {
             this.$el.append('<div class="no-content">Vous n’avez pas de favori</div>');
             return;
@@ -35,5 +33,10 @@ var ListFavorisView = Backbone.View.extend({
         }, this));
 
         return this;
+    },
+
+    saveAndRender: function () {
+        favoris.save();
+        this.render();
     }
 });

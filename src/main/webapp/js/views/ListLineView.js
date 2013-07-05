@@ -4,7 +4,7 @@ var ListLineView = Backbone.View.extend({
     className: 'line',
 
     events: {
-        'click .line-narrow': 'toggle',
+        'click .extend-arrow': 'toggle',
         'click .localize': 'showOnMap',
         'click .favori-toggle': 'toggleFavori'
     },
