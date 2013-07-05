@@ -62,11 +62,11 @@ var ListLineView = Backbone.View.extend({
             stationId: this.model.get('stationId'),
             coordinates: this.model.get('coordinates')
         });
-        favoris.add(favori).save();
+        favoris.add(favori);
     },
 
     removeFavori: function () {
-        favoris.remove(favoris.findWhere({stationId: this.model.get('stationId')})).save();
+        favoris.findWhere({stationId: this.model.get('stationId')}).destroy();
     },
 
     close: function () {

@@ -21,6 +21,8 @@ var ListFavorisView = Backbone.View.extend({
         this.$el.empty();
         this.lines = [];
 
+        favoris.save();
+
         if (favoris.isEmpty()) {
             this.$el.append('<div class="no-content">Vous n’avez pas de favori</div>');
             return;

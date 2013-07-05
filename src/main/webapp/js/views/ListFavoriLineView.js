@@ -44,7 +44,6 @@ var ListFavoriLineView = Backbone.View.extend({
 
     removeFavori: function () {
         this.model.destroy();
-        favoris.save();
     },
 
     renameFavori: function () {
@@ -61,7 +60,6 @@ var ListFavoriLineView = Backbone.View.extend({
         var newName = this.$('input.name').val();
         if (newName === '') newName = this.model.get('name');
         this.model.set('customName', newName);
-        favoris.save();
     },
 
     close: function () {

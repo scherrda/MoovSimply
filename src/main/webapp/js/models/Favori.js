@@ -19,6 +19,8 @@ var FavorisCollection = Backbone.Collection.extend({
     },
 
     save: function () {
+        if (!localStorage) return;
+
         localStorage.setItem('moovsimply-favoris', JSON.stringify(this.toJSON()));
     }
 
