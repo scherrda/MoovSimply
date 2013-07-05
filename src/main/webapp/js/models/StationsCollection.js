@@ -6,7 +6,7 @@ var StationsCollection = Backbone.Collection.extend({
             return '/rest/moovin/around?LAT=' + this.lat + '&LNG=' + this.lng;
         }
         return '/rest/moovin/transports';
-        //return '../stations.json?LAT=' + this.lat + '&LNG=' + this.lng;
+        //return 'stations.json?LAT=' + this.lat + '&LNG=' + this.lng;
     },
 
     comparator: function (station) {

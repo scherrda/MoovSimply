@@ -4,7 +4,7 @@ var ListFavoriLineView = Backbone.View.extend({
     className: 'line favori-line',
 
     events: {
-        'click .extend-arrow': 'toggle',
+        'click .line-narrow': 'toggle',
         'click .localize': 'showOnMap',
         'click .remove': 'removeFavori',
         'click .rename': 'renameFavori'
