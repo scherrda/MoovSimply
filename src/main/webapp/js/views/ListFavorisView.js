@@ -5,7 +5,7 @@ var ListFavorisView = Backbone.View.extend({
 
     initialize: function () {
         this.appState = this.options.appState;
-        this.listenTo(favoris, 'add remove', this.render);
+        this.listenTo(favoris, 'add remove change', this.render);
         this.render();
     },
 
