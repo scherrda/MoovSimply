@@ -34,7 +34,7 @@ var ListView = Backbone.View.extend({
         this.$el.empty();
         this.lines = [];
 
-        if (appState.get('nextGeolocCenterOnUser')) {
+        if (user.get('centerOnMe')) {
             this.$el.append('<div class="no-content">Basculez vers le mode "Carte" pour vous géolocaliser</div>');
             return;
         }

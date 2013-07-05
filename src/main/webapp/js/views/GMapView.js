@@ -7,9 +7,10 @@ var GMapView = Backbone.View.extend({
         this.appState = this.options.appState;
         this.listenTo(this.appState, 'change:mapCenter', this.onChangeMapCenter);
         this.listenTo(this.appState, 'change:currentStation', this.onChangeCurrentStation);
-        this.listenTo(this.appState, 'change:nextGeolocCenterOnUser', this.forceGeolocalize);
+//        this.listenTo(this.appState, 'change:nextGeolocCenterOnUser', this.forceGeolocalize);
         this.meMarker = this.createMarker(this.appState.getCenterCoordinates(), 'You', this.getMeMarkerImage());
-        this.geolocalize();
+        this.listenTo(user, "change:pos", this.refreshPosition);
+        user.geolocalize();
     },
 
     render: function () {
@@ -26,53 +27,16 @@ var GMapView = Backbone.View.extend({
         return this;
     },
 
-    geolocalize: function () {
-        if (navigator.geolocation && navigator.geolocation.watchPosition) {
-            this.watchId = navigator.geolocation.watchPosition(_.bind(this.refreshPosition, this), _.bind(this.errorGeoloc, this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
-        } else {
-            alert('La géolocalisation n’est pas possible avec ce navigateur');
-        }
-        return this;
-    },
-
-    forceGeolocalize: function () {
-        if (this.appState.get("nextGeolocCenterOnUser") == true) {
-            this.stopWatch();
-            this.geolocalize();
-        }
-    },
-
     refreshPosition: function (position) {
-        var myLat = position.coords.latitude, // 48.87525
-            myLng = position.coords.longitude; // 2.31110
-
-        console.log('Votre position - Latitude : ' + myLat + ', longitude : ' + myLng);
-        this.meMarker.setPosition(new google.maps.LatLng(myLat, myLng));
+        this.meMarker.setPosition(user.get("pos"));
         this.meMarker.setMap(this.map);
-
-        if (this.appState.get('nextGeolocCenterOnUser')) {
-            this.appState.set('mapCenter', {pos: new google.maps.LatLng(myLat, myLng)});
-            this.appState.set('nextGeolocCenterOnUser', false);
+        if (user.get('centerOnMe')) {
+            this.appState.set('mapCenter', {pos: user.get("pos")});
+            user.set('centerOnMe', false);
         }
+
     },
 
-    errorGeoloc: function (error) {
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                alert('Vous n’avez pas autorisé l’accès à votre position');
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert('Votre position n’a pas pu être déterminée');
-                break;
-            case error.TIMEOUT:
-                console.log('Timeout geo html5');
-                break;
-        }
-    },
-
-    stopWatch: function () {
-        navigator.geolocation.clearWatch(this.watchId);
-    },
 
     onChangeMapCenter: function () {
         this.map.setCenter(this.appState.get('mapCenter').pos);
