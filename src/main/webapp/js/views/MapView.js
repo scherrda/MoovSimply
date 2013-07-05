@@ -7,7 +7,6 @@ var MapView = Backbone.View.extend({
         this.gmap = new GMapView({appState: this.appState});
         this.listenTo(this.appState, 'change:currentStation', this.showDetail);
         this.listenTo(this.appState, 'change:mapCenter', this.fetchStations);
-        this.listenTo(this.gmap, 'details:hide', this.hideDetail);
         this.listenTo(stations, 'reset', this.displayStations);
         this.listenTo(this.appState, 'change:transportTypes', this.displayStations);
     },
@@ -25,7 +24,10 @@ var MapView = Backbone.View.extend({
 
     showDetail: function () {
         var station = this.appState.get('currentStation');
-
+        if(!station){
+            this.hideDetail();
+            return;
+        }
         if (this.detailView) this.detailView.close();
         this.detailView = new ListLineView({tagName: 'div', className: 'line overflow', model: station, lineTemplate: "#list-line-tmpl", extendedLineTemplate: "#list-line-extended-tmpl"});
         this.$el.append(this.detailView.render().el);

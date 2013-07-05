@@ -110,18 +110,21 @@ var GMapView = Backbone.View.extend({
         this.markerCluster = new MarkerClusterer(this.map, this.currentMarkers, MARKER_CLUSTER_OPTIONS);
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
-            this.trigger('details:hide');
+            this.appState.set('currentStation', null);
+            //this.trigger('details:hide');
         }, this));
     },
 
     onChangeCurrentStation: function () {
+        this.turnOffActiveMarker();
         var newStation = this.appState.get('currentStation');
-        var newStationMarker = _.findWhere(this.currentMarkers, {id: newStation.get('stationId'), type: newStation.get('type')});
-        this.turnOnMarker(newStationMarker);
+        if(newStation){
+            var newStationMarker = _.findWhere(this.currentMarkers, {id: newStation.get('stationId'), type: newStation.get('type')});
+            this.turnOnMarker(newStationMarker);
+        }
     },
 
     turnOnMarker: function (stationMarker) {
-        this.turnOffActiveMarker();
         stationMarker.setIcon(this.getStationMarkerImage(stationMarker.type, true));
         stationMarker.active = true;
     },
