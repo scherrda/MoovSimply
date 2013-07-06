@@ -41,10 +41,10 @@ public class GuiceConfiguration extends GuiceServletContextListener {
 
                 Map<String, String> jerseyParams = new HashMap<String, String>();
                 jerseyParams.put("com.sun.jersey.config.property.packages", "fr.duchesses.moov");
-                //jerseyParams.put("com.sun.jersey.spi.container.ContainerResponseFilters", "com.sun.jersey.api.container.filter.GZIPContentEncodingFilter");
-                //serve("/rest*//*").with(GuiceContainer.class, jerseyParams);
+                jerseyParams.put("com.sun.jersey.spi.container.ContainerResponseFilters", "com.sun.jersey.api.container.filter.GZIPContentEncodingFilter");
+                serve("/rest/*").with(GuiceContainer.class, jerseyParams);
 
-                serve("/rest/*").with(GuiceContainer.class);
+                //serve("/rest/*").with(GuiceContainer.class);
             }
         });
     }
