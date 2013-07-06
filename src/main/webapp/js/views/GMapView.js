@@ -52,7 +52,7 @@ var GMapView = Backbone.View.extend({
     },
 
     showStationsMarkers: function (stations) {
-        if (this.markerCluster) this.markerCluster.removeMarkers(this.currentMarkers);
+//        if (this.markerCluster) this.markerCluster.removeMarkers(this.currentMarkers);
         _.each(this.currentMarkers, function (marker) {
             marker.setMap(null);
         });
@@ -71,7 +71,7 @@ var GMapView = Backbone.View.extend({
             }, this));
         }, this));
 
-        this.markerCluster = new MarkerClusterer(this.map, this.currentMarkers, MARKER_CLUSTER_OPTIONS);
+//        this.markerCluster = new MarkerClusterer(this.map, this.currentMarkers, MARKER_CLUSTER_OPTIONS);
 
         google.maps.event.addListener(this.map, 'click', _.bind(function () {
             this.appState.set('currentStation', null);
@@ -166,6 +166,7 @@ var MAP_STYLES = [
     }
 ];
 
+/*
 var MARKER_CLUSTER_OPTIONS = {
     styles: [
         {
@@ -179,6 +180,7 @@ var MARKER_CLUSTER_OPTIONS = {
         }
     ]
 };
+*/
 
 var MARKERS_SPRITE_MAP = {
     TRAIN: 0,
