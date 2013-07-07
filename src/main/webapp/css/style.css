@@ -466,10 +466,14 @@ input[type=text] {
 
 .schedule .direction {
     float: left;
+    height: 15px;
+    overflow: hidden;
 }
 
 .schedule .time {
     float: right;
+    height: 15px;
+    overflow: hidden;
 }
 
 /*** Favoris list ***/
