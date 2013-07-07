@@ -468,12 +468,14 @@ input[type=text] {
     float: left;
     height: 15px;
     overflow: hidden;
+    max-width: 80%;
 }
 
 .schedule .time {
     float: right;
     height: 15px;
     overflow: hidden;
+    width: 45px;
 }
 
 /*** Favoris list ***/
