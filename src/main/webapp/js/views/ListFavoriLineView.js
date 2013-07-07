@@ -14,6 +14,8 @@ var ListFavoriLineView = Backbone.View.extend({
         this.appState = this.options.appState;
         this.template = Handlebars.compile($('#list-favoris-tmpl').html());
         this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
+
+        this.listenTo(favoris, 'remove', this.updatePresence);
     },
 
     render: function () {
@@ -42,8 +44,13 @@ var ListFavoriLineView = Backbone.View.extend({
         });
     },
 
+    updatePresence: function (favori) {
+        if (favori === this.model) this.removeFavori();
+    },
+
     removeFavori: function () {
         this.model.destroy();
+        this.close();
     },
 
     renameFavori: function () {
@@ -59,7 +66,8 @@ var ListFavoriLineView = Backbone.View.extend({
     saveFavori: function () {
         var newName = this.$('input.name').val();
         if (newName === '') newName = this.model.get('name');
-        this.model.set({customName: newName}, {silent: true}).trigger('change');
+        this.model.set({customName: newName});
+        this.render();
     },
 
     close: function () {

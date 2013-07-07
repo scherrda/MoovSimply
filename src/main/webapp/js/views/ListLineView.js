@@ -14,6 +14,7 @@ var ListLineView = Backbone.View.extend({
         this.templateExtended = Handlebars.compile($('#list-line-extended-tmpl').html());
 
         this.listenTo(this.model, 'sync', this.renderDetail);
+        this.listenTo(favoris, 'add remove', this.updateFavoriState);
     },
 
     render: function () {
@@ -52,7 +53,10 @@ var ListLineView = Backbone.View.extend({
         } else {
             this.addFavori();
         }
-        $toggle.toggleClass('active');
+    },
+
+    updateFavoriState: function (favori) {
+        if (favori.get('stationId') === this.model.get('stationId')) this.$('.favori-toggle').toggleClass('active');
     },
 
     addFavori: function () {

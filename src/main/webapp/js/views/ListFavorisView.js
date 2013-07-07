@@ -5,7 +5,8 @@ var ListFavorisView = Backbone.View.extend({
 
     initialize: function () {
         this.appState = this.options.appState;
-        this.listenTo(favoris, 'add remove change', this.saveAndRender);
+        this.listenTo(favoris, 'add remove change', this.saveFavoris);
+        this.listenTo(favoris, 'add', this.renderLine);
         this.render();
     },
 
@@ -26,17 +27,18 @@ var ListFavorisView = Backbone.View.extend({
             return;
         }
 
-        favoris.each(_.bind(function (favori) {
-            var lineView = new ListFavoriLineView({model: favori, appState: this.appState}).render();
-            this.$el.append(lineView.el);
-            this.lines.push(lineView);
-        }, this));
+        favoris.each(_.bind(this.renderLine, this));
 
         return this;
     },
 
-    saveAndRender: function () {
+    renderLine: function (favori) {
+        var lineView = new ListFavoriLineView({model: favori, appState: this.appState}).render();
+        this.$el.append(lineView.el);
+        this.lines.push(lineView);
+    },
+
+    saveFavoris: function () {
         favoris.save();
-        this.render();
     }
 });
