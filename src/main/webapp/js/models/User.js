@@ -29,10 +29,10 @@ var User = Backbone.Model.extend({
                 alert('Vous n’avez pas autorisé l’accès à votre position');
                 break;
             case error.POSITION_UNAVAILABLE:
-                alert('Votre position n’a pas pu être déterminée');
+                alert('Votre position n’a pu être déterminée. Utilisez la recherche pour trouver une station');
                 break;
             case error.TIMEOUT:
-                console.log('Timeout geo html5');
+                alert('Timeout geolocalisation. Utilisez la recherche pour trouver une station.');
                 break;
         }
     },
