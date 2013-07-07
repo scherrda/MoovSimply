@@ -54,10 +54,10 @@ public class SncfApiServiceTest {
     public void shouldGetStationDetails() {
         SncfStation station = service.getStation("DUA8711385");
         assertThat(station).isNotNull();
-        assertThat(station.getTimes()).isNotEmpty();
+        assertThat(station.getDirections()).isNotEmpty();
 
         DateTimeFormatter TIME_FORMATTER = DateTimeFormat.forPattern("HH:mm");
         LocalTime now = new LocalTime();
-        assertThat(TIME_FORMATTER.parseLocalTime(station.getTimes().get(0)).isAfter(now));
+        assertThat(TIME_FORMATTER.parseLocalTime(station.getDirections().get(0).getTime()).isAfter(now));
     }
 }

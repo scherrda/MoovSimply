@@ -24,10 +24,15 @@ public class ApiSncfStopTime implements Comparable<ApiSncfStopTime> {
 
     private static final DateTimeFormatter fmt = DateTimeFormat.forPattern("HH:mm:ss");
 
+    private String tripId;
     private LocalTime arrivalTime;
     private String stopId;
 
+    // Aggregated data
+    private String routeLongName;
+
     public ApiSncfStopTime(String[] rawStopTime) {
+        this.tripId = rawStopTime[INDEX_TRIP_ID];
         try {
             arrivalTime = fmt.parseLocalTime(rawStopTime[INDEX_ARRIVAL_TIME]);
         } catch (IllegalFieldValueException e) {
@@ -39,17 +44,21 @@ public class ApiSncfStopTime implements Comparable<ApiSncfStopTime> {
         }
         this.stopId = rawStopTime[INDEX_STOP_ID].split(":")[1];
     }
-    
+
     public ApiSncfStopTime(String stopTime, String stopId) {
-    		String hourMinut = stopTime.split(" ")[1];
-            int hour = Integer.parseInt(hourMinut.split(":")[0]);
-            int minute = Integer.parseInt(hourMinut.split(":")[1]);
-            arrivalTime = new LocalTime(0).withHourOfDay(hour % 24).withMinuteOfHour(minute);
+        String hourMinut = stopTime.split(" ")[1];
+        int hour = Integer.parseInt(hourMinut.split(":")[0]);
+        int minute = Integer.parseInt(hourMinut.split(":")[1]);
+        arrivalTime = new LocalTime(0).withHourOfDay(hour % 24).withMinuteOfHour(minute);
         this.stopId = stopId;
     }
 
-	@Override
-	public int compareTo(ApiSncfStopTime o) {
-		return arrivalTime.compareTo(o.getArrivalTime());
-	}
+    @Override
+    public int compareTo(ApiSncfStopTime o) {
+        return arrivalTime.compareTo(o.getArrivalTime());
+    }
+
+    public void setRouteLongName(String routeLongName) {
+        this.routeLongName = routeLongName;
+    }
 }
