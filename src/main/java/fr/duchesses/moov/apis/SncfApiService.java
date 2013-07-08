@@ -10,6 +10,7 @@ import fr.duchesses.moov.models.ServiceType;
 import fr.duchesses.moov.models.Station;
 import fr.duchesses.moov.models.StationType;
 import fr.duchesses.moov.models.sncf.*;
+
 import org.apache.commons.io.input.ReaderInputStream;
 import org.apache.log4j.Logger;
 
@@ -27,9 +28,25 @@ public class SncfApiService implements ApiService {
 
     private static final Logger logger = Logger.getLogger(SncfApiService.class);
 
+    /**
+     * key : stopId
+     */
     private Map<String, Station> allStations = Maps.newHashMap();
+    /**
+     * key : stopId
+     */
     HashMultimap<String, ApiSncfStopTime> allStopTimes = HashMultimap.create();
-
+    /**
+     * key : tripId, value : last stop<br>
+     * Used to display direction in "schedule" time
+     */
+    private Map<String, ApiSncfStopTime> tripDirection = Maps.newHashMap();
+    /**
+     * key : gare code uic (en String), value : gare name<br>
+     * Used to display direction in real time
+     */
+    private Map<String, String> gareDictionnary = Maps.newHashMap();
+  
     private static final String BASE_URL = "http://api.transilien.com/gare/";
 
     @Inject
@@ -62,6 +79,7 @@ public class SncfApiService implements ApiService {
         for (String[] rawLine : rawLignesGare) {
             ApiSncfLigneGare ligneGare = new ApiSncfLigneGare(rawLine);
             allLignesGare.put(ligneGare.getUic(), ligneGare);
+            gareDictionnary.put(String.valueOf(ligneGare.getUic()), ligneGare.getName());
         }
         for (String[] rawStop : rawStops) {
             ApiSncfStop stop = new ApiSncfStop(rawStop);
@@ -70,6 +88,11 @@ public class SncfApiService implements ApiService {
         for (String[] rawStopTime : rawStopTimes) {
             ApiSncfStopTime stopTime = new ApiSncfStopTime(rawStopTime);
             allStopTimes.put(stopTime.getStopId(), stopTime);
+            String tripId = stopTime.getTripId();
+            ApiSncfStopTime currentLastStopOfTrip = tripDirection.get(tripId);
+            if (currentLastStopOfTrip == null || stopTime.getStopSequence()>currentLastStopOfTrip.getStopSequence()){
+                tripDirection.put(tripId, stopTime);
+            }   
         }
         for (String[] rawTrip : rawTrips) {
             ApiSncfTrip trip = new ApiSncfTrip(rawTrip);
@@ -104,8 +127,8 @@ public class SncfApiService implements ApiService {
 
         for (ApiSncfStopTime stopTime : allStopTimes.values()) {
             ApiSncfTrip trip = allTrips.get(stopTime.getTripId());
-            ApiSncfRoute route = allRoutes.get(trip.getRouteId());
-            stopTime.setRouteLongName(route.getRouteLongName());
+            Station lastTripStation = allStations.get(tripDirection.get(stopTime.getTripId()).getStopId());
+            stopTime.setRouteLongName((lastTripStation != null ?lastTripStation.getName():"")+ " (" + trip.getHeadSign()+")");
         }
     }
 
@@ -166,7 +189,7 @@ public class SncfApiService implements ApiService {
                 for (Serializable elem : passages.getContent()) {
                     if (elem instanceof JAXBElement) {
                         TrainType aTrainType = (TrainType) ((JAXBElement) elem).getValue();
-                        results.add(new ApiSncfStopTime(aTrainType.getDate().getValue(), aTrainType.getTerm()));
+                        results.add(new ApiSncfStopTime(aTrainType.getDate().getValue(), "stopId", gareDictionnary.get(aTrainType.getTerm()), aTrainType.getMiss()));
                     }
                 }
                 return new TreeSet(results);
