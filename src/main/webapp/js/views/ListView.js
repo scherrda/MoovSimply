@@ -39,7 +39,7 @@ var ListView = Backbone.View.extend({
             return;
         }
         if (stations.isEmpty()) {
-            this.$el.append('<div class="no-content">Aucune station à moins de 500m</div>');
+            this.$el.append('<div class="no-content">Aucune station à moins de 1500m</div>');
             return;
         }
         var stationsFilteredByType = stations.filterByTypes(appState.get('transportTypes'));

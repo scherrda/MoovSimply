@@ -103,6 +103,15 @@ a.splash-wrap {
     margin-left: -84px;
 }
 
+.splash .thanks-cloudbees {
+    position:absolute;
+    width: 107px;
+    height: 36px;
+    right:0;
+    bottom:0;
+    background:url('../img/cloudbees.png');
+}
+
 /*** Splash screen for small screens ***/
 @media screen and (max-height: 430px) {
     .splash .logo {
