@@ -97,6 +97,10 @@ var SearchView = Backbone.View.extend({
             pos: new google.maps.LatLng(newCenter.latitude, newCenter.longitude),
             station: station
         });
+        //force triggering event "change" if same search as last one
+        if(this.appState.get('mapCenter').station == station){
+            this.appState.trigger('change:mapCenter');
+        }
     },
 
     toggle: function () {
