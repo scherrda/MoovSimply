@@ -8,8 +8,7 @@ var User = Backbone.Model.extend({
 
     geolocalize: function () {
         if (navigator.geolocation && navigator.geolocation.watchPosition) {
-            this.watchId = navigator.geolocation.watchPosition(_.bind(this.updatePosition, this), _.bind(this.errorGeoloc, this), {enableHighAccuracy: true, timeout: 10000, maximumAge: 600000});
-            this.set("lastWatchId", this.watchId);
+            this.watchId = navigator.geolocation.watchPosition(_.bind(this.updatePosition, this), _.bind(this.errorGeoloc, this), {enableHighAccuracy: true, timeout: 30000, maximumAge: 600000});
         } else {
             alert('La géolocalisation n’est pas possible avec ce navigateur');
         }
@@ -37,8 +36,7 @@ var User = Backbone.Model.extend({
 	            	alert('Timeout geolocalisation. Utilisez la recherche pour trouver une station.');	            	
 	                break;
     		}
-    		navigator.geolocation.clearWatch(this.get("lastWatchId"));
-        
+    		this.stopWatch();
     },
 
     stopWatch: function () {
