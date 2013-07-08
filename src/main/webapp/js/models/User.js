@@ -44,11 +44,13 @@ var User = Backbone.Model.extend({
     },
 
     forceGeolocalize: function () {
+        //reset
         this.set("centerOnMe", true);
- //       if (this.get("centerOnMe") == true) {
-            this.stopWatch();
-            this.geolocalize();
- //       }
+        this.attributes.pos = null;//no triggering change event
+
+        this.stopWatch();
+        this.geolocalize();
+
     }
 
 });
