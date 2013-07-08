@@ -33,6 +33,8 @@ var ListFavorisView = Backbone.View.extend({
     },
 
     renderLine: function (favori) {
+        this.$('.no-content').remove();
+        
         var lineView = new ListFavoriLineView({model: favori, appState: this.appState}).render();
         this.$el.append(lineView.el);
         this.lines.push(lineView);
