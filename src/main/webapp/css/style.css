@@ -437,7 +437,7 @@ input[type=text] {
     right: 33px;
     cursor: pointer;
     background: url('../img/buttons-sprite.png') -25px -100px;
-    opacity: 0.2;
+    opacity: 0.4;
 }
 
 .favori-toggle.active, .favori-toggle:hover {
