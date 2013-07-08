@@ -32,6 +32,7 @@ var SearchView = Backbone.View.extend({
         var autocompleteSource = this.filterCollection().map(function (model) {
             return {
                 label: model.get("name"),
+                //value: model.get("id"),
                 value: model.get("stationId"),
                 icon: 'img/types/' + model.get("type").toLowerCase() + '.png',
                 labelAndType: model.get("name") + '(' + model.get("type") + ')'
@@ -62,13 +63,6 @@ var SearchView = Backbone.View.extend({
                 .append('<a><img class="station-type" src="' + item.icon + '" width="15" height="15">' + item.label + '</a>')
                 .appendTo(ul);
         };
-        //overriding render for example with icon
-        /*           .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-         return $( "<li>" )
-         .append( item.label + "<img src=" + item.icon + ".png/>" )
-         .appendTo( ul );
-         };
-         */
     },
 
     onSearch: function (event) {
@@ -80,25 +74,19 @@ var SearchView = Backbone.View.extend({
         if (searchStation) {
             this.updateCurrentStationAndCenter(searchStation);
         }
-        /*
-
-         var matchingStations = this.filterCollection().filterByName(searchText);
-         if(matchingStations && matchingStations.length > 0){
-         console.log("first matching ", matchingStations[0]);
-         this.updateCurrentStationAndCenter(matchingStations[0]);
-         }*/
-
         return false;
     },
 
     updateCurrentStationAndCenter: function (station) {
         var newCenter = station.get('coordinates');
+        var oldSearch = this.appState.get('mapCenter').station;
         this.appState.set('mapCenter', {
+            //pos: new google.maps.LatLng(station.get('lat'), station.get('lng')),
             pos: new google.maps.LatLng(newCenter.latitude, newCenter.longitude),
             station: station
         });
         //force triggering event "change" if same search as last one
-        if(this.appState.get('mapCenter').station == station){
+        if(oldSearch == station){
             this.appState.trigger('change:mapCenter');
         }
     },

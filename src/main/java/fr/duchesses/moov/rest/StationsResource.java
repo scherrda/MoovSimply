@@ -8,7 +8,9 @@ import fr.duchesses.moov.apis.SncfApiService;
 import fr.duchesses.moov.apis.VelibApiService;
 import fr.duchesses.moov.models.DetailStation;
 import fr.duchesses.moov.models.Station;
+import fr.duchesses.moov.models.StationLight;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -18,6 +20,8 @@ import java.util.List;
 @Path("/moovin")
 
 public class StationsResource {
+    private static final Logger logger = Logger.getLogger(StationsResource.class);
+
 
     private static final double DISTANCE_AROUND_MAX = 1500d;
 
@@ -76,6 +80,22 @@ public class StationsResource {
         transports.addAll(sncfApiService.getAllStops());
         return transports;
     }
+    @GET
+    @Path("/all/light")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Collection<StationLight> getAllSLightStations() {
+        return toLighten(getAllTransports());
+    }
+
+    private Collection<StationLight> toLighten(Collection<Station> transports) {
+        List<StationLight> lightenStations = Lists.newArrayList();
+        for(Station station : transports){
+            logger.debug("station " + station);
+            lightenStations.add(new StationLight(station.getServiceType(), station.getType(), station.getStationId(), station.getLineNumber(), station.getName(), station.getCoordinates()));
+        }
+        return lightenStations;
+    }
+
 
     @GET
     @Path("/velib/{stationId}")
