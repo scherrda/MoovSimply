@@ -36,7 +36,23 @@ public class Station {
         return transportWithDistance;
     }
 
-    public double getLatitude() {
+    public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	public String getStationId() {
+		return stationId;
+	}
+
+	public void setStationId(String stationId) {
+		this.stationId = stationId;
+	}
+
+	public double getLatitude() {
         return coordinates.getLatitude();
     }
 
