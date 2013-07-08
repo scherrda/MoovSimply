@@ -19,7 +19,8 @@ var User = Backbone.Model.extend({
             myLng = position.coords.longitude; // 2.31110
 
         this.set("pos", new google.maps.LatLng(myLat, myLng));
-        //console.log('Votre position - Latitude : ' + myLat + ', longitude : ' + myLng);
+        console.log("précision geoloc : " + position.coords.accuracy );
+        console.log('Votre position - Latitude : ' + myLat + ', longitude : ' + myLng);
     },
 
 
