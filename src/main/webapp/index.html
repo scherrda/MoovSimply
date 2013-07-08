@@ -73,11 +73,14 @@
         <div class="img-wrapper lineNumber">
             <img class="img-centered" src="img/lines/{{lowercase type}}/{{lineNumber}}.png">
         </div>
+        </div>
         {{/if}}
 
         <div class="infos">
             <div class="name truncate">{{name}}</div>
-            <div class="distance">à {{round distance}}m à pied</div>
+			{{#if distance}}
+           		<div class="distance">à {{round distance}}m à pied</div>
+  			{{/if}}
             <div class="localize">Localiser</div>
         </div>
         <a class="favori-toggle"></a>

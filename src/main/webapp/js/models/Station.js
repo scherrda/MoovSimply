@@ -14,7 +14,12 @@ var Station = Backbone.Model.extend({
         return '/rest/moovin/' + this.get("serviceType").toLowerCase() + '/' + this.get("stationId");
     },
     updateDistance : function(point){
-        this.set("distance", 1000*this.calculateKmDistance(point.lat(), point.lng()));
+    	if (point != null){
+    		this.set("distance", 1000*this.calculateKmDistance(point.lat(), point.lng()));
+    	}else{
+    		//position de l'utilisateur inconnue. l'info distance n'a aucun sens !
+    		this.set("distance", null);
+    	}
     },
 
     calculateKmDistance: function (lat, lng) {
