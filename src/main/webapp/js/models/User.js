@@ -2,7 +2,6 @@ var User = Backbone.Model.extend({
     defaults : {
         centerOnMe : true,
         pos : null,
-        lastWatchId : null,
     },
 
 
