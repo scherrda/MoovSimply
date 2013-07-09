@@ -29,7 +29,7 @@ ul {
 
 .withTopBar {
     position: absolute;
-    top: 45px;
+    top: 55px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -104,12 +104,12 @@ a.splash-wrap {
 }
 
 .splash .thanks-cloudbees {
-    position:absolute;
+    position: absolute;
     width: 107px;
     height: 36px;
-    right:0;
-    bottom:0;
-    background:url('../img/cloudbees.png');
+    right: 0;
+    bottom: 0;
+    background: url('../img/cloudbees.png');
 }
 
 /*** Splash screen for small screens ***/
@@ -140,7 +140,7 @@ a.splash-wrap {
     position: absolute;
     z-index: 99;
     width: 100%;
-    height: 45px;
+    height: 55px;
     top: 0;
     left: 0;
     background: #fff;
@@ -149,76 +149,84 @@ a.splash-wrap {
 
 .fixed-header {
     width: 100%;
-    height: 45px;
+    height: 55px;
 }
 
 .app-title {
     position: absolute;
     top: 10px;
     left: 50%;
-    padding-top: 3px;
-    margin-left: -75px; /*-64px;*/
+    padding-top: 9px;
+    margin-left: -64px;
+}
+
+@media screen and (max-width: 370px) {
+    .app-title {
+        padding-top: 14px;
+        width: 80px;
+        margin-left: -40px;
+    }
 }
 
 .back-link {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 10px;
     left: 10px;
-    background: url('../img/buttons-sprite.png') -25px 0;
+    background: url('../img/buttons-sprite.png') -35px 0;
 }
 
 .favoris-link {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 10px;
-    left: 35px;
-    background: url('../img/buttons-sprite.png') -25px -100px;
+    left: 45px;
+    background: url('../img/buttons-sprite.png') -35px -140px;
 }
 
 .search-link {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 10px;
-    right: 33px;
-    background: url('../img/buttons-sprite.png') 0 -50px;
+    right: 10px;
+    background: url('../img/buttons-sprite.png') 0 -70px;
 }
 
 .filter-link {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 10px;
-    right: 58px;
-    background: url('../img/buttons-sprite.png') 0 -75px;
+    right: 45px;
+    background: url('../img/buttons-sprite.png') 0 -105px;
 }
 
 .filter-link.active {
-    background-position: 0 -100px;
+    background-position: 0 -140px;
 }
 
 .geoloc-link {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 10px;
-    right: 83px;
-    background: url('../img/buttons-sprite.png') 0 -125px;
+    right: 80px;
+    background: url('../img/buttons-sprite.png') 0 -175px;
 }
 
 .switch {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 10px;
-    right: 8px;
+    left: 80px;
     background: url('../img/buttons-sprite.png');
 }
 
@@ -227,11 +235,11 @@ a.splash-wrap {
 }
 
 .switch-map {
-    background-position: 0 -25px;
+    background-position: 0 -35px;
 }
 
 .switch-load {
-    background: url('../img/mode-load.gif') no-repeat 2px 1px;
+    background: url('../img/mode-load.gif') no-repeat 5px 5px;
 }
 
 /*** Tool Bars ***/
@@ -269,10 +277,10 @@ a.splash-wrap {
 .transportFilter input[type=checkbox]:before {
     content: "";
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     opacity: 0.2;
-    background: url('../img/buttons-sprite.png') -25px -75px;
+    background: url('../img/buttons-sprite.png') -35px -105px;
 }
 
 .transportFilter input[type=checkbox]:checked:before {
@@ -383,7 +391,7 @@ input[type=text] {
     top: 12px;
     height: 33px;
     left: 78px;
-    right: 64px;
+    right: 75px;
 }
 
 .line .name {
@@ -404,9 +412,9 @@ input[type=text] {
     right: 0;
     height: 18px;
     cursor: pointer;
-    background: url('../img/buttons-sprite.png') 0 -150px no-repeat;
-    padding-top: 6px;
-    padding-left: 25px;
+    background: url('../img/buttons-sprite.png') 0 -210px no-repeat;
+    padding-top: 11px;
+    padding-left: 30px;
 }
 
 .line.overflow .localize {
@@ -416,32 +424,32 @@ input[type=text] {
 .extend-arrow {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 12px;
-    right: 8px;
+    width: 35px;
+    height: 35px;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
-    background: url('../img/buttons-sprite.png') -25px -25px;
+    background: url('../img/buttons-sprite.png') -35px -35px;
 }
 
 .extend-arrow.extended {
-    background-position: -25px -50px;
+    background-position: -35px -70px;
 }
 
 .extend-arrow.loading {
     cursor: default;
-    background: url('../img/mode-load.gif') no-repeat 2px 1px;
+    background: url('../img/mode-load.gif') no-repeat 5px 5px;
 }
 
 .favori-toggle {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 12px;
-    right: 33px;
+    width: 35px;
+    height: 35px;
+    top: 5px;
+    right: 40px;
     cursor: pointer;
-    background: url('../img/buttons-sprite.png') -25px -100px;
+    background: url('../img/buttons-sprite.png') -35px -140px;
     opacity: 0.4;
 }
 
@@ -498,7 +506,7 @@ input[type=text] {
 }
 
 .favori-line .line-extended {
-    height: 28px;
+    height: 35px;
     background: #ffffff;
     background: -moz-linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f0f0f0));
@@ -516,17 +524,17 @@ input[type=text] {
 .favori-ico {
     display: block;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     top: 12px;
     left: 12px;
-    background: url('../img/buttons-sprite.png') -25px -100px;
+    background: url('../img/buttons-sprite.png') -35px -140px;
 }
 
 .favori-line .localize, .favori-line .rename, .favori-line .remove {
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     background: url('../img/buttons-sprite.png');
     cursor: pointer;
 }
@@ -534,12 +542,12 @@ input[type=text] {
 .favori-line .localize {
     padding: 0;
     position: relative;
-    margin-left: 48px;
-    background-position: 0 -150px;
+    margin-left: 40px;
+    background-position: 0 -210px;
 }
 
 .favori-line .rename {
-    background-position: 0 -175px;
+    background-position: 0 -245px;
     opacity: 0.5;
 }
 
@@ -548,7 +556,7 @@ input[type=text] {
 }
 
 .favori-line .remove {
-    background-position: -25px -175px;
+    background-position: -35px -245px;
 }
 
 .favori-line input.name {
