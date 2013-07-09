@@ -33,7 +33,8 @@ var User = Backbone.Model.extend({
 	            	alert('Votre position n’a pu être déterminée. Utilisez la recherche pour trouver une station');
 	                break;
 	            case error.TIMEOUT:
-	            	alert('Timeout geolocalisation. Utilisez la recherche pour trouver une station.');	            	
+	            	//DO NOTHING: Firefox bug
+	            	//alert('Timeout geolocalisation. Utilisez la recherche pour trouver une station.');	            	
 	                break;
     		}
     		this.stopWatch();
