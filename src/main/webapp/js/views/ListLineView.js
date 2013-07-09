@@ -4,7 +4,7 @@ var ListLineView = Backbone.View.extend({
     className: 'line',
 
     events: {
-        'click .extend-arrow': 'toggle',
+        'click .extend-arrow:not(.loading)': 'toggle',
         'click .localize': 'showOnMap',
         'click .favori-toggle': 'toggleFavori'
     },
@@ -26,19 +26,29 @@ var ListLineView = Backbone.View.extend({
     },
 
     renderDetail: function () {
-        this.model.detailsAlreadyFetched = true;
-        this.$('.line-extended').html(this.templateExtended(this.model.attributes));
+        this.$('.line-extended').html(this.templateExtended(this.model.attributes)).slideToggle(300);
+        this.$('.extend-arrow')
+            .addClass('extended')
+            .removeClass('loading');
+    },
+
+    hideDetail: function () {
+        this.$('.line-extended').slideToggle(300);
+        this.$('.extend-arrow')
+            .removeClass('extended')
+            .removeClass('loading');
     },
 
     toggle: function () {
-        if (!this.model.detailsAlreadyFetched) {
-            this.model.fetch();
+        var $arrow = this.$('.extend-arrow');
+        $arrow.addClass('loading');
+
+        if ($arrow.hasClass('extended')) {
+            this.hideDetail();
         } else {
-            this.renderDetail();
+            this.model.fetch();
         }
 
-        this.$('.line-extended').slideToggle(300);
-        this.$('.extend-arrow').toggleClass('extended');
     },
 
     showOnMap: function () {

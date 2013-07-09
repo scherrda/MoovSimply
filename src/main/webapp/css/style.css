@@ -428,6 +428,11 @@ input[type=text] {
     background-position: -25px -50px;
 }
 
+.extend-arrow.loading {
+    cursor: default;
+    background: url('../img/mode-load.gif') no-repeat 2px 1px;
+}
+
 .favori-toggle {
     display: block;
     position: absolute;
