@@ -259,7 +259,6 @@ a.splash-wrap {
 .transportFilter label {
     display: block;
     cursor: pointer;
-    margin: 6px 0;
 }
 
 .transportFilter img {
@@ -267,6 +266,7 @@ a.splash-wrap {
     width: 23px;
     height: 23px;
     margin: 0 auto;
+    padding-top: 12px;
 }
 
 .transportFilter input[type=checkbox] {
