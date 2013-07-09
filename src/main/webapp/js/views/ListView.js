@@ -34,12 +34,8 @@ var ListView = Backbone.View.extend({
         this.$el.empty();
         this.lines = [];
 
-        if (user.get('centerOnMe')) {
-            this.$el.append('<div class="no-content">Basculez vers le mode "Carte" pour vous géolocaliser</div>');
-            return;
-        }
         if (stations.isEmpty()) {
-            this.$el.append('<div class="no-content">Aucune station à moins de 1500m</div>');
+            this.$el.append('<div class="no-content">Aucune station</div>');
             return;
         }
         var stationsFilteredByType = stations.filterByTypes(appState.get('transportTypes'));
