@@ -1,0 +1,40 @@
+{
+    "serviceType": "RATP",
+    "type": "BUS",
+    "stationId": "75-11347215",
+    "codeUIC": 0,
+    "coordinates": {
+        "latitude": 48.8589025239864,
+        "longitude": 2.34262123598523
+    },
+    "lineNumber": "75",
+    "name": "PONT NEUF",
+    "address": null,
+    "distance": 366,
+    "formattedName": "",
+    "directions": [
+        {
+            "direction": "Gambetta",
+            "time": "todo"
+        },
+        {
+            "direction": "Champ de Mars",
+            "time": "todo"
+        },
+        {
+            "direction": "Champ de Mars",
+            "time": "todo"
+        },
+        {
+            "direction": "Gambetta",
+            "time": "todo"
+        },
+        {
+            "direction": "Gambetta",
+            "time": "todo"
+        }
+    ],
+    "latitude": 48.8589025239864,
+    "longitude": 2.34262123598523
+}
+

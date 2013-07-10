@@ -1,0 +1,39 @@
+{
+    "serviceType": "RATP",
+    "type": "METRO",
+    "stationId": "7-1712",
+    "codeUIC": 0,
+    "coordinates": {
+        "latitude": 48.8584022524727,
+        "longitude": 2.34194923634659
+    },
+    "lineNumber": "7",
+    "name": "Pont Neuf",
+    "address": null,
+    "distance": 203,
+    "formattedName": "pont+neuf",
+    "directions": [
+        {
+            "direction": "Place d'Italie",
+            "time": "todo"
+        },
+        {
+            "direction": "Bobigny Pablo Picasso",
+            "time": "todo"
+        },
+        {
+            "direction": "Place d'Italie",
+            "time": "todo"
+        },
+        {
+            "direction": "Bobigny Pablo Picasso",
+            "time": "todo"
+        },
+        {
+            "direction": "Place d'Italie",
+            "time": "todo"
+        }
+    ],
+    "latitude": 48.8584022524727,
+    "longitude": 2.34194923634659
+}

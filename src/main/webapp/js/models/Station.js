@@ -11,6 +11,14 @@ var Station = Backbone.Model.extend({
     },
 
     url: function () {
+        if (this.get("serviceType") === 'RATP') {
+            if (this.get("stationId") === '69-11349574') { //BUS 69 Breguet-Sabin
+                return 'data/ratp-75-11347215.json';
+            }
+            if (this.get("stationId") === '5-1933') { // Métro 5 Breguet-Sabin
+                return 'data/ratp-7-1712.json';
+            }
+        }
         return '/rest/moovin/' + this.get("serviceType").toLowerCase() + '/' + this.get("stationId");
     },
     updateDistance : function(point){
@@ -34,5 +42,18 @@ var Station = Backbone.Model.extend({
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var d = R * c;
         return d;
+    },
+
+    parse: function(json) {
+        if (json.directions) {
+            _.each(json.directions, function(directionTime, index) {
+                if (directionTime.time === 'todo') {
+                    var now = new Date().getTime();
+                    var nextTimes = [2, 5, 6, 9, 14];
+                    directionTime.time = new Date(now + nextTimes[index] * 1000 * 60);
+                }
+            });
+        }
+        return json;
     }
 });
