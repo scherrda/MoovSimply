@@ -57,7 +57,7 @@ var SearchView = Backbone.View.extend({
                 event.preventDefault();
                 $searchInput.val(ui.item.label);
             }
-        }).data("uiAutocomplete")._renderItem = function (ul, item) {
+        }).data("ui-autocomplete")._renderItem = function (ul, item) {
             return $('<li></li>')
                 .data("item.autocomplete", item)
                 .append('<a><img class="station-type" src="' + item.icon + '" width="15" height="15">' + item.label + '</a>')
