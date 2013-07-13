@@ -3,16 +3,17 @@ var SearchView = Backbone.View.extend({
     className: 'search',
 
     events: {
-        'submit form': 'onSearch'
+        'submit form': 'onSearch',
+        'onClick input' : 'setSource'
     },
 
     initialize: function () {
         this.appState = this.options.appState;
 
         this.model = new Backbone.Model();
-
+        this.searchInput = this.$("input[name=search]");
         this.listenTo(allStations, 'sync', this.initSearch);
-        this.listenTo(this.appState, 'change:transportTypes', this.initSearch);
+        //this.listenTo(this.appState, 'change:transportTypes', this.setSource);
 
         this.render();
     },
@@ -27,8 +28,7 @@ var SearchView = Backbone.View.extend({
         return this;
     },
 
-    initSearch: function () {
-
+    getSource : function(){
         var autocompleteSource = this.filterCollection().map(function (model) {
             return {
                 label: model.get("name"),
@@ -39,14 +39,24 @@ var SearchView = Backbone.View.extend({
             }
         });
         // Suppression des doublons {name, type}
-        autocompleteSource = _.uniq(autocompleteSource, function (item, key, a) {
+        return _.uniq(autocompleteSource, function (item, key, a) {
             return item.labelAndType;
         });
+
+    },
+
+    setSource : function(){
+        console.log("setsource");
+        this.searchInput.autocomplete( "option", "source", this.getSource() );
+
+    },
+
+    initSearch: function () {
 
         var $searchInput = this.$("input[name=search]");
         var self = this;
         $searchInput.autocomplete({
-            source: autocompleteSource,
+            source: this.getSource(),
             minLength: 3,
             select: function (event, ui) {
                 event.preventDefault();
